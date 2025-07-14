@@ -1,11 +1,12 @@
 ---
-import '../style/demo-styling.css'
+import '../style/global.css'
 
 export interface Props {
 	title: string;
+	currentPage?: string;
 }
 
-const { title } = Astro.props as Props;
+const { title, currentPage = 'home' } = Astro.props as Props;
 ---
 
 <!DOCTYPE html>
@@ -17,35 +18,619 @@ const { title } = Astro.props as Props;
 	<title>{title}</title>
 </head>
 <body>
-	<slot />
+	<!-- NAVIGATION HEADER -->
+	<nav class="fixed top-0 left-0 right-0 z-50 bg-brand-blue">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="flex justify-between items-center h-16">
+				<!-- Logo -->
+				<div class="flex items-center">
+					<div class="flex-shrink-0">
+						<div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-brand-red rounded-md flex items-center justify-center">
+							<span class="text-white font-bold text-sm">AL</span>
+						</div>
+					</div>
+					<div class="ml-3">
+						<div class="text-xl font-bold text-white">American</div>
+						<div class="text-sm text-white/80 -mt-1">Loyalty</div>
+					</div>
+				</div>
+				
+				<!-- Desktop Navigation -->
+				<div class="hidden md:block">
+					<div class="ml-10 flex items-baseline space-x-8">
+						{currentPage === 'home' ? (
+							<div class="flex flex-col items-center">
+								<a href="/" class="text-white font-bold px-3 py-2 text-lg">Home</a>
+								<div class="w-5 h-0.5 bg-white"></div>
+							</div>
+						) : (
+							<a href="/" class="text-white/80 hover:text-white px-3 py-2 text-lg font-bold">Home</a>
+						)}
+						
+						{currentPage === 'about' ? (
+							<div class="flex flex-col items-center">
+								<a href="/about" class="text-white font-bold px-3 py-2 text-lg">About Us</a>
+								<div class="w-5 h-0.5 bg-white"></div>
+							</div>
+						) : (
+							<a href="/about" class="text-white/80 hover:text-white px-3 py-2 text-lg font-bold">About Us</a>
+						)}
+						
+						{currentPage === 'services' ? (
+							<div class="flex flex-col items-center">
+								<a href="/services" class="text-white font-bold px-3 py-2 text-lg">Our Services</a>
+								<div class="w-5 h-0.5 bg-white"></div>
+							</div>
+						) : (
+							<a href="/services" class="text-white/80 hover:text-white px-3 py-2 text-lg font-bold">Our Services</a>
+						)}
+						
+						{currentPage === 'contact' ? (
+							<div class="flex flex-col items-center">
+								<a href="/contact" class="text-white font-bold px-3 py-2 text-lg">Contact</a>
+								<div class="w-5 h-0.5 bg-white"></div>
+							</div>
+						) : (
+							<a href="/contact" class="bg-brand-red text-white hover:bg-red-700 px-6 py-3 rounded-xl text-lg font-bold flex items-center shadow-lg">
+								Contact Us
+								<svg class="w-5 h-5 ml-2 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+								</svg>
+							</a>
+						)}
+					</div>
+				</div>
+				
+				<!-- Mobile menu button -->
+				<div class="md:hidden">
+					<button id="mobile-menu-button" class="text-white hover:text-white/80 p-2 transition-transform duration-200">
+						<svg id="hamburger-icon" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+						</svg>
+						<svg id="close-icon" class="h-6 w-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<!-- MAIN CONTENT -->
+	<main class="min-h-screen bg-white">
+		<slot />
+	</main>
+
+	<!-- MOBILE NAVIGATION DRAWER -->
+	<div id="mobile-menu-overlay" class="md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40 opacity-0 invisible transition-all duration-300"></div>
+	
+	<div id="mobile-menu-drawer" class="md:hidden fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl shadow-2xl z-50 transform translate-y-full transition-transform duration-300 ease-out">
+		<div class="px-6 py-8">
+			<!-- Drawer Handle -->
+			<div class="flex justify-center mb-6">
+				<div class="w-12 h-1 bg-gray-300 rounded-full"></div>
+			</div>
+			
+			<!-- Logo Section -->
+			<div class="flex items-center justify-center mb-8">
+				<div class="flex items-center">
+					<div class="flex-shrink-0">
+						<div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-brand-red rounded-lg flex items-center justify-center">
+							<span class="text-white font-bold text-lg">AL</span>
+						</div>
+					</div>
+					<div class="ml-3">
+						<div class="text-xl font-bold text-brand-blue">American</div>
+						<div class="text-sm text-gray-600 -mt-1">Loyalty</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Navigation Links -->
+			<nav class="space-y-4 mb-8">
+				{currentPage === 'home' ? (
+					<div class="flex items-center justify-between p-4 bg-blue-50 rounded-xl border-l-4 border-brand-blue">
+						<a href="/" class="text-brand-blue font-bold text-lg flex items-center">
+							<svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+								<path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+							</svg>
+							Home
+						</a>
+						<div class="w-2 h-2 bg-brand-blue rounded-full"></div>
+					</div>
+				) : (
+					<a href="/" class="flex items-center p-4 text-gray-700 hover:text-brand-blue hover:bg-blue-50 rounded-xl transition-all duration-200">
+						<svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+							<path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+						</svg>
+						<span class="font-semibold text-lg">Home</span>
+					</a>
+				)}
+				
+				{currentPage === 'about' ? (
+					<div class="flex items-center justify-between p-4 bg-blue-50 rounded-xl border-l-4 border-brand-blue">
+						<a href="/about" class="text-brand-blue font-bold text-lg flex items-center">
+							<svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+							</svg>
+							About Us
+						</a>
+						<div class="w-2 h-2 bg-brand-blue rounded-full"></div>
+					</div>
+				) : (
+					<a href="/about" class="flex items-center p-4 text-gray-700 hover:text-brand-blue hover:bg-blue-50 rounded-xl transition-all duration-200">
+						<svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+						</svg>
+						<span class="font-semibold text-lg">About Us</span>
+					</a>
+				)}
+				
+				{currentPage === 'services' ? (
+					<div class="flex items-center justify-between p-4 bg-blue-50 rounded-xl border-l-4 border-brand-blue">
+						<a href="/services" class="text-brand-blue font-bold text-lg flex items-center">
+							<svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+								<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+							</svg>
+							Our Services
+						</a>
+						<div class="w-2 h-2 bg-brand-blue rounded-full"></div>
+					</div>
+				) : (
+					<a href="/services" class="flex items-center p-4 text-gray-700 hover:text-brand-blue hover:bg-blue-50 rounded-xl transition-all duration-200">
+						<svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+							<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+						</svg>
+						<span class="font-semibold text-lg">Our Services</span>
+					</a>
+				)}
+			</nav>
+			
+			<!-- Contact CTA Button with Ping Animation -->
+			<div class="relative">
+				{currentPage === 'contact' ? (
+					<div class="p-4 bg-red-50 rounded-xl border-l-4 border-brand-red">
+						<div class="text-brand-red font-bold text-lg flex items-center justify-center">
+							<svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+								<path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+								<path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+							</svg>
+							Contact Us
+						</div>
+					</div>
+				) : (
+					<div class="relative">
+						<!-- Ping Animation -->
+						<div class="absolute -inset-1 bg-brand-red rounded-2xl opacity-30 animate-ping"></div>
+						<div class="absolute -inset-1 bg-brand-red rounded-2xl opacity-20 animate-ping animation-delay-75"></div>
+						
+						<a href="/contact" class="relative block bg-brand-red hover:bg-red-700 text-white font-bold py-4 px-6 rounded-xl text-center text-lg transition-all duration-200 transform hover:scale-105 shadow-lg">
+							<div class="flex items-center justify-center">
+								<svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+									<path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+									<path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+								</svg>
+								Contact Us
+								<svg class="w-5 h-5 ml-3 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+								</svg>
+							</div>
+						</a>
+					</div>
+				)}
+			</div>
+			
+			<!-- Spacer for safe area (especially iPhone) -->
+			<div class="h-8"></div>
+		</div>
+	</div>
+
+	<!-- FOOTER -->
+	<footer class="bg-gray-800">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+			<div class="flex flex-col md:flex-row justify-between items-center">
+				<div class="text-white text-center md:text-left mb-4 md:mb-0">
+					<p class="text-sm lg:text-base font-semibold capitalize">
+						Copyright Notice: © Copyright American Loyalty LLC. 2024
+					</p>
+				</div>
+				<div class="flex space-x-4">
+					<!-- Social Media Icons -->
+					<div class="w-8 h-8 lg:w-10 lg:h-10 bg-gray-600 rounded-full flex items-center justify-center hover:bg-gray-500 transition-colors">
+						<svg class="w-4 h-4 lg:w-5 lg:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+							<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+						</svg>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- GSAP Animation System -->
+	<script>
+	// Import GSAP and ScrollTrigger
+	import { gsap } from 'gsap/dist/gsap';
+	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+
+	// Register ScrollTrigger plugin
+	gsap.registerPlugin(ScrollTrigger);
+
+	// Initialize animations when DOM is ready
+	document.addEventListener('DOMContentLoaded', () => {
+		console.log('🚀 Initializing GSAP animations...');
+
+		// Mobile Navigation functionality
+		const mobileMenuButton = document.getElementById('mobile-menu-button');
+		const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+		const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+		const hamburgerIcon = document.getElementById('hamburger-icon');
+		const closeIcon = document.getElementById('close-icon');
+		let isMenuOpen = false;
+
+		// Drag to close functionality
+		let isDragging = false;
+		let startY = 0;
+		let currentY = 0;
+		let initialTransform = 0;
+		const dragThreshold = 100; // Minimum distance to trigger close
+
+		function toggleMobileMenu() {
+			isMenuOpen = !isMenuOpen;
+			
+			if (isMenuOpen) {
+				// Open menu
+				mobileMenuOverlay.classList.remove('opacity-0', 'invisible');
+				mobileMenuOverlay.classList.add('opacity-100', 'visible');
+				mobileMenuDrawer.classList.remove('translate-y-full');
+				mobileMenuDrawer.classList.add('translate-y-0');
+				mobileMenuDrawer.style.transform = 'translateY(0)';
+				hamburgerIcon.classList.add('hidden');
+				closeIcon.classList.remove('hidden');
+				document.body.style.overflow = 'hidden';
+			} else {
+				// Close menu
+				mobileMenuOverlay.classList.remove('opacity-100', 'visible');
+				mobileMenuOverlay.classList.add('opacity-0', 'invisible');
+				mobileMenuDrawer.classList.remove('translate-y-0');
+				mobileMenuDrawer.classList.add('translate-y-full');
+				mobileMenuDrawer.style.transform = '';
+				hamburgerIcon.classList.remove('hidden');
+				closeIcon.classList.add('hidden');
+				document.body.style.overflow = '';
+			}
+		}
+
+		function closeMobileMenu() {
+			if (isMenuOpen) {
+				toggleMobileMenu();
+			}
+		}
+
+		// Touch event handlers for drag to close
+		function handleTouchStart(e) {
+			if (!isMenuOpen) return;
+			
+			isDragging = true;
+			startY = e.touches[0].clientY;
+			currentY = startY;
+			
+			// Add dragging class for visual feedback
+			mobileMenuDrawer.classList.add('dragging');
+		}
+
+		function handleTouchMove(e) {
+			if (!isDragging || !isMenuOpen) return;
+			
+			e.preventDefault();
+			currentY = e.touches[0].clientY;
+			const deltaY = currentY - startY;
+			
+			// Only allow dragging down
+			if (deltaY > 0) {
+				const translateY = Math.min(deltaY, window.innerHeight);
+				mobileMenuDrawer.style.transform = `translateY(${translateY}px)`;
+				
+				// Fade overlay based on drag distance
+				const opacity = Math.max(0.1, 1 - (deltaY / 300));
+				mobileMenuOverlay.style.opacity = opacity.toString();
+			}
+		}
+
+		function handleTouchEnd(e) {
+			if (!isDragging || !isMenuOpen) return;
+			
+			isDragging = false;
+			const deltaY = currentY - startY;
+			
+			// Remove dragging class to re-enable transitions
+			mobileMenuDrawer.classList.remove('dragging');
+			
+			if (deltaY > dragThreshold) {
+				// Close menu if dragged down enough
+				closeMobileMenu();
+			} else {
+				// Snap back to original position
+				mobileMenuDrawer.style.transform = 'translateY(0)';
+				mobileMenuOverlay.style.opacity = '';
+			}
+		}
+
+		// Mouse event handlers for desktop testing
+		function handleMouseDown(e) {
+			if (!isMenuOpen) return;
+			
+			isDragging = true;
+			startY = e.clientY;
+			currentY = startY;
+			
+			mobileMenuDrawer.classList.add('dragging');
+		}
+
+		function handleMouseMove(e) {
+			if (!isDragging || !isMenuOpen) return;
+			
+			e.preventDefault();
+			currentY = e.clientY;
+			const deltaY = currentY - startY;
+			
+			if (deltaY > 0) {
+				const translateY = Math.min(deltaY, window.innerHeight);
+				mobileMenuDrawer.style.transform = `translateY(${translateY}px)`;
+				
+				const opacity = Math.max(0.1, 1 - (deltaY / 300));
+				mobileMenuOverlay.style.opacity = opacity.toString();
+			}
+		}
+
+		function handleMouseUp(e) {
+			if (!isDragging || !isMenuOpen) return;
+			
+			isDragging = false;
+			const deltaY = currentY - startY;
+			
+			mobileMenuDrawer.classList.remove('dragging');
+			
+			if (deltaY > dragThreshold) {
+				closeMobileMenu();
+			} else {
+				mobileMenuDrawer.style.transform = 'translateY(0)';
+				mobileMenuOverlay.style.opacity = '';
+			}
+		}
+
+		// Event listeners
+		if (mobileMenuButton) {
+			mobileMenuButton.addEventListener('click', toggleMobileMenu);
+		}
+
+		if (mobileMenuOverlay) {
+			mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+		}
+
+		// Close menu when clicking navigation links
+		const mobileNavLinks = mobileMenuDrawer?.querySelectorAll('a[href]');
+		mobileNavLinks?.forEach(link => {
+			link.addEventListener('click', closeMobileMenu);
+		});
+
+		// Close menu on escape key
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape' && isMenuOpen) {
+				closeMobileMenu();
+			}
+		});
+
+		// Add drag to close event listeners
+		if (mobileMenuDrawer) {
+			// Touch events for mobile
+			mobileMenuDrawer.addEventListener('touchstart', handleTouchStart, { passive: false });
+			mobileMenuDrawer.addEventListener('touchmove', handleTouchMove, { passive: false });
+			mobileMenuDrawer.addEventListener('touchend', handleTouchEnd, { passive: false });
+			
+			// Mouse events for desktop testing
+			mobileMenuDrawer.addEventListener('mousedown', handleMouseDown);
+			document.addEventListener('mousemove', handleMouseMove);
+			document.addEventListener('mouseup', handleMouseUp);
+		}
+
+		// Set initial states for animated elements (exclude count-up elements and stagger containers)
+		gsap.set('[data-animate]:not([data-animate="count-up"]):not([data-animate="stagger"])', { 
+			opacity: 0,
+			y: 50,
+			scale: 0.95
+		});
+
+		// Set initial states for hero elements
+		gsap.set('[data-hero-animate]', {
+			opacity: 0,
+			y: 30
+		});
+
+		// Hero section entrance animations
+		const heroTimeline = gsap.timeline({ delay: 0.5 });
+		
+		heroTimeline
+			.to('[data-hero-animate]', {
+				duration: 1,
+				y: 0,
+				opacity: 1,
+				stagger: 0.2,
+				ease: 'power2.out'
+			});
+
+		// Scroll-triggered animations
+		gsap.utils.toArray('[data-animate]').forEach((element) => {
+			const animationType = element.getAttribute('data-animate');
+			const delay = parseFloat(element.getAttribute('data-delay') || '0');
+			
+			let animation = {};
+			
+			switch (animationType) {
+				case 'fade-up':
+					animation = {
+						duration: 1,
+						y: 0,
+						opacity: 1,
+						ease: 'power2.out'
+					};
+					break;
+				case 'slide-up':
+					animation = {
+						duration: 1.2,
+						y: 0,
+						opacity: 1,
+						ease: 'power3.out'
+					};
+					break;
+				case 'scale-in':
+					animation = {
+						duration: 0.8,
+						scale: 1,
+						opacity: 1,
+						ease: 'back.out(1.7)'
+					};
+					break;
+				case 'stagger':
+					// Handle staggered children animations
+					const children = element.children;
+					gsap.set(children, { opacity: 0, y: 30 });
+					
+					ScrollTrigger.create({
+						trigger: element,
+						start: 'top 80%',
+						onEnter: () => {
+							gsap.to(children, {
+								duration: 0.8,
+								y: 0,
+								opacity: 1,
+								stagger: 0.15,
+								ease: 'power2.out',
+								delay: delay / 1000
+							});
+						}
+					});
+					return; // Skip the default ScrollTrigger creation
+				default:
+					animation = {
+						duration: 1,
+						y: 0,
+						opacity: 1,
+						scale: 1,
+						ease: 'power2.out'
+					};
+			}
+			
+			// Create ScrollTrigger for the animation
+			ScrollTrigger.create({
+				trigger: element,
+				start: 'top 80%',
+				onEnter: () => {
+					gsap.to(element, {
+						...animation,
+						delay: delay / 1000
+					});
+				}
+			});
+		});
+
+		// Count-up animations for statistics
+		document.querySelectorAll('.count-number').forEach(element => {
+			const endValue = parseInt(element.getAttribute('data-end-value') || '100');
+			const countObj = { value: 0 };
+			
+			ScrollTrigger.create({
+				trigger: '.stats-container',
+				start: 'top 80%',
+				onEnter: () => {
+					gsap.to(countObj, {
+						duration: 2,
+						value: endValue,
+						ease: 'power2.out',
+						delay: 0.3,
+						onUpdate: function() {
+							const val = Math.round(countObj.value);
+							if (endValue >= 1000000) {
+								element.textContent = (val / 1000000).toFixed(1) + 'M+';
+							} else if (endValue >= 1000) {
+								element.textContent = Math.round(val / 1000) + 'K+';
+							} else {
+								element.textContent = val + '+';
+							}
+						}
+					});
+				}
+			});
+		});
+
+		// Button hover animations
+		document.querySelectorAll('button').forEach(button => {
+			button.addEventListener('mouseenter', () => {
+				gsap.to(button, {
+					scale: 1.05,
+					duration: 0.3,
+					ease: 'power2.out'
+				});
+			});
+
+			button.addEventListener('mouseleave', () => {
+				gsap.to(button, {
+					scale: 1,
+					duration: 0.3,
+					ease: 'power2.out'
+				});
+			});
+		});
+
+		// Card hover effects with advanced animations
+		document.querySelectorAll('.service-card, .testimonial-card').forEach(card => {
+			// Set up subtle shadow animation
+			gsap.set(card, {
+				boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
+			});
+
+			card.addEventListener('mouseenter', () => {
+				gsap.to(card, {
+					y: -10,
+					scale: 1.02,
+					boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
+					duration: 0.4,
+					ease: 'power2.out'
+				});
+			});
+
+			card.addEventListener('mouseleave', () => {
+				gsap.to(card, {
+					y: 0,
+					scale: 1,
+					boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+					duration: 0.4,
+					ease: 'power2.out'
+				});
+			});
+		});
+
+		// Navigation bar animation on scroll
+		ScrollTrigger.create({
+			start: 'top -80',
+			end: 99999,
+			toggleClass: {
+				className: 'nav-scrolled',
+				targets: 'nav'
+			}
+		});
+
+		// Create floating animation for decorative elements
+		gsap.to('.float-element', {
+			y: -10,
+			duration: 2,
+			ease: 'power1.inOut',
+			yoyo: true,
+			repeat: -1,
+			stagger: 0.5
+		});
+
+		console.log('✨ GSAP animations initialized successfully!');
+	});
+	</script>
 </body>
 </html>
-
-<style>
-  :root {
-    --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
-		--font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem); 
-    --font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
-    --color-text: hsl(12, 5%, 4%);
-    --color-bg: hsl(10, 21%, 95%);
-  }
-  html {
-    font-family: system-ui, sans-serif;
-    font-size: var(--font-size-base);
-    color: var(--color-text);
-    background-color: var(--color-bg);
-  }
-  body {
-    margin: 0;
-  }
-  :global(h1) {
-    font-size: var(--font-size-xl);
-  }
-  :global(h2) {
-    font-size: var(--font-size-lg);
-  }
-  :global(code) {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-  }
-</style>

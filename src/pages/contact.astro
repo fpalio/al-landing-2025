@@ -1,0 +1,648 @@
+---
+import Layout from '../components/Layout.astro';
+---
+
+<Layout title="Contact Us - American Loyalty" currentPage="contact">
+	<!-- HERO SECTION -->
+	<section class="relative bg-brand-blue h-[420px] lg:h-[560px] mb-0">
+		<!-- Contact Header Content -->
+		<div class="absolute left-1/2 top-[123px] lg:top-[171px] transform -translate-x-1/2 text-center px-4">
+			<div class="flex flex-col gap-2 lg:gap-2 items-center text-white">
+				<h1 class="font-semibold text-[36px] lg:text-[87px] leading-[1.36] tracking-[-1.2px] lg:tracking-[-3px] mb-0 contact-hero-title max-w-[280px] lg:max-w-none">
+					Contact Us
+				</h1>
+				<p class="font-medium text-[12px] lg:text-[21.7px] leading-[1.36] tracking-[-0.4px] lg:tracking-[-0.72px] text-white/86 contact-hero-subtitle max-w-[300px] lg:max-w-none">
+					<span class="hidden lg:inline">You are one step closer to better customer loyalty!</span>
+					<span class="lg:hidden">Built on Loyalty. Backed by Experience.</span>
+				</p>
+			</div>
+		</div>
+
+		<!-- Contact Buttons - Desktop -->
+		<div class="hidden lg:flex absolute left-1/2 top-[371px] transform -translate-x-1/2 contact-buttons-desktop">
+			<div class="flex flex-row gap-4 items-center justify-center">
+				<!-- Phone Button -->
+				<div class="bg-brand-red flex flex-row gap-3 h-[59px] items-center justify-center px-6 py-3 rounded-xl shadow-lg contact-phone-btn hover:bg-red-700 transition-all duration-300 cursor-pointer">
+					<div class="flex items-center justify-center">
+						<svg class="w-[22px] h-[22px] text-white" viewBox="0 0 24 24" fill="currentColor">
+							<path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.2c.27-.27.35-.67.24-1.02C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
+						</svg>
+					</div>
+					<span class="text-white text-[22px] font-normal leading-[39px] whitespace-nowrap">+1-309-3095443</span>
+				</div>
+
+				<!-- Email Button -->
+				<div class="bg-brand-red flex flex-row gap-5 h-[59px] items-center justify-center px-6 py-3 rounded-xl shadow-lg contact-email-btn hover:bg-red-700 transition-all duration-300 cursor-pointer">
+					<div class="flex items-center justify-center">
+						<svg class="w-[25px] h-[25px] text-white" viewBox="0 0 24 24" fill="currentColor">
+							<path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+						</svg>
+					</div>
+					<span class="text-white text-[22px] font-medium leading-[39px] whitespace-nowrap">contact@whiter.co</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- Contact Buttons - Mobile -->
+		<div class="lg:hidden absolute left-1/2 top-[230px] transform -translate-x-1/2 flex flex-col gap-3 items-center contact-buttons-mobile">
+			<!-- Phone Button Mobile -->
+			<div class="bg-brand-red flex flex-row gap-3 h-[53px] items-center justify-center px-4 py-3 rounded-xl shadow-lg w-[258px] contact-phone-btn-mobile hover:bg-red-700 transition-all duration-300 cursor-pointer">
+				<div class="flex items-center justify-center">
+					<svg class="w-[20px] h-[20px] text-white" viewBox="0 0 24 24" fill="currentColor">
+						<path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.2c.27-.27.35-.67.24-1.02C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
+					</svg>
+				</div>
+				<span class="text-white text-[20px] font-normal leading-[35px]">+1-309-3095443</span>
+			</div>
+
+			<!-- Email Button Mobile -->
+			<div class="bg-brand-red flex flex-row gap-4 h-[53px] items-center justify-center px-4 py-3 rounded-md shadow-lg w-[258px] contact-email-btn-mobile hover:bg-red-700 transition-all duration-300 cursor-pointer">
+				<div class="flex items-center justify-center">
+					<svg class="w-[22px] h-[22px] text-white" viewBox="0 0 24 24" fill="currentColor">
+						<path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+					</svg>
+				</div>
+				<span class="text-white text-[20px] font-medium leading-[35px]">contact@whiter.co</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- FORM SECTION -->
+	<section class="relative">
+		<div class="max-w-[1117px] lg:max-w-[1117px] max-w-[365px] mx-auto relative top-[-40px] lg:top-[-87px] bg-white rounded-[15px] shadow-[0px_4px_64px_0px_rgba(0,0,0,0.15)] min-h-[773px] lg:min-h-[773px] min-h-[997px] contact-form-container">
+			<!-- Mobile Background Image -->
+			<div class="lg:hidden w-[332px] h-[318px] rounded-[15px] mt-[17px] mx-auto contact-mobile-image">
+				<div class="w-full h-full rounded-[15px] bg-gradient-to-br from-blue-100 to-gray-100 relative overflow-hidden">
+					<img 
+						src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+						alt="Customer service representative"
+						class="w-full h-full object-cover rounded-[15px]"
+					/>
+				</div>
+			</div>
+
+			<div class="flex flex-row">
+				<!-- Left Side - Background Image (Desktop) -->
+				<div class="hidden lg:block w-[500px] h-[698px] rounded-[15px] mt-[31px] ml-[33px] contact-desktop-image">
+					<div class="w-full h-full rounded-[15px] bg-gradient-to-br from-blue-100 to-gray-100 relative overflow-hidden">
+						<img 
+							src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+							alt="Customer service representative"
+							class="w-full h-full object-cover rounded-[15px]"
+						/>
+					</div>
+				</div>
+
+				<!-- Right Side - Form -->
+				<div class="flex-1 p-6 lg:p-8 lg:pl-[51px] lg:pr-[60px] lg:pt-[55px] contact-form-content">
+					<form class="space-y-4 lg:space-y-6 contact-form">
+						<!-- Full Name -->
+						<div class="space-y-2 form-field">
+							<label class="font-bold text-[#1d263a] text-[14.8px] lg:text-[15.6px] leading-[26px] lg:leading-[27.6px] block form-label">
+								Full Name
+							</label>
+							<div class="relative">
+								<input 
+									type="text" 
+									placeholder="Your Full Name"
+									class="w-full h-[68px] lg:h-[72px] bg-[#e1ecf0]/50 rounded-[9px] px-3 lg:px-4 py-3 text-[#1d263a]/60 text-[13px] lg:text-[13.8px] leading-[24px] lg:leading-[25.8px] border-none outline-none focus:ring-2 focus:ring-brand-red/20 transition-all duration-300 form-input"
+								/>
+							</div>
+						</div>
+
+						<!-- Email Address -->
+						<div class="space-y-2 form-field">
+							<label class="font-bold text-[#1d263a] text-[14.8px] lg:text-[15.6px] leading-[26px] lg:leading-[27.6px] block form-label">
+								Email Address
+							</label>
+							<div class="relative">
+								<input 
+									type="email" 
+									placeholder="Your Email Address"
+									class="w-full h-[68px] lg:h-[72px] bg-[#e1ecf0]/50 rounded-[9px] px-3 lg:px-4 py-3 text-[#1d263a]/60 text-[13px] lg:text-[13.8px] leading-[24px] lg:leading-[25.8px] border-none outline-none focus:ring-2 focus:ring-brand-red/20 transition-all duration-300 form-input"
+								/>
+							</div>
+						</div>
+
+						<!-- Company Name -->
+						<div class="space-y-2 form-field">
+							<label class="font-bold text-[#1d263a] text-[14.8px] lg:text-[15.6px] leading-[26px] lg:leading-[27.6px] block form-label">
+								Company Name
+							</label>
+							<div class="relative">
+								<input 
+									type="text" 
+									placeholder="Your Company Name"
+									class="w-full h-[68px] lg:h-[72px] bg-[#e1ecf0]/50 rounded-[9px] px-3 lg:px-4 py-3 text-[#1d263a]/60 text-[13px] lg:text-[13.8px] leading-[24px] lg:leading-[25.8px] border-none outline-none focus:ring-2 focus:ring-brand-red/20 transition-all duration-300 form-input"
+								/>
+							</div>
+						</div>
+
+						<!-- Message -->
+						<div class="space-y-2 form-field">
+							<label class="font-bold text-[#1d263a] text-[14.8px] lg:text-[15.6px] leading-[26px] lg:leading-[27.6px] block form-label">
+								Message
+							</label>
+							<div class="relative">
+								<textarea 
+									placeholder="Your Message"
+									rows="6"
+									class="w-full h-[148px] lg:h-[157px] bg-[#e1ecf0]/50 rounded-[9px] px-3 lg:px-4 py-3 lg:py-4 text-[#1d263a]/60 text-[13px] lg:text-[13.8px] leading-[24px] lg:leading-[25.8px] border-none outline-none focus:ring-2 focus:ring-brand-red/20 resize-none transition-all duration-300 form-input"
+								></textarea>
+							</div>
+						</div>
+
+						<!-- Submit Button -->
+						<div class="pt-4 lg:pt-6 form-submit">
+							<button 
+								type="submit"
+								class="glow-on-hover w-full bg-brand-red text-white h-[71px] lg:h-[75px] rounded-[14px] lg:rounded-[15px] text-[14.2px] lg:text-[15px] font-bold uppercase hover:bg-red-700 hover:shadow-xl hover:transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 submit-button"
+							>
+								<span class="leading-[1.5]">Send Message</span>
+								<svg class="w-[21px] lg:w-[22px] h-[21px] lg:h-[22px] rotate-90 submit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+								</svg>
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Enhanced Contact Page Animations Script with GSAP -->
+	<script>
+		import { gsap } from 'gsap';
+		import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+		gsap.registerPlugin(ScrollTrigger);
+
+		// Wait for DOM to be ready
+		document.addEventListener('DOMContentLoaded', () => {
+			// Set initial states for all animations
+			initializeAnimationStates();
+			
+			// Initialize hero animations
+			initializeHeroAnimations();
+			
+			// Initialize scroll-triggered animations
+			initializeScrollAnimations();
+			
+			// Initialize interactive elements
+			initializeInteractiveElements();
+			
+			// Initialize form functionality
+			initializeFormFunctionality();
+		});
+
+		function initializeAnimationStates() {
+			// Hero elements
+			gsap.set('.contact-hero-title', { opacity: 0, y: 40, scale: 0.9 });
+			gsap.set('.contact-hero-subtitle', { opacity: 0, y: 30 });
+			gsap.set('.contact-buttons-desktop', { opacity: 0, y: 50, scale: 0.9 });
+			gsap.set('.contact-buttons-mobile', { opacity: 0, y: 40, scale: 0.9 });
+			
+			// Form container
+			gsap.set('.contact-form-container', { opacity: 0, y: 80, scale: 0.95 });
+			
+			// Form elements
+			gsap.set('.contact-desktop-image', { opacity: 0, x: -50, scale: 0.95 });
+			gsap.set('.contact-mobile-image', { opacity: 0, y: 30, scale: 0.95 });
+			gsap.set('.form-field', { opacity: 0, x: 30 });
+			gsap.set('.form-submit', { opacity: 0, y: 30, scale: 0.9 });
+		}
+
+		function initializeHeroAnimations() {
+			const heroTl = gsap.timeline();
+			
+			heroTl
+				.to('.contact-hero-title', {
+					opacity: 1,
+					y: 0,
+					scale: 1,
+					duration: 1.2,
+					ease: 'power3.out',
+				})
+				.to('.contact-hero-subtitle', {
+					opacity: 1,
+					y: 0,
+					duration: 0.8,
+					ease: 'power3.out',
+				}, '-=0.6')
+				.to('.contact-buttons-desktop, .contact-buttons-mobile', {
+					opacity: 1,
+					y: 0,
+					scale: 1,
+					duration: 1,
+					ease: 'back.out(1.7)',
+				}, '-=0.4');
+
+			// Add continuous floating animation to contact buttons
+			gsap.to('.contact-phone-btn, .contact-email-btn, .contact-phone-btn-mobile, .contact-email-btn-mobile', {
+				y: -3,
+				duration: 2,
+				ease: 'power2.inOut',
+				yoyo: true,
+				repeat: -1,
+				stagger: 0.2,
+			});
+		}
+
+		function initializeScrollAnimations() {
+			// Form container slide up animation
+			ScrollTrigger.create({
+				trigger: '.contact-form-container',
+				start: 'top 85%',
+				onEnter: () => {
+					gsap.to('.contact-form-container', {
+						opacity: 1,
+						y: 0,
+						scale: 1,
+						duration: 1.2,
+						ease: 'power3.out',
+					});
+				}
+			});
+
+			// Desktop image animation
+			ScrollTrigger.create({
+				trigger: '.contact-desktop-image',
+				start: 'top 80%',
+				onEnter: () => {
+					gsap.to('.contact-desktop-image', {
+						opacity: 1,
+						x: 0,
+						scale: 1,
+						duration: 1,
+						ease: 'power3.out',
+					});
+				}
+			});
+
+			// Mobile image animation
+			ScrollTrigger.create({
+				trigger: '.contact-mobile-image',
+				start: 'top 80%',
+				onEnter: () => {
+					gsap.to('.contact-mobile-image', {
+						opacity: 1,
+						y: 0,
+						scale: 1,
+						duration: 0.8,
+						ease: 'power3.out',
+					});
+				}
+			});
+
+			// Form fields staggered animation
+			ScrollTrigger.create({
+				trigger: '.contact-form-content',
+				start: 'top 75%',
+				onEnter: () => {
+					gsap.to('.form-field', {
+						opacity: 1,
+						x: 0,
+						duration: 0.6,
+						ease: 'power3.out',
+						stagger: 0.1,
+					});
+					
+					gsap.to('.form-submit', {
+						opacity: 1,
+						y: 0,
+						scale: 1,
+						duration: 0.8,
+						ease: 'back.out(1.7)',
+						delay: 0.4,
+					});
+				}
+			});
+		}
+
+		function initializeInteractiveElements() {
+			// Enhanced button hover effects
+			const contactButtons = document.querySelectorAll('.contact-phone-btn, .contact-email-btn, .contact-phone-btn-mobile, .contact-email-btn-mobile');
+			
+			contactButtons.forEach(button => {
+				button.addEventListener('mouseenter', () => {
+					gsap.to(button, {
+						scale: 1.05,
+						y: -5,
+						duration: 0.3,
+						ease: 'power2.out',
+					});
+					gsap.to(button.querySelector('svg'), {
+						rotate: 5,
+						scale: 1.1,
+						duration: 0.3,
+						ease: 'power2.out',
+					});
+				});
+
+				button.addEventListener('mouseleave', () => {
+					gsap.to(button, {
+						scale: 1,
+						y: 0,
+						duration: 0.3,
+						ease: 'power2.out',
+					});
+					gsap.to(button.querySelector('svg'), {
+						rotate: 0,
+						scale: 1,
+						duration: 0.3,
+						ease: 'power2.out',
+					});
+				});
+
+				// Click animation
+				button.addEventListener('click', () => {
+					gsap.to(button, {
+						scale: 0.95,
+						duration: 0.1,
+						ease: 'power2.out',
+						yoyo: true,
+						repeat: 1,
+					});
+				});
+			});
+
+			// Form input focus animations
+			const formInputs = document.querySelectorAll('.form-input');
+			
+			formInputs.forEach(input => {
+				input.addEventListener('focus', () => {
+					gsap.to(input, {
+						scale: 1.02,
+						duration: 0.3,
+						ease: 'power2.out',
+					});
+					gsap.to(input.parentElement.parentElement.querySelector('.form-label'), {
+						color: '#dc2626',
+						scale: 1.05,
+						duration: 0.3,
+						ease: 'power2.out',
+					});
+				});
+
+				input.addEventListener('blur', () => {
+					gsap.to(input, {
+						scale: 1,
+						duration: 0.3,
+						ease: 'power2.out',
+					});
+					gsap.to(input.parentElement.parentElement.querySelector('.form-label'), {
+						color: '#1d263a',
+						scale: 1,
+						duration: 0.3,
+						ease: 'power2.out',
+					});
+				});
+			});
+
+			// Submit button enhanced hover effect
+			const submitButton = document.querySelector('.submit-button');
+			
+			if (submitButton) {
+				submitButton.addEventListener('mouseenter', () => {
+					gsap.to(submitButton.querySelector('.submit-icon'), {
+						rotate: 135,
+						scale: 1.2,
+						duration: 0.4,
+						ease: 'back.out(1.7)',
+					});
+				});
+
+				submitButton.addEventListener('mouseleave', () => {
+					gsap.to(submitButton.querySelector('.submit-icon'), {
+						rotate: 90,
+						scale: 1,
+						duration: 0.4,
+						ease: 'power2.out',
+					});
+				});
+			}
+		}
+
+		function initializeFormFunctionality() {
+			const form = document.querySelector('.contact-form');
+			if (form) {
+				form.addEventListener('submit', function(e) {
+					e.preventDefault();
+					
+					// Success animation
+					const submitButton = form.querySelector('.submit-button') as HTMLElement;
+					const submitIcon = form.querySelector('.submit-icon');
+					
+					// Button loading state
+					gsap.to(submitButton, {
+						scale: 0.95,
+						duration: 0.2,
+						ease: 'power2.out',
+						onComplete: () => {
+							// Simulate processing
+							gsap.to(submitIcon, {
+								rotate: 450,
+								duration: 1,
+								ease: 'power2.inOut',
+								onComplete: () => {
+									// Success state
+									gsap.to(submitButton, {
+										backgroundColor: '#059669',
+										scale: 1.02,
+										duration: 0.3,
+										ease: 'power2.out',
+									});
+									
+									// Show success message
+									alert('Thank you for your message! We will get back to you soon.');
+									
+									// Reset button
+									setTimeout(() => {
+										gsap.to(submitButton, {
+											backgroundColor: '#dc2626',
+											scale: 1,
+											duration: 0.3,
+											ease: 'power2.out',
+										});
+										gsap.to(submitIcon, {
+											rotate: 90,
+											duration: 0.3,
+											ease: 'power2.out',
+										});
+									}, 2000);
+								}
+							});
+						}
+					});
+				});
+			}
+		}
+
+		// Parallax effect for images
+		gsap.to('.contact-desktop-image img, .contact-mobile-image img', {
+			scale: 1.1,
+			ease: 'none',
+			scrollTrigger: {
+				trigger: '.contact-form-container',
+				start: 'top bottom',
+				end: 'bottom top',
+				scrub: true,
+			}
+		});
+	</script>
+</Layout>
+
+<style>
+	/* Enhanced styles for smooth animations */
+	.contact-hero-title,
+	.contact-hero-subtitle,
+	.contact-buttons-desktop,
+	.contact-buttons-mobile,
+	.contact-form-container,
+	.contact-desktop-image,
+	.contact-mobile-image,
+	.form-field,
+	.form-submit {
+		will-change: transform, opacity;
+	}
+
+	.contact-phone-btn,
+	.contact-email-btn,
+	.contact-phone-btn-mobile,
+	.contact-email-btn-mobile {
+		will-change: transform;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.contact-phone-btn::before,
+	.contact-email-btn::before,
+	.contact-phone-btn-mobile::before,
+	.contact-email-btn-mobile::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+		transition: left 0.6s ease;
+	}
+
+	.contact-phone-btn:hover::before,
+	.contact-email-btn:hover::before,
+	.contact-phone-btn-mobile:hover::before,
+	.contact-email-btn-mobile:hover::before {
+		left: 100%;
+	}
+
+	.form-input {
+		will-change: transform;
+	}
+
+	.form-input:focus {
+		box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+	}
+
+	.submit-button {
+		will-change: transform;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.submit-button::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+		transition: left 0.6s ease;
+	}
+
+	.submit-button:hover::before {
+		left: 100%;
+	}
+
+	.submit-icon {
+		will-change: transform;
+	}
+
+	/* Glowing Submit Button Effect - Based on CodePen */
+	.glow-on-hover {
+		border: none;
+		outline: none;
+		cursor: pointer;
+		position: relative;
+		z-index: 0;
+	}
+
+	.glow-on-hover:before {
+		content: '';
+		background: linear-gradient(45deg, #dc2626, #ef4444, #f87171, #fca5a5, #f87171, #ef4444, #dc2626, #b91c1c, #dc2626);
+		position: absolute;
+		top: -2px;
+		left: -2px;
+		background-size: 400%;
+		z-index: -1;
+		filter: blur(5px);
+		width: calc(100% + 4px);
+		height: calc(100% + 4px);
+		animation: glowing 20s linear infinite;
+		opacity: 1;
+		transition: opacity .3s ease-in-out;
+		border-radius: 17px;
+	}
+
+	.glow-on-hover:after {
+		z-index: -1;
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background: #dc2626;
+		left: 0;
+		top: 0;
+		border-radius: 14px;
+	}
+
+	.glow-on-hover:hover:before {
+		opacity: 1;
+		filter: blur(8px);
+	}
+
+	.glow-on-hover:active {
+		color: #000;
+		transform: scale(0.98);
+	}
+
+	.glow-on-hover:active:after {
+		background: transparent;
+	}
+
+	@keyframes glowing {
+		0% { background-position: 0 0; }
+		50% { background-position: 400% 0; }
+		100% { background-position: 0 0; }
+	}
+
+	/* Performance optimizations */
+	.contact-form-container {
+		contain: layout style paint;
+	}
+
+	/* Glassmorphism effect for form container */
+	.contact-form-container {
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+	}
+
+	/* Smooth transitions for all interactive elements */
+	button, input, textarea {
+		transition: 
+			transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+			box-shadow 0.3s ease,
+			background-color 0.3s ease;
+	}
+</style> 

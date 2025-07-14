@@ -1,0 +1,113 @@
+---
+// No props needed for this component as it's consistent across pages
+---
+
+<section class="py-2">
+	<!-- Desktop Version (Large screens) -->
+	<div class="hidden xl:block">
+		<div class="relative bg-brand-red rounded-3xl mx-[20px] h-[290px] overflow-hidden">
+			<!-- Background Image Overlay -->
+			<div class="absolute inset-0">
+				<img 
+					src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80" 
+					alt="Background overlay" 
+					class="w-full h-full object-cover opacity-10"
+				/>
+			</div>
+			
+			<!-- Content -->
+			<div class="relative z-10 flex flex-row gap-[196px] items-center justify-center h-full px-16">
+				<!-- Left Content -->
+				<div class="flex flex-col gap-6 text-white h-[142px]">
+					<h2 class="text-[58px] font-semibold leading-[57px] tracking-[-1.16px] capitalize">
+						Let's grow loyalty together
+					</h2>
+					<div class="text-[18px] leading-[28px] opacity-80 w-[639px] tracking-[0.18px]">
+						<p class="mb-0">Join us with thousand giant companies and get unexpected benefits</p>
+						<p>from us, so you can stop worrying about your old ages</p>
+					</div>
+				</div>
+				
+				<!-- Right Button -->
+				<button class="bg-white text-brand-red px-8 py-4 rounded-2xl text-[20px] font-bold uppercase tracking-[-1px] hover:bg-gray-100 transition-colors shadow-lg flex items-center justify-center h-[90px] w-[222px] gap-4 leading-[0]">
+					<span class="leading-[1.5] whitespace-pre">Contact Us</span>
+					<svg class="w-10 h-10" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+						<path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+					</svg>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Tablet Version (iPad and similar) -->
+	<div class="hidden md:block xl:hidden">
+		<div class="relative bg-brand-red rounded-3xl mx-[20px] h-[380px] overflow-hidden">
+			<!-- Background Image Overlay -->
+			<div class="absolute inset-0">
+				<img 
+					src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80" 
+					alt="Background overlay" 
+					class="w-full h-full object-cover opacity-10"
+				/>
+			</div>
+			
+			<!-- Content -->
+			<div class="relative z-10 flex flex-col gap-8 items-center justify-center h-full px-8 py-8">
+				<!-- Text Content -->
+				<div class="flex flex-col gap-6 text-white text-center">
+					<h2 class="text-[48px] font-semibold leading-[50px] tracking-[-1px] capitalize">
+						Let's grow loyalty together
+					</h2>
+					<div class="text-[16px] leading-[26px] opacity-80 max-w-[500px] tracking-[0.16px]">
+						<p class="mb-0">Join us with thousand giant companies and get unexpected benefits</p>
+						<p>from us, so you can stop worrying about your old ages</p>
+					</div>
+				</div>
+				
+				<!-- Button -->
+				<button class="bg-white text-brand-red px-8 py-4 rounded-2xl text-[18px] font-bold uppercase tracking-[-1px] hover:bg-gray-100 transition-colors shadow-lg flex items-center justify-center h-[80px] w-[250px] gap-3 leading-[0]">
+					<span class="leading-[1.5] whitespace-pre">Contact Us</span>
+					<svg class="w-8 h-8" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+						<path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+					</svg>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Mobile Version -->
+	<div class="block md:hidden">
+		<div class="relative bg-brand-red rounded-[20px] mx-[20px] h-[505px] overflow-hidden">
+			<!-- Background Image Overlay -->
+			<div class="absolute inset-0">
+				<img 
+					src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80" 
+					alt="Background overlay" 
+					class="w-full h-full object-cover opacity-10"
+				/>
+			</div>
+			
+			<!-- Content -->
+			<div class="relative z-10 flex flex-col gap-[26px] items-start justify-start h-full px-[31px] py-[30px]">
+				<!-- Text Content -->
+				<div class="flex flex-col gap-[13.3px] text-white w-full">
+					<h2 class="font-archivo font-semibold text-[51.3px] leading-[54px] tracking-[-1.03px] capitalize">
+						Let's grow loyalty together
+					</h2>
+					<div class="font-poppins text-[15.9px] leading-[24.8px] opacity-80 tracking-[0.16px] w-[280.5px]">
+						<p class="mb-0">Join us with thousand giant companies and get unexpected benefits</p>
+						<p>from us, so you can stop worrying about your old ages</p>
+					</div>
+				</div>
+				
+				<!-- Button -->
+				<button class="bg-white text-brand-red px-8 py-4 rounded-2xl text-[20px] font-bold uppercase tracking-[-1px] hover:bg-gray-100 transition-colors shadow-lg flex items-center justify-center h-[75px] w-[285px] gap-2.5 leading-[0]">
+					<span class="leading-[1.5] whitespace-pre">Contact Us</span>
+					<svg class="w-[30px] h-[30px]" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+						<path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+					</svg>
+				</button>
+			</div>
+		</div>
+	</div>
+</section> 

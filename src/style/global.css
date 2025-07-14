@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Archivo:wght@400;600;700&family=Poppins:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue: #163153;
+  --color-brand-red: #ca1a2f;
+}
+
+/* Animation base styles */
+[data-animate] {
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* Smooth transitions for interactive elements */
+button {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.service-card,
+.testimonial-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* GSAP Animation Enhancements */
+
+/* Navigation scroll effect */
+nav.nav-scrolled {
+  background: rgba(22, 49, 83, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced button effects */
+button {
+  transform-origin: center;
+}
+
+/* Card hover preparation */
+.service-card,
+.testimonial-card {
+  transform-origin: center;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Improved performance for animations */
+[data-animate],
+[data-hero-animate] {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* Ensure service card content is always visible while card animates */
+.service-card > * {
+  opacity: 1 !important;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Performance optimizations */
+* {
+  will-change: auto;
+}
+
+[data-animate] {
+  will-change: transform, opacity;
+}
+
+/* Mobile Navigation Styles */
+.animation-delay-75 {
+  animation-delay: 75ms;
+}
+
+/* Enhanced mobile navigation drawer effects */
+#mobile-menu-drawer {
+  box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+/* Ping animation enhancements */
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+.animate-ping {
+  animation: ping 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Smooth drawer handle animation */
+#mobile-menu-drawer .w-12.h-1 {
+  transition: all 0.3s ease;
+  cursor: grab;
+}
+
+#mobile-menu-drawer:hover .w-12.h-1 {
+  background-color: #9ca3af;
+  width: 3.5rem; /* w-14 */
+}
+
+#mobile-menu-drawer:active .w-12.h-1 {
+  cursor: grabbing;
+}
+
+/* Enhance drag experience */
+#mobile-menu-drawer {
+  touch-action: pan-y;
+  user-select: none;
+}
+
+/* Smooth transitions when not dragging */
+#mobile-menu-drawer.dragging {
+  transition: none !important;
+}
+
+/* Navigation link hover effects enhancement */
+#mobile-menu-drawer nav a {
+  transition: all 0.2s ease;
+}
+
+#mobile-menu-drawer nav a:hover {
+  transform: translateX(4px);
+}
+
+/* Contact button enhanced animations */
+#mobile-menu-drawer .relative a:hover {
+  box-shadow: 0 10px 30px rgba(202, 26, 47, 0.3);
+}
+
+/* Safe area support for iOS devices */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  #mobile-menu-drawer {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}

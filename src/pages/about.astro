@@ -1,0 +1,508 @@
+---
+import Layout from '../components/Layout.astro';
+import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
+---
+
+<Layout title="About Us - American Loyalty" currentPage="about">
+	<!-- HERO SECTION -->
+	<section class="relative bg-brand-blue">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8 lg:pt-24 lg:pb-12">
+			<div class="flex flex-col items-center gap-8 lg:gap-[41px]">
+				<!-- Text Content -->
+				<div class="flex flex-col items-center text-center">
+					<h1 class="font-inter font-semibold text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[87px] leading-[1.36] tracking-tight lg:tracking-[-3px] mb-2 about-hero-title" data-hero-animation>
+						About Us
+					</h1>
+					<p class="font-inter font-medium text-white/90 text-sm sm:text-base md:text-lg lg:text-xl xl:text-[21.7px] leading-[1.36] tracking-tight about-hero-subtitle" data-hero-animation>
+						Built on Loyalty. Backed by Experience.
+					</p>
+				</div>
+				
+				<!-- Hero Image -->
+				<div class="w-full max-w-6xl about-hero-image" data-hero-animation>
+					<div 
+						class="w-full h-64 sm:h-80 md:h-96 lg:h-[439px] rounded-lg lg:rounded-xl about-hero-img-container"
+						style="position: relative; top: 100px; margin-top: -100px; background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+						data-parallax
+					></div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Spacer for floating image effect -->
+	<div class="h-16 lg:h-20"></div>
+
+	<!-- MAIN CONTENT SECTION -->
+	<section class="bg-gray-100 py-16 lg:py-24">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<!-- Built on Loyalty Section -->
+			<div class="grid lg:grid-cols-2 gap-12 lg:gap-36 items-center mb-16 lg:mb-24 about-loyalty-section" data-animation="staggered">
+				<div class="about-loyalty-title">
+					<h2 class="font-archivo font-bold text-gray-900 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-tight mb-6">
+						Built on <span class="text-brand-red">Loyalty.</span> Powered by Trust.
+					</h2>
+				</div>
+				<div class="about-loyalty-text">
+					<p class="font-inter font-medium text-gray-600 text-lg leading-relaxed">
+						Unlock the full potential of Customer Loyalty and let's achieve success together. Unlock the full potential of Customer Loyalty.
+					</p>
+				</div>
+			</div>
+
+			<!-- STATISTICS SECTION -->
+			<div class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-0 about-stats-container" data-animation="staggered" data-delay="200">
+				<div class="text-center flex-1 about-stat-item">
+					<div class="font-outfit font-semibold text-brand-red text-4xl lg:text-5xl xl:text-6xl mb-2 count-number" data-animation="countUp" data-end-value="10">0</div>
+					<div class="font-inter font-normal text-gray-900 text-lg lg:text-xl xl:text-2xl">Countries Served</div>
+				</div>
+				
+				<!-- Vertical divider -->
+				<div class="hidden lg:block w-px h-16 bg-gray-300 mx-8 about-divider"></div>
+				<div class="lg:hidden w-12 h-px bg-gray-300 my-4 about-divider"></div>
+				
+				<div class="text-center flex-1 about-stat-item">
+					<div class="font-outfit font-semibold text-brand-red text-4xl lg:text-5xl xl:text-6xl mb-2 count-number" data-animation="countUp" data-end-value="1000000">0</div>
+					<div class="font-inter font-normal text-gray-900 text-lg lg:text-xl xl:text-2xl">Customers Reached</div>
+				</div>
+				
+				<!-- Vertical divider -->
+				<div class="hidden lg:block w-px h-16 bg-gray-300 mx-8 about-divider"></div>
+				<div class="lg:hidden w-12 h-px bg-gray-300 my-4 about-divider"></div>
+				
+				<div class="text-center flex-1 about-stat-item">
+					<div class="font-outfit font-semibold text-brand-red text-4xl lg:text-5xl xl:text-6xl mb-2 count-number" data-animation="countUp" data-end-value="20">0</div>
+					<div class="font-inter font-normal text-gray-900 text-lg lg:text-xl xl:text-2xl">Years Experience</div>
+				</div>
+				
+				<!-- Vertical divider -->
+				<div class="hidden lg:block w-px h-16 bg-gray-300 mx-8 about-divider"></div>
+				<div class="lg:hidden w-12 h-px bg-gray-300 my-4 about-divider"></div>
+				
+				<div class="text-center flex-1 about-stat-item">
+					<div class="font-outfit font-semibold text-brand-red text-4xl lg:text-5xl xl:text-6xl mb-2 count-number" data-animation="countUp" data-end-value="300">0</div>
+					<div class="font-inter font-normal text-gray-900 text-lg lg:text-xl xl:text-2xl">Collectibles Delivered</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- OUR HISTORY SECTION -->
+	<section class="bg-gray-100 py-16 lg:py-24">
+		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12 lg:mb-16 about-history-header" data-animation="fadeIn">
+				<h2 class="font-archivo font-bold text-gray-900 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mb-4">Our History</h2>
+				<p class="font-inter font-medium text-gray-600 text-lg max-w-lg mx-auto">
+					Unlock the full potential of Customer Loyalty and let's achieve success together
+				</p>
+			</div>
+
+			<div class="grid md:grid-cols-3 gap-8 about-history-cards" data-animation="staggered" data-delay="200">
+				<!-- Card 1 -->
+				<div class="bg-white rounded-2xl p-8 shadow-lg about-history-card">
+					<div class="w-14 h-14 bg-brand-red rounded-lg flex items-center justify-center mb-6 about-card-icon">
+						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+						</svg>
+					</div>
+					<h3 class="font-poppins font-semibold text-gray-900 text-xl mb-3">Decades of Industry Expertise</h3>
+					<p class="font-poppins font-normal text-gray-600 opacity-70">20 years experience in the Latin American loyalty collectibles market</p>
+				</div>
+
+				<!-- Card 2 -->
+				<div class="bg-white rounded-2xl p-8 shadow-lg about-history-card">
+					<div class="w-14 h-14 bg-brand-red rounded-lg flex items-center justify-center mb-6 about-card-icon">
+						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+						</svg>
+					</div>
+					<h3 class="font-poppins font-semibold text-gray-900 text-xl mb-3">Millions of Rewards Delivered</h3>
+					<p class="font-poppins font-normal text-gray-600 opacity-70">Tens of millions of rewards delivered</p>
+				</div>
+
+				<!-- Card 3 -->
+				<div class="bg-white rounded-2xl p-8 shadow-lg about-history-card">
+					<div class="w-14 h-14 bg-brand-red rounded-lg flex items-center justify-center mb-6 about-card-icon">
+						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+						</svg>
+					</div>
+					<h3 class="font-poppins font-semibold text-gray-900 text-xl mb-3">Expanding Our Market For You</h3>
+					<p class="font-poppins font-normal text-gray-600 opacity-70">Entering the U.S. market with confidence</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- VISION AND MISSION SECTION -->
+	<section class="bg-white py-16 lg:py-24">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start about-vision-mission" data-animation="staggered">
+				<!-- Vision Section -->
+				<div class="flex flex-col gap-8 about-vision">
+					<div class="flex flex-col gap-6">
+						<div class="font-archivo font-bold text-brand-red text-lg lg:text-2xl xl:text-3xl tracking-wide about-vision-label">OUR VISION</div>
+						<h2 class="font-archivo font-bold text-gray-900 text-3xl sm:text-4xl lg:text-4xl xl:text-5xl leading-tight capitalize about-vision-title">
+							To be your trusted strategic ally, focused on surpassing sales goals
+						</h2>
+					</div>
+					<div class="aspect-[4/3] bg-gray-200 rounded-lg overflow-hidden about-vision-image">
+						<img 
+							src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+							alt="Strategic planning and collaboration"
+							class="w-full h-full object-cover"
+						/>
+					</div>
+				</div>
+
+				<!-- Mission Section -->
+				<div class="flex flex-col gap-8 about-mission">
+					<div class="aspect-[4/3] bg-gray-200 rounded-lg overflow-hidden about-mission-image">
+						<img 
+							src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+							alt="Customer relationships and loyalty programs"
+							class="w-full h-full object-cover"
+						/>
+					</div>
+					<div class="flex flex-col gap-6">
+						<div class="font-archivo font-bold text-brand-red text-lg lg:text-2xl xl:text-3xl tracking-wide about-mission-label">OUR MISSION</div>
+						<h2 class="font-archivo font-bold text-gray-900 text-3xl sm:text-4xl lg:text-4xl xl:text-5xl leading-tight capitalize about-mission-title">
+							To empower our clients to build stronger relationships through reward-driven loyalty promotions
+						</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CALL TO ACTION SECTION -->
+	<GrowLoyaltySection />
+</Layout>
+
+<script>
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+	gsap.registerPlugin(ScrollTrigger);
+
+	// Wait for DOM to be ready
+	document.addEventListener('DOMContentLoaded', () => {
+		// Set initial states for animations
+		gsap.set('.about-hero-title', { opacity: 0, y: 30 });
+		gsap.set('.about-hero-subtitle', { opacity: 0, y: 20 });
+		gsap.set('.about-hero-image', { opacity: 0, y: 350, scale: 0.95 });
+		gsap.set('.about-loyalty-title', { opacity: 0, x: -50 });
+		gsap.set('.about-loyalty-text', { opacity: 0, x: 50 });
+		gsap.set('.about-stat-item', { opacity: 0, y: 30, scale: 0.9 });
+		gsap.set('.about-divider', { opacity: 0, scaleY: 0 });
+		gsap.set('.about-history-header', { opacity: 0, y: 50 });
+		gsap.set('.about-history-card', { opacity: 0, y: 50, rotationY: 15 });
+		gsap.set('.about-card-icon', { scale: 0, rotation: -45 });
+		gsap.set('.about-vision', { opacity: 0, x: -100 });
+		gsap.set('.about-mission', { opacity: 0, x: 100 });
+		gsap.set('.about-vision-image img', { scale: 1.2 });
+		gsap.set('.about-mission-image img', { scale: 1.2 });
+
+		// Hero entrance animation with creative timing
+		const heroTl = gsap.timeline();
+		
+		heroTl
+			.to('.about-hero-title', {
+				opacity: 1,
+				y: 0,
+				duration: 1,
+				ease: 'power3.out',
+			})
+			.to('.about-hero-subtitle', {
+				opacity: 1,
+				y: 0,
+				duration: 0.8,
+				ease: 'power3.out',
+			}, '-=0.5')
+			.to('.about-hero-image', {
+				opacity: 1,
+				y: 0,
+				scale: 1,
+				duration: 1.2,
+				ease: 'power3.out',
+			}, '-=0.3');
+
+		// Parallax effect for hero image
+		gsap.to('.about-hero-img-container', {
+			yPercent: -30,
+			ease: 'none',
+			scrollTrigger: {
+				trigger: '.about-hero-img-container',
+				start: 'top bottom',
+				end: 'bottom top',
+				scrub: true,
+			}
+		});
+
+		// Built on Loyalty section - split reveal animation
+		ScrollTrigger.create({
+			trigger: '.about-loyalty-section',
+			start: 'top 80%',
+			onEnter: () => {
+				gsap.to('.about-loyalty-title', {
+					opacity: 1,
+					x: 0,
+					duration: 1,
+					ease: 'power3.out',
+				});
+				gsap.to('.about-loyalty-text', {
+					opacity: 1,
+					x: 0,
+					duration: 1,
+					ease: 'power3.out',
+					delay: 0.2,
+				});
+			}
+		});
+
+		// Statistics section - enhanced reveal with bounce
+		ScrollTrigger.create({
+			trigger: '.about-stats-container',
+			start: 'top 80%',
+			onEnter: () => {
+				// Animate stat items with stagger
+				gsap.to('.about-stat-item', {
+					opacity: 1,
+					y: 0,
+					scale: 1,
+					duration: 0.8,
+					ease: 'back.out(1.7)',
+					stagger: 0.1,
+				});
+
+				// Animate dividers with scale effect
+				gsap.to('.about-divider', {
+					opacity: 1,
+					scaleY: 1,
+					duration: 0.6,
+					ease: 'power2.out',
+					stagger: 0.1,
+					delay: 0.3,
+				});
+
+				// Count-up animations for numbers
+				document.querySelectorAll('.count-number').forEach((element, index) => {
+					const endValue = parseInt(element.getAttribute('data-end-value'));
+					const obj = { value: 0 };
+					
+					gsap.to(obj, {
+						value: endValue,
+						duration: 2,
+						ease: 'power2.out',
+						delay: 0.5 + (index * 0.1),
+						onUpdate: () => {
+							if (endValue >= 1000000) {
+								element.textContent = `${(obj.value / 1000000).toFixed(1)}M+`;
+							} else {
+								element.textContent = `${Math.round(obj.value)}${endValue >= 100 ? '+' : ''}`;
+							}
+						}
+					});
+				});
+			}
+		});
+
+		// History section header
+		ScrollTrigger.create({
+			trigger: '.about-history-header',
+			start: 'top 80%',
+			onEnter: () => {
+				gsap.to('.about-history-header', {
+					opacity: 1,
+					y: 0,
+					duration: 1,
+					ease: 'power3.out',
+				});
+			}
+		});
+
+		// History cards with 3D flip effect
+		ScrollTrigger.create({
+			trigger: '.about-history-cards',
+			start: 'top 80%',
+			onEnter: () => {
+				gsap.to('.about-history-card', {
+					opacity: 1,
+					y: 0,
+					rotationY: 0,
+					duration: 1,
+					ease: 'power3.out',
+					stagger: 0.2,
+				});
+
+				gsap.to('.about-card-icon', {
+					scale: 1,
+					rotation: 0,
+					duration: 0.8,
+					ease: 'back.out(1.7)',
+					stagger: 0.2,
+					delay: 0.3,
+				});
+			}
+		});
+
+		// Card hover effects
+		document.querySelectorAll('.about-history-card').forEach(card => {
+			card.addEventListener('mouseenter', () => {
+				gsap.to(card, {
+					y: -10,
+					scale: 1.02,
+					duration: 0.3,
+					ease: 'power2.out',
+				});
+				gsap.to(card.querySelector('.about-card-icon'), {
+					rotation: 5,
+					scale: 1.1,
+					duration: 0.3,
+					ease: 'power2.out',
+				});
+			});
+
+			card.addEventListener('mouseleave', () => {
+				gsap.to(card, {
+					y: 0,
+					scale: 1,
+					duration: 0.3,
+					ease: 'power2.out',
+				});
+				gsap.to(card.querySelector('.about-card-icon'), {
+					rotation: 0,
+					scale: 1,
+					duration: 0.3,
+					ease: 'power2.out',
+				});
+			});
+		});
+
+		// Vision and Mission section - split slide animation
+		ScrollTrigger.create({
+			trigger: '.about-vision-mission',
+			start: 'top 80%',
+			onEnter: () => {
+				gsap.to('.about-vision', {
+					opacity: 1,
+					x: 0,
+					duration: 1.2,
+					ease: 'power3.out',
+				});
+				gsap.to('.about-mission', {
+					opacity: 1,
+					x: 0,
+					duration: 1.2,
+					ease: 'power3.out',
+					delay: 0.2,
+				});
+			}
+		});
+
+		// Image zoom effects on scroll
+		gsap.to('.about-vision-image img', {
+			scale: 1,
+			ease: 'none',
+			scrollTrigger: {
+				trigger: '.about-vision-image',
+				start: 'top bottom',
+				end: 'bottom top',
+				scrub: true,
+			}
+		});
+
+		gsap.to('.about-mission-image img', {
+			scale: 1,
+			ease: 'none',
+			scrollTrigger: {
+				trigger: '.about-mission-image',
+				start: 'top bottom',
+				end: 'bottom top',
+				scrub: true,
+			}
+		});
+
+		// Additional creative touches
+		// Floating animation for icons
+		gsap.to('.about-card-icon svg', {
+			y: -3,
+			duration: 2,
+			ease: 'power2.inOut',
+			yoyo: true,
+			repeat: -1,
+			stagger: 0.3,
+		});
+
+		// Text reveal effects for section labels
+		ScrollTrigger.batch('.about-vision-label, .about-mission-label', {
+			onEnter: (elements) => {
+				gsap.from(elements, {
+					scaleX: 0,
+					transformOrigin: 'left center',
+					duration: 0.8,
+					ease: 'power3.out',
+					stagger: 0.1,
+				});
+			}
+		});
+
+		// Parallax effect for section backgrounds
+		gsap.to('[class*="bg-gray-100"]', {
+			yPercent: -10,
+			ease: 'none',
+			scrollTrigger: {
+				trigger: 'body',
+				start: 'top bottom',
+				end: 'bottom top',
+				scrub: true,
+			}
+		});
+	});
+</script>
+
+<style>
+	/* Ensure smooth animations and prevent flashing */
+	.about-hero-title,
+	.about-hero-subtitle,
+	.about-hero-image,
+	.about-loyalty-title,
+	.about-loyalty-text,
+	.about-stat-item,
+	.about-divider,
+	.about-history-header,
+	.about-history-card,
+	.about-vision,
+	.about-mission {
+		will-change: transform, opacity;
+	}
+
+	.about-history-card {
+		transform-style: preserve-3d;
+		backface-visibility: hidden;
+	}
+
+	.about-card-icon {
+		will-change: transform;
+	}
+
+	.about-vision-image,
+	.about-mission-image {
+		overflow: hidden;
+	}
+
+	.about-vision-image img,
+	.about-mission-image img {
+		will-change: transform;
+	}
+
+	/* Smooth cursor interactions */
+	.about-history-card {
+		cursor: pointer;
+		transition: box-shadow 0.3s ease;
+	}
+
+	.about-history-card:hover {
+		box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+	}
+</style> 
