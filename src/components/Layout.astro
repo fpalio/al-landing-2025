@@ -117,7 +117,7 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 			<!-- Logo Section -->
 			<div class="flex justify-center items-center mb-8">
 				<a href="/" class="flex items-center">
-					<LottieLogo width={180} height={90} className="flex-shrink-0" variant="mobile" />
+					<LottieLogo width={200} height={100} className="flex-shrink-0" variant="mobile" />
 				</a>
 			</div>
 			
@@ -194,10 +194,16 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 						</div>
 					</div>
 				) : (
-					<div class="relative">
-						<!-- Ping Animation -->
-						<div class="absolute -inset-1 rounded-2xl opacity-30 animate-ping bg-brand-red"></div>
-						<div class="absolute -inset-1 rounded-2xl opacity-20 animate-ping bg-brand-red animation-delay-75"></div>
+					<div class="relative mobile-contact-button-container">
+						<!-- Gentle Glow Animation -->
+						<div class="absolute -inset-0.5 rounded-2xl opacity-40 animate-gentle-glow bg-gradient-to-r from-brand-red via-red-500 to-brand-red"></div>
+						
+						<!-- Subtle Sparkles -->
+						<div class="absolute inset-0 sparkle-container">
+							<div class="sparkle sparkle-1"></div>
+							<div class="sparkle sparkle-2"></div>
+							<div class="sparkle sparkle-3"></div>
+						</div>
 						
 						<a href="/contact" class="block relative px-6 py-4 text-lg font-bold text-center text-white rounded-xl shadow-lg transition-all duration-200 transform bg-brand-red hover:bg-red-700 hover:scale-105">
 							<div class="flex justify-center items-center">
@@ -585,6 +591,9 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 				hamburgerIcon.classList.add('hidden');
 				closeIcon.classList.remove('hidden');
 				document.body.style.overflow = 'hidden';
+				
+				// Trigger logo animation when menu opens
+				triggerMobileLogoAnimation();
 			} else {
 				// Close menu
 				mobileMenuOverlay.classList.remove('opacity-100', 'visible');
@@ -595,6 +604,20 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 				hamburgerIcon.classList.remove('hidden');
 				closeIcon.classList.add('hidden');
 				document.body.style.overflow = '';
+			}
+		}
+
+		// Function to trigger mobile logo animation
+		function triggerMobileLogoAnimation() {
+			// Find the mobile logo container
+			const mobileLogo = document.querySelector('.lottie-logo[data-variant="mobile"]') as HTMLElement;
+			
+			if (mobileLogo) {
+				// Dispatch a custom event to trigger the Lottie animation
+				const animationEvent = new CustomEvent('triggerLottieAnimation', {
+					detail: { variant: 'mobile' }
+				});
+				mobileLogo.dispatchEvent(animationEvent);
 			}
 		}
 
@@ -989,5 +1012,100 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 		console.log('✨ GSAP animations initialized successfully!');
 	});
 	</script>
+
+<style>
+
+
+
+
+	/* Mobile contact button fun animations */
+	.mobile-contact-button-container {
+		overflow: hidden;
+	}
+
+	@keyframes gentle-glow {
+		0%, 100% {
+			opacity: 0.3;
+			transform: scale(0.95);
+		}
+		50% {
+			opacity: 0.6;
+			transform: scale(1.02);
+		}
+	}
+
+	.animate-gentle-glow {
+		animation: gentle-glow 3s ease-in-out infinite;
+	}
+
+	/* Sparkle animations */
+	.sparkle-container {
+		pointer-events: none;
+		overflow: hidden;
+		border-radius: 1rem;
+	}
+
+	.sparkle {
+		position: absolute;
+		width: 4px;
+		height: 4px;
+		background: linear-gradient(45deg, #ffffff, #fbbf24);
+		border-radius: 50%;
+		opacity: 0;
+		animation: sparkle-twinkle 4s ease-in-out infinite;
+	}
+
+	.sparkle-1 {
+		top: 20%;
+		left: 25%;
+		animation-delay: 0s;
+	}
+
+	.sparkle-2 {
+		top: 70%;
+		right: 30%;
+		animation-delay: 1.5s;
+	}
+
+	.sparkle-3 {
+		top: 40%;
+		right: 20%;
+		animation-delay: 2.8s;
+	}
+
+	@keyframes sparkle-twinkle {
+		0%, 90%, 100% {
+			opacity: 0;
+			transform: scale(0) rotate(0deg);
+		}
+		5%, 15% {
+			opacity: 1;
+			transform: scale(1) rotate(180deg);
+		}
+		10% {
+			opacity: 0.8;
+			transform: scale(1.2) rotate(360deg);
+		}
+	}
+
+	/* Enhance button hover state */
+	.mobile-contact-button-container:hover .animate-gentle-glow {
+		animation-duration: 1.5s;
+		opacity: 0.8;
+	}
+
+	.mobile-contact-button-container:hover .sparkle {
+		animation-duration: 2s;
+	}
+
+	/* Mobile menu drawer enhancements */
+	#mobile-menu-drawer {
+		box-shadow: 0 -10px 25px -5px rgba(0, 0, 0, 0.1);
+	}
+
+	#mobile-menu-drawer.dragging {
+		transition: none !important;
+	}
+</style>
 </body>
 </html>

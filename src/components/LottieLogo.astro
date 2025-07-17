@@ -29,48 +29,66 @@ const { width = 120, height = 80, className = '', variant = 'default' } = Astro.
 
       const variant = container.getAttribute('data-variant') || 'default';
 
+      // Choose animation path based on variant
+      const animationPath = variant === 'mobile' 
+        ? '/animations/logo_color_short.json'  // Color logo for mobile navigation
+        : '/animations/logo_white_big.json';   // White logo for desktop header
+
       // Load and play the Lottie animation
       const animation = lottie.loadAnimation({
         container: container,
         renderer: 'svg',
         loop: false, // Only play once
         autoplay: false, // Don't auto-play, we'll control it
-        path: '/animations/logo_white_big.json'
+        path: animationPath
       });
 
-      // Set playback speed to 1.5x faster
-      animation.setSpeed(1.5);
+      // Set playback speed based on variant
+      const speed = variant === 'mobile' ? 1.2 : 1.5; // Slightly slower for mobile for better visibility
+      animation.setSpeed(speed);
 
       // Store animation reference
       animations.set(container, animation);
 
-      // Function to play animation once page is fully loaded
-      function playAnimationOnLoad() {
-        if (hasPlayedOnLoad) return; // Prevent multiple plays
-        
-        // Check if page is already loaded
-        if (document.readyState === 'complete') {
-          setTimeout(() => {
-            animation.play();
-            hasPlayedOnLoad = true;
-          }, 100); // Small delay to ensure everything is ready
-        } else {
-          // Wait for page to load
-          window.addEventListener('load', () => {
+      // Function to play animation
+      function playAnimation() {
+        animation.goToAndStop(0); // Reset to start
+        animation.play();
+      }
+
+      // Handle different trigger mechanisms based on variant
+      if (variant === 'mobile') {
+        // For mobile variant, listen for custom trigger event
+        container.addEventListener('triggerLottieAnimation', () => {
+          playAnimation();
+        });
+      } else {
+        // For desktop variant, play once on page load
+        function playAnimationOnLoad() {
+          if (hasPlayedOnLoad) return; // Prevent multiple plays
+          
+          // Check if page is already loaded
+          if (document.readyState === 'complete') {
             setTimeout(() => {
               animation.play();
               hasPlayedOnLoad = true;
-            }, 100);
-          });
+            }, 100); // Small delay to ensure everything is ready
+          } else {
+            // Wait for page to load
+            window.addEventListener('load', () => {
+              setTimeout(() => {
+                animation.play();
+                hasPlayedOnLoad = true;
+              }, 100);
+            });
+          }
         }
+
+        // Initialize animation when ready
+        animation.addEventListener('DOMLoaded', () => {
+          playAnimationOnLoad();
+        });
       }
-
-      // Initialize animation when ready
-      animation.addEventListener('DOMLoaded', () => {
-        playAnimationOnLoad();
-      });
-
-
 
       // Handle potential errors
       animation.addEventListener('data_failed', (error) => {
@@ -82,7 +100,7 @@ const { width = 120, height = 80, className = '', variant = 'default' } = Astro.
               <span class="text-white font-bold text-sm">AL</span>
             </div>
             <div class="ml-3">
-              <div class="text-xl font-bold text-brand-blue">American</div>
+              <div class="text-xl font-bold bg-gradient-to-r from-blue-600 to-red-600 bg-clip-text text-transparent">American</div>
               <div class="text-sm text-gray-600 -mt-1">Loyalty</div>
             </div>
           </div>
@@ -134,5 +152,16 @@ const { width = 120, height = 80, className = '', variant = 'default' } = Astro.
   .lottie-logo svg {
     width: 100% !important;
     height: 100% !important;
+  }
+
+
+
+  /* Ensure proper display for different variants */
+  .lottie-logo[data-variant="default"] svg {
+    filter: brightness(1.1); /* Slightly brighter for header visibility */
+  }
+
+  .lottie-logo[data-variant="mobile"] svg {
+    filter: contrast(1.1); /* Enhanced contrast for mobile visibility */
   }
 </style> 
