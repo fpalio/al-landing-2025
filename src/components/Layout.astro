@@ -374,21 +374,29 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 				});
 			}
 
-			// Contact Button Animations
+			// Contact Button Animations (Performance Optimized)
 			const contactButton = document.getElementById('contact-button');
 			const contactPhone = document.getElementById('contact-phone');
 			const sparkleContainer = document.getElementById('sparkle-container');
 
 			if (contactButton && contactPhone && sparkleContainer) {
-				// Function to create sparkle effect
+				// Optimized sparkle creation with object pooling
+				const sparklePool = [];
+				const maxPoolSize = 15;
+				
+				// Pre-create sparkle elements for reuse
+				for (let i = 0; i < maxPoolSize; i++) {
+					const sparkle = document.createElement('div');
+					sparkle.className = 'absolute w-1 h-1 bg-white rounded-full pointer-events-none';
+					sparkle.style.willChange = 'transform, opacity';
+					sparklePool.push(sparkle);
+				}
+				
 				function createSparkles() {
 					const sparkleCount = 12;
-					const buttonRect = contactButton.getBoundingClientRect();
+					const usedSparkles = sparklePool.slice(0, sparkleCount);
 					
-					for (let i = 0; i < sparkleCount; i++) {
-						const sparkle = document.createElement('div');
-						sparkle.className = 'absolute w-1 h-1 bg-white rounded-full pointer-events-none';
-						
+					usedSparkles.forEach((sparkle, i) => {
 						// Random position within button
 						const x = Math.random() * 100;
 						const y = Math.random() * 100;
@@ -397,7 +405,7 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 						
 						sparkleContainer.appendChild(sparkle);
 						
-						// Animate sparkle
+						// Animate sparkle with optimized transforms
 						gsap.set(sparkle, { 
 							scale: 0, 
 							opacity: 1,
@@ -411,15 +419,19 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 							x: (Math.random() - 0.5) * 40,
 							y: (Math.random() - 0.5) * 40,
 							duration: 0.8,
-							ease: 'power2.out',
+							ease: 'power1.out',
 							delay: Math.random() * 0.2,
 							onComplete: () => {
 								sparkle.remove();
 							}
 						});
-					}
+					});
 				}
 
+				// Optimized hover animations with will-change
+				contactButton.style.willChange = 'transform, box-shadow, border-color';
+				contactPhone.style.willChange = 'transform';
+				
 				// Hover animations
 				contactButton.addEventListener('mouseenter', () => {
 					// Phone wiggle animation (like it's ringing)
@@ -427,7 +439,7 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 						rotation: 15,
 						scale: 1.1,
 						duration: 0.15,
-						ease: 'power2.out',
+						ease: 'power1.out',
 						yoyo: true,
 						repeat: 3
 					});
@@ -435,15 +447,15 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 					// Animated white border
 					gsap.to(contactButton, {
 						borderColor: 'rgba(255, 255, 255, 0.8)',
-						duration: 0.3,
-						ease: 'power2.out'
+						duration: 0.2,
+						ease: 'power1.out'
 					});
 					
 					// Button shadow enhancement
 					gsap.to(contactButton, {
 						boxShadow: '0 10px 25px rgba(239, 68, 68, 0.4), 0 0 20px rgba(255, 255, 255, 0.3)',
-						duration: 0.3,
-						ease: 'power2.out'
+						duration: 0.2,
+						ease: 'power1.out'
 					});
 				});
 
@@ -452,22 +464,22 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 					gsap.to(contactPhone, {
 						rotation: 0,
 						scale: 1,
-						duration: 0.3,
-						ease: 'power2.out'
+						duration: 0.2,
+						ease: 'power1.out'
 					});
 					
 					// Reset border
 					gsap.to(contactButton, {
 						borderColor: 'transparent',
-						duration: 0.3,
-						ease: 'power2.out'
+						duration: 0.2,
+						ease: 'power1.out'
 					});
 					
 					// Reset shadow
 					gsap.to(contactButton, {
 						boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-						duration: 0.3,
-						ease: 'power2.out'
+						duration: 0.2,
+						ease: 'power1.out'
 					});
 				});
 
@@ -480,15 +492,15 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 					gsap.to(contactPhone, {
 						rotation: -10,
 						scale: 0.9,
-						duration: 0.15,
-						ease: 'power2.out'
+						duration: 0.1,
+						ease: 'power1.out'
 					});
 					
 					// Brief white border flash
 					gsap.to(contactButton, {
 						borderColor: 'rgba(255, 255, 255, 1)',
 						duration: 0.1,
-						ease: 'power2.out'
+						ease: 'power1.out'
 					});
 				});
 
@@ -497,15 +509,15 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 					gsap.to(contactPhone, {
 						rotation: 0,
 						scale: 1.1,
-						duration: 0.2,
+						duration: 0.15,
 						ease: 'back.out(1.7)'
 					});
 					
 					// Return border to hover state
 					gsap.to(contactButton, {
 						borderColor: 'rgba(255, 255, 255, 0.8)',
-						duration: 0.2,
-						ease: 'power2.out'
+						duration: 0.15,
+						ease: 'power1.out'
 					});
 				});
 
@@ -519,38 +531,39 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 					delay: 3 // Start after 3 seconds
 				});
 
-				// Subtle phone ring animation every 8 seconds
-				gsap.to(contactPhone, {
-					rotation: 5,
-					duration: 0.1,
-					ease: 'power2.inOut',
-					yoyo: true,
-					repeat: 5,
-					repeatDelay: 0.1,
-					delay: 5,
-					onComplete: () => {
-						// Repeat the ring animation
-						gsap.delayedCall(8, () => {
-							gsap.to(contactPhone, {
-								rotation: 5,
-								duration: 0.1,
-								ease: 'power2.inOut',
-								yoyo: true,
-								repeat: 5,
-								repeatDelay: 0.1
-							});
-						});
-					}
-				});
+				// Subtle phone ring animation every 8 seconds (optimized)
+				function phoneRingAnimation() {
+					gsap.to(contactPhone, {
+						rotation: 5,
+						duration: 0.1,
+						ease: 'power1.inOut',
+						yoyo: true,
+						repeat: 5,
+						repeatDelay: 0.1,
+						onComplete: () => {
+							gsap.delayedCall(8, phoneRingAnimation);
+						}
+					});
+				}
+				
+				gsap.delayedCall(5, phoneRingAnimation);
 			}
 
-			// Mobile Navigation functionality
+			// Mobile Navigation functionality (Performance Optimized)
 		const mobileMenuButton = document.getElementById('mobile-menu-button');
 		const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
 		const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
 		const hamburgerIcon = document.getElementById('hamburger-icon');
 		const closeIcon = document.getElementById('close-icon');
 		let isMenuOpen = false;
+
+		// Optimize mobile menu elements
+		if (mobileMenuDrawer) {
+			mobileMenuDrawer.style.willChange = 'transform';
+		}
+		if (mobileMenuOverlay) {
+			mobileMenuOverlay.style.willChange = 'opacity';
+		}
 
 		// Drag to close functionality
 		let isDragging = false;
@@ -591,7 +604,9 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 			}
 		}
 
-		// Touch event handlers for drag to close
+		// Optimized touch event handlers for drag to close
+		let dragRafId = null;
+		
 		function handleTouchStart(e) {
 			if (!isMenuOpen) return;
 			
@@ -608,17 +623,25 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 			
 			e.preventDefault();
 			currentY = e.touches[0].clientY;
-			const deltaY = currentY - startY;
 			
-			// Only allow dragging down
-			if (deltaY > 0) {
-				const translateY = Math.min(deltaY, window.innerHeight);
-				mobileMenuDrawer.style.transform = `translateY(${translateY}px)`;
+			// Throttle DOM updates with requestAnimationFrame
+			if (dragRafId) return;
+			
+			dragRafId = requestAnimationFrame(() => {
+				const deltaY = currentY - startY;
 				
-				// Fade overlay based on drag distance
-				const opacity = Math.max(0.1, 1 - (deltaY / 300));
-				mobileMenuOverlay.style.opacity = opacity.toString();
-			}
+				// Only allow dragging down
+				if (deltaY > 0) {
+					const translateY = Math.min(deltaY, window.innerHeight);
+					mobileMenuDrawer.style.transform = `translateY(${translateY}px)`;
+					
+					// Fade overlay based on drag distance
+					const opacity = Math.max(0.1, 1 - (deltaY / 300));
+					mobileMenuOverlay.style.opacity = opacity.toString();
+				}
+				
+				dragRafId = null;
+			});
 		}
 
 		function handleTouchEnd(e) {
@@ -626,6 +649,12 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 			
 			isDragging = false;
 			const deltaY = currentY - startY;
+			
+			// Cancel any pending animation frame
+			if (dragRafId) {
+				cancelAnimationFrame(dragRafId);
+				dragRafId = null;
+			}
 			
 			// Remove dragging class to re-enable transitions
 			mobileMenuDrawer.classList.remove('dragging');
@@ -640,7 +669,7 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 			}
 		}
 
-		// Mouse event handlers for desktop testing
+		// Optimized mouse event handlers for desktop testing
 		function handleMouseDown(e) {
 			if (!isMenuOpen) return;
 			
@@ -656,15 +685,23 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 			
 			e.preventDefault();
 			currentY = e.clientY;
-			const deltaY = currentY - startY;
 			
-			if (deltaY > 0) {
-				const translateY = Math.min(deltaY, window.innerHeight);
-				mobileMenuDrawer.style.transform = `translateY(${translateY}px)`;
+			// Throttle DOM updates with requestAnimationFrame
+			if (dragRafId) return;
+			
+			dragRafId = requestAnimationFrame(() => {
+				const deltaY = currentY - startY;
 				
-				const opacity = Math.max(0.1, 1 - (deltaY / 300));
-				mobileMenuOverlay.style.opacity = opacity.toString();
-			}
+				if (deltaY > 0) {
+					const translateY = Math.min(deltaY, window.innerHeight);
+					mobileMenuDrawer.style.transform = `translateY(${translateY}px)`;
+					
+					const opacity = Math.max(0.1, 1 - (deltaY / 300));
+					mobileMenuOverlay.style.opacity = opacity.toString();
+				}
+				
+				dragRafId = null;
+			});
 		}
 
 		function handleMouseUp(e) {
@@ -672,6 +709,12 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 			
 			isDragging = false;
 			const deltaY = currentY - startY;
+			
+			// Cancel any pending animation frame
+			if (dragRafId) {
+				cancelAnimationFrame(dragRafId);
+				dragRafId = null;
+			}
 			
 			mobileMenuDrawer.classList.remove('dragging');
 			
@@ -719,6 +762,11 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 		}
 
 		// Set initial states for animated elements (exclude count-up elements and stagger containers)
+		const animatedElements = document.querySelectorAll('[data-animate]:not([data-animate="count-up"]):not([data-animate="stagger"])');
+		animatedElements.forEach(element => {
+			(element as HTMLElement).style.willChange = 'transform, opacity';
+		});
+		
 		gsap.set('[data-animate]:not([data-animate="count-up"]):not([data-animate="stagger"])', { 
 			opacity: 0,
 			y: 50,
@@ -726,6 +774,11 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 		});
 
 		// Set initial states for hero elements
+		const heroElements = document.querySelectorAll('[data-hero-animate]');
+		heroElements.forEach(element => {
+			(element as HTMLElement).style.willChange = 'transform, opacity';
+		});
+		
 		gsap.set('[data-hero-animate]', {
 			opacity: 0,
 			y: 30
@@ -736,14 +789,14 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 		
 		heroTimeline
 			.to('[data-hero-animate]', {
-				duration: 1,
+				duration: 0.8,
 				y: 0,
 				opacity: 1,
-				stagger: 0.2,
-				ease: 'power2.out'
+				stagger: 0.15,
+				ease: 'power1.out'
 			});
 
-		// Scroll-triggered animations
+		// Optimized scroll-triggered animations
 		gsap.utils.toArray('[data-animate]').forEach((element) => {
 			const el = element as HTMLElement;
 			const animationType = el.getAttribute('data-animate');
@@ -754,23 +807,23 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 			switch (animationType) {
 				case 'fade-up':
 					animation = {
-						duration: 1,
+						duration: 0.8,
 						y: 0,
 						opacity: 1,
-						ease: 'power2.out'
+						ease: 'power1.out'
 					};
 					break;
 				case 'slide-up':
 					animation = {
-						duration: 1.2,
+						duration: 1,
 						y: 0,
 						opacity: 1,
-						ease: 'power3.out'
+						ease: 'power1.out'
 					};
 					break;
 				case 'scale-in':
 					animation = {
-						duration: 0.8,
+						duration: 0.6,
 						scale: 1,
 						opacity: 1,
 						ease: 'back.out(1.7)'
@@ -781,16 +834,21 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 					const children = el.children;
 					gsap.set(children, { opacity: 0, y: 30 });
 					
+					// Add will-change to stagger children
+					Array.from(children).forEach(child => {
+						(child as HTMLElement).style.willChange = 'transform, opacity';
+					});
+					
 					ScrollTrigger.create({
 						trigger: el,
 						start: 'top 80%',
 						onEnter: () => {
 							gsap.to(children, {
-								duration: 0.8,
+								duration: 0.6,
 								y: 0,
 								opacity: 1,
-								stagger: 0.15,
-								ease: 'power2.out',
+								stagger: 0.1,
+								ease: 'power1.out',
 								delay: delay / 1000
 							});
 						}
@@ -798,11 +856,11 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 					return; // Skip the default ScrollTrigger creation
 				default:
 					animation = {
-						duration: 1,
+						duration: 0.8,
 						y: 0,
 						opacity: 1,
 						scale: 1,
-						ease: 'power2.out'
+						ease: 'power1.out'
 					};
 			}
 			
@@ -819,7 +877,7 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 			});
 		});
 
-		// Count-up animations for statistics
+		// Optimized count-up animations for statistics
 		document.querySelectorAll('.count-number').forEach(element => {
 			const endValue = parseInt(element.getAttribute('data-end-value') || '100');
 			const countObj = { value: 0 };
@@ -829,10 +887,10 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 				start: 'top 80%',
 				onEnter: () => {
 					gsap.to(countObj, {
-						duration: 2,
+						duration: 1.5,
 						value: endValue,
-						ease: 'power2.out',
-						delay: 0.3,
+						ease: 'power1.out',
+						delay: 0.2,
 						onUpdate: function() {
 							const val = Math.round(countObj.value);
 							if (endValue >= 1000000) {
@@ -848,28 +906,32 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 			});
 		});
 
-		// Button hover animations
+		// Optimized button hover animations
 		document.querySelectorAll('button').forEach(button => {
+			(button as HTMLElement).style.willChange = 'transform';
+			
 			button.addEventListener('mouseenter', () => {
 				gsap.to(button, {
 					scale: 1.05,
-					duration: 0.3,
-					ease: 'power2.out'
+					duration: 0.2,
+					ease: 'power1.out'
 				});
 			});
 
 			button.addEventListener('mouseleave', () => {
 				gsap.to(button, {
 					scale: 1,
-					duration: 0.3,
-					ease: 'power2.out'
+					duration: 0.2,
+					ease: 'power1.out'
 				});
 			});
 		});
 
-		// Card hover effects with advanced animations
+		// Optimized card hover effects
 		document.querySelectorAll('.service-card, .testimonial-card').forEach(card => {
-			// Set up subtle shadow animation
+			// Set up optimized card animations
+			(card as HTMLElement).style.willChange = 'transform, box-shadow';
+			
 			gsap.set(card, {
 				boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
 			});
@@ -879,8 +941,8 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 					y: -10,
 					scale: 1.02,
 					boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
-					duration: 0.4,
-					ease: 'power2.out'
+					duration: 0.3,
+					ease: 'power1.out'
 				});
 			});
 
@@ -889,13 +951,18 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 					y: 0,
 					scale: 1,
 					boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-					duration: 0.4,
-					ease: 'power2.out'
+					duration: 0.3,
+					ease: 'power1.out'
 				});
 			});
 		});
 
-		// Navigation bar animation on scroll
+		// Optimized navigation bar animation on scroll
+		const navElement = document.querySelector('nav');
+		if (navElement) {
+			(navElement as HTMLElement).style.willChange = 'background-color, backdrop-filter';
+		}
+		
 		ScrollTrigger.create({
 			start: 'top -80',
 			end: 99999,
@@ -905,7 +972,11 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 			}
 		});
 
-		// Create floating animation for decorative elements
+		// Optimized floating animation for decorative elements
+		document.querySelectorAll('.float-element').forEach(element => {
+			(element as HTMLElement).style.willChange = 'transform';
+		});
+		
 		gsap.to('.float-element', {
 			y: -10,
 			duration: 2,

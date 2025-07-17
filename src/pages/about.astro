@@ -187,7 +187,7 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 
 	// Wait for DOM to be ready
 	document.addEventListener('DOMContentLoaded', () => {
-		// Set initial states for animations
+		// Set initial states for animations (Performance Optimized)
 		gsap.set('.about-hero-title', { opacity: 0, y: 30 });
 		gsap.set('.about-hero-subtitle', { opacity: 0, y: 20 });
 		gsap.set('.about-hero-image', { opacity: 0, y: 350, scale: 0.95 });
@@ -203,28 +203,28 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 		gsap.set('.about-vision-image img', { scale: 1.2 });
 		gsap.set('.about-mission-image img', { scale: 1.2 });
 
-		// Hero entrance animation with creative timing
+		// Hero entrance animation with creative timing (Performance Optimized)
 		const heroTl = gsap.timeline();
 		
 		heroTl
 			.to('.about-hero-title', {
 				opacity: 1,
 				y: 0,
-				duration: 1,
-				ease: 'power3.out',
+				duration: 0.8,
+				ease: 'power1.out',
 			})
 			.to('.about-hero-subtitle', {
 				opacity: 1,
 				y: 0,
-				duration: 0.8,
-				ease: 'power3.out',
-			}, '-=0.5')
+				duration: 0.6,
+				ease: 'power1.out',
+			}, '-=0.4')
 			.to('.about-hero-image', {
 				opacity: 1,
 				y: 0,
 				scale: 1,
-				duration: 1.2,
-				ease: 'power3.out',
+				duration: 1,
+				ease: 'power1.out',
 			}, '-=0.3');
 
 		// Parallax effect for hero image
@@ -239,7 +239,7 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 			}
 		});
 
-		// Built on Loyalty section - split reveal animation
+		// Built on Loyalty section - split reveal animation (Performance Optimized)
 		ScrollTrigger.create({
 			trigger: '.about-loyalty-section',
 			start: 'top 80%',
@@ -247,20 +247,20 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 				gsap.to('.about-loyalty-title', {
 					opacity: 1,
 					x: 0,
-					duration: 1,
-					ease: 'power3.out',
+					duration: 0.8,
+					ease: 'power1.out',
 				});
 				gsap.to('.about-loyalty-text', {
 					opacity: 1,
 					x: 0,
-					duration: 1,
-					ease: 'power3.out',
-					delay: 0.2,
+					duration: 0.8,
+					ease: 'power1.out',
+					delay: 0.15,
 				});
 			}
 		});
 
-		// Statistics section - enhanced reveal with bounce
+		// Statistics section - enhanced reveal with bounce (Performance Optimized)
 		ScrollTrigger.create({
 			trigger: '.about-stats-container',
 			start: 'top 80%',
@@ -270,31 +270,31 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 					opacity: 1,
 					y: 0,
 					scale: 1,
-					duration: 0.8,
+					duration: 0.6,
 					ease: 'back.out(1.7)',
-					stagger: 0.1,
+					stagger: 0.08,
 				});
 
 				// Animate dividers with scale effect
 				gsap.to('.about-divider', {
 					opacity: 1,
 					scaleY: 1,
-					duration: 0.6,
-					ease: 'power2.out',
-					stagger: 0.1,
-					delay: 0.3,
+					duration: 0.5,
+					ease: 'power1.out',
+					stagger: 0.08,
+					delay: 0.2,
 				});
 
-				// Count-up animations for numbers
+				// Optimized count-up animations for numbers
 				document.querySelectorAll('.count-number').forEach((element, index) => {
 					const endValue = parseInt(element.getAttribute('data-end-value'));
 					const obj = { value: 0 };
 					
 					gsap.to(obj, {
 						value: endValue,
-						duration: 2,
-						ease: 'power2.out',
-						delay: 0.5 + (index * 0.1),
+						duration: 1.5,
+						ease: 'power1.out',
+						delay: 0.3 + (index * 0.08),
 						onUpdate: () => {
 							if (endValue >= 1000000) {
 								element.textContent = `${(obj.value / 1000000).toFixed(1)}M+`;
@@ -307,7 +307,7 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 			}
 		});
 
-		// History section header
+		// History section header (Performance Optimized)
 		ScrollTrigger.create({
 			trigger: '.about-history-header',
 			start: 'top 80%',
@@ -315,13 +315,13 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 				gsap.to('.about-history-header', {
 					opacity: 1,
 					y: 0,
-					duration: 1,
-					ease: 'power3.out',
+					duration: 0.8,
+					ease: 'power1.out',
 				});
 			}
 		});
 
-		// History cards with 3D flip effect
+		// History cards with 3D flip effect (Performance Optimized)
 		ScrollTrigger.create({
 			trigger: '.about-history-cards',
 			start: 'top 80%',
@@ -330,36 +330,36 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 					opacity: 1,
 					y: 0,
 					rotationY: 0,
-					duration: 1,
-					ease: 'power3.out',
-					stagger: 0.2,
+					duration: 0.8,
+					ease: 'power1.out',
+					stagger: 0.15,
 				});
 
 				gsap.to('.about-card-icon', {
 					scale: 1,
 					rotation: 0,
-					duration: 0.8,
+					duration: 0.6,
 					ease: 'back.out(1.7)',
-					stagger: 0.2,
-					delay: 0.3,
+					stagger: 0.15,
+					delay: 0.2,
 				});
 			}
 		});
 
-		// Card hover effects
+		// Card hover effects (Performance Optimized)
 		document.querySelectorAll('.about-history-card').forEach(card => {
 			card.addEventListener('mouseenter', () => {
 				gsap.to(card, {
 					y: -10,
 					scale: 1.02,
-					duration: 0.3,
-					ease: 'power2.out',
+					duration: 0.2,
+					ease: 'power1.out',
 				});
 				gsap.to(card.querySelector('.about-card-icon'), {
 					rotation: 5,
 					scale: 1.1,
-					duration: 0.3,
-					ease: 'power2.out',
+					duration: 0.2,
+					ease: 'power1.out',
 				});
 			});
 
@@ -367,19 +367,19 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 				gsap.to(card, {
 					y: 0,
 					scale: 1,
-					duration: 0.3,
-					ease: 'power2.out',
+					duration: 0.2,
+					ease: 'power1.out',
 				});
 				gsap.to(card.querySelector('.about-card-icon'), {
 					rotation: 0,
 					scale: 1,
-					duration: 0.3,
-					ease: 'power2.out',
+					duration: 0.2,
+					ease: 'power1.out',
 				});
 			});
 		});
 
-		// Vision and Mission section - split slide animation
+		// Vision and Mission section - split slide animation (Performance Optimized)
 		ScrollTrigger.create({
 			trigger: '.about-vision-mission',
 			start: 'top 80%',
@@ -387,15 +387,15 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 				gsap.to('.about-vision', {
 					opacity: 1,
 					x: 0,
-					duration: 1.2,
-					ease: 'power3.out',
+					duration: 1,
+					ease: 'power1.out',
 				});
 				gsap.to('.about-mission', {
 					opacity: 1,
 					x: 0,
-					duration: 1.2,
-					ease: 'power3.out',
-					delay: 0.2,
+					duration: 1,
+					ease: 'power1.out',
+					delay: 0.15,
 				});
 			}
 		});
@@ -423,12 +423,12 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 			}
 		});
 
-		// Additional creative touches
+		// Additional creative touches (Performance Optimized)
 		// Floating animation for icons
 		gsap.to('.about-card-icon svg', {
 			y: -3,
 			duration: 2,
-			ease: 'power2.inOut',
+			ease: 'power1.inOut',
 			yoyo: true,
 			repeat: -1,
 			stagger: 0.3,
@@ -440,9 +440,9 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 				gsap.from(elements, {
 					scaleX: 0,
 					transformOrigin: 'left center',
-					duration: 0.8,
-					ease: 'power3.out',
-					stagger: 0.1,
+					duration: 0.6,
+					ease: 'power1.out',
+					stagger: 0.08,
 				});
 			}
 		});

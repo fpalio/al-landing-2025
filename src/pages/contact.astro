@@ -78,7 +78,7 @@ import Button from '../components/Button.astro';
 			<div class="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
 				<!-- Left Column - Image (Desktop) -->
 				<div class="hidden lg:block lg:w-1/2">
-					<div class="relative contact-desktop-image" data-animation="slide-left">
+					<div class="relative contact-desktop-image">
 						<img 
 							src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
 							alt="Contact us - American Loyalty team"
@@ -91,7 +91,7 @@ import Button from '../components/Button.astro';
 				<!-- Right Column - Form -->
 				<div class="w-full lg:w-1/2">
 					<!-- Mobile Image -->
-					<div class="block lg:hidden mb-8 contact-mobile-image" data-animation="fade-up">
+					<div class="block lg:hidden mb-8 contact-mobile-image">
 						<img 
 							src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
 							alt="Contact us - American Loyalty team"
@@ -100,7 +100,7 @@ import Button from '../components/Button.astro';
 					</div>
 
 					<!-- Form Container -->
-					<div class="contact-form-container" data-animation="slide-right">
+					<div class="contact-form-container">
 						<div class="bg-white rounded-2xl shadow-xl p-6 lg:p-8 border border-gray-100">
 							<div class="contact-form-content">
 								<!-- Form Header -->
@@ -182,7 +182,7 @@ import Button from '../components/Button.astro';
 											type="submit"
 											iconType="send"
 											fullWidth={true}
-											className="h-[71px] lg:h-[75px] text-[14.2px] lg:text-[15px] submit-button glow-on-hover"
+											className="h-[71px] lg:h-[75px] text-[14.2px] lg:text-[15px] submit-button"
 										/>
 									</div>
 								</form>
@@ -194,164 +194,136 @@ import Button from '../components/Button.astro';
 		</div>
 	</section>
 
-	<!-- Enhanced Contact Page Animations Script with GSAP -->
-	<script type="module">
-		import { gsap } from 'gsap';
-		import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-		gsap.registerPlugin(ScrollTrigger);
-
+	<!-- Simplified Contact Page Animations -->
+	<script>
+		// Wait for page to load completely
 		document.addEventListener('DOMContentLoaded', () => {
-			// Initialize all animations
-			initializeHeroAnimations();
-			initializeFormAnimations();
-			initializeInteractiveElements();
+			// Check if GSAP is available (loaded from Layout)
+			if (typeof gsap !== 'undefined') {
+				console.log('🎬 Initializing Contact Page animations...');
+				initContactAnimations();
+			} else {
+				console.log('⚠️ GSAP not loaded, using fallback animations');
+				initFallbackAnimations();
+			}
 		});
 
-		function initializeHeroAnimations() {
-			// Hero title animation
-			gsap.from('.contact-hero-title', {
-				opacity: 0,
-				y: 50,
-				duration: 1,
-				ease: 'power3.out',
-				delay: 0.2,
-			});
-
-			// Hero subtitle animation
-			gsap.from('.contact-hero-subtitle', {
+		function initContactAnimations() {
+			// Hero entrance animations
+			const heroTl = gsap.timeline({ delay: 0.2 });
+			
+			heroTl.from('.contact-hero-title', {
 				opacity: 0,
 				y: 30,
 				duration: 0.8,
-				ease: 'power3.out',
-				delay: 0.4,
-			});
-
-			// Contact buttons animation
-			gsap.from('.contact-buttons-desktop, .contact-buttons-mobile', {
+				ease: 'power2.out',
+			})
+			.from('.contact-hero-subtitle', {
 				opacity: 0,
-				y: 40,
-				duration: 1,
-				ease: 'back.out(1.7)',
-				delay: 0.6,
-			});
-		}
+				y: 20,
+				duration: 0.6,
+				ease: 'power1.out',
+			}, '-=0.4')
+			.from('.contact-buttons-desktop, .contact-buttons-mobile', {
+				opacity: 0,
+				y: 20,
+				duration: 0.6,
+				ease: 'power1.out',
+			}, '-=0.3');
 
-		function initializeFormAnimations() {
-			// Image animations
-			ScrollTrigger.create({
-				trigger: '.contact-desktop-image',
-				start: 'top 80%',
-				onEnter: () => {
-					gsap.from('.contact-desktop-image', {
-						opacity: 0,
-						x: -100,
-						duration: 1.2,
-						ease: 'power3.out',
-					});
-				}
-			});
+			// Scroll-triggered animations
+			if (typeof ScrollTrigger !== 'undefined') {
+				gsap.registerPlugin(ScrollTrigger);
+				
+				// Form section animations
+				ScrollTrigger.create({
+					trigger: '.contact-form-container',
+					start: 'top 80%',
+					onEnter: () => {
+						gsap.from('.contact-form-content h2', {
+							opacity: 0,
+							y: 20,
+							duration: 0.6,
+							ease: 'power1.out',
+						});
+						
+						gsap.from('.contact-form-content p', {
+							opacity: 0,
+							y: 15,
+							duration: 0.5,
+							ease: 'power1.out',
+							delay: 0.1,
+						});
+						
+						gsap.from('.form-field', {
+							opacity: 0,
+							y: 20,
+							duration: 0.5,
+							ease: 'power1.out',
+							stagger: 0.1,
+							delay: 0.2,
+						});
+						
+						gsap.from('.form-submit', {
+							opacity: 0,
+							y: 20,
+							duration: 0.6,
+							ease: 'power1.out',
+							delay: 0.6,
+						});
+					}
+				});
 
-			ScrollTrigger.create({
-				trigger: '.contact-mobile-image',
-				start: 'top 80%',
-				onEnter: () => {
-					gsap.from('.contact-mobile-image', {
-						opacity: 0,
-						scale: 0.9,
-						duration: 0.8,
-						ease: 'power3.out',
-					});
-				}
-			});
+				// Image animations
+				ScrollTrigger.create({
+					trigger: '.contact-desktop-image',
+					start: 'top 80%',
+					onEnter: () => {
+						gsap.from('.contact-desktop-image', {
+							opacity: 0,
+							x: -50,
+							duration: 0.8,
+							ease: 'power2.out',
+						});
+					}
+				});
 
-			// Form container animation
-			ScrollTrigger.create({
-				trigger: '.contact-form-container',
-				start: 'top 80%',
-				onEnter: () => {
-					gsap.from('.contact-form-container', {
-						opacity: 0,
-						x: 100,
-						duration: 1.2,
-						ease: 'power3.out',
-					});
-				}
-			});
+				ScrollTrigger.create({
+					trigger: '.contact-mobile-image',
+					start: 'top 80%',
+					onEnter: () => {
+						gsap.from('.contact-mobile-image', {
+							opacity: 0,
+							y: 30,
+							duration: 0.8,
+							ease: 'power2.out',
+						});
+					}
+				});
+			}
 
-			// Form fields stagger animation
-			ScrollTrigger.create({
-				trigger: '.contact-form-content',
-				start: 'top 75%',
-				onEnter: () => {
-					gsap.to('.form-field', {
-						opacity: 1,
-						x: 0,
-						duration: 0.6,
-						ease: 'power3.out',
-						stagger: 0.1,
-					});
-					
-					gsap.to('.form-submit', {
-						opacity: 1,
-						y: 0,
-						scale: 1,
-						duration: 0.8,
-						ease: 'back.out(1.7)',
-						delay: 0.4,
-					});
-				}
-			});
-		}
-
-		function initializeInteractiveElements() {
-			// Enhanced button hover effects
-			const contactButtons = document.querySelectorAll('.contact-phone-btn, .contact-email-btn, .contact-phone-btn-mobile, .contact-email-btn-mobile');
+			// Button hover effects
+			const buttons = document.querySelectorAll('.contact-phone-btn, .contact-email-btn, .contact-phone-btn-mobile, .contact-email-btn-mobile');
 			
-			contactButtons.forEach(button => {
+			buttons.forEach(button => {
 				button.addEventListener('mouseenter', () => {
 					gsap.to(button, {
-						scale: 1.05,
-						y: -5,
-						duration: 0.3,
-						ease: 'power2.out',
-					});
-					gsap.to(button.querySelector('svg'), {
-						rotate: 5,
-						scale: 1.1,
-						duration: 0.3,
-						ease: 'power2.out',
+						y: -3,
+						duration: 0.2,
+						ease: 'power1.out',
 					});
 				});
 
 				button.addEventListener('mouseleave', () => {
 					gsap.to(button, {
-						scale: 1,
 						y: 0,
-						duration: 0.3,
-						ease: 'power2.out',
-					});
-					gsap.to(button.querySelector('svg'), {
-						rotate: 0,
-						scale: 1,
-						duration: 0.3,
-						ease: 'power2.out',
-					});
-				});
-
-				// Click animation
-				button.addEventListener('click', () => {
-					gsap.to(button, {
-						scale: 0.95,
-						duration: 0.1,
-						ease: 'power2.out',
-						yoyo: true,
-						repeat: 1,
+						duration: 0.2,
+						ease: 'power1.out',
 					});
 				});
 			});
 
-			// Form input focus animations
+			// Form interactions
 			const formInputs = document.querySelectorAll('.form-input');
 			
 			formInputs.forEach(input => {
@@ -359,7 +331,7 @@ import Button from '../components/Button.astro';
 					gsap.to(input, {
 						scale: 1.02,
 						duration: 0.2,
-						ease: 'power2.out',
+						ease: 'power1.out',
 					});
 				});
 
@@ -367,80 +339,74 @@ import Button from '../components/Button.astro';
 					gsap.to(input, {
 						scale: 1,
 						duration: 0.2,
-						ease: 'power2.out',
+						ease: 'power1.out',
 					});
 				});
 			});
 
-			// Submit button enhanced animation
-			const submitButton = document.querySelector('.submit-button');
-			if (submitButton) {
-				submitButton.addEventListener('mouseenter', () => {
-					gsap.to(submitButton.querySelector('.submit-icon'), {
-						rotate: 360,
-						duration: 0.6,
-						ease: 'power2.out',
-					});
-				});
-
-				submitButton.addEventListener('mouseleave', () => {
-					gsap.to(submitButton.querySelector('.submit-icon'), {
-						rotate: 90,
-						duration: 0.3,
-						ease: 'power2.out',
-					});
-				});
-			}
-
-			// Form submission animation
-			const contactForm = document.querySelector('[data-contact-form]');
-			if (contactForm) {
-				contactForm.addEventListener('submit', (e) => {
-					e.preventDefault();
-					
-					// Animate form submission
-					gsap.to('.form-field', {
-						opacity: 0.5,
-						duration: 0.3,
-						ease: 'power2.out',
-					});
-					
-					gsap.to('.submit-button', {
-						scale: 0.95,
-						duration: 0.1,
-						ease: 'power2.out',
-						yoyo: true,
-						repeat: 1,
-						onComplete: () => {
-							// Here you would normally submit the form
-							console.log('Form submitted!');
-						}
-					});
-				});
-			}
+			console.log('✨ Contact animations initialized successfully!');
 		}
 
-		// Continuous floating animations
-		gsap.to('.contact-desktop-image img', {
-			y: -10,
-			duration: 3,
-			ease: 'power2.inOut',
-			yoyo: true,
-			repeat: -1,
-		});
-
-		gsap.to('.contact-mobile-image img', {
-			y: -5,
-			duration: 2.5,
-			ease: 'power2.inOut',
-			yoyo: true,
-			repeat: -1,
-		});
+		function initFallbackAnimations() {
+			// Simple CSS-based fallback animations
+			const style = document.createElement('style');
+			style.textContent = `
+				@keyframes fadeInUp {
+					from {
+						opacity: 0;
+						transform: translateY(20px);
+					}
+					to {
+						opacity: 1;
+						transform: translateY(0);
+					}
+				}
+				
+				@keyframes fadeIn {
+					from { opacity: 0; }
+					to { opacity: 1; }
+				}
+				
+				.contact-hero-title {
+					animation: fadeInUp 0.8s ease-out forwards;
+				}
+				
+				.contact-hero-subtitle {
+					animation: fadeInUp 0.6s ease-out 0.2s forwards;
+				}
+				
+				.contact-buttons-desktop,
+				.contact-buttons-mobile {
+					animation: fadeInUp 0.6s ease-out 0.4s forwards;
+				}
+				
+				.contact-form-container,
+				.contact-desktop-image,
+				.contact-mobile-image {
+					animation: fadeIn 0.8s ease-out forwards;
+				}
+				
+				.form-field,
+				.form-submit {
+					animation: fadeInUp 0.5s ease-out forwards;
+				}
+				
+				.form-field:nth-child(1) { animation-delay: 0.1s; }
+				.form-field:nth-child(2) { animation-delay: 0.2s; }
+				.form-field:nth-child(3) { animation-delay: 0.3s; }
+				.form-field:nth-child(4) { animation-delay: 0.4s; }
+				.form-field:nth-child(5) { animation-delay: 0.5s; }
+				.form-submit { animation-delay: 0.6s; }
+			`;
+			document.head.appendChild(style);
+			
+			console.log('✨ Fallback animations initialized successfully!');
+		}
 	</script>
 </Layout>
 
 <style>
-	/* Enhanced styles for smooth animations */
+	/* Ensure elements are visible by default */
 	.contact-hero-title,
 	.contact-hero-subtitle,
 	.contact-buttons-desktop,
@@ -450,148 +416,62 @@ import Button from '../components/Button.astro';
 	.contact-mobile-image,
 	.form-field,
 	.form-submit {
-		will-change: transform, opacity;
+		opacity: 1;
+		transform: none;
 	}
 
+	/* Enhanced interactive elements */
 	.contact-phone-btn,
 	.contact-email-btn,
 	.contact-phone-btn-mobile,
 	.contact-email-btn-mobile {
-		will-change: transform;
-		position: relative;
-		overflow: hidden;
+		transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
 	}
 
-	.contact-phone-btn::before,
-	.contact-email-btn::before,
-	.contact-phone-btn-mobile::before,
-	.contact-email-btn-mobile::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: -100%;
-		width: 100%;
-		height: 100%;
-		background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-		transition: left 0.6s ease;
-	}
-
-	.contact-phone-btn:hover::before,
-	.contact-email-btn:hover::before,
-	.contact-phone-btn-mobile:hover::before,
-	.contact-email-btn-mobile:hover::before {
-		left: 100%;
+	.contact-phone-btn:hover,
+	.contact-email-btn:hover,
+	.contact-phone-btn-mobile:hover,
+	.contact-email-btn-mobile:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 	}
 
 	.form-input {
-		will-change: transform;
+		transition: all 0.2s ease-out;
 	}
 
 	.form-input:focus {
+		transform: scale(1.01);
 		box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
 	}
 
+	/* Enhanced submit button */
 	.submit-button {
-		will-change: transform;
-		position: relative;
-		overflow: hidden;
+		transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
 	}
 
-	.submit-button::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: -100%;
-		width: 100%;
-		height: 100%;
-		background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-		transition: left 0.6s ease;
-	}
-
-	.submit-button:hover::before {
-		left: 100%;
-	}
-
-	.submit-icon {
-		will-change: transform;
-	}
-
-	/* Glowing Submit Button Effect - Based on CodePen */
-	.glow-on-hover {
-		border: none;
-		outline: none;
-		cursor: pointer;
-		position: relative;
-		z-index: 0;
-	}
-
-	.glow-on-hover::before {
-		content: '';
-		background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-		position: absolute;
-		top: -2px;
-		left: -2px;
-		background-size: 400%;
-		z-index: -1;
-		filter: blur(5px);
-		width: calc(100% + 4px);
-		height: calc(100% + 4px);
-		animation: glowing 20s linear infinite;
-		opacity: 0;
-		transition: opacity 0.3s ease-in-out;
-		border-radius: inherit;
-	}
-
-	.glow-on-hover:hover::before {
-		opacity: 1;
-	}
-
-	.glow-on-hover::after {
-		z-index: -1;
-		content: '';
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		background: #ca1a2f;
-		left: 0;
-		top: 0;
-		border-radius: inherit;
-	}
-
-	@keyframes glowing {
-		0% { background-position: 0 0; }
-		50% { background-position: 400% 0; }
-		100% { background-position: 0 0; }
-	}
-
-	/* Form field initial state */
-	.form-field {
-		opacity: 0;
-		transform: translateX(20px);
-	}
-
-	.form-submit {
-		opacity: 0;
-		transform: translateY(20px) scale(0.95);
-	}
-
-	/* Enhanced contact button styling */
-	.contact-phone-btn,
-	.contact-email-btn,
-	.contact-phone-btn-mobile,
-	.contact-email-btn-mobile {
-		transition: all 0.3s ease;
-		cursor: pointer;
+	.submit-button:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
 	}
 
 	/* Responsive improvements */
-	@media (max-width: 640px) {
+	@media (max-width: 768px) {
 		.contact-hero-title {
-			font-size: 2rem;
+			font-size: 2.25rem;
 		}
 		
 		.contact-hero-subtitle {
 			font-size: 0.875rem;
+		}
+	}
+
+	/* Accessibility - Respect reduced motion */
+	@media (prefers-reduced-motion: reduce) {
+		* {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
 		}
 	}
 </style> 

@@ -457,35 +457,35 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 				.to('.services-hero-title', {
 					opacity: 1,
 					y: 0,
-					duration: 1,
-					ease: 'power3.out',
+					duration: 0.8,
+					ease: 'power1.out',
 				})
 				.to('.services-hero-subtitle', {
 					opacity: 1,
 					y: 0,
-					duration: 0.8,
-					ease: 'power3.out',
-				}, '-=0.5')
+					duration: 0.6,
+					ease: 'power1.out',
+				}, '-=0.4')
 				.to('.services-tabs-container', {
 					opacity: 1,
 					y: 0,
 					scale: 1,
-					duration: 1,
+					duration: 0.8,
 					ease: 'back.out(1.7)',
 				}, '-=0.3');
 
-			// Add floating animation to tabs
+			// Add floating animation to tabs (Performance Optimized)
 			gsap.to('.services-tab-wrapper', {
 				y: -3,
 				duration: 2,
-				ease: 'power2.inOut',
+				ease: 'power1.inOut',
 				yoyo: true,
 				repeat: -1,
 			});
 		}
 
 		function initializeScrollAnimations() {
-			// Main title animation
+			// Main title animation (Performance Optimized)
 			ScrollTrigger.create({
 				trigger: '.services-main-title',
 				start: 'top 80%',
@@ -493,8 +493,8 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 					gsap.to('.services-main-title', {
 						opacity: 1,
 						y: 0,
-						duration: 1,
-						ease: 'power3.out',
+						duration: 0.8,
+						ease: 'power1.out',
 					});
 				}
 			});
@@ -538,33 +538,33 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 			gsap.to('.services-item', {
 				opacity: 1,
 				x: 0,
-				duration: 0.8,
-				ease: 'power3.out',
-				stagger: 0.15,
+				duration: 0.6,
+				ease: 'power1.out',
+				stagger: 0.12,
 			});
 
 			gsap.to('.services-icon', {
 				scale: 1,
 				rotation: 0,
-				duration: 0.6,
+				duration: 0.5,
 				ease: 'back.out(1.7)',
-				stagger: 0.15,
-				delay: 0.2,
+				stagger: 0.12,
+				delay: 0.15,
 			});
 
-			// Add hover effects for service items
+			// Add hover effects for service items (Performance Optimized)
 			document.querySelectorAll('.services-item').forEach(item => {
 				item.addEventListener('mouseenter', () => {
 					gsap.to(item.querySelector('.services-icon'), {
 						scale: 1.1,
 						rotation: 5,
-						duration: 0.3,
-						ease: 'power2.out',
+						duration: 0.2,
+						ease: 'power1.out',
 					});
 					gsap.to(item, {
 						x: 10,
-						duration: 0.3,
-						ease: 'power2.out',
+						duration: 0.2,
+						ease: 'power1.out',
 					});
 				});
 
@@ -572,13 +572,13 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 					gsap.to(item.querySelector('.services-icon'), {
 						scale: 1,
 						rotation: 0,
-						duration: 0.3,
-						ease: 'power2.out',
+						duration: 0.2,
+						ease: 'power1.out',
 					});
 					gsap.to(item, {
 						x: 0,
-						duration: 0.3,
-						ease: 'power2.out',
+						duration: 0.2,
+						ease: 'power1.out',
 					});
 				});
 			});
@@ -588,18 +588,18 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 			gsap.to('.services-mobile-item', {
 				opacity: 1,
 				y: 0,
-				duration: 0.8,
-				ease: 'power3.out',
-				stagger: 0.1,
+				duration: 0.6,
+				ease: 'power1.out',
+				stagger: 0.08,
 			});
 
 			gsap.to('.services-mobile-icon', {
 				scale: 1,
 				rotation: 0,
-				duration: 0.6,
+				duration: 0.5,
 				ease: 'back.out(1.7)',
-				stagger: 0.1,
-				delay: 0.2,
+				stagger: 0.08,
+				delay: 0.15,
 			});
 		}
 
@@ -608,24 +608,24 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 				opacity: 1,
 				y: 0,
 				scale: 1,
-				duration: 1,
-				ease: 'power3.out',
-				stagger: 0.2,
+				duration: 0.8,
+				ease: 'power1.out',
+				stagger: 0.15,
 			});
 
-			// Add sophisticated hover effects for brand cards
+			// Add sophisticated hover effects for brand cards (Performance Optimized)
 			document.querySelectorAll('.services-brand-card').forEach(card => {
 				card.addEventListener('mouseenter', () => {
 					gsap.to(card, {
 						y: -10,
 						scale: 1.02,
-						duration: 0.4,
-						ease: 'power2.out',
+						duration: 0.3,
+						ease: 'power1.out',
 					});
 					gsap.to(card.querySelector('.services-brand-image img'), {
 						scale: 1.05,
-						duration: 0.4,
-						ease: 'power2.out',
+						duration: 0.3,
+						ease: 'power1.out',
 					});
 				});
 
@@ -633,13 +633,13 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 					gsap.to(card, {
 						y: 0,
 						scale: 1,
-						duration: 0.4,
-						ease: 'power2.out',
+						duration: 0.3,
+						ease: 'power1.out',
 					});
 					gsap.to(card.querySelector('.services-brand-image img'), {
 						scale: 1.1,
-						duration: 0.4,
-						ease: 'power2.out',
+						duration: 0.3,
+						ease: 'power1.out',
 					});
 				});
 			});
@@ -649,9 +649,9 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 			gsap.to('.services-brand-mobile-card', {
 				opacity: 1,
 				y: 0,
-				duration: 0.8,
-				ease: 'power3.out',
-				stagger: 0.2,
+				duration: 0.6,
+				ease: 'power1.out',
+				stagger: 0.15,
 			});
 		}
 
@@ -677,32 +677,32 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 				servicesToggle.checked = false;
 				floatingServicesToggle.checked = false;
 
-				// Animate title transition
+				// Animate title transition (Performance Optimized)
 				gsap.to('#brandsTitle', {
 					opacity: 0,
 					y: -20,
-					duration: 0.3,
-					ease: 'power2.out',
+					duration: 0.2,
+					ease: 'power1.out',
 				});
 				gsap.to('#retailersTitle', {
 					opacity: 1,
 					y: 0,
-					duration: 0.3,
-					ease: 'power2.out',
-					delay: 0.2,
+					duration: 0.2,
+					ease: 'power1.out',
+					delay: 0.15,
 				});
 
-				// Update text colors for both toggles
+				// Update text colors for both toggles (Performance Optimized)
 				gsap.to('.services-retailers-text, .floating-retailers-text', {
 					color: 'white',
-					duration: 0.3,
+					duration: 0.2,
 				});
 				gsap.to('.services-brands-text, .floating-brands-text', {
 					color: 'rgba(255, 255, 255, 0.7)',
-					duration: 0.3,
+					duration: 0.2,
 				});
 
-				// Animate tab button switch with morphing effect
+				// Animate tab button switch with morphing effect (Performance Optimized)
 				const tl = gsap.timeline({
 					onComplete: () => { isTransitioning = false; }
 				});
@@ -710,28 +710,28 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 				// Tab button animations with subtle effect
 				tl.to(brandsTab, {
 					scale: 0.98,
-					duration: 0.2,
-					ease: 'power2.out',
+					duration: 0.15,
+					ease: 'power1.out',
 				})
 				.to(retailersTab, {
 					scale: 1.02,
-					duration: 0.3,
+					duration: 0.2,
 					ease: 'back.out(1.7)',
 				}, '-=0.1')
 				.to([brandsTab, retailersTab], {
 					scale: 1,
-					duration: 0.2,
-					ease: 'power2.out',
+					duration: 0.15,
+					ease: 'power1.out',
 				});
 
-				// Content transition with slide effect
+				// Content transition with slide effect (Performance Optimized)
 				if (!brandsContent.classList.contains('hidden')) {
 					// Slide out brands content
 					gsap.to(brandsContent, {
 						opacity: 0,
 						x: 100,
-						duration: 0.4,
-						ease: 'power2.in',
+						duration: 0.3,
+						ease: 'power1.in',
 						onComplete: () => {
 							brandsContent.classList.add('hidden');
 							retailersContent.classList.remove('hidden');
@@ -744,13 +744,13 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 							gsap.to(retailersContent, {
 								opacity: 1,
 								x: 0,
-								duration: 0.5,
-								ease: 'power2.out',
+								duration: 0.4,
+								ease: 'power1.out',
 							});
 
 							// Animate content items
-							setTimeout(() => animateRetailersContent(), 200);
-							setTimeout(() => animateRetailersMobileContent(), 200);
+							setTimeout(() => animateRetailersContent(), 150);
+							setTimeout(() => animateRetailersMobileContent(), 150);
 						}
 					});
 				}
@@ -765,32 +765,32 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 				servicesToggle.checked = true;
 				floatingServicesToggle.checked = true;
 
-				// Animate title transition
+				// Animate title transition (Performance Optimized)
 				gsap.to('#retailersTitle', {
 					opacity: 0,
 					y: -20,
-					duration: 0.3,
-					ease: 'power2.out',
+					duration: 0.2,
+					ease: 'power1.out',
 				});
 				gsap.to('#brandsTitle', {
 					opacity: 1,
 					y: 0,
-					duration: 0.3,
-					ease: 'power2.out',
-					delay: 0.2,
+					duration: 0.2,
+					ease: 'power1.out',
+					delay: 0.15,
 				});
 
-				// Update text colors for both toggles
+				// Update text colors for both toggles (Performance Optimized)
 				gsap.to('.services-brands-text, .floating-brands-text', {
 					color: 'white',
-					duration: 0.3,
+					duration: 0.2,
 				});
 				gsap.to('.services-retailers-text, .floating-retailers-text', {
 					color: 'rgba(255, 255, 255, 0.7)',
-					duration: 0.3,
+					duration: 0.2,
 				});
 
-				// Animate tab button switch with morphing effect
+				// Animate tab button switch with morphing effect (Performance Optimized)
 				const tl = gsap.timeline({
 					onComplete: () => { isTransitioning = false; }
 				});
@@ -798,28 +798,28 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 				// Tab button animations with subtle effect
 				tl.to(retailersTab, {
 					scale: 0.98,
-					duration: 0.2,
-					ease: 'power2.out',
+					duration: 0.15,
+					ease: 'power1.out',
 				})
 				.to(brandsTab, {
 					scale: 1.02,
-					duration: 0.3,
+					duration: 0.2,
 					ease: 'back.out(1.7)',
 				}, '-=0.1')
 				.to([retailersTab, brandsTab], {
 					scale: 1,
-					duration: 0.2,
-					ease: 'power2.out',
+					duration: 0.15,
+					ease: 'power1.out',
 				});
 
-				// Content transition with slide effect
+				// Content transition with slide effect (Performance Optimized)
 				if (!retailersContent.classList.contains('hidden')) {
 					// Slide out retailers content
 					gsap.to(retailersContent, {
 						opacity: 0,
 						x: -100,
-						duration: 0.4,
-						ease: 'power2.in',
+						duration: 0.3,
+						ease: 'power1.in',
 						onComplete: () => {
 							retailersContent.classList.add('hidden');
 							brandsContent.classList.remove('hidden');
@@ -831,13 +831,13 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 							gsap.to(brandsContent, {
 								opacity: 1,
 								x: 0,
-								duration: 0.5,
-								ease: 'power2.out',
+								duration: 0.4,
+								ease: 'power1.out',
 							});
 
 							// Animate content items
-							setTimeout(() => animateBrandsContent(), 200);
-							setTimeout(() => animateBrandsMobileContent(), 200);
+							setTimeout(() => animateBrandsContent(), 150);
+							setTimeout(() => animateBrandsMobileContent(), 150);
 						}
 					});
 				}
