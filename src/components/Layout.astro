@@ -34,7 +34,7 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 				<div class="hidden md:block">
 					<div class="flex relative items-baseline ml-10 space-x-8" id="desktop-nav">
 						<!-- Animated underline -->
-						<div id="nav-underline" class="absolute bottom-0 h-0.5 opacity-0 transition-all duration-300 ease-out bg-brand-red"></div>
+						<div id="nav-underline" class="absolute bottom-0 h-0.5 opacity-0 bg-brand-red" style="will-change: transform; transform-origin: left center;"></div>
 						
 						{currentPage === 'home' ? (
 							<div class="flex flex-col items-center">
@@ -254,73 +254,124 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 		document.addEventListener('DOMContentLoaded', () => {
 			console.log('🚀 Initializing GSAP animations...');
 
-			// Desktop Navigation Underline Animation
+			// Desktop Navigation Underline Animation (Transform Optimized)
 			const navUnderline = document.getElementById('nav-underline');
 			const navLinks = document.querySelectorAll('.nav-link');
 			const activeLink = document.querySelector('.nav-link.active');
 			const contactButtonActive = document.getElementById('contact-button-active');
+			const desktopNav = document.getElementById('desktop-nav');
 
-			if (navUnderline && navLinks.length > 0) {
+			if (navUnderline && navLinks.length > 0 && desktopNav) {
+				// Base width for scaling calculations
+				const baseWidth = 100;
+				
+				// Cache link transforms for performance
+				const linkCache = new Map();
+				let animationId = null;
+				
+				// Function to cache link transforms
+				function cacheTransforms() {
+					const navRect = desktopNav.getBoundingClientRect();
+					navLinks.forEach(link => {
+						const linkRect = link.getBoundingClientRect();
+						const x = linkRect.left - navRect.left;
+						const scaleX = linkRect.width / baseWidth;
+						linkCache.set(link, { x, scaleX });
+					});
+				}
+				
+				// Initial cache
+				cacheTransforms();
+				
+				// Set base width for underline
+				gsap.set(navUnderline, {
+					width: baseWidth
+				});
+				
+				// Recache on resize with debouncing
+				let resizeTimeout;
+				window.addEventListener('resize', () => {
+					clearTimeout(resizeTimeout);
+					resizeTimeout = setTimeout(() => {
+						cacheTransforms();
+						// Reposition underline for active link
+						if (activeLink && linkCache.has(activeLink)) {
+							const cached = linkCache.get(activeLink);
+							gsap.set(navUnderline, {
+								x: cached.x,
+								scaleX: cached.scaleX,
+								opacity: 1
+							});
+						}
+					}, 150);
+				});
+
 				// Position underline under active link on page load
-				if (activeLink) {
-					const linkRect = activeLink.getBoundingClientRect();
-					const navRect = document.getElementById('desktop-nav').getBoundingClientRect();
-					const leftPosition = linkRect.left - navRect.left;
-					
+				if (activeLink && linkCache.has(activeLink)) {
+					const cached = linkCache.get(activeLink);
 					gsap.set(navUnderline, {
-						left: leftPosition,
-						width: linkRect.width,
+						x: cached.x,
+						scaleX: cached.scaleX,
 						opacity: 1
 					});
 				} else if (contactButtonActive) {
-					// Hide underline when contact button is active (since it has its own styling)
+					// Hide underline when contact button is active
 					gsap.set(navUnderline, {
 						opacity: 0
 					});
 				}
 
-				// Add hover animations for navigation links
+				// Optimized hover animations using cached transforms
 				navLinks.forEach(link => {
 					link.addEventListener('mouseenter', () => {
-						const linkRect = link.getBoundingClientRect();
-						const navRect = document.getElementById('desktop-nav').getBoundingClientRect();
-						const leftPosition = linkRect.left - navRect.left;
+						if (animationId) return; // Prevent overlapping animations
 						
-						gsap.to(navUnderline, {
-							left: leftPosition,
-							width: linkRect.width,
-							opacity: 1,
-							duration: 0.3,
-							ease: 'power2.out'
-						});
+						const cached = linkCache.get(link);
+						if (cached) {
+							animationId = gsap.to(navUnderline, {
+								x: cached.x,
+								scaleX: cached.scaleX,
+								opacity: 1,
+								duration: 0.15,
+								ease: 'power1.out',
+								onComplete: () => {
+									animationId = null;
+								}
+							});
+						}
 					});
 				});
 
 				// Return underline to active link on mouse leave
-				const desktopNav = document.getElementById('desktop-nav');
-				if (desktopNav) {
-					desktopNav.addEventListener('mouseleave', () => {
-						if (activeLink) {
-							const linkRect = activeLink.getBoundingClientRect();
-							const navRect = desktopNav.getBoundingClientRect();
-							const leftPosition = linkRect.left - navRect.left;
-							
-							gsap.to(navUnderline, {
-								left: leftPosition,
-								width: linkRect.width,
-								opacity: 1,
-								duration: 0.3,
-								ease: 'power2.out'
-							});
-						} else {
-							gsap.to(navUnderline, {
-								opacity: 0,
-								duration: 0.3,
-								ease: 'power2.out'
-							});
-						}
-					});
-				}
+				desktopNav.addEventListener('mouseleave', () => {
+					if (animationId) {
+						gsap.killTweensOf(navUnderline);
+						animationId = null;
+					}
+					
+					if (activeLink && linkCache.has(activeLink)) {
+						const cached = linkCache.get(activeLink);
+						animationId = gsap.to(navUnderline, {
+							x: cached.x,
+							scaleX: cached.scaleX,
+							opacity: 1,
+							duration: 0.15,
+							ease: 'power1.out',
+							onComplete: () => {
+								animationId = null;
+							}
+						});
+					} else {
+						animationId = gsap.to(navUnderline, {
+							opacity: 0,
+							duration: 0.15,
+							ease: 'power1.out',
+							onComplete: () => {
+								animationId = null;
+							}
+						});
+					}
+				});
 			}
 
 			// Contact Button Animations
