@@ -1,5 +1,5 @@
 ---
-// No props needed for this component as it's consistent across pages
+import Button from './Button.astro';
 ---
 
 <section class="py-2">
@@ -29,12 +29,14 @@
 				</div>
 				
 				<!-- Right Button -->
-				<button class="bg-white text-brand-red px-8 py-4 rounded-2xl text-[20px] font-bold uppercase tracking-[-1px] hover:bg-gray-100 transition-colors shadow-lg flex items-center justify-center h-[90px] w-[222px] gap-4 leading-[0]">
-					<span class="leading-[1.5] whitespace-pre">Contact Us</span>
-					<svg class="w-10 h-10" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-						<path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
-					</svg>
-				</button>
+				<Button 
+					text="Contact Us"
+					variant="secondary"
+					size="xl"
+					href="/contact"
+					iconSize="lg"
+					className="tracking-[-1px] w-[222px] h-[90px]"
+				/>
 			</div>
 		</div>
 	</div>
@@ -65,12 +67,14 @@
 				</div>
 				
 				<!-- Button -->
-				<button class="bg-white text-brand-red px-8 py-4 rounded-2xl text-[18px] font-bold uppercase tracking-[-1px] hover:bg-gray-100 transition-colors shadow-lg flex items-center justify-center h-[80px] w-[250px] gap-3 leading-[0]">
-					<span class="leading-[1.5] whitespace-pre">Contact Us</span>
-					<svg class="w-8 h-8" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-						<path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
-					</svg>
-				</button>
+				<Button 
+					text="Contact Us"
+					variant="secondary"
+					size="lg"
+					href="/contact"
+					iconSize="md"
+					className="tracking-[-1px] w-[250px] h-[80px] text-[18px]"
+				/>
 			</div>
 		</div>
 	</div>
@@ -101,12 +105,14 @@
 				</div>
 				
 				<!-- Button -->
-				<button class="bg-white text-brand-red px-8 py-4 rounded-2xl text-[20px] font-bold uppercase tracking-[-1px] hover:bg-gray-100 transition-colors shadow-lg flex items-center justify-center h-[75px] w-[285px] gap-2.5 leading-[0]">
-					<span class="leading-[1.5] whitespace-pre">Contact Us</span>
-					<svg class="w-[30px] h-[30px]" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-						<path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
-					</svg>
-				</button>
+				<Button 
+					text="Contact Us"
+					variant="secondary"
+					size="lg"
+					href="/contact"
+					iconSize="lg"
+					className="tracking-[-1px] w-[285px] h-[75px] text-[20px] gap-2.5"
+				/>
 			</div>
 		</div>
 	</div>

@@ -1,0 +1,138 @@
+---
+export interface Props {
+  width?: number;
+  height?: number;
+  className?: string;
+  variant?: 'default' | 'mobile';
+}
+
+const { width = 120, height = 80, className = '', variant = 'default' } = Astro.props;
+---
+
+<div class={`lottie-logo ${className}`} style={`width: ${width}px; height: ${height}px;`} data-variant={variant}></div>
+
+<script>
+  import lottie from 'lottie-web';
+
+  // Track if animations have been played to ensure they only play once
+  let hasPlayedOnLoad = false;
+  const animations = new Map();
+
+  function initializeLottie() {
+    const containers = document.querySelectorAll('.lottie-logo');
+    
+    containers.forEach((container, index) => {
+      if (!container || animations.has(container)) return;
+
+      // Clear any existing animation
+      container.innerHTML = '';
+
+      const variant = container.getAttribute('data-variant') || 'default';
+
+      // Load and play the Lottie animation
+      const animation = lottie.loadAnimation({
+        container: container,
+        renderer: 'svg',
+        loop: false, // Only play once
+        autoplay: false, // Don't auto-play, we'll control it
+        path: '/animations/logo_white_big.json'
+      });
+
+      // Set playback speed to 1.5x faster
+      animation.setSpeed(1.5);
+
+      // Store animation reference
+      animations.set(container, animation);
+
+      // Function to play animation once page is fully loaded
+      function playAnimationOnLoad() {
+        if (hasPlayedOnLoad) return; // Prevent multiple plays
+        
+        // Check if page is already loaded
+        if (document.readyState === 'complete') {
+          setTimeout(() => {
+            animation.play();
+            hasPlayedOnLoad = true;
+          }, 100); // Small delay to ensure everything is ready
+        } else {
+          // Wait for page to load
+          window.addEventListener('load', () => {
+            setTimeout(() => {
+              animation.play();
+              hasPlayedOnLoad = true;
+            }, 100);
+          });
+        }
+      }
+
+      // Initialize animation when ready
+      animation.addEventListener('DOMLoaded', () => {
+        playAnimationOnLoad();
+      });
+
+
+
+      // Handle potential errors
+      animation.addEventListener('data_failed', (error) => {
+        console.error('Lottie animation failed to load:', error);
+        // Fallback to text logo based on variant
+        const fallbackContent = variant === 'mobile' ? `
+          <div class="flex items-center">
+            <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-red-600 rounded-md flex items-center justify-center">
+              <span class="text-white font-bold text-sm">AL</span>
+            </div>
+            <div class="ml-3">
+              <div class="text-xl font-bold text-brand-blue">American</div>
+              <div class="text-sm text-gray-600 -mt-1">Loyalty</div>
+            </div>
+          </div>
+        ` : `
+          <div class="flex items-center">
+            <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-red-600 rounded-md flex items-center justify-center">
+              <span class="text-white font-bold text-sm">AL</span>
+            </div>
+            <div class="ml-3">
+              <div class="text-xl font-bold text-white">American</div>
+              <div class="text-sm text-white/80 -mt-1">Loyalty</div>
+            </div>
+          </div>
+        `;
+        
+        container.innerHTML = fallbackContent;
+      });
+    });
+
+    // Clean up on page unload
+    window.addEventListener('beforeunload', () => {
+      animations.forEach(animation => animation.destroy());
+      animations.clear();
+    });
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeLottie);
+  } else {
+    initializeLottie();
+  }
+
+  // Re-initialize on navigation (for SPA-like behavior)
+  document.addEventListener('astro:page-load', () => {
+    hasPlayedOnLoad = false; // Reset for new page
+    initializeLottie();
+  });
+</script>
+
+<style>
+  .lottie-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .lottie-logo svg {
+    width: 100% !important;
+    height: 100% !important;
+  }
+</style> 

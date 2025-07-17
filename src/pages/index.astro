@@ -1,6 +1,7 @@
 ---
 import Layout from '../components/Layout.astro';
 import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
+import Button from '../components/Button.astro';
 ---
 
 <Layout title="American Loyalty - Where Engagement meets Excellence in every Reward" currentPage="home">
@@ -9,7 +10,7 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 		<!-- Mobile Layout -->
 		<div class="block lg:hidden px-4 py-16">
 			<!-- Hero Content -->
-			<div class="relative">
+			<div class="relative hero-card">
 				<!-- Background Image with Overlay -->
 				<div class="rounded-xl overflow-hidden mb-8 h-64">
 					<div 
@@ -32,12 +33,15 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 					<p class="font-medium text-base leading-relaxed opacity-90" data-hero-animate>
 						Unlock the full potential of Customer Loyalty and let's achieve success together. Our team is ready and waiting to collaborate with you.
 					</p>
-					<button class="bg-brand-red text-white px-6 py-4 rounded-2xl text-sm font-bold uppercase flex items-center justify-center shadow-lg hover:bg-red-700 transition-colors gap-3 w-full sm:w-auto hero-button" data-hero-animate>
-						<span>Work With Us!</span>
-						<svg class="w-5 h-5" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-							<path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
-						</svg>
-					</button>
+					<Button 
+						text="Work With Us!"
+						variant="primary"
+						size="md"
+						href="/contact"
+						fullWidth={true}
+						className="sm:w-auto hero-button"
+						dataAttribute="data-hero-animate"
+					/>
 				</div>
 			</div>
 		</div>
@@ -54,7 +58,7 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 			</div>
 
 			<!-- Hero Content Container -->
-			<div class="absolute left-[121px] top-[126px] w-[1198px] h-[674px]">
+			<div class="absolute left-[121px] top-[126px] w-[1198px] h-[674px] hero-card">
 				<!-- Background Image with Overlay -->
 				<div class="absolute inset-0 rounded-xl overflow-hidden">
 					<div 
@@ -80,12 +84,14 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 								Unlock the full potential of Customer Loyalty and let's achieve success together. Our team is ready and waiting to collaborate with you.
 							</p>
 						</div>
-						<button class="bg-brand-red text-white px-8 py-4 rounded-2xl text-[16px] font-bold uppercase flex items-center justify-center shadow-lg hover:bg-red-700 transition-colors h-[88px] w-[210px] gap-4 leading-[0] hero-button" data-hero-animate>
-							<span class="leading-[1.5] whitespace-pre">Work With Us!</span>
-							<svg class="w-8 h-8" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-								<path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
-							</svg>
-						</button>
+						<Button 
+							text="Work With Us!"
+							variant="primary"
+							size="lg"
+							href="/contact"
+							className="h-[88px] w-[210px] text-[16px] hero-button"
+							dataAttribute="data-hero-animate"
+						/>
 					</div>
 				</div>
 			</div>
@@ -118,12 +124,14 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 								Unlock the full potential of Customer Loyalty and let's achieve success together. Unlock the full potential of Customer Loyalty and let's achieve success together. Unlock the full potential of Customer Loyalty and let's achieve success together. Unlock the full potential of Customer Loyalty and let's achieve success together.
 							</p>
 						</div>
-						<button class="bg-brand-red text-white px-6 py-4 rounded-2xl text-sm font-bold uppercase flex items-center justify-center shadow-lg hover:bg-red-700 transition-colors gap-3 w-full sm:w-auto">
-							<span>Learn More About Us</span>
-							<svg class="w-5 h-5" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-								<path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
-							</svg>
-						</button>
+						<Button 
+							text="Learn More About Us"
+							variant="primary"
+							size="md"
+							href="/about"
+							fullWidth={true}
+							className="sm:w-auto"
+						/>
 					</div>
 				</div>
 			</div>
@@ -153,12 +161,13 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 								Unlock the full potential of Customer Loyalty and let's achieve success together. Unlock the full potential of Customer Loyalty and let's achieve success together. Unlock the full potential of Customer Loyalty and let's achieve success together. Unlock the full potential of Customer Loyalty and let's achieve success together.
 							</p>
 						</div>
-						<button class="bg-brand-red text-white px-8 py-4 rounded-2xl text-[16px] font-bold uppercase flex items-center justify-center shadow-lg hover:bg-red-700 transition-colors h-[88px] w-[281px] gap-4 leading-[0]">
-							<span class="leading-[1.5] whitespace-pre">Learn More About Us</span>
-							<svg class="w-8 h-8" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-								<path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
-							</svg>
-						</button>
+						<Button 
+							text="Learn More About Us"
+							variant="primary"
+							size="lg"
+							href="/about"
+							className="h-[88px] w-[281px] text-[16px]"
+						/>
 					</div>
 				</div>
 			</div>
@@ -310,12 +319,13 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 							<span class="text-gray-600 text-base font-medium">Supervision & Reporting</span>
 						</div>
 					</div>
-					<button class="bg-brand-red text-white px-6 py-4 rounded-2xl text-sm font-bold uppercase w-full hover:bg-red-700 transition-colors flex items-center justify-center gap-3">
-						<span>Learn More About Retailers</span>
-						<svg class="w-5 h-5" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-							<path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
-						</svg>
-					</button>
+					<Button 
+						text="Learn More About Retailers"
+						variant="primary"
+						size="md"
+						href="/services"
+						fullWidth={true}
+					/>
 				</div>
 
 				<!-- Brands Card -->
@@ -373,12 +383,13 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 							<span class="text-gray-600 text-base font-medium">Seen. Collected. Loved.</span>
 						</div>
 					</div>
-					<button class="bg-brand-red text-white px-6 py-4 rounded-2xl text-sm font-bold uppercase w-full hover:bg-red-700 transition-colors flex items-center justify-center gap-3">
-						<span>Learn More About Brands</span>
-						<svg class="w-5 h-5" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-							<path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
-						</svg>
-					</button>
+					<Button 
+						text="Learn More About Brands"
+						variant="primary"
+						size="md"
+						href="/services"
+						fullWidth={true}
+					/>
 				</div>
 			</div>
 		</div>
@@ -452,12 +463,15 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 							<span class="text-gray-600 text-[18px] leading-[28px] font-medium">Supervision & Reporting</span>
 						</div>
 					</div>
-					<button class="absolute left-[37.5px] top-[383px] bg-brand-red text-white px-8 py-4 rounded-2xl text-[16px] font-bold uppercase w-[385px] h-[88px] hover:bg-red-700 transition-colors leading-[0] gap-4 flex items-center justify-center">
-						<span class="leading-[1.5] whitespace-pre">Learn More About Retailers</span>
-						<svg class="w-8 h-8" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-							<path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
-						</svg>
-					</button>
+					<div class="absolute left-[37.5px] top-[383px]">
+						<Button 
+							text="Learn More About Retailers"
+							variant="primary"
+							size="lg"
+							href="/services"
+							className="w-[385px] h-[88px] text-[16px]"
+						/>
+					</div>
 				</div>
 
 				<!-- Brands Card -->
@@ -515,12 +529,15 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 							<span class="text-gray-600 text-[18px] leading-[28px] font-medium">Seen. Collected. Loved.</span>
 						</div>
 					</div>
-					<button class="absolute left-7 top-[383px] bg-brand-red text-white px-8 py-4 rounded-2xl text-[16px] font-bold uppercase w-[385px] h-[88px] hover:bg-red-700 transition-colors leading-[0] gap-4 flex items-center justify-center">
-						<span class="leading-[1.5] whitespace-pre">Learn More About Brands</span>
-						<svg class="w-8 h-8" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-							<path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
-						</svg>
-					</button>
+					<div class="absolute left-7 top-[383px]">
+						<Button 
+							text="Learn More About Brands"
+							variant="primary"
+							size="lg"
+							href="/services"
+							className="w-[385px] h-[88px] text-[16px]"
+						/>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -635,4 +652,6 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 	<section class="relative pt-[60px] pb-20">
 		<GrowLoyaltySection />
 	</section>
+
+
 </Layout>

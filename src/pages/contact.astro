@@ -1,5 +1,6 @@
 ---
 import Layout from '../components/Layout.astro';
+import Button from '../components/Button.astro';
 ---
 
 <Layout title="Contact Us - American Loyalty" currentPage="contact">
@@ -22,23 +23,25 @@ import Layout from '../components/Layout.astro';
 		<div class="hidden lg:flex absolute left-1/2 top-[371px] transform -translate-x-1/2 contact-buttons-desktop">
 			<div class="flex flex-row gap-4 items-center justify-center">
 				<!-- Phone Button -->
-				<div class="bg-brand-red flex flex-row gap-3 h-[59px] items-center justify-center px-6 py-3 rounded-xl shadow-lg contact-phone-btn hover:bg-red-700 transition-all duration-300 cursor-pointer">
-					<div class="flex items-center justify-center">
-						<svg class="w-[22px] h-[22px] text-white" viewBox="0 0 24 24" fill="currentColor">
-							<path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.2c.27-.27.35-.67.24-1.02C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
-						</svg>
-					</div>
-					<span class="text-white text-[22px] font-normal leading-[39px] whitespace-nowrap">+1-309-3095443</span>
+				<div class="flex flex-row gap-3 items-center justify-center contact-phone-btn hover:bg-red-700 transition-all duration-300 cursor-pointer">
+					<Button 
+						text="+1-309-3095443"
+						variant="contact"
+						iconType="phone"
+						href="tel:+1-309-3095443"
+						className="h-[59px] px-6 py-3 text-[22px] font-normal leading-[39px] whitespace-nowrap"
+					/>
 				</div>
 
 				<!-- Email Button -->
-				<div class="bg-brand-red flex flex-row gap-5 h-[59px] items-center justify-center px-6 py-3 rounded-xl shadow-lg contact-email-btn hover:bg-red-700 transition-all duration-300 cursor-pointer">
-					<div class="flex items-center justify-center">
-						<svg class="w-[25px] h-[25px] text-white" viewBox="0 0 24 24" fill="currentColor">
-							<path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-						</svg>
-					</div>
-					<span class="text-white text-[22px] font-medium leading-[39px] whitespace-nowrap">contact@whiter.co</span>
+				<div class="flex flex-row gap-5 items-center justify-center contact-email-btn hover:bg-red-700 transition-all duration-300 cursor-pointer">
+					<Button 
+						text="contact@whiter.co"
+						variant="contact"
+						iconType="email"
+						href="mailto:contact@whiter.co"
+						className="h-[59px] px-6 py-3 text-[22px] font-medium leading-[39px] whitespace-nowrap"
+					/>
 				</div>
 			</div>
 		</div>
@@ -46,255 +49,237 @@ import Layout from '../components/Layout.astro';
 		<!-- Contact Buttons - Mobile -->
 		<div class="lg:hidden absolute left-1/2 top-[230px] transform -translate-x-1/2 flex flex-col gap-3 items-center contact-buttons-mobile">
 			<!-- Phone Button Mobile -->
-			<div class="bg-brand-red flex flex-row gap-3 h-[53px] items-center justify-center px-4 py-3 rounded-xl shadow-lg w-[258px] contact-phone-btn-mobile hover:bg-red-700 transition-all duration-300 cursor-pointer">
-				<div class="flex items-center justify-center">
-					<svg class="w-[20px] h-[20px] text-white" viewBox="0 0 24 24" fill="currentColor">
-						<path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.2c.27-.27.35-.67.24-1.02C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
-					</svg>
-				</div>
-				<span class="text-white text-[20px] font-normal leading-[35px]">+1-309-3095443</span>
+			<div class="contact-phone-btn-mobile hover:bg-red-700 transition-all duration-300 cursor-pointer">
+				<Button 
+					text="+1-309-3095443"
+					variant="contact"
+					iconType="phone"
+					href="tel:+1-309-3095443"
+					className="h-[53px] px-4 py-3 w-[258px] text-[20px] font-normal leading-[35px]"
+				/>
 			</div>
 
 			<!-- Email Button Mobile -->
-			<div class="bg-brand-red flex flex-row gap-4 h-[53px] items-center justify-center px-4 py-3 rounded-md shadow-lg w-[258px] contact-email-btn-mobile hover:bg-red-700 transition-all duration-300 cursor-pointer">
-				<div class="flex items-center justify-center">
-					<svg class="w-[22px] h-[22px] text-white" viewBox="0 0 24 24" fill="currentColor">
-						<path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-					</svg>
-				</div>
-				<span class="text-white text-[20px] font-medium leading-[35px]">contact@whiter.co</span>
+			<div class="contact-email-btn-mobile hover:bg-red-700 transition-all duration-300 cursor-pointer">
+				<Button 
+					text="contact@whiter.co"
+					variant="contact"
+					iconType="email"
+					href="mailto:contact@whiter.co"
+					className="h-[53px] px-4 py-3 w-[258px] text-[20px] font-medium leading-[35px] rounded-md"
+				/>
 			</div>
 		</div>
 	</section>
 
 	<!-- FORM SECTION -->
-	<section class="relative">
-		<div class="max-w-[1117px] lg:max-w-[1117px] max-w-[365px] mx-auto relative top-[-40px] lg:top-[-87px] bg-white rounded-[15px] shadow-[0px_4px_64px_0px_rgba(0,0,0,0.15)] min-h-[773px] lg:min-h-[773px] min-h-[997px] contact-form-container">
-			<!-- Mobile Background Image -->
-			<div class="lg:hidden w-[332px] h-[318px] rounded-[15px] mt-[17px] mx-auto contact-mobile-image">
-				<div class="w-full h-full rounded-[15px] bg-gradient-to-br from-blue-100 to-gray-100 relative overflow-hidden">
-					<img 
-						src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-						alt="Customer service representative"
-						class="w-full h-full object-cover rounded-[15px]"
-					/>
-				</div>
-			</div>
-
-			<div class="flex flex-row">
-				<!-- Left Side - Background Image (Desktop) -->
-				<div class="hidden lg:block w-[500px] h-[698px] rounded-[15px] mt-[31px] ml-[33px] contact-desktop-image">
-					<div class="w-full h-full rounded-[15px] bg-gradient-to-br from-blue-100 to-gray-100 relative overflow-hidden">
+	<section class="relative bg-white py-16 lg:py-24">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
+				<!-- Left Column - Image (Desktop) -->
+				<div class="hidden lg:block lg:w-1/2">
+					<div class="relative contact-desktop-image" data-animation="slide-left">
 						<img 
-							src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-							alt="Customer service representative"
-							class="w-full h-full object-cover rounded-[15px]"
+							src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+							alt="Contact us - American Loyalty team"
+							class="w-full h-[600px] object-cover rounded-2xl shadow-2xl"
 						/>
+						<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
 					</div>
 				</div>
 
-				<!-- Right Side - Form -->
-				<div class="flex-1 p-6 lg:p-8 lg:pl-[51px] lg:pr-[60px] lg:pt-[55px] contact-form-content">
-					<form class="space-y-4 lg:space-y-6 contact-form">
-						<!-- Full Name -->
-						<div class="space-y-2 form-field">
-							<label class="font-bold text-[#1d263a] text-[14.8px] lg:text-[15.6px] leading-[26px] lg:leading-[27.6px] block form-label">
-								Full Name
-							</label>
-							<div class="relative">
-								<input 
-									type="text" 
-									placeholder="Your Full Name"
-									class="w-full h-[68px] lg:h-[72px] bg-[#e1ecf0]/50 rounded-[9px] px-3 lg:px-4 py-3 text-[#1d263a]/60 text-[13px] lg:text-[13.8px] leading-[24px] lg:leading-[25.8px] border-none outline-none focus:ring-2 focus:ring-brand-red/20 transition-all duration-300 form-input"
-								/>
+				<!-- Right Column - Form -->
+				<div class="w-full lg:w-1/2">
+					<!-- Mobile Image -->
+					<div class="block lg:hidden mb-8 contact-mobile-image" data-animation="fade-up">
+						<img 
+							src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+							alt="Contact us - American Loyalty team"
+							class="w-full h-48 object-cover rounded-2xl shadow-xl"
+						/>
+					</div>
+
+					<!-- Form Container -->
+					<div class="contact-form-container" data-animation="slide-right">
+						<div class="bg-white rounded-2xl shadow-xl p-6 lg:p-8 border border-gray-100">
+							<div class="contact-form-content">
+								<!-- Form Header -->
+								<div class="mb-8">
+									<h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">Get in Touch</h2>
+									<p class="text-gray-600 text-base lg:text-lg">Ready to transform your customer loyalty? Let's start the conversation.</p>
+								</div>
+
+								<!-- Contact Form -->
+								<form class="space-y-6" method="POST" action="/contact" data-contact-form>
+									<!-- Name Field -->
+									<div class="form-field">
+										<label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
+										<input 
+											type="text" 
+											id="name" 
+											name="name" 
+											required 
+											class="form-input w-full px-4 py-3 lg:py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all duration-200 text-gray-900 placeholder-gray-500"
+											placeholder="Enter your full name"
+										/>
+									</div>
+
+									<!-- Email Field -->
+									<div class="form-field">
+										<label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email Address *</label>
+										<input 
+											type="email" 
+											id="email" 
+											name="email" 
+											required 
+											class="form-input w-full px-4 py-3 lg:py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all duration-200 text-gray-900 placeholder-gray-500"
+											placeholder="Enter your email address"
+										/>
+									</div>
+
+									<!-- Company Field -->
+									<div class="form-field">
+										<label for="company" class="block text-sm font-semibold text-gray-700 mb-2">Company Name</label>
+										<input 
+											type="text" 
+											id="company" 
+											name="company" 
+											class="form-input w-full px-4 py-3 lg:py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all duration-200 text-gray-900 placeholder-gray-500"
+											placeholder="Enter your company name"
+										/>
+									</div>
+
+									<!-- Phone Field -->
+									<div class="form-field">
+										<label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
+										<input 
+											type="tel" 
+											id="phone" 
+											name="phone" 
+											class="form-input w-full px-4 py-3 lg:py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all duration-200 text-gray-900 placeholder-gray-500"
+											placeholder="Enter your phone number"
+										/>
+									</div>
+
+									<!-- Message Field -->
+									<div class="form-field">
+										<label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Message *</label>
+										<textarea 
+											id="message" 
+											name="message" 
+											required 
+											rows="4" 
+											class="form-input w-full px-4 py-3 lg:py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all duration-200 text-gray-900 placeholder-gray-500 resize-none"
+											placeholder="Tell us about your loyalty program needs..."
+										></textarea>
+									</div>
+
+									<!-- Submit Button -->
+									<div class="pt-4 lg:pt-6 form-submit">
+										<Button 
+											text="Send Message"
+											variant="submit"
+											type="submit"
+											iconType="send"
+											fullWidth={true}
+											className="h-[71px] lg:h-[75px] text-[14.2px] lg:text-[15px] submit-button glow-on-hover"
+										/>
+									</div>
+								</form>
 							</div>
 						</div>
-
-						<!-- Email Address -->
-						<div class="space-y-2 form-field">
-							<label class="font-bold text-[#1d263a] text-[14.8px] lg:text-[15.6px] leading-[26px] lg:leading-[27.6px] block form-label">
-								Email Address
-							</label>
-							<div class="relative">
-								<input 
-									type="email" 
-									placeholder="Your Email Address"
-									class="w-full h-[68px] lg:h-[72px] bg-[#e1ecf0]/50 rounded-[9px] px-3 lg:px-4 py-3 text-[#1d263a]/60 text-[13px] lg:text-[13.8px] leading-[24px] lg:leading-[25.8px] border-none outline-none focus:ring-2 focus:ring-brand-red/20 transition-all duration-300 form-input"
-								/>
-							</div>
-						</div>
-
-						<!-- Company Name -->
-						<div class="space-y-2 form-field">
-							<label class="font-bold text-[#1d263a] text-[14.8px] lg:text-[15.6px] leading-[26px] lg:leading-[27.6px] block form-label">
-								Company Name
-							</label>
-							<div class="relative">
-								<input 
-									type="text" 
-									placeholder="Your Company Name"
-									class="w-full h-[68px] lg:h-[72px] bg-[#e1ecf0]/50 rounded-[9px] px-3 lg:px-4 py-3 text-[#1d263a]/60 text-[13px] lg:text-[13.8px] leading-[24px] lg:leading-[25.8px] border-none outline-none focus:ring-2 focus:ring-brand-red/20 transition-all duration-300 form-input"
-								/>
-							</div>
-						</div>
-
-						<!-- Message -->
-						<div class="space-y-2 form-field">
-							<label class="font-bold text-[#1d263a] text-[14.8px] lg:text-[15.6px] leading-[26px] lg:leading-[27.6px] block form-label">
-								Message
-							</label>
-							<div class="relative">
-								<textarea 
-									placeholder="Your Message"
-									rows="6"
-									class="w-full h-[148px] lg:h-[157px] bg-[#e1ecf0]/50 rounded-[9px] px-3 lg:px-4 py-3 lg:py-4 text-[#1d263a]/60 text-[13px] lg:text-[13.8px] leading-[24px] lg:leading-[25.8px] border-none outline-none focus:ring-2 focus:ring-brand-red/20 resize-none transition-all duration-300 form-input"
-								></textarea>
-							</div>
-						</div>
-
-						<!-- Submit Button -->
-						<div class="pt-4 lg:pt-6 form-submit">
-							<button 
-								type="submit"
-								class="glow-on-hover w-full bg-brand-red text-white h-[71px] lg:h-[75px] rounded-[14px] lg:rounded-[15px] text-[14.2px] lg:text-[15px] font-bold uppercase hover:bg-red-700 hover:shadow-xl hover:transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 submit-button"
-							>
-								<span class="leading-[1.5]">Send Message</span>
-								<svg class="w-[21px] lg:w-[22px] h-[21px] lg:h-[22px] rotate-90 submit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
-								</svg>
-							</button>
-						</div>
-					</form>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
 	<!-- Enhanced Contact Page Animations Script with GSAP -->
-	<script>
+	<script type="module">
 		import { gsap } from 'gsap';
 		import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 		gsap.registerPlugin(ScrollTrigger);
 
-		// Wait for DOM to be ready
 		document.addEventListener('DOMContentLoaded', () => {
-			// Set initial states for all animations
-			initializeAnimationStates();
-			
-			// Initialize hero animations
+			// Initialize all animations
 			initializeHeroAnimations();
-			
-			// Initialize scroll-triggered animations
-			initializeScrollAnimations();
-			
-			// Initialize interactive elements
+			initializeFormAnimations();
 			initializeInteractiveElements();
-			
-			// Initialize form functionality
-			initializeFormFunctionality();
 		});
 
-		function initializeAnimationStates() {
-			// Hero elements
-			gsap.set('.contact-hero-title', { opacity: 0, y: 40, scale: 0.9 });
-			gsap.set('.contact-hero-subtitle', { opacity: 0, y: 30 });
-			gsap.set('.contact-buttons-desktop', { opacity: 0, y: 50, scale: 0.9 });
-			gsap.set('.contact-buttons-mobile', { opacity: 0, y: 40, scale: 0.9 });
-			
-			// Form container
-			gsap.set('.contact-form-container', { opacity: 0, y: 80, scale: 0.95 });
-			
-			// Form elements
-			gsap.set('.contact-desktop-image', { opacity: 0, x: -50, scale: 0.95 });
-			gsap.set('.contact-mobile-image', { opacity: 0, y: 30, scale: 0.95 });
-			gsap.set('.form-field', { opacity: 0, x: 30 });
-			gsap.set('.form-submit', { opacity: 0, y: 30, scale: 0.9 });
-		}
-
 		function initializeHeroAnimations() {
-			const heroTl = gsap.timeline();
-			
-			heroTl
-				.to('.contact-hero-title', {
-					opacity: 1,
-					y: 0,
-					scale: 1,
-					duration: 1.2,
-					ease: 'power3.out',
-				})
-				.to('.contact-hero-subtitle', {
-					opacity: 1,
-					y: 0,
-					duration: 0.8,
-					ease: 'power3.out',
-				}, '-=0.6')
-				.to('.contact-buttons-desktop, .contact-buttons-mobile', {
-					opacity: 1,
-					y: 0,
-					scale: 1,
-					duration: 1,
-					ease: 'back.out(1.7)',
-				}, '-=0.4');
+			// Hero title animation
+			gsap.from('.contact-hero-title', {
+				opacity: 0,
+				y: 50,
+				duration: 1,
+				ease: 'power3.out',
+				delay: 0.2,
+			});
 
-			// Add continuous floating animation to contact buttons
-			gsap.to('.contact-phone-btn, .contact-email-btn, .contact-phone-btn-mobile, .contact-email-btn-mobile', {
-				y: -3,
-				duration: 2,
-				ease: 'power2.inOut',
-				yoyo: true,
-				repeat: -1,
-				stagger: 0.2,
+			// Hero subtitle animation
+			gsap.from('.contact-hero-subtitle', {
+				opacity: 0,
+				y: 30,
+				duration: 0.8,
+				ease: 'power3.out',
+				delay: 0.4,
+			});
+
+			// Contact buttons animation
+			gsap.from('.contact-buttons-desktop, .contact-buttons-mobile', {
+				opacity: 0,
+				y: 40,
+				duration: 1,
+				ease: 'back.out(1.7)',
+				delay: 0.6,
 			});
 		}
 
-		function initializeScrollAnimations() {
-			// Form container slide up animation
+		function initializeFormAnimations() {
+			// Image animations
 			ScrollTrigger.create({
-				trigger: '.contact-form-container',
-				start: 'top 85%',
+				trigger: '.contact-desktop-image',
+				start: 'top 80%',
 				onEnter: () => {
-					gsap.to('.contact-form-container', {
-						opacity: 1,
-						y: 0,
-						scale: 1,
+					gsap.from('.contact-desktop-image', {
+						opacity: 0,
+						x: -100,
 						duration: 1.2,
 						ease: 'power3.out',
 					});
 				}
 			});
 
-			// Desktop image animation
-			ScrollTrigger.create({
-				trigger: '.contact-desktop-image',
-				start: 'top 80%',
-				onEnter: () => {
-					gsap.to('.contact-desktop-image', {
-						opacity: 1,
-						x: 0,
-						scale: 1,
-						duration: 1,
-						ease: 'power3.out',
-					});
-				}
-			});
-
-			// Mobile image animation
 			ScrollTrigger.create({
 				trigger: '.contact-mobile-image',
 				start: 'top 80%',
 				onEnter: () => {
-					gsap.to('.contact-mobile-image', {
-						opacity: 1,
-						y: 0,
-						scale: 1,
+					gsap.from('.contact-mobile-image', {
+						opacity: 0,
+						scale: 0.9,
 						duration: 0.8,
 						ease: 'power3.out',
 					});
 				}
 			});
 
-			// Form fields staggered animation
+			// Form container animation
+			ScrollTrigger.create({
+				trigger: '.contact-form-container',
+				start: 'top 80%',
+				onEnter: () => {
+					gsap.from('.contact-form-container', {
+						opacity: 0,
+						x: 100,
+						duration: 1.2,
+						ease: 'power3.out',
+					});
+				}
+			});
+
+			// Form fields stagger animation
 			ScrollTrigger.create({
 				trigger: '.contact-form-content',
 				start: 'top 75%',
@@ -373,13 +358,7 @@ import Layout from '../components/Layout.astro';
 				input.addEventListener('focus', () => {
 					gsap.to(input, {
 						scale: 1.02,
-						duration: 0.3,
-						ease: 'power2.out',
-					});
-					gsap.to(input.parentElement.parentElement.querySelector('.form-label'), {
-						color: '#dc2626',
-						scale: 1.05,
-						duration: 0.3,
+						duration: 0.2,
 						ease: 'power2.out',
 					});
 				});
@@ -387,107 +366,75 @@ import Layout from '../components/Layout.astro';
 				input.addEventListener('blur', () => {
 					gsap.to(input, {
 						scale: 1,
-						duration: 0.3,
-						ease: 'power2.out',
-					});
-					gsap.to(input.parentElement.parentElement.querySelector('.form-label'), {
-						color: '#1d263a',
-						scale: 1,
-						duration: 0.3,
+						duration: 0.2,
 						ease: 'power2.out',
 					});
 				});
 			});
 
-			// Submit button enhanced hover effect
+			// Submit button enhanced animation
 			const submitButton = document.querySelector('.submit-button');
-			
 			if (submitButton) {
 				submitButton.addEventListener('mouseenter', () => {
 					gsap.to(submitButton.querySelector('.submit-icon'), {
-						rotate: 135,
-						scale: 1.2,
-						duration: 0.4,
-						ease: 'back.out(1.7)',
+						rotate: 360,
+						duration: 0.6,
+						ease: 'power2.out',
 					});
 				});
 
 				submitButton.addEventListener('mouseleave', () => {
 					gsap.to(submitButton.querySelector('.submit-icon'), {
 						rotate: 90,
-						scale: 1,
-						duration: 0.4,
+						duration: 0.3,
 						ease: 'power2.out',
 					});
 				});
 			}
-		}
 
-		function initializeFormFunctionality() {
-			const form = document.querySelector('.contact-form');
-			if (form) {
-				form.addEventListener('submit', function(e) {
+			// Form submission animation
+			const contactForm = document.querySelector('[data-contact-form]');
+			if (contactForm) {
+				contactForm.addEventListener('submit', (e) => {
 					e.preventDefault();
 					
-					// Success animation
-					const submitButton = form.querySelector('.submit-button') as HTMLElement;
-					const submitIcon = form.querySelector('.submit-icon');
-					
-					// Button loading state
-					gsap.to(submitButton, {
-						scale: 0.95,
-						duration: 0.2,
+					// Animate form submission
+					gsap.to('.form-field', {
+						opacity: 0.5,
+						duration: 0.3,
 						ease: 'power2.out',
+					});
+					
+					gsap.to('.submit-button', {
+						scale: 0.95,
+						duration: 0.1,
+						ease: 'power2.out',
+						yoyo: true,
+						repeat: 1,
 						onComplete: () => {
-							// Simulate processing
-							gsap.to(submitIcon, {
-								rotate: 450,
-								duration: 1,
-								ease: 'power2.inOut',
-								onComplete: () => {
-									// Success state
-									gsap.to(submitButton, {
-										backgroundColor: '#059669',
-										scale: 1.02,
-										duration: 0.3,
-										ease: 'power2.out',
-									});
-									
-									// Show success message
-									alert('Thank you for your message! We will get back to you soon.');
-									
-									// Reset button
-									setTimeout(() => {
-										gsap.to(submitButton, {
-											backgroundColor: '#dc2626',
-											scale: 1,
-											duration: 0.3,
-											ease: 'power2.out',
-										});
-										gsap.to(submitIcon, {
-											rotate: 90,
-											duration: 0.3,
-											ease: 'power2.out',
-										});
-									}, 2000);
-								}
-							});
+							// Here you would normally submit the form
+							console.log('Form submitted!');
 						}
 					});
 				});
 			}
 		}
 
-		// Parallax effect for images
-		gsap.to('.contact-desktop-image img, .contact-mobile-image img', {
-			scale: 1.1,
-			ease: 'none',
-			scrollTrigger: {
-				trigger: '.contact-form-container',
-				start: 'top bottom',
-				end: 'bottom top',
-				scrub: true,
-			}
+		// Continuous floating animations
+		gsap.to('.contact-desktop-image img', {
+			y: -10,
+			duration: 3,
+			ease: 'power2.inOut',
+			yoyo: true,
+			repeat: -1,
+		});
+
+		gsap.to('.contact-mobile-image img', {
+			y: -5,
+			duration: 2.5,
+			ease: 'power2.inOut',
+			yoyo: true,
+			repeat: -1,
 		});
 	</script>
 </Layout>
@@ -578,9 +525,9 @@ import Layout from '../components/Layout.astro';
 		z-index: 0;
 	}
 
-	.glow-on-hover:before {
+	.glow-on-hover::before {
 		content: '';
-		background: linear-gradient(45deg, #dc2626, #ef4444, #f87171, #fca5a5, #f87171, #ef4444, #dc2626, #b91c1c, #dc2626);
+		background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
 		position: absolute;
 		top: -2px;
 		left: -2px;
@@ -590,35 +537,25 @@ import Layout from '../components/Layout.astro';
 		width: calc(100% + 4px);
 		height: calc(100% + 4px);
 		animation: glowing 20s linear infinite;
-		opacity: 1;
-		transition: opacity .3s ease-in-out;
-		border-radius: 17px;
+		opacity: 0;
+		transition: opacity 0.3s ease-in-out;
+		border-radius: inherit;
 	}
 
-	.glow-on-hover:after {
+	.glow-on-hover:hover::before {
+		opacity: 1;
+	}
+
+	.glow-on-hover::after {
 		z-index: -1;
 		content: '';
 		position: absolute;
 		width: 100%;
 		height: 100%;
-		background: #dc2626;
+		background: #ca1a2f;
 		left: 0;
 		top: 0;
-		border-radius: 14px;
-	}
-
-	.glow-on-hover:hover:before {
-		opacity: 1;
-		filter: blur(8px);
-	}
-
-	.glow-on-hover:active {
-		color: #000;
-		transform: scale(0.98);
-	}
-
-	.glow-on-hover:active:after {
-		background: transparent;
+		border-radius: inherit;
 	}
 
 	@keyframes glowing {
@@ -627,22 +564,34 @@ import Layout from '../components/Layout.astro';
 		100% { background-position: 0 0; }
 	}
 
-	/* Performance optimizations */
-	.contact-form-container {
-		contain: layout style paint;
+	/* Form field initial state */
+	.form-field {
+		opacity: 0;
+		transform: translateX(20px);
 	}
 
-	/* Glassmorphism effect for form container */
-	.contact-form-container {
-		backdrop-filter: blur(20px);
-		-webkit-backdrop-filter: blur(20px);
+	.form-submit {
+		opacity: 0;
+		transform: translateY(20px) scale(0.95);
 	}
 
-	/* Smooth transitions for all interactive elements */
-	button, input, textarea {
-		transition: 
-			transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-			box-shadow 0.3s ease,
-			background-color 0.3s ease;
+	/* Enhanced contact button styling */
+	.contact-phone-btn,
+	.contact-email-btn,
+	.contact-phone-btn-mobile,
+	.contact-email-btn-mobile {
+		transition: all 0.3s ease;
+		cursor: pointer;
+	}
+
+	/* Responsive improvements */
+	@media (max-width: 640px) {
+		.contact-hero-title {
+			font-size: 2rem;
+		}
+		
+		.contact-hero-subtitle {
+			font-size: 0.875rem;
+		}
 	}
 </style> 

@@ -1,5 +1,6 @@
 ---
 import '../style/global.css'
+import LottieLogo from './LottieLogo.astro'
 
 export interface Props {
 	title: string;
@@ -19,63 +20,65 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 </head>
 <body>
 	<!-- NAVIGATION HEADER -->
-	<nav class="fixed top-0 left-0 right-0 z-50 bg-brand-blue">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+	<nav class="fixed top-0 right-0 left-0 z-50 pt-2 bg-brand-blue">
+		<div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
 			<div class="flex justify-between items-center h-16">
 				<!-- Logo -->
 				<div class="flex items-center">
-					<div class="flex-shrink-0">
-						<div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-brand-red rounded-md flex items-center justify-center">
-							<span class="text-white font-bold text-sm">AL</span>
-						</div>
-					</div>
-					<div class="ml-3">
-						<div class="text-xl font-bold text-white">American</div>
-						<div class="text-sm text-white/80 -mt-1">Loyalty</div>
-					</div>
+					<a href="/" class="flex items-center">
+						<LottieLogo width={180} height={90} className="flex-shrink-0" />
+					</a>
 				</div>
 				
 				<!-- Desktop Navigation -->
 				<div class="hidden md:block">
-					<div class="ml-10 flex items-baseline space-x-8">
+					<div class="flex relative items-baseline ml-10 space-x-8" id="desktop-nav">
+						<!-- Animated underline -->
+						<div id="nav-underline" class="absolute bottom-0 h-0.5 opacity-0 transition-all duration-300 ease-out bg-brand-red"></div>
+						
 						{currentPage === 'home' ? (
 							<div class="flex flex-col items-center">
-								<a href="/" class="text-white font-bold px-3 py-2 text-lg">Home</a>
-								<div class="w-5 h-0.5 bg-white"></div>
+								<a href="/" class="px-3 py-2 text-lg font-bold text-brand-red nav-link active" data-page="home">Home</a>
 							</div>
 						) : (
-							<a href="/" class="text-white/80 hover:text-white px-3 py-2 text-lg font-bold">Home</a>
+							<a href="/" class="px-3 py-2 text-lg font-bold transition-colors duration-200 text-white/80 hover:text-brand-red nav-link" data-page="home">Home</a>
 						)}
 						
 						{currentPage === 'about' ? (
 							<div class="flex flex-col items-center">
-								<a href="/about" class="text-white font-bold px-3 py-2 text-lg">About Us</a>
-								<div class="w-5 h-0.5 bg-white"></div>
+								<a href="/about" class="px-3 py-2 text-lg font-bold text-brand-red nav-link active" data-page="about">About Us</a>
 							</div>
 						) : (
-							<a href="/about" class="text-white/80 hover:text-white px-3 py-2 text-lg font-bold">About Us</a>
+							<a href="/about" class="px-3 py-2 text-lg font-bold transition-colors duration-200 text-white/80 hover:text-brand-red nav-link" data-page="about">About Us</a>
 						)}
 						
 						{currentPage === 'services' ? (
 							<div class="flex flex-col items-center">
-								<a href="/services" class="text-white font-bold px-3 py-2 text-lg">Our Services</a>
-								<div class="w-5 h-0.5 bg-white"></div>
+								<a href="/services" class="px-3 py-2 text-lg font-bold text-brand-red nav-link active" data-page="services">Our Services</a>
 							</div>
 						) : (
-							<a href="/services" class="text-white/80 hover:text-white px-3 py-2 text-lg font-bold">Our Services</a>
+							<a href="/services" class="px-3 py-2 text-lg font-bold transition-colors duration-200 text-white/80 hover:text-brand-red nav-link" data-page="services">Our Services</a>
 						)}
 						
 						{currentPage === 'contact' ? (
-							<div class="flex flex-col items-center">
-								<a href="/contact" class="text-white font-bold px-3 py-2 text-lg">Contact</a>
-								<div class="w-5 h-0.5 bg-white"></div>
-							</div>
+							<a href="/contact" id="contact-button-active" class="flex overflow-hidden relative items-center px-6 py-3 text-lg font-bold text-white rounded-xl border-2 shadow-lg bg-brand-red border-white/20">
+								<span class="flex relative z-10 items-center">
+									Contact Us
+									<svg class="ml-2 w-5 h-5 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+										<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+									</svg>
+								</span>
+							</a>
 						) : (
-							<a href="/contact" class="bg-brand-red text-white hover:bg-red-700 px-6 py-3 rounded-xl text-lg font-bold flex items-center shadow-lg">
-								Contact Us
-								<svg class="w-5 h-5 ml-2 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
-								</svg>
+							<a href="/contact" id="contact-button" class="flex overflow-hidden relative items-center px-6 py-3 text-lg font-bold text-white rounded-xl border-2 border-transparent shadow-lg transition-all duration-200 transform bg-brand-red hover:bg-red-700 hover:scale-105 active:scale-95">
+								<span class="flex relative z-10 items-center">
+									Contact Us
+									<svg class="ml-2 w-5 h-5 transition-transform duration-200" id="contact-phone" fill="currentColor" viewBox="0 0 20 20">
+										<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+									</svg>
+								</span>
+								<!-- Sparkle container -->
+								<div class="absolute inset-0 pointer-events-none" id="sparkle-container"></div>
 							</a>
 						)}
 					</div>
@@ -83,11 +86,11 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 				
 				<!-- Mobile menu button -->
 				<div class="md:hidden">
-					<button id="mobile-menu-button" class="text-white hover:text-white/80 p-2 transition-transform duration-200">
-						<svg id="hamburger-icon" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<button id="mobile-menu-button" class="p-2 text-white transition-transform duration-200 hover:text-white/80">
+						<svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
 						</svg>
-						<svg id="close-icon" class="h-6 w-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<svg id="close-icon" class="hidden w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
 						</svg>
 					</button>
@@ -97,14 +100,14 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 	</nav>
 
 	<!-- MAIN CONTENT -->
-	<main class="min-h-screen bg-white">
+	<main class="pt-2 min-h-screen bg-white">
 		<slot />
 	</main>
 
 	<!-- MOBILE NAVIGATION DRAWER -->
-	<div id="mobile-menu-overlay" class="md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40 opacity-0 invisible transition-all duration-300"></div>
+	<div id="mobile-menu-overlay" class="fixed inset-0 invisible z-40 opacity-0 backdrop-blur-sm transition-all duration-300 md:hidden bg-black/50"></div>
 	
-	<div id="mobile-menu-drawer" class="md:hidden fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl shadow-2xl z-50 transform translate-y-full transition-transform duration-300 ease-out">
+	<div id="mobile-menu-drawer" class="fixed right-0 bottom-0 left-0 z-50 bg-white rounded-t-3xl shadow-2xl transition-transform duration-300 ease-out transform translate-y-full md:hidden">
 		<div class="px-6 py-8">
 			<!-- Drawer Handle -->
 			<div class="flex justify-center mb-6">
@@ -112,76 +115,68 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 			</div>
 			
 			<!-- Logo Section -->
-			<div class="flex items-center justify-center mb-8">
-				<div class="flex items-center">
-					<div class="flex-shrink-0">
-						<div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-brand-red rounded-lg flex items-center justify-center">
-							<span class="text-white font-bold text-lg">AL</span>
-						</div>
-					</div>
-					<div class="ml-3">
-						<div class="text-xl font-bold text-brand-blue">American</div>
-						<div class="text-sm text-gray-600 -mt-1">Loyalty</div>
-					</div>
-				</div>
+			<div class="flex justify-center items-center mb-8">
+				<a href="/" class="flex items-center">
+					<LottieLogo width={180} height={90} className="flex-shrink-0" variant="mobile" />
+				</a>
 			</div>
 			
 			<!-- Navigation Links -->
-			<nav class="space-y-4 mb-8">
+			<nav class="mb-8 space-y-4">
 				{currentPage === 'home' ? (
-					<div class="flex items-center justify-between p-4 bg-blue-50 rounded-xl border-l-4 border-brand-blue">
-						<a href="/" class="text-brand-blue font-bold text-lg flex items-center">
-							<svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+					<div class="flex justify-between items-center p-4 bg-blue-50 rounded-xl border-l-4 border-brand-blue">
+						<a href="/" class="flex items-center text-lg font-bold text-brand-blue">
+							<svg class="mr-3 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 								<path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
 							</svg>
 							Home
 						</a>
-						<div class="w-2 h-2 bg-brand-blue rounded-full"></div>
+						<div class="w-2 h-2 rounded-full bg-brand-blue"></div>
 					</div>
 				) : (
-					<a href="/" class="flex items-center p-4 text-gray-700 hover:text-brand-blue hover:bg-blue-50 rounded-xl transition-all duration-200">
-						<svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+					<a href="/" class="flex items-center p-4 text-gray-700 rounded-xl transition-all duration-200 hover:text-brand-blue hover:bg-blue-50">
+						<svg class="mr-3 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 							<path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
 						</svg>
-						<span class="font-semibold text-lg">Home</span>
+						<span class="text-lg font-semibold">Home</span>
 					</a>
 				)}
 				
 				{currentPage === 'about' ? (
-					<div class="flex items-center justify-between p-4 bg-blue-50 rounded-xl border-l-4 border-brand-blue">
-						<a href="/about" class="text-brand-blue font-bold text-lg flex items-center">
-							<svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+					<div class="flex justify-between items-center p-4 bg-blue-50 rounded-xl border-l-4 border-brand-blue">
+						<a href="/about" class="flex items-center text-lg font-bold text-brand-blue">
+							<svg class="mr-3 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 								<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
 							</svg>
 							About Us
 						</a>
-						<div class="w-2 h-2 bg-brand-blue rounded-full"></div>
+						<div class="w-2 h-2 rounded-full bg-brand-blue"></div>
 					</div>
 				) : (
-					<a href="/about" class="flex items-center p-4 text-gray-700 hover:text-brand-blue hover:bg-blue-50 rounded-xl transition-all duration-200">
-						<svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+					<a href="/about" class="flex items-center p-4 text-gray-700 rounded-xl transition-all duration-200 hover:text-brand-blue hover:bg-blue-50">
+						<svg class="mr-3 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 							<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
 						</svg>
-						<span class="font-semibold text-lg">About Us</span>
+						<span class="text-lg font-semibold">About Us</span>
 					</a>
 				)}
 				
 				{currentPage === 'services' ? (
-					<div class="flex items-center justify-between p-4 bg-blue-50 rounded-xl border-l-4 border-brand-blue">
-						<a href="/services" class="text-brand-blue font-bold text-lg flex items-center">
-							<svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+					<div class="flex justify-between items-center p-4 bg-blue-50 rounded-xl border-l-4 border-brand-blue">
+						<a href="/services" class="flex items-center text-lg font-bold text-brand-blue">
+							<svg class="mr-3 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 								<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
 							</svg>
 							Our Services
 						</a>
-						<div class="w-2 h-2 bg-brand-blue rounded-full"></div>
+						<div class="w-2 h-2 rounded-full bg-brand-blue"></div>
 					</div>
 				) : (
-					<a href="/services" class="flex items-center p-4 text-gray-700 hover:text-brand-blue hover:bg-blue-50 rounded-xl transition-all duration-200">
-						<svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+					<a href="/services" class="flex items-center p-4 text-gray-700 rounded-xl transition-all duration-200 hover:text-brand-blue hover:bg-blue-50">
+						<svg class="mr-3 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 							<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
 						</svg>
-						<span class="font-semibold text-lg">Our Services</span>
+						<span class="text-lg font-semibold">Our Services</span>
 					</a>
 				)}
 			</nav>
@@ -190,8 +185,8 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 			<div class="relative">
 				{currentPage === 'contact' ? (
 					<div class="p-4 bg-red-50 rounded-xl border-l-4 border-brand-red">
-						<div class="text-brand-red font-bold text-lg flex items-center justify-center">
-							<svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+						<div class="flex justify-center items-center text-lg font-bold text-brand-red">
+							<svg class="mr-3 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 								<path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
 								<path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
 							</svg>
@@ -201,17 +196,17 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 				) : (
 					<div class="relative">
 						<!-- Ping Animation -->
-						<div class="absolute -inset-1 bg-brand-red rounded-2xl opacity-30 animate-ping"></div>
-						<div class="absolute -inset-1 bg-brand-red rounded-2xl opacity-20 animate-ping animation-delay-75"></div>
+						<div class="absolute -inset-1 rounded-2xl opacity-30 animate-ping bg-brand-red"></div>
+						<div class="absolute -inset-1 rounded-2xl opacity-20 animate-ping bg-brand-red animation-delay-75"></div>
 						
-						<a href="/contact" class="relative block bg-brand-red hover:bg-red-700 text-white font-bold py-4 px-6 rounded-xl text-center text-lg transition-all duration-200 transform hover:scale-105 shadow-lg">
-							<div class="flex items-center justify-center">
-								<svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+						<a href="/contact" class="block relative px-6 py-4 text-lg font-bold text-center text-white rounded-xl shadow-lg transition-all duration-200 transform bg-brand-red hover:bg-red-700 hover:scale-105">
+							<div class="flex justify-center items-center">
+								<svg class="mr-3 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 									<path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
 									<path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
 								</svg>
 								Contact Us
-								<svg class="w-5 h-5 ml-3 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<svg class="ml-3 w-5 h-5 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
 								</svg>
 							</div>
@@ -227,17 +222,17 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 
 	<!-- FOOTER -->
 	<footer class="bg-gray-800">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-			<div class="flex flex-col md:flex-row justify-between items-center">
-				<div class="text-white text-center md:text-left mb-4 md:mb-0">
-					<p class="text-sm lg:text-base font-semibold capitalize">
+		<div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
+			<div class="flex flex-col justify-between items-center md:flex-row">
+				<div class="mb-4 text-center text-white md:text-left md:mb-0">
+					<p class="text-sm font-semibold capitalize lg:text-base">
 						Copyright Notice: © Copyright American Loyalty LLC. 2024
 					</p>
 				</div>
 				<div class="flex space-x-4">
 					<!-- Social Media Icons -->
-					<div class="w-8 h-8 lg:w-10 lg:h-10 bg-gray-600 rounded-full flex items-center justify-center hover:bg-gray-500 transition-colors">
-						<svg class="w-4 h-4 lg:w-5 lg:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+					<div class="flex justify-center items-center w-8 h-8 bg-gray-600 rounded-full transition-colors lg:w-10 lg:h-10 hover:bg-gray-500">
+						<svg class="w-4 h-4 text-white lg:w-5 lg:h-5" fill="currentColor" viewBox="0 0 24 24">
 							<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
 						</svg>
 					</div>
@@ -255,11 +250,250 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 	// Register ScrollTrigger plugin
 	gsap.registerPlugin(ScrollTrigger);
 
-	// Initialize animations when DOM is ready
-	document.addEventListener('DOMContentLoaded', () => {
-		console.log('🚀 Initializing GSAP animations...');
+			// Initialize animations when DOM is ready
+		document.addEventListener('DOMContentLoaded', () => {
+			console.log('🚀 Initializing GSAP animations...');
 
-		// Mobile Navigation functionality
+			// Desktop Navigation Underline Animation
+			const navUnderline = document.getElementById('nav-underline');
+			const navLinks = document.querySelectorAll('.nav-link');
+			const activeLink = document.querySelector('.nav-link.active');
+			const contactButtonActive = document.getElementById('contact-button-active');
+
+			if (navUnderline && navLinks.length > 0) {
+				// Position underline under active link on page load
+				if (activeLink) {
+					const linkRect = activeLink.getBoundingClientRect();
+					const navRect = document.getElementById('desktop-nav').getBoundingClientRect();
+					const leftPosition = linkRect.left - navRect.left;
+					
+					gsap.set(navUnderline, {
+						left: leftPosition,
+						width: linkRect.width,
+						opacity: 1
+					});
+				} else if (contactButtonActive) {
+					// Hide underline when contact button is active (since it has its own styling)
+					gsap.set(navUnderline, {
+						opacity: 0
+					});
+				}
+
+				// Add hover animations for navigation links
+				navLinks.forEach(link => {
+					link.addEventListener('mouseenter', () => {
+						const linkRect = link.getBoundingClientRect();
+						const navRect = document.getElementById('desktop-nav').getBoundingClientRect();
+						const leftPosition = linkRect.left - navRect.left;
+						
+						gsap.to(navUnderline, {
+							left: leftPosition,
+							width: linkRect.width,
+							opacity: 1,
+							duration: 0.3,
+							ease: 'power2.out'
+						});
+					});
+				});
+
+				// Return underline to active link on mouse leave
+				const desktopNav = document.getElementById('desktop-nav');
+				if (desktopNav) {
+					desktopNav.addEventListener('mouseleave', () => {
+						if (activeLink) {
+							const linkRect = activeLink.getBoundingClientRect();
+							const navRect = desktopNav.getBoundingClientRect();
+							const leftPosition = linkRect.left - navRect.left;
+							
+							gsap.to(navUnderline, {
+								left: leftPosition,
+								width: linkRect.width,
+								opacity: 1,
+								duration: 0.3,
+								ease: 'power2.out'
+							});
+						} else {
+							gsap.to(navUnderline, {
+								opacity: 0,
+								duration: 0.3,
+								ease: 'power2.out'
+							});
+						}
+					});
+				}
+			}
+
+			// Contact Button Animations
+			const contactButton = document.getElementById('contact-button');
+			const contactPhone = document.getElementById('contact-phone');
+			const sparkleContainer = document.getElementById('sparkle-container');
+
+			if (contactButton && contactPhone && sparkleContainer) {
+				// Function to create sparkle effect
+				function createSparkles() {
+					const sparkleCount = 12;
+					const buttonRect = contactButton.getBoundingClientRect();
+					
+					for (let i = 0; i < sparkleCount; i++) {
+						const sparkle = document.createElement('div');
+						sparkle.className = 'absolute w-1 h-1 bg-white rounded-full pointer-events-none';
+						
+						// Random position within button
+						const x = Math.random() * 100;
+						const y = Math.random() * 100;
+						sparkle.style.left = x + '%';
+						sparkle.style.top = y + '%';
+						
+						sparkleContainer.appendChild(sparkle);
+						
+						// Animate sparkle
+						gsap.set(sparkle, { 
+							scale: 0, 
+							opacity: 1,
+							rotation: Math.random() * 360
+						});
+						
+						gsap.to(sparkle, {
+							scale: Math.random() * 1.5 + 0.5,
+							opacity: 0,
+							rotation: Math.random() * 360 + 180,
+							x: (Math.random() - 0.5) * 40,
+							y: (Math.random() - 0.5) * 40,
+							duration: 0.8,
+							ease: 'power2.out',
+							delay: Math.random() * 0.2,
+							onComplete: () => {
+								sparkle.remove();
+							}
+						});
+					}
+				}
+
+				// Hover animations
+				contactButton.addEventListener('mouseenter', () => {
+					// Phone wiggle animation (like it's ringing)
+					gsap.to(contactPhone, {
+						rotation: 15,
+						scale: 1.1,
+						duration: 0.15,
+						ease: 'power2.out',
+						yoyo: true,
+						repeat: 3
+					});
+					
+					// Animated white border
+					gsap.to(contactButton, {
+						borderColor: 'rgba(255, 255, 255, 0.8)',
+						duration: 0.3,
+						ease: 'power2.out'
+					});
+					
+					// Button shadow enhancement
+					gsap.to(contactButton, {
+						boxShadow: '0 10px 25px rgba(239, 68, 68, 0.4), 0 0 20px rgba(255, 255, 255, 0.3)',
+						duration: 0.3,
+						ease: 'power2.out'
+					});
+				});
+
+				contactButton.addEventListener('mouseleave', () => {
+					// Reset phone
+					gsap.to(contactPhone, {
+						rotation: 0,
+						scale: 1,
+						duration: 0.3,
+						ease: 'power2.out'
+					});
+					
+					// Reset border
+					gsap.to(contactButton, {
+						borderColor: 'transparent',
+						duration: 0.3,
+						ease: 'power2.out'
+					});
+					
+					// Reset shadow
+					gsap.to(contactButton, {
+						boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+						duration: 0.3,
+						ease: 'power2.out'
+					});
+				});
+
+				// Click/Press animations
+				contactButton.addEventListener('mousedown', () => {
+					// Create sparkle effect
+					createSparkles();
+					
+					// Phone "pick up" animation
+					gsap.to(contactPhone, {
+						rotation: -10,
+						scale: 0.9,
+						duration: 0.15,
+						ease: 'power2.out'
+					});
+					
+					// Brief white border flash
+					gsap.to(contactButton, {
+						borderColor: 'rgba(255, 255, 255, 1)',
+						duration: 0.1,
+						ease: 'power2.out'
+					});
+				});
+
+				contactButton.addEventListener('mouseup', () => {
+					// Reset phone to hover state
+					gsap.to(contactPhone, {
+						rotation: 0,
+						scale: 1.1,
+						duration: 0.2,
+						ease: 'back.out(1.7)'
+					});
+					
+					// Return border to hover state
+					gsap.to(contactButton, {
+						borderColor: 'rgba(255, 255, 255, 0.8)',
+						duration: 0.2,
+						ease: 'power2.out'
+					});
+				});
+
+				// Fun periodic pulse animation (like incoming call)
+				gsap.to(contactButton, {
+					scale: 1.02,
+					duration: 2,
+					ease: 'power1.inOut',
+					yoyo: true,
+					repeat: -1,
+					delay: 3 // Start after 3 seconds
+				});
+
+				// Subtle phone ring animation every 8 seconds
+				gsap.to(contactPhone, {
+					rotation: 5,
+					duration: 0.1,
+					ease: 'power2.inOut',
+					yoyo: true,
+					repeat: 5,
+					repeatDelay: 0.1,
+					delay: 5,
+					onComplete: () => {
+						// Repeat the ring animation
+						gsap.delayedCall(8, () => {
+							gsap.to(contactPhone, {
+								rotation: 5,
+								duration: 0.1,
+								ease: 'power2.inOut',
+								yoyo: true,
+								repeat: 5,
+								repeatDelay: 0.1
+							});
+						});
+					}
+				});
+			}
+
+			// Mobile Navigation functionality
 		const mobileMenuButton = document.getElementById('mobile-menu-button');
 		const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
 		const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
@@ -460,8 +694,9 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 
 		// Scroll-triggered animations
 		gsap.utils.toArray('[data-animate]').forEach((element) => {
-			const animationType = element.getAttribute('data-animate');
-			const delay = parseFloat(element.getAttribute('data-delay') || '0');
+			const el = element as HTMLElement;
+			const animationType = el.getAttribute('data-animate');
+			const delay = parseFloat(el.getAttribute('data-delay') || '0');
 			
 			let animation = {};
 			
@@ -492,11 +727,11 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 					break;
 				case 'stagger':
 					// Handle staggered children animations
-					const children = element.children;
+					const children = el.children;
 					gsap.set(children, { opacity: 0, y: 30 });
 					
 					ScrollTrigger.create({
-						trigger: element,
+						trigger: el,
 						start: 'top 80%',
 						onEnter: () => {
 							gsap.to(children, {
@@ -522,10 +757,10 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 			
 			// Create ScrollTrigger for the animation
 			ScrollTrigger.create({
-				trigger: element,
+				trigger: el,
 				start: 'top 80%',
 				onEnter: () => {
-					gsap.to(element, {
+					gsap.to(el, {
 						...animation,
 						delay: delay / 1000
 					});

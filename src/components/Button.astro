@@ -1,0 +1,163 @@
+---
+export interface Props {
+	// Button content
+	text: string;
+	
+	// Button variants
+	variant?: 'primary' | 'secondary' | 'contact' | 'submit';
+	
+	// Button sizes
+	size?: 'sm' | 'md' | 'lg' | 'xl';
+	
+	// Button behavior
+	type?: 'button' | 'submit' | 'reset';
+	href?: string;
+	target?: '_blank' | '_self' | '_parent' | '_top';
+	
+	// Icon settings
+	icon?: boolean;
+	iconType?: 'arrow' | 'send' | 'phone' | 'email';
+	iconSize?: 'sm' | 'md' | 'lg' | 'xl';
+	
+	// Styling overrides
+	fullWidth?: boolean;
+	disabled?: boolean;
+	className?: string;
+	
+	// Animation attributes
+	dataAttribute?: string;
+}
+
+const {
+	text,
+	variant = 'primary',
+	size = 'md',
+	type = 'button',
+	href,
+	target = '_self',
+	icon = true,
+	iconType = 'arrow',
+	iconSize = 'md',
+	fullWidth = false,
+	disabled = false,
+	className = '',
+	dataAttribute = ''
+} = Astro.props;
+
+// Base button classes
+const baseClasses = 'font-bold uppercase transition-all duration-300 flex items-center justify-center shadow-lg leading-[0]';
+
+// Variant styles
+const variantClasses = {
+	primary: 'bg-brand-red text-white hover:bg-red-700',
+	secondary: 'bg-white text-brand-red hover:bg-gray-100',
+	contact: 'bg-brand-red text-white hover:bg-red-700',
+	submit: 'bg-brand-red text-white hover:bg-red-700 hover:shadow-xl hover:transform hover:scale-105'
+};
+
+// Size styles
+const sizeClasses = {
+	sm: 'px-4 py-2 text-sm h-12 gap-2 rounded-xl',
+	md: 'px-6 py-4 text-sm h-16 gap-3 rounded-2xl',
+	lg: 'px-8 py-4 text-base h-20 gap-4 rounded-2xl',
+	xl: 'px-8 py-4 text-xl h-24 gap-4 rounded-2xl'
+};
+
+// Icon sizes
+const iconSizes = {
+	sm: 'w-5 h-5',
+	md: 'w-8 h-8',
+	lg: 'w-10 h-10',
+	xl: 'w-12 h-12'
+};
+
+// Width classes
+const widthClasses = fullWidth ? 'w-full' : 'w-auto';
+
+// Disabled classes
+const disabledClasses = disabled ? 'opacity-50 cursor-not-allowed' : '';
+
+// Combine all classes
+const buttonClasses = [
+	baseClasses,
+	variantClasses[variant],
+	sizeClasses[size],
+	widthClasses,
+	disabledClasses,
+	className
+].filter(Boolean).join(' ');
+
+// Determine if it's a link or button
+const isLink = !!href;
+
+// Get icon size class
+const iconClass = iconSizes[iconSize];
+---
+
+{isLink ? (
+	<a
+		class={buttonClasses}
+		href={href}
+		target={target}
+		{...(dataAttribute && { [dataAttribute]: '' })}
+	>
+		<span class="leading-[1.5] whitespace-pre">{text}</span>
+		{icon && (
+			<Fragment>
+				{iconType === 'arrow' && (
+					<svg class={iconClass} fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+						<path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+					</svg>
+				)}
+				{iconType === 'send' && (
+					<svg class={`${iconClass} rotate-90`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+					</svg>
+				)}
+				{iconType === 'phone' && (
+					<svg class={iconClass} viewBox="0 0 24 24" fill="currentColor">
+						<path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.2c.27-.27.35-.67.24-1.02C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
+					</svg>
+				)}
+				{iconType === 'email' && (
+					<svg class={iconClass} viewBox="0 0 24 24" fill="currentColor">
+						<path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+					</svg>
+				)}
+			</Fragment>
+		)}
+	</a>
+) : (
+	<button
+		class={buttonClasses}
+		type={type}
+		disabled={disabled}
+		{...(dataAttribute && { [dataAttribute]: '' })}
+	>
+		<span class="leading-[1.5] whitespace-pre">{text}</span>
+		{icon && (
+			<Fragment>
+				{iconType === 'arrow' && (
+					<svg class={iconClass} fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+						<path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+					</svg>
+				)}
+				{iconType === 'send' && (
+					<svg class={`${iconClass} rotate-90`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+					</svg>
+				)}
+				{iconType === 'phone' && (
+					<svg class={iconClass} viewBox="0 0 24 24" fill="currentColor">
+						<path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.2c.27-.27.35-.67.24-1.02C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
+					</svg>
+				)}
+				{iconType === 'email' && (
+					<svg class={iconClass} viewBox="0 0 24 24" fill="currentColor">
+						<path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+					</svg>
+				)}
+			</Fragment>
+		)}
+	</button>
+)} 
