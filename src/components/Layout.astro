@@ -786,199 +786,216 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 
 		// Set initial states for animated elements (exclude count-up elements and stagger containers)
 		const animatedElements = document.querySelectorAll('[data-animate]:not([data-animate="count-up"]):not([data-animate="stagger"])');
-		animatedElements.forEach(element => {
-			(element as HTMLElement).style.willChange = 'transform, opacity';
-		});
-		
-		gsap.set('[data-animate]:not([data-animate="count-up"]):not([data-animate="stagger"])', { 
-			opacity: 0,
-			y: 50,
-			scale: 0.95
-		});
+		if (animatedElements.length > 0) {
+			animatedElements.forEach(element => {
+				(element as HTMLElement).style.willChange = 'transform, opacity';
+			});
+			
+			gsap.set('[data-animate]:not([data-animate="count-up"]):not([data-animate="stagger"])', { 
+				opacity: 0,
+				y: 50,
+				scale: 0.95
+			});
+		}
 
 		// Set initial states for hero elements
 		const heroElements = document.querySelectorAll('[data-hero-animate]');
-		heroElements.forEach(element => {
-			(element as HTMLElement).style.willChange = 'transform, opacity';
-		});
-		
-		gsap.set('[data-hero-animate]', {
-			opacity: 0,
-			y: 30
-		});
-
-		// Hero section entrance animations
-		const heroTimeline = gsap.timeline({ delay: 0.5 });
-		
-		heroTimeline
-			.to('[data-hero-animate]', {
-				duration: 0.8,
-				y: 0,
-				opacity: 1,
-				stagger: 0.15,
-				ease: 'power1.out'
+		if (heroElements.length > 0) {
+			heroElements.forEach(element => {
+				(element as HTMLElement).style.willChange = 'transform, opacity';
 			});
+			
+			gsap.set('[data-hero-animate]', {
+				opacity: 0,
+				y: 30
+			});
+
+			// Hero section entrance animations
+			const heroTimeline = gsap.timeline({ delay: 0.5 });
+			
+			heroTimeline
+				.to('[data-hero-animate]', {
+					duration: 0.8,
+					y: 0,
+					opacity: 1,
+					stagger: 0.15,
+					ease: 'power1.out'
+				});
+		}
 
 		// Optimized scroll-triggered animations
-		gsap.utils.toArray('[data-animate]').forEach((element) => {
-			const el = element as HTMLElement;
-			const animationType = el.getAttribute('data-animate');
-			const delay = parseFloat(el.getAttribute('data-delay') || '0');
-			
-			let animation = {};
-			
-			switch (animationType) {
-				case 'fade-up':
-					animation = {
-						duration: 0.8,
-						y: 0,
-						opacity: 1,
-						ease: 'power1.out'
-					};
-					break;
-				case 'slide-up':
-					animation = {
-						duration: 1,
-						y: 0,
-						opacity: 1,
-						ease: 'power1.out'
-					};
-					break;
-				case 'scale-in':
-					animation = {
-						duration: 0.6,
-						scale: 1,
-						opacity: 1,
-						ease: 'back.out(1.7)'
-					};
-					break;
-				case 'stagger':
-					// Handle staggered children animations
-					const children = el.children;
-					gsap.set(children, { opacity: 0, y: 30 });
-					
-					// Add will-change to stagger children
-					Array.from(children).forEach(child => {
-						(child as HTMLElement).style.willChange = 'transform, opacity';
-					});
-					
-					ScrollTrigger.create({
-						trigger: el,
-						start: 'top 80%',
-						onEnter: () => {
-							gsap.to(children, {
-								duration: 0.6,
-								y: 0,
-								opacity: 1,
-								stagger: 0.1,
-								ease: 'power1.out',
-								delay: delay / 1000
-							});
-						}
-					});
-					return; // Skip the default ScrollTrigger creation
-				default:
-					animation = {
-						duration: 0.8,
-						y: 0,
-						opacity: 1,
-						scale: 1,
-						ease: 'power1.out'
-					};
-			}
-			
-			// Create ScrollTrigger for the animation
-			ScrollTrigger.create({
-				trigger: el,
-				start: 'top 80%',
-				onEnter: () => {
-					gsap.to(el, {
-						...animation,
-						delay: delay / 1000
-					});
+		const dataAnimateElements = document.querySelectorAll('[data-animate]');
+		if (dataAnimateElements.length > 0) {
+			gsap.utils.toArray('[data-animate]').forEach((element) => {
+				const el = element as HTMLElement;
+				const animationType = el.getAttribute('data-animate');
+				const delay = parseFloat(el.getAttribute('data-delay') || '0');
+				
+				let animation = {};
+				
+				switch (animationType) {
+					case 'fade-up':
+						animation = {
+							duration: 0.8,
+							y: 0,
+							opacity: 1,
+							ease: 'power1.out'
+						};
+						break;
+					case 'slide-up':
+						animation = {
+							duration: 1,
+							y: 0,
+							opacity: 1,
+							ease: 'power1.out'
+						};
+						break;
+					case 'scale-in':
+						animation = {
+							duration: 0.6,
+							scale: 1,
+							opacity: 1,
+							ease: 'back.out(1.7)'
+						};
+						break;
+					case 'stagger':
+						// Handle staggered children animations
+						const children = el.children;
+						gsap.set(children, { opacity: 0, y: 30 });
+						
+						// Add will-change to stagger children
+						Array.from(children).forEach(child => {
+							(child as HTMLElement).style.willChange = 'transform, opacity';
+						});
+						
+						ScrollTrigger.create({
+							trigger: el,
+							start: 'top 80%',
+							onEnter: () => {
+								gsap.to(children, {
+									duration: 0.6,
+									y: 0,
+									opacity: 1,
+									stagger: 0.1,
+									ease: 'power1.out',
+									delay: delay / 1000
+								});
+							}
+						});
+						return; // Skip the default ScrollTrigger creation
+					default:
+						animation = {
+							duration: 0.8,
+							y: 0,
+							opacity: 1,
+							scale: 1,
+							ease: 'power1.out'
+						};
 				}
+				
+				// Create ScrollTrigger for the animation
+				ScrollTrigger.create({
+					trigger: el,
+					start: 'top 80%',
+					onEnter: () => {
+						gsap.to(el, {
+							...animation,
+							delay: delay / 1000
+						});
+					}
+				});
 			});
-		});
+		}
 
 		// Optimized count-up animations for statistics
-		document.querySelectorAll('.count-number').forEach(element => {
-			const endValue = parseInt(element.getAttribute('data-end-value') || '100');
-			const countObj = { value: 0 };
-			
-			ScrollTrigger.create({
-				trigger: '.stats-container',
-				start: 'top 80%',
-				onEnter: () => {
-					gsap.to(countObj, {
-						duration: 1.5,
-						value: endValue,
-						ease: 'power1.out',
-						delay: 0.2,
-						onUpdate: function() {
-							const val = Math.round(countObj.value);
-							if (endValue >= 1000000) {
-								element.textContent = (val / 1000000).toFixed(1) + 'M+';
-							} else if (endValue >= 1000) {
-								element.textContent = Math.round(val / 1000) + 'K+';
-							} else {
-								element.textContent = val + '+';
+		const statsContainer = document.querySelector('.stats-container');
+		const countNumbers = document.querySelectorAll('.count-number');
+		if (statsContainer && countNumbers.length > 0) {
+			countNumbers.forEach(element => {
+				const endValue = parseInt(element.getAttribute('data-end-value') || '100');
+				const countObj = { value: 0 };
+				
+				ScrollTrigger.create({
+					trigger: '.stats-container',
+					start: 'top 80%',
+					onEnter: () => {
+						gsap.to(countObj, {
+							duration: 1.5,
+							value: endValue,
+							ease: 'power1.out',
+							delay: 0.2,
+							onUpdate: function() {
+								const val = Math.round(countObj.value);
+								if (endValue >= 1000000) {
+									element.textContent = (val / 1000000).toFixed(1) + 'M+';
+								} else if (endValue >= 1000) {
+									element.textContent = Math.round(val / 1000) + 'K+';
+								} else {
+									element.textContent = val + '+';
+								}
 							}
-						}
-					});
-				}
+						});
+					}
+				});
 			});
-		});
+		}
 
 		// Optimized button hover animations
-		document.querySelectorAll('button').forEach(button => {
-			(button as HTMLElement).style.willChange = 'transform';
-			
-			button.addEventListener('mouseenter', () => {
-				gsap.to(button, {
-					scale: 1.05,
-					duration: 0.2,
-					ease: 'power1.out'
+		const buttons = document.querySelectorAll('button');
+		if (buttons.length > 0) {
+			buttons.forEach(button => {
+				(button as HTMLElement).style.willChange = 'transform';
+				
+				button.addEventListener('mouseenter', () => {
+					gsap.to(button, {
+						scale: 1.05,
+						duration: 0.2,
+						ease: 'power1.out'
+					});
 				});
-			});
 
-			button.addEventListener('mouseleave', () => {
-				gsap.to(button, {
-					scale: 1,
-					duration: 0.2,
-					ease: 'power1.out'
+				button.addEventListener('mouseleave', () => {
+					gsap.to(button, {
+						scale: 1,
+						duration: 0.2,
+						ease: 'power1.out'
+					});
 				});
 			});
-		});
+		}
 
 		// Optimized card hover effects
-		document.querySelectorAll('.service-card, .testimonial-card').forEach(card => {
-			// Set up optimized card animations
-			(card as HTMLElement).style.willChange = 'transform, box-shadow';
-			
-			gsap.set(card, {
-				boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
-			});
+		const cards = document.querySelectorAll('.service-card, .testimonial-card');
+		if (cards.length > 0) {
+			cards.forEach(card => {
+				// Set up optimized card animations
+				(card as HTMLElement).style.willChange = 'transform, box-shadow';
+				
+				gsap.set(card, {
+					boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
+				});
 
-			card.addEventListener('mouseenter', () => {
-				gsap.to(card, {
-					y: -10,
-					scale: 1.02,
-					boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
-					duration: 0.3,
-					ease: 'power1.out'
+				card.addEventListener('mouseenter', () => {
+					gsap.to(card, {
+						y: -10,
+						scale: 1.02,
+						boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
+						duration: 0.3,
+						ease: 'power1.out'
+					});
+				});
+
+				card.addEventListener('mouseleave', () => {
+					gsap.to(card, {
+						y: 0,
+						scale: 1,
+						boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+						duration: 0.3,
+						ease: 'power1.out'
+					});
 				});
 			});
-
-			card.addEventListener('mouseleave', () => {
-				gsap.to(card, {
-					y: 0,
-					scale: 1,
-					boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-					duration: 0.3,
-					ease: 'power1.out'
-				});
-			});
-		});
+		}
 
 		// Optimized navigation bar animation on scroll
 		const navElement = document.querySelector('nav');
@@ -996,18 +1013,21 @@ const { title, currentPage = 'home' } = Astro.props as Props;
 		});
 
 		// Optimized floating animation for decorative elements
-		document.querySelectorAll('.float-element').forEach(element => {
-			(element as HTMLElement).style.willChange = 'transform';
-		});
-		
-		gsap.to('.float-element', {
-			y: -10,
-			duration: 2,
-			ease: 'power1.inOut',
-			yoyo: true,
-			repeat: -1,
-			stagger: 0.5
-		});
+		const floatElements = document.querySelectorAll('.float-element');
+		if (floatElements.length > 0) {
+			floatElements.forEach(element => {
+				(element as HTMLElement).style.willChange = 'transform';
+			});
+			
+			gsap.to('.float-element', {
+				y: -10,
+				duration: 2,
+				ease: 'power1.inOut',
+				yoyo: true,
+				repeat: -1,
+				stagger: 0.5
+			});
+		}
 
 		console.log('✨ GSAP animations initialized successfully!');
 	});

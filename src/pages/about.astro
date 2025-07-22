@@ -187,114 +187,183 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 
 	// Wait for DOM to be ready
 	document.addEventListener('DOMContentLoaded', () => {
-		// Set initial states for animations (Performance Optimized)
-		gsap.set('.about-hero-title', { opacity: 0, y: 30 });
-		gsap.set('.about-hero-subtitle', { opacity: 0, y: 20 });
-		gsap.set('.about-hero-image', { opacity: 0, y: 350, scale: 0.95 });
-		gsap.set('.about-loyalty-title', { opacity: 0, x: -50 });
-		gsap.set('.about-loyalty-text', { opacity: 0, x: 50 });
-		gsap.set('.about-stat-item', { opacity: 0, y: 30, scale: 0.9 });
-		gsap.set('.about-divider', { opacity: 0, scaleY: 0 });
-		gsap.set('.about-history-header', { opacity: 0, y: 50 });
-		gsap.set('.about-history-card', { opacity: 0, y: 50, rotationY: 15 });
-		gsap.set('.about-card-icon', { scale: 0, rotation: -45 });
-		gsap.set('.about-vision', { opacity: 0, x: -100 });
-		gsap.set('.about-mission', { opacity: 0, x: 100 });
-		gsap.set('.about-vision-image img', { scale: 1.2 });
-		gsap.set('.about-mission-image img', { scale: 1.2 });
+		// Prevent FOUC - set initial visibility immediately
+		document.body.style.visibility = 'visible';
+		
+		// Set initial states for animations with proper FOUC prevention
+		// Use CSS transforms instead of direct property manipulation to avoid layout shifts
+		gsap.set('.about-hero-title', { 
+			opacity: 0, 
+			y: 30,
+			willChange: 'transform, opacity'
+		});
+		gsap.set('.about-hero-subtitle', { 
+			opacity: 0, 
+			y: 20,
+			willChange: 'transform, opacity'
+		});
+		gsap.set('.about-hero-image', { 
+			opacity: 0, 
+			y: 50, // Reduced from 350 to prevent dramatic shifts
+			scale: 0.98, // More subtle scale
+			willChange: 'transform, opacity'
+		});
+		
+		// Initialize fade left/right elements with minimal transform to prevent layout shifts
+		gsap.set('.about-loyalty-title', { 
+			opacity: 0, 
+			x: -30, // Reduced from -50 to minimize layout impact
+			willChange: 'transform, opacity'
+		});
+		gsap.set('.about-loyalty-text', { 
+			opacity: 0, 
+			x: 30, // Reduced from 50 to minimize layout impact
+			willChange: 'transform, opacity'
+		});
+		
+		// Stats and other elements
+		gsap.set('.about-stat-item', { 
+			opacity: 0, 
+			y: 20, // Reduced transform distance
+			scale: 0.95, // More subtle scale
+			willChange: 'transform, opacity'
+		});
+		gsap.set('.about-divider', { 
+			opacity: 0, 
+			scaleY: 0,
+			willChange: 'transform, opacity'
+		});
+		gsap.set('.about-history-header', { 
+			opacity: 0, 
+			y: 30, // Reduced from 50
+			willChange: 'transform, opacity'
+		});
+		gsap.set('.about-history-card', { 
+			opacity: 0, 
+			y: 30, // Reduced from 50
+			rotationY: 8, // Reduced from 15
+			willChange: 'transform, opacity'
+		});
+		gsap.set('.about-card-icon', { 
+			scale: 0, 
+			rotation: -20, // Reduced rotation
+			willChange: 'transform'
+		});
+		
+		// Vision/Mission sections with minimal transform
+		gsap.set('.about-vision', { 
+			opacity: 0, 
+			x: -50, // Keep original but add containment
+			willChange: 'transform, opacity'
+		});
+		gsap.set('.about-mission', { 
+			opacity: 0, 
+			x: 50, // Keep original but add containment
+			willChange: 'transform, opacity'
+		});
+		
+		// Image scaling effects
+		gsap.set('.about-vision-image img', { 
+			scale: 1.1, // Reduced from 1.2
+			willChange: 'transform'
+		});
+		gsap.set('.about-mission-image img', { 
+			scale: 1.1, // Reduced from 1.2
+			willChange: 'transform'
+		});
 
-		// Hero entrance animation with creative timing (Performance Optimized)
-		const heroTl = gsap.timeline();
+		// Hero entrance animation with improved timing
+		const heroTl = gsap.timeline({ delay: 0.2 }); // Reduced delay for faster perception
 		
 		heroTl
 			.to('.about-hero-title', {
 				opacity: 1,
 				y: 0,
-				duration: 0.8,
-				ease: 'power1.out',
+				duration: 0.6, // Slightly faster
+				ease: 'power2.out', // Smoother easing
 			})
 			.to('.about-hero-subtitle', {
 				opacity: 1,
 				y: 0,
-				duration: 0.6,
-				ease: 'power1.out',
-			}, '-=0.4')
+				duration: 0.5, // Faster
+				ease: 'power2.out',
+			}, '-=0.3') // Better overlap
 			.to('.about-hero-image', {
 				opacity: 1,
 				y: 0,
 				scale: 1,
-				duration: 1,
-				ease: 'power1.out',
-			}, '-=0.3');
+				duration: 0.8,
+				ease: 'power2.out',
+			}, '-=0.2');
 
-		// Parallax effect for hero image
+		// Optimized parallax effect for hero image
 		gsap.to('.about-hero-img-container', {
-			yPercent: -30,
+			yPercent: -20, // Reduced parallax intensity
 			ease: 'none',
 			scrollTrigger: {
 				trigger: '.about-hero-img-container',
 				start: 'top bottom',
 				end: 'bottom top',
-				scrub: true,
+				scrub: 1, // Smoother scrub
 			}
 		});
 
-		// Built on Loyalty section - split reveal animation (Performance Optimized)
+		// Built on Loyalty section - improved timing
 		ScrollTrigger.create({
 			trigger: '.about-loyalty-section',
-			start: 'top 80%',
+			start: 'top 85%', // Trigger earlier
 			onEnter: () => {
 				gsap.to('.about-loyalty-title', {
 					opacity: 1,
 					x: 0,
-					duration: 0.8,
-					ease: 'power1.out',
+					duration: 0.7,
+					ease: 'power2.out',
 				});
 				gsap.to('.about-loyalty-text', {
 					opacity: 1,
 					x: 0,
-					duration: 0.8,
-					ease: 'power1.out',
-					delay: 0.15,
+					duration: 0.7,
+					ease: 'power2.out',
+					delay: 0.1, // Slight stagger
 				});
 			}
 		});
 
-		// Statistics section - enhanced reveal with bounce (Performance Optimized)
+		// Statistics section - smoother reveal
 		ScrollTrigger.create({
 			trigger: '.about-stats-container',
-			start: 'top 80%',
+			start: 'top 85%',
 			onEnter: () => {
-				// Animate stat items with stagger
+				// Animate stat items with improved stagger
 				gsap.to('.about-stat-item', {
 					opacity: 1,
 					y: 0,
 					scale: 1,
-					duration: 0.6,
-					ease: 'back.out(1.7)',
-					stagger: 0.08,
+					duration: 0.5, // Faster
+					ease: 'back.out(1.4)', // Less dramatic bounce
+					stagger: 0.06, // Faster stagger
 				});
 
-				// Animate dividers with scale effect
+				// Animate dividers
 				gsap.to('.about-divider', {
 					opacity: 1,
 					scaleY: 1,
-					duration: 0.5,
-					ease: 'power1.out',
-					stagger: 0.08,
-					delay: 0.2,
+					duration: 0.4,
+					ease: 'power2.out',
+					stagger: 0.06,
+					delay: 0.1,
 				});
 
-				// Optimized count-up animations for numbers
+				// Optimized count-up animations
 				document.querySelectorAll('.count-number').forEach((element, index) => {
 					const endValue = parseInt(element.getAttribute('data-end-value'));
 					const obj = { value: 0 };
 					
 					gsap.to(obj, {
 						value: endValue,
-						duration: 1.5,
-						ease: 'power1.out',
-						delay: 0.3 + (index * 0.08),
+						duration: 1.2, // Slightly faster
+						ease: 'power2.out',
+						delay: 0.2 + (index * 0.06),
 						onUpdate: () => {
 							if (endValue >= 1000000) {
 								element.textContent = `${(obj.value / 1000000).toFixed(1)}M+`;
@@ -307,59 +376,60 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 			}
 		});
 
-		// History section header (Performance Optimized)
+		// History section header
 		ScrollTrigger.create({
 			trigger: '.about-history-header',
-			start: 'top 80%',
+			start: 'top 85%',
 			onEnter: () => {
 				gsap.to('.about-history-header', {
 					opacity: 1,
 					y: 0,
-					duration: 0.8,
-					ease: 'power1.out',
+					duration: 0.6,
+					ease: 'power2.out',
 				});
 			}
 		});
 
-		// History cards with 3D flip effect (Performance Optimized)
+		// History cards with improved 3D effect
 		ScrollTrigger.create({
 			trigger: '.about-history-cards',
-			start: 'top 80%',
+			start: 'top 85%',
 			onEnter: () => {
 				gsap.to('.about-history-card', {
 					opacity: 1,
 					y: 0,
 					rotationY: 0,
-					duration: 0.8,
-					ease: 'power1.out',
-					stagger: 0.15,
+					duration: 0.6,
+					ease: 'power2.out',
+					stagger: 0.12,
 				});
 
 				gsap.to('.about-card-icon', {
 					scale: 1,
 					rotation: 0,
-					duration: 0.6,
-					ease: 'back.out(1.7)',
-					stagger: 0.15,
-					delay: 0.2,
+					opacity: 1,
+					duration: 0.5,
+					ease: 'back.out(1.5)',
+					stagger: 0.12,
+					delay: 0.15,
 				});
 			}
 		});
 
-		// Card hover effects (Performance Optimized)
+		// Optimized card hover effects
 		document.querySelectorAll('.about-history-card').forEach(card => {
 			card.addEventListener('mouseenter', () => {
 				gsap.to(card, {
-					y: -10,
-					scale: 1.02,
-					duration: 0.2,
-					ease: 'power1.out',
+					y: -8, // Reduced movement
+					scale: 1.01, // More subtle scale
+					duration: 0.15, // Faster response
+					ease: 'power2.out',
 				});
 				gsap.to(card.querySelector('.about-card-icon'), {
-					rotation: 5,
-					scale: 1.1,
-					duration: 0.2,
-					ease: 'power1.out',
+					rotation: 3, // Reduced rotation
+					scale: 1.05, // Reduced scale
+					duration: 0.15,
+					ease: 'power2.out',
 				});
 			});
 
@@ -367,40 +437,40 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 				gsap.to(card, {
 					y: 0,
 					scale: 1,
-					duration: 0.2,
-					ease: 'power1.out',
+					duration: 0.15,
+					ease: 'power2.out',
 				});
 				gsap.to(card.querySelector('.about-card-icon'), {
 					rotation: 0,
 					scale: 1,
-					duration: 0.2,
-					ease: 'power1.out',
+					duration: 0.15,
+					ease: 'power2.out',
 				});
 			});
 		});
 
-		// Vision and Mission section - split slide animation (Performance Optimized)
+		// Vision and Mission section - contained animation
 		ScrollTrigger.create({
 			trigger: '.about-vision-mission',
-			start: 'top 80%',
+			start: 'top 85%',
 			onEnter: () => {
 				gsap.to('.about-vision', {
 					opacity: 1,
 					x: 0,
-					duration: 1,
-					ease: 'power1.out',
+					duration: 0.8,
+					ease: 'power2.out',
 				});
 				gsap.to('.about-mission', {
 					opacity: 1,
 					x: 0,
-					duration: 1,
-					ease: 'power1.out',
-					delay: 0.15,
+					duration: 0.8,
+					ease: 'power2.out',
+					delay: 0.1,
 				});
 			}
 		});
 
-		// Image zoom effects on scroll
+		// Reduced image zoom effects
 		gsap.to('.about-vision-image img', {
 			scale: 1,
 			ease: 'none',
@@ -408,7 +478,7 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 				trigger: '.about-vision-image',
 				start: 'top bottom',
 				end: 'bottom top',
-				scrub: true,
+				scrub: 1,
 			}
 		});
 
@@ -419,19 +489,18 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 				trigger: '.about-mission-image',
 				start: 'top bottom',
 				end: 'bottom top',
-				scrub: true,
+				scrub: 1,
 			}
 		});
 
-		// Additional creative touches (Performance Optimized)
-		// Floating animation for icons
+		// Subtle floating animation for icons - reduced intensity
 		gsap.to('.about-card-icon svg', {
-			y: -3,
-			duration: 2,
+			y: -2, // Reduced from -3
+			duration: 3, // Slower for less distraction
 			ease: 'power1.inOut',
 			yoyo: true,
 			repeat: -1,
-			stagger: 0.3,
+			stagger: 0.5,
 		});
 
 		// Text reveal effects for section labels
@@ -440,29 +509,61 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 				gsap.from(elements, {
 					scaleX: 0,
 					transformOrigin: 'left center',
-					duration: 0.6,
-					ease: 'power1.out',
-					stagger: 0.08,
+					duration: 0.5, // Faster
+					ease: 'power2.out',
+					stagger: 0.06,
 				});
 			}
 		});
 
-		// Parallax effect for section backgrounds
+		// Reduced parallax effect for section backgrounds
 		gsap.to('[class*="bg-gray-100"]', {
-			yPercent: -10,
+			yPercent: -5, // Much more subtle
 			ease: 'none',
 			scrollTrigger: {
 				trigger: 'body',
 				start: 'top bottom',
 				end: 'bottom top',
-				scrub: true,
+				scrub: 2, // Slower scrub for smoother effect
 			}
 		});
+
+		// Clean up will-change properties after animations complete
+		const cleanupWillChange = () => {
+			gsap.delayedCall(2, () => {
+				document.querySelectorAll('[style*="will-change"]').forEach(el => {
+					(el as HTMLElement).style.willChange = 'auto';
+				});
+			});
+		};
+		
+		cleanupWillChange();
 	});
 </script>
 
 <style>
-	/* Ensure smooth animations and prevent flashing */
+	/* Prevent FOUC and ensure smooth initial state */
+	body {
+		visibility: hidden;
+	}
+	
+	/* Pre-hide animated elements to prevent flashing */
+	.about-hero-title,
+	.about-hero-subtitle,
+	.about-hero-image,
+	.about-loyalty-title,
+	.about-loyalty-text,
+	.about-stat-item,
+	.about-divider,
+	.about-history-header,
+	.about-history-card,
+	.about-card-icon,
+	.about-vision,
+	.about-mission {
+		opacity: 0;
+	}
+	
+	/* Ensure smooth animations and contain layout shifts */
 	.about-hero-title,
 	.about-hero-subtitle,
 	.about-hero-image,
@@ -475,6 +576,12 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 	.about-vision,
 	.about-mission {
 		will-change: transform, opacity;
+	}
+	
+	/* Contain horizontal animations to prevent layout shifts */
+	.about-loyalty-section,
+	.about-vision-mission {
+		overflow: hidden;
 	}
 
 	.about-history-card {
