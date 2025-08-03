@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Our Services",
+    "contact": "Contact Us"
+  },
+  "meta": {
+    "title": {
+      "home": "American Loyalty - Loyalty Programs & Customer Retention Solutions",
+      "about": "About Us - American Loyalty",
+      "services": "Our Services - American Loyalty",
+      "contact": "Contact Us - American Loyalty"
+    },
+    "description": {
+      "home": "Transform your business with American Loyalty's innovative customer loyalty programs and retention solutions.",
+      "about": "Learn about American Loyalty's mission to help businesses build stronger customer relationships through effective loyalty programs.",
+      "services": "Discover our comprehensive loyalty program services including design, implementation, and management solutions.",
+      "contact": "Get in touch with American Loyalty to discuss your customer loyalty and retention needs."
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Try again",
+    "close": "Close",
+    "menu": "Menu",
+    "language": "Language",
+    "select_language": "Select Language"
+  },
+  "home": {
+    "hero": {
+      "title": "American Loyalty",
+      "subtitle": "Where Engagement meets Excellence in every Reward",
+      "description": "Unlock the full potential of Customer Loyalty and let's achieve success together. Our team is ready and waiting to collaborate with you.",
+      "cta_button": "Work With Us!"
+    },
+    "about": {
+      "section_title": "ABOUT US",
+      "heading": "Built on <span class=\"text-brand-red\">Loyalty.</span> Powered by Trust.",
+      "description": "Unlock the full potential of Customer Loyalty and let's achieve success together. Unlock the full potential of Customer Loyalty and let's achieve success together. Unlock the full potential of Customer Loyalty and let's achieve success together. Unlock the full potential of Customer Loyalty and let's achieve success together.",
+      "cta_button": "Learn More About Us",
+      "image_alt": "Two women shopping together"
+    },
+    "stats": {
+      "countries_served": "Countries Served",
+      "customers_reached": "Customers Reached",
+      "years_experience": "Years Experience",
+      "collectibles_delivered": "Collectibles Delivered"
+    },
+    "services": {
+      "section_title": "OUR SERVICES",
+      "heading": "Tailored Solutions for <span class=\"text-brand-red\">Every Partner</span>",
+      "description": "Unlock the full potential of Customer Loyalty and let's achieve success together",
+      "retailers": {
+        "title": "Retailers",
+        "description": "Cover your loved ones from in and out from normal injuries until operations.",
+        "features": [
+          "Market Research",
+          "Selection & Product Design",
+          "Production & Logistics",
+          "Promotion Implementation",
+          "Supervision & Reporting"
+        ],
+        "cta_button": "Learn More About Retailers"
+      },
+      "brands": {
+        "title": "Brands",
+        "description": "Cover your loved ones from in and out from normal injuries until operations.",
+        "features": [
+          "Global Brand Visibility",
+          "Be the Reward",
+          "In-Home Presence",
+          "Build Lasting Loyalty",
+          "Seen. Collected. Loved."
+        ],
+        "cta_button": "Learn More About Brands"
+      }
+    },
+    "testimonials": {
+      "section_title": "REVIEWS",
+      "heading": "Proven Impact, Shared by Partners",
+      "description": "Unlock the full potential of Customer Loyalty and let's achieve success together",
+      "testimonial": {
+        "quote": "\"A <span class=\"text-brand-red\">Game-Changer</span> for Our Business\"",
+        "content": [
+          "Working with <span class=\"font-bold\">American Loyalty</span> helped us increase campaign engagement by <span class=\"font-bold\">40%</span> in just <span class=\"font-bold\">three months.</span> Their reward system was <span class=\"font-bold\">easy</span> to implement and highly effective — it brought measurable results fast.",
+          "Partnering with American Loyalty was a <span class=\"font-bold\">game-changer</span> for us. As a regional retail chain, we were looking for a solution that could boost customer engagement without adding operational complexity."
+        ],
+        "author_name": "John Doe",
+        "author_title": "Marketing Director, ABC Retail",
+        "author_image_alt": "John Doe - Marketing Director"
+      }
+    }
+  },
+  "footer": {
+    "copyright": "Copyright Notice: © Copyright American Loyalty LLC. 2024"
+  }
+}

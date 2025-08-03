@@ -1,0 +1,16 @@
+---
+import { languages } from '../../i18n/utils';
+
+export async function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params;
+
+// Import the main services page content
+const { default: ServicesPage } = await import('../services.astro');
+---
+
+<ServicesPage /> 

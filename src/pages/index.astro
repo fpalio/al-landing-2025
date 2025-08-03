@@ -2,9 +2,13 @@
 import Layout from '../components/Layout.astro';
 import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 import Button from '../components/Button.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<Layout title="American Loyalty - Where Engagement meets Excellence in every Reward" currentPage="home">
+<Layout title={t('meta.title.home')} currentPage="home">
 	<!-- HERO SECTION -->
 	<section class="relative bg-brand-blue hero-section mb-10 lg:mb-[150px]">
 		<!-- Mobile Layout -->
@@ -24,20 +28,20 @@ import Button from '../components/Button.astro';
 				<div class="text-white space-y-6">
 					<div class="space-y-4">
 						<h1 class="font-semibold text-4xl sm:text-5xl leading-tight hero-text" data-hero-animate>
-							American Loyalty
+							{t('home.hero.title')}
 						</h1>
 						<p class="font-medium text-lg sm:text-xl leading-relaxed" data-hero-animate>
-							Where Engagement meets Excellence in every Reward
+							{t('home.hero.subtitle')}
 						</p>
 					</div>
 					<p class="font-medium text-base leading-relaxed opacity-90" data-hero-animate>
-						Unlock the full potential of Customer Loyalty and let's achieve success together. Our team is ready and waiting to collaborate with you.
+						{t('home.hero.description')}
 					</p>
 					<Button 
-						text="Work With Us!"
+						text={t('home.hero.cta_button')}
 						variant="primary"
 						size="md"
-						href="/contact"
+						href={lang === 'en' ? '/contact' : `/${lang}/contact`}
 						fullWidth={true}
 						className="sm:w-auto hero-button"
 						dataAttribute="data-hero-animate"
@@ -74,21 +78,21 @@ import Button from '../components/Button.astro';
 						<div class="flex flex-col gap-5 text-white w-full">
 							<div class="flex flex-col pb-[5px] tracking-[-1px] w-full">
 								<h1 class="font-semibold text-[87px] leading-[1.36] w-[716px] mb-[-5px] hero-text" data-hero-animate>
-									American Loyalty
+									{t('home.hero.title')}
 								</h1>
 								<p class="font-medium text-[30px] leading-[1.36] text-left mb-[-5px]" data-hero-animate>
-									Where Engagement meets Excellence in every Reward
+									{t('home.hero.subtitle')}
 								</p>
 							</div>
 							<p class="font-medium text-[18px] leading-[31.5px] text-left w-full" data-hero-animate>
-								Unlock the full potential of Customer Loyalty and let's achieve success together. Our team is ready and waiting to collaborate with you.
+								{t('home.hero.description')}
 							</p>
 						</div>
 						<Button 
-							text="Work With Us!"
+							text={t('home.hero.cta_button')}
 							variant="primary"
 							size="lg"
-							href="/contact"
+							href={lang === 'en' ? '/contact' : `/${lang}/contact`}
 							className="h-[88px] w-[210px] text-[16px] hero-button"
 							dataAttribute="data-hero-animate"
 						/>

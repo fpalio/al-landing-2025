@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "home": "Início",
+    "about": "Sobre Nós",
+    "services": "Nossos Serviços",
+    "contact": "Fale Conosco"
+  },
+  "meta": {
+    "title": {
+      "home": "American Loyalty - Programas de Fidelidade e Soluções de Retenção de Clientes",
+      "about": "Sobre Nós - American Loyalty",
+      "services": "Nossos Serviços - American Loyalty",
+      "contact": "Fale Conosco - American Loyalty"
+    },
+    "description": {
+      "home": "Transforme seu negócio com os programas inovadores de fidelidade de clientes e soluções de retenção da American Loyalty.",
+      "about": "Conheça a missão da American Loyalty de ajudar empresas a construir relacionamentos mais fortes com clientes através de programas de fidelidade eficazes.",
+      "services": "Descubra nossos serviços abrangentes de programas de fidelidade, incluindo design, implementação e soluções de gestão.",
+      "contact": "Entre em contato com a American Loyalty para discutir suas necessidades de fidelidade e retenção de clientes."
+    }
+  },
+  "common": {
+    "loading": "Carregando...",
+    "error": "Ocorreu um erro",
+    "retry": "Tentar novamente",
+    "close": "Fechar",
+    "menu": "Menu",
+    "language": "Idioma",
+    "select_language": "Selecionar Idioma"
+  },
+  "home": {
+    "hero": {
+      "title": "American Loyalty",
+      "subtitle": "Onde o Engajamento encontra a Excelência em cada Recompensa",
+      "description": "Desbloqueie todo o potencial da Lealdade do Cliente e vamos alcançar o sucesso juntos. Nossa equipe está pronta e esperando para colaborar com você.",
+      "cta_button": "Trabalhe Conosco!"
+    },
+    "about": {
+      "section_title": "SOBRE NÓS",
+      "heading": "Construído sobre <span class=\"text-brand-red\">Lealdade.</span> Alimentado pela Confiança.",
+      "description": "Desbloqueie todo o potencial da Lealdade do Cliente e vamos alcançar o sucesso juntos. Desbloqueie todo o potencial da Lealdade do Cliente e vamos alcançar o sucesso juntos. Desbloqueie todo o potencial da Lealdade do Cliente e vamos alcançar o sucesso juntos. Desbloqueie todo o potencial da Lealdade do Cliente e vamos alcançar o sucesso juntos.",
+      "cta_button": "Saiba Mais Sobre Nós",
+      "image_alt": "Duas mulheres fazendo compras juntas"
+    },
+    "stats": {
+      "countries_served": "Países Atendidos",
+      "customers_reached": "Clientes Alcançados",
+      "years_experience": "Anos de Experiência",
+      "collectibles_delivered": "Colecionáveis Entregues"
+    },
+    "services": {
+      "section_title": "NOSSOS SERVIÇOS",
+      "heading": "Soluções Personalizadas para <span class=\"text-brand-red\">Cada Parceiro</span>",
+      "description": "Desbloqueie todo o potencial da Lealdade do Cliente e vamos alcançar o sucesso juntos",
+      "retailers": {
+        "title": "Varejistas",
+        "description": "Proteja seus entes queridos por dentro e por fora, desde lesões normais até operações.",
+        "features": [
+          "Pesquisa de Mercado",
+          "Seleção e Design de Produtos",
+          "Produção e Logística",
+          "Implementação de Promoções",
+          "Supervisão e Relatórios"
+        ],
+        "cta_button": "Saiba Mais Sobre Varejistas"
+      },
+      "brands": {
+        "title": "Marcas",
+        "description": "Proteja seus entes queridos por dentro e por fora, desde lesões normais até operações.",
+        "features": [
+          "Visibilidade Global da Marca",
+          "Seja a Recompensa",
+          "Presença Domiciliar",
+          "Construa Lealdade Duradoura",
+          "Visto. Colecionado. Amado."
+        ],
+        "cta_button": "Saiba Mais Sobre Marcas"
+      }
+    },
+    "testimonials": {
+      "section_title": "AVALIAÇÕES",
+      "heading": "Impacto Comprovado, Compartilhado por Parceiros",
+      "description": "Desbloqueie todo o potencial da Lealdade do Cliente e vamos alcançar o sucesso juntos",
+      "testimonial": {
+        "quote": "\"Uma <span class=\"text-brand-red\">Mudança de Jogo</span> para Nosso Negócio\"",
+        "content": [
+          "Trabalhar com a <span class=\"font-bold\">American Loyalty</span> nos ajudou a aumentar o engajamento da campanha em <span class=\"font-bold\">40%</span> em apenas <span class=\"font-bold\">três meses.</span> Seu sistema de recompensas foi <span class=\"font-bold\">fácil</span> de implementar e altamente eficaz — trouxe resultados mensuráveis rapidamente.",
+          "Fazer parceria com a American Loyalty foi uma <span class=\"font-bold\">mudança de jogo</span> para nós. Como uma rede varejista regional, estávamos procurando uma solução que pudesse aumentar o engajamento do cliente sem adicionar complexidade operacional."
+        ],
+        "author_name": "John Doe",
+        "author_title": "Diretor de Marketing, ABC Retail",
+        "author_image_alt": "John Doe - Diretor de Marketing"
+      }
+    }
+  },
+  "footer": {
+    "copyright": "Aviso de Direitos Autorais: © Copyright American Loyalty LLC. 2024"
+  }
+}
