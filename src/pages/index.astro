@@ -12,29 +12,29 @@ const t = useTranslations(lang);
 	<!-- HERO SECTION -->
 	<section class="relative bg-brand-blue hero-section mb-10 lg:mb-[150px]">
 		<!-- Mobile Layout -->
-		<div class="block lg:hidden px-4 py-16">
+		<div class="block px-4 py-16 lg:hidden">
 			<!-- Hero Content -->
 			<div class="relative hero-card">
 				<!-- Background Image with Overlay -->
-				<div class="rounded-xl overflow-hidden mb-8 h-64">
+				<div class="overflow-hidden mb-8 h-64 rounded-xl">
 					<div 
 						class="absolute inset-0 rounded-xl hero-bg"
 						style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80'); background-size: cover; background-position: center; background-repeat: no-repeat;"
 					></div>
-					<div class="absolute inset-0 rounded-xl bg-gradient-to-t from-black/87 via-black/40 to-black/19"></div>
+					<div class="absolute inset-0 bg-gradient-to-t rounded-xl from-black/87 via-black/40 to-black/19"></div>
 				</div>
 				
 				<!-- Content -->
-				<div class="text-white space-y-6">
+				<div class="space-y-6 text-white">
 					<div class="space-y-4">
-						<h1 class="font-semibold text-4xl sm:text-5xl leading-tight hero-text" data-hero-animate>
+						<h1 class="text-4xl font-semibold leading-tight sm:text-5xl hero-text" data-hero-animate>
 							{t('home.hero.title')}
 						</h1>
-						<p class="font-medium text-lg sm:text-xl leading-relaxed" data-hero-animate>
+						<p class="text-lg font-medium leading-relaxed sm:text-xl" data-hero-animate>
 							{t('home.hero.subtitle')}
 						</p>
 					</div>
-					<p class="font-medium text-base leading-relaxed opacity-90" data-hero-animate>
+					<p class="text-base font-medium leading-relaxed opacity-90" data-hero-animate>
 						{t('home.hero.description')}
 					</p>
 					<Button 
@@ -64,18 +64,18 @@ const t = useTranslations(lang);
 			<!-- Hero Content Container -->
 			<div class="absolute left-[121px] top-[126px] w-[1198px] h-[674px] hero-card">
 				<!-- Background Image with Overlay -->
-				<div class="absolute inset-0 rounded-xl overflow-hidden">
+				<div class="overflow-hidden absolute inset-0 rounded-xl">
 					<div 
 						class="absolute inset-0 rounded-xl hero-bg"
 						style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80'); background-size: cover; background-position: center; background-repeat: no-repeat;"
 					></div>
-					<div class="absolute inset-0 rounded-xl bg-gradient-to-t from-black/87 via-black/40 to-black/19"></div>
+					<div class="absolute inset-0 bg-gradient-to-t rounded-xl from-black/87 via-black/40 to-black/19"></div>
 				</div>
 				
 				<!-- Content -->
 				<div class="relative z-10 px-[125px] py-[153px] w-[723px]">
 					<div class="flex flex-col gap-[34px] items-start">
-						<div class="flex flex-col gap-5 text-white w-full">
+						<div class="flex flex-col gap-5 w-full text-white">
 							<div class="flex flex-col pb-[5px] tracking-[-1px] w-full">
 								<h1 class="font-semibold text-[87px] leading-[1.36] w-[716px] mb-[-5px] hero-text" data-hero-animate>
 									{t('home.hero.title')}
@@ -103,16 +103,16 @@ const t = useTranslations(lang);
 	</section>
 
 	<!-- ABOUT US SECTION -->
-	<section class="py-10 bg-white mt-0">
+	<section class="py-10 mt-0 bg-white">
 		<!-- Mobile Layout -->
-		<div class="block lg:hidden px-4 py-8">
+		<div class="block px-4 py-8 lg:hidden">
 			<div class="space-y-8">
 				<!-- Image -->
 				<div class="rounded-[18px] overflow-hidden h-64 sm:h-80" data-animate="slide-up" data-delay="100">
 					<img 
 						src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
 						alt="Two women shopping together"
-						class="w-full h-full object-cover"
+						class="object-cover w-full h-full"
 					/>
 				</div>
 				
@@ -121,10 +121,10 @@ const t = useTranslations(lang);
 					<div class="text-brand-red font-bold text-base tracking-[1px] uppercase">ABOUT US</div>
 					<div class="space-y-8">
 						<div class="space-y-4">
-							<h2 class="font-bold text-3xl sm:text-4xl leading-tight text-gray-900">
+							<h2 class="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
 								Built on <span class="text-brand-red">Loyalty.</span> Powered by Trust.
 							</h2>
-							<p class="font-medium text-base leading-relaxed text-gray-600">
+							<p class="text-base font-medium leading-relaxed text-gray-600">
 								Unlock the full potential of Customer Loyalty and let's achieve success together. Unlock the full potential of Customer Loyalty and let's achieve success together. Unlock the full potential of Customer Loyalty and let's achieve success together. Unlock the full potential of Customer Loyalty and let's achieve success together.
 							</p>
 						</div>
@@ -149,7 +149,7 @@ const t = useTranslations(lang);
 					<img 
 						src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
 						alt="Two women shopping together"
-						class="w-full h-full object-cover"
+						class="object-cover w-full h-full"
 					/>
 				</div>
 				
@@ -181,40 +181,40 @@ const t = useTranslations(lang);
 	<!-- STATISTICS SECTION -->
 	<section class="relative top-[20px]">
 		<!-- Mobile Layout -->
-		<div class="block lg:hidden px-4">
+		<div class="block px-4 lg:hidden">
 			<div class="bg-brand-blue rounded-[15px] py-8 px-6 stats-container" data-animate="scale-in" data-delay="200">
 				<div class="grid grid-cols-2 gap-6">
 					<!-- 10+ Countries -->
 					<div class="text-center">
-						<div class="text-white text-3xl font-semibold mb-2 count-number" data-end-value="10">10+</div>
-						<div class="text-white text-sm uppercase tracking-wide">Countries Served</div>
+						<div class="mb-2 text-3xl font-semibold text-white count-number" data-end-value="10">10+</div>
+						<div class="text-sm tracking-wide text-white uppercase">Countries Served</div>
 					</div>
 					
 					<!-- 1M+ Customers -->
 					<div class="text-center">
-						<div class="text-white text-3xl font-semibold mb-2 count-number" data-end-value="1000000">1M+</div>
-						<div class="text-white text-sm uppercase tracking-wide">Customers Reached</div>
+						<div class="mb-2 text-3xl font-semibold text-white count-number" data-end-value="1000000">1M+</div>
+						<div class="text-sm tracking-wide text-white uppercase">Customers Reached</div>
 					</div>
 					
 					<!-- 20+ Years -->
 					<div class="text-center">
-						<div class="text-white text-3xl font-semibold mb-2 count-number" data-end-value="20">20+</div>
-						<div class="text-white text-sm uppercase tracking-wide">Years Experience</div>
+						<div class="mb-2 text-3xl font-semibold text-white count-number" data-end-value="20">20+</div>
+						<div class="text-sm tracking-wide text-white uppercase">Years Experience</div>
 					</div>
 					
 					<!-- 300+ Collectibles -->
 					<div class="text-center">
-						<div class="text-white text-3xl font-semibold mb-2 count-number" data-end-value="300">300+</div>
-						<div class="text-white text-sm uppercase tracking-wide">Collectibles Delivered</div>
+						<div class="mb-2 text-3xl font-semibold text-white count-number" data-end-value="300">300+</div>
+						<div class="text-sm tracking-wide text-white uppercase">Collectibles Delivered</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
 		<!-- Desktop Layout (Original) -->
-		<div class="hidden lg:block mx-10">
+		<div class="hidden mx-10 lg:block">
 			<div class="bg-brand-blue rounded-[15px] mx-auto max-w-[1457px] h-[190px] flex items-center justify-center px-20 stats-container" data-animate="scale-in" data-delay="200">
-				<div class="flex flex-row items-start justify-center gap-16">
+				<div class="flex flex-row gap-16 justify-center items-start">
 					<!-- 10+ Countries -->
 					<div class="text-center">
 						<div class="text-white text-[53px] font-semibold leading-[71px] mb-1 count-number" data-end-value="10">10+</div>
@@ -255,13 +255,13 @@ const t = useTranslations(lang);
 	<!-- OUR SERVICES SECTION -->
 	<section class="pt-[166px] pb-20 bg-white">
 		<!-- Mobile Layout -->
-		<div class="block lg:hidden px-4 py-8">
-			<div class="space-y-8 mb-8" data-animate="fade-up">
+		<div class="block px-4 py-8 lg:hidden">
+			<div class="mb-8 space-y-8" data-animate="fade-up">
 				<div class="text-brand-red font-bold text-base tracking-[1px] uppercase text-center">OUR SERVICES</div>
-				<h2 class="font-bold text-3xl sm:text-4xl leading-tight text-gray-900 text-center">
+				<h2 class="text-3xl font-bold leading-tight text-center text-gray-900 sm:text-4xl">
 					Tailored Solutions for <span class="text-brand-red">Every Partner</span>
 				</h2>
-				<p class="text-gray-600 text-base leading-relaxed text-center font-medium">
+				<p class="text-base font-medium leading-relaxed text-center text-gray-600">
 					Unlock the full potential of Customer Loyalty and let's achieve success together
 				</p>
 			</div>
@@ -271,56 +271,56 @@ const t = useTranslations(lang);
 				<!-- Retailers Card -->
 				<div class="bg-white rounded-[21px] shadow-lg p-6 service-card" data-animate="fade-up" data-delay="100">
 					<div class="flex flex-row gap-4 items-center mb-4">
-						<div class="w-12 h-12 bg-blue-600 rounded flex items-center justify-center">
+						<div class="flex justify-center items-center w-12 h-12 bg-blue-600 rounded">
 							<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
 							</svg>
 						</div>
 						<h3 class="text-2xl font-semibold text-gray-900">Retailers</h3>
 					</div>
-					<p class="text-gray-600 text-base leading-relaxed font-medium mb-6">
+					<p class="mb-6 text-base font-medium leading-relaxed text-gray-600">
 						Cover your loved ones from in and out from normal injuries until operations.
 					</p>
-					<div class="space-y-3 mb-6">
-						<div class="flex items-center gap-3">
+					<div class="mb-6 space-y-3">
+						<div class="flex gap-3 items-center">
 							<div class="w-5 h-5 text-green-600">
 								<svg fill="currentColor" viewBox="0 0 20 20">
 									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
 								</svg>
 							</div>
-							<span class="text-gray-600 text-base font-medium">Market Research</span>
+							<span class="text-base font-medium text-gray-600">Market Research</span>
 						</div>
-						<div class="flex items-center gap-3">
+						<div class="flex gap-3 items-center">
 							<div class="w-5 h-5 text-green-600">
 								<svg fill="currentColor" viewBox="0 0 20 20">
 									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
 								</svg>
 							</div>
-							<span class="text-gray-600 text-base font-medium">Selection & Product Design</span>
+							<span class="text-base font-medium text-gray-600">Selection & Product Design</span>
 						</div>
-						<div class="flex items-center gap-3">
+						<div class="flex gap-3 items-center">
 							<div class="w-5 h-5 text-green-600">
 								<svg fill="currentColor" viewBox="0 0 20 20">
 									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
 								</svg>
 							</div>
-							<span class="text-gray-600 text-base font-medium">Production & Logistics</span>
+							<span class="text-base font-medium text-gray-600">Production & Logistics</span>
 						</div>
-						<div class="flex items-center gap-3">
+						<div class="flex gap-3 items-center">
 							<div class="w-5 h-5 text-green-600">
 								<svg fill="currentColor" viewBox="0 0 20 20">
 									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
 								</svg>
 							</div>
-							<span class="text-gray-600 text-base font-medium">Promotion Implementation</span>
+							<span class="text-base font-medium text-gray-600">Promotion Implementation</span>
 						</div>
-						<div class="flex items-center gap-3">
+						<div class="flex gap-3 items-center">
 							<div class="w-5 h-5 text-green-600">
 								<svg fill="currentColor" viewBox="0 0 20 20">
 									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
 								</svg>
 							</div>
-							<span class="text-gray-600 text-base font-medium">Supervision & Reporting</span>
+							<span class="text-base font-medium text-gray-600">Supervision & Reporting</span>
 						</div>
 					</div>
 					<Button 
@@ -335,56 +335,56 @@ const t = useTranslations(lang);
 				<!-- Brands Card -->
 				<div class="bg-white rounded-[21px] shadow-lg p-6 service-card" data-animate="fade-up" data-delay="300">
 					<div class="flex flex-row gap-4 items-center mb-4">
-						<div class="w-12 h-12 bg-pink-600 rounded flex items-center justify-center">
+						<div class="flex justify-center items-center w-12 h-12 bg-pink-600 rounded">
 							<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
 							</svg>
 						</div>
 						<h3 class="text-2xl font-semibold text-gray-900">Brands</h3>
 					</div>
-					<p class="text-gray-600 text-base leading-relaxed font-medium mb-6">
+					<p class="mb-6 text-base font-medium leading-relaxed text-gray-600">
 						Cover your loved ones from in and out from normal injuries until operations.
 					</p>
-					<div class="space-y-3 mb-6">
-						<div class="flex items-center gap-3">
+					<div class="mb-6 space-y-3">
+						<div class="flex gap-3 items-center">
 							<div class="w-5 h-5 text-green-600">
 								<svg fill="currentColor" viewBox="0 0 20 20">
 									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
 								</svg>
 							</div>
-							<span class="text-gray-600 text-base font-medium">Global Brand Visibility</span>
+							<span class="text-base font-medium text-gray-600">Global Brand Visibility</span>
 						</div>
-						<div class="flex items-center gap-3">
+						<div class="flex gap-3 items-center">
 							<div class="w-5 h-5 text-green-600">
 								<svg fill="currentColor" viewBox="0 0 20 20">
 									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
 								</svg>
 							</div>
-							<span class="text-gray-600 text-base font-medium">Be the Reward</span>
+							<span class="text-base font-medium text-gray-600">Be the Reward</span>
 						</div>
-						<div class="flex items-center gap-3">
+						<div class="flex gap-3 items-center">
 							<div class="w-5 h-5 text-green-600">
 								<svg fill="currentColor" viewBox="0 0 20 20">
 									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
 								</svg>
 							</div>
-							<span class="text-gray-600 text-base font-medium">In-Home Presence</span>
+							<span class="text-base font-medium text-gray-600">In-Home Presence</span>
 						</div>
-						<div class="flex items-center gap-3">
+						<div class="flex gap-3 items-center">
 							<div class="w-5 h-5 text-green-600">
 								<svg fill="currentColor" viewBox="0 0 20 20">
 									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
 								</svg>
 							</div>
-							<span class="text-gray-600 text-base font-medium">Build Lasting Loyalty</span>
+							<span class="text-base font-medium text-gray-600">Build Lasting Loyalty</span>
 						</div>
-						<div class="flex items-center gap-3">
+						<div class="flex gap-3 items-center">
 							<div class="w-5 h-5 text-green-600">
 								<svg fill="currentColor" viewBox="0 0 20 20">
 									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
 								</svg>
 							</div>
-							<span class="text-gray-600 text-base font-medium">Seen. Collected. Loved.</span>
+							<span class="text-base font-medium text-gray-600">Seen. Collected. Loved.</span>
 						</div>
 					</div>
 					<Button 
@@ -426,7 +426,7 @@ const t = useTranslations(lang);
 						Cover your loved ones from in and out from normal injuries until operations.
 					</p>
 					<div class="absolute left-9 top-[189px] space-y-1.5 w-[269px]">
-						<div class="flex items-center gap-2.5">
+						<div class="flex gap-2.5 items-center">
 							<div class="w-[25px] h-[25px] text-green-600">
 								<svg fill="currentColor" viewBox="0 0 20 20">
 									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
@@ -434,7 +434,7 @@ const t = useTranslations(lang);
 							</div>
 							<span class="text-gray-600 text-[18px] leading-[28px] font-medium">Market Research</span>
 						</div>
-						<div class="flex items-center gap-2.5">
+						<div class="flex gap-2.5 items-center">
 							<div class="w-[25px] h-[25px] text-green-600">
 								<svg fill="currentColor" viewBox="0 0 20 20">
 									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
@@ -442,7 +442,7 @@ const t = useTranslations(lang);
 							</div>
 							<span class="text-gray-600 text-[18px] leading-[28px] font-medium">Selection & Product Design</span>
 						</div>
-						<div class="flex items-center gap-2.5">
+						<div class="flex gap-2.5 items-center">
 							<div class="w-[25px] h-[25px] text-green-600">
 								<svg fill="currentColor" viewBox="0 0 20 20">
 									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
@@ -450,7 +450,7 @@ const t = useTranslations(lang);
 							</div>
 							<span class="text-gray-600 text-[18px] leading-[28px] font-medium">Production & Logistics</span>
 						</div>
-						<div class="flex items-center gap-2.5">
+						<div class="flex gap-2.5 items-center">
 							<div class="w-[25px] h-[25px] text-green-600">
 								<svg fill="currentColor" viewBox="0 0 20 20">
 									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
@@ -458,7 +458,7 @@ const t = useTranslations(lang);
 							</div>
 							<span class="text-gray-600 text-[18px] leading-[28px] font-medium">Promotion Implementation</span>
 						</div>
-						<div class="flex items-center gap-2.5">
+						<div class="flex gap-2.5 items-center">
 							<div class="w-[25px] h-[25px] text-green-600">
 								<svg fill="currentColor" viewBox="0 0 20 20">
 									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
@@ -492,7 +492,7 @@ const t = useTranslations(lang);
 						Cover your loved ones from in and out from normal injuries until operations.
 					</p>
 					<div class="absolute left-[39px] top-[189px] space-y-1.5 w-[269px]">
-						<div class="flex items-center gap-2.5">
+						<div class="flex gap-2.5 items-center">
 							<div class="w-[25px] h-[25px] text-green-600">
 								<svg fill="currentColor" viewBox="0 0 20 20">
 									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
@@ -500,7 +500,7 @@ const t = useTranslations(lang);
 							</div>
 							<span class="text-gray-600 text-[18px] leading-[28px] font-medium">Global Brand Visibility</span>
 						</div>
-						<div class="flex items-center gap-2.5">
+						<div class="flex gap-2.5 items-center">
 							<div class="w-[25px] h-[25px] text-green-600">
 								<svg fill="currentColor" viewBox="0 0 20 20">
 									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
@@ -508,7 +508,7 @@ const t = useTranslations(lang);
 							</div>
 							<span class="text-gray-600 text-[18px] leading-[28px] font-medium">Be the Reward</span>
 						</div>
-						<div class="flex items-center gap-2.5">
+						<div class="flex gap-2.5 items-center">
 							<div class="w-[25px] h-[25px] text-green-600">
 								<svg fill="currentColor" viewBox="0 0 20 20">
 									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
@@ -516,7 +516,7 @@ const t = useTranslations(lang);
 							</div>
 							<span class="text-gray-600 text-[18px] leading-[28px] font-medium">In-Home Presence</span>
 						</div>
-						<div class="flex items-center gap-2.5">
+						<div class="flex gap-2.5 items-center">
 							<div class="w-[25px] h-[25px] text-green-600">
 								<svg fill="currentColor" viewBox="0 0 20 20">
 									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
@@ -524,7 +524,7 @@ const t = useTranslations(lang);
 							</div>
 							<span class="text-gray-600 text-[18px] leading-[28px] font-medium">Build Lasting Loyalty</span>
 						</div>
-						<div class="flex items-center gap-2.5">
+						<div class="flex gap-2.5 items-center">
 							<div class="w-[25px] h-[25px] text-green-600">
 								<svg fill="currentColor" viewBox="0 0 20 20">
 									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
@@ -550,15 +550,15 @@ const t = useTranslations(lang);
 	<!-- TESTIMONIALS SECTION -->
 	<section class="pt-[80px] pb-20 bg-white">
 		<!-- Mobile Layout -->
-		<div class="block lg:hidden px-4 py-8">
-			<div class="space-y-8 mb-8">
+		<div class="block px-4 py-8 lg:hidden">
+			<div class="mb-8 space-y-8">
 				<!-- Header -->
 				<div class="space-y-4 text-center" data-animate="fade-up">
 					<div class="text-brand-red font-bold text-base tracking-[1px] uppercase">REVIEWS</div>
-					<h2 class="font-bold text-3xl sm:text-4xl leading-tight text-gray-900">
+					<h2 class="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
 						Proven Impact, Shared by Partners
 					</h2>
-					<p class="text-gray-600 text-base leading-relaxed font-medium">
+					<p class="text-base font-medium leading-relaxed text-gray-600">
 						Unlock the full potential of Customer Loyalty and let's achieve success together
 					</p>
 				</div>
@@ -567,18 +567,18 @@ const t = useTranslations(lang);
 				<div class="bg-gray-100 rounded-[27px] p-6 testimonial-card" data-animate="slide-up" data-delay="200">
 					<div class="space-y-6">
 						<!-- Image -->
-						<div class="w-full h-64 rounded-2xl overflow-hidden">
+						<div class="overflow-hidden w-full h-64 rounded-2xl">
 							<img 
 								src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
 								alt="John Doe - Marketing Director"
-								class="w-full h-full object-cover"
+								class="object-cover w-full h-full"
 							/>
 						</div>
 						
 						<!-- Content -->
 						<div class="space-y-6">
 							<div class="space-y-4">
-								<h3 class="font-bold text-2xl leading-tight text-gray-900">
+								<h3 class="text-2xl font-bold leading-tight text-gray-900">
 									"A <span class="text-brand-red">Game-Changer</span> for Our Business"
 								</h3>
 								<div class="font-medium text-sm leading-relaxed text-[#757b8a] space-y-3">
@@ -622,7 +622,7 @@ const t = useTranslations(lang);
 							<img 
 								src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
 								alt="John Doe - Marketing Director"
-								class="w-full h-full object-cover"
+								class="object-cover w-full h-full"
 							/>
 						</div>
 						

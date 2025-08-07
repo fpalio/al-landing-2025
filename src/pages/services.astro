@@ -20,8 +20,8 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 
 		<!-- Tab Buttons -->
 		<div class="absolute left-1/2 top-[237px] lg:top-[369px] transform -translate-x-1/2 services-tabs-container" data-hero-animation>
-			<label class="relative inline-flex cursor-pointer items-center">
-				<input type="checkbox" id="servicesToggle" class="peer sr-only" />
+			<label class="inline-flex relative items-center cursor-pointer">
+				<input type="checkbox" id="servicesToggle" class="sr-only peer" />
 				<div class="peer flex h-[76px] lg:h-[113px] w-[284px] lg:w-[512px] items-center gap-[3px] lg:gap-[1.7px] rounded-[6.52px] lg:rounded-[12.6px] bg-white/22 p-[3px] lg:p-[9px] 
 							after:absolute after:left-[3px] lg:after:left-[9px] after:top-[3px] lg:after:top-[9px] 
 							after:h-[70px] lg:after:h-[91px] after:w-[calc(50%-3px)] lg:after:w-[calc(50%-6px)] 
@@ -46,10 +46,10 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 		</div>
 
 		<!-- Fixed Floating Toggle (Bottom Right) -->
-		<div id="floatingToggle" class="fixed bottom-6 right-6 z-50 opacity-0 pointer-events-none transform translate-y-10 transition-all duration-500 ease-out">
-			<label class="relative inline-flex cursor-pointer items-center">
-				<input type="checkbox" id="floatingServicesToggle" class="peer sr-only" />
-				<div class="peer flex h-16 w-64 items-center gap-1 rounded-xl bg-white/95 backdrop-blur-md shadow-2xl border border-white/20 p-2 
+		<div id="floatingToggle" class="fixed right-6 bottom-6 z-50 opacity-0 transition-all duration-500 ease-out transform translate-y-10 pointer-events-none">
+			<label class="inline-flex relative items-center cursor-pointer">
+				<input type="checkbox" id="floatingServicesToggle" class="sr-only peer" />
+				<div class="peer flex h-16 w-64 items-center gap-1 rounded-xl bg-brand-blue shadow-2xl border border-brand-blue/30 p-2 
 							after:absolute after:left-2 after:top-2 
 							after:h-12 after:w-[calc(50%-6px)] 
 							after:rounded-lg after:bg-brand-red 
@@ -57,14 +57,14 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 							peer-checked:after:translate-x-[calc(100%+4px)]
 							after:shadow-lg after:shadow-red-500/40">
 					<!-- For Retailers Button -->
-					<button id="floatingRetailersTab" class="relative z-10 flex-1 flex items-center justify-center h-full rounded-lg transition-colors duration-300">
-						<span class="font-inter font-bold text-white text-sm text-center floating-retailers-text">
+					<button id="floatingRetailersTab" class="flex relative z-10 flex-1 justify-center items-center h-full rounded-lg transition-colors duration-300">
+						<span class="text-sm font-bold text-center text-white font-inter floating-retailers-text">
 							For Retailers
 						</span>
 					</button>
 					<!-- For Brands Button -->
-					<button id="floatingBrandsTab" class="relative z-10 flex-1 flex items-center justify-center h-full rounded-lg transition-colors duration-300">
-						<span class="font-inter font-bold text-white/70 text-sm text-center floating-brands-text">
+					<button id="floatingBrandsTab" class="flex relative z-10 flex-1 justify-center items-center h-full rounded-lg transition-colors duration-300">
+						<span class="text-sm font-bold text-center font-inter text-white/70 floating-brands-text">
 							For Brands
 						</span>
 					</button>
@@ -74,9 +74,9 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 	</section>
 
 	<!-- MAIN SERVICES SECTION -->
-	<section class="bg-white py-12 lg:py-20 relative">
+	<section class="relative py-12 bg-white lg:py-20">
 		<!-- Dynamic Main Titles -->
-		<div class="text-center mb-12 lg:mb-20 services-main-title" data-animation="fadeIn">
+		<div class="mb-12 text-center lg:mb-20 services-main-title" data-animation="fadeIn">
 			<!-- Retailers Title -->
 			<h2 id="retailersTitle" class="font-archivo font-bold text-[48.77px] lg:text-[58.3px] leading-[1.09] tracking-[-1.02px] lg:tracking-[-1.22px] text-gray-900 max-w-[297px] lg:max-w-[677px] mx-auto px-6 lg:px-4 transition-all duration-500 ease-out">
 				We turn insights into loyalty — and loyalty into growth.
@@ -93,7 +93,7 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 			<div class="hidden lg:block">
 				<div class="space-y-12 services-desktop-items" data-animation="staggered" data-delay="200">
 					<!-- Service 1: Market Research -->
-					<div class="flex flex-row items-center gap-12 lg:gap-16 border-b border-gray-200 pb-10 services-item">
+					<div class="flex flex-row gap-12 items-center pb-10 border-b border-gray-200 lg:gap-16 services-item">
 						<div class="flex flex-col items-start gap-3 w-[204px]">
 							<div class="bg-red-50 p-4 rounded-[31px] shadow-sm w-[62px] h-[62px] flex items-center justify-center services-icon">
 								<!-- Market Research Icon -->
@@ -113,7 +113,7 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 					</div>
 
 					<!-- Service 2: Selection and Product Design -->
-					<div class="flex flex-row items-center gap-12 lg:gap-16 border-b border-gray-200 pb-10 services-item">
+					<div class="flex flex-row gap-12 items-center pb-10 border-b border-gray-200 lg:gap-16 services-item">
 						<div class="flex flex-col items-start gap-3 w-[352px]">
 							<div class="bg-red-50 p-4 rounded-[31px] shadow-sm w-[62px] h-[62px] flex items-center justify-center services-icon">
 								<!-- Design Icon -->
@@ -133,7 +133,7 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 					</div>
 
 					<!-- Service 3: Production and Logistic -->
-					<div class="flex flex-row items-center gap-12 lg:gap-16 border-b border-gray-200 pb-10 services-item">
+					<div class="flex flex-row gap-12 items-center pb-10 border-b border-gray-200 lg:gap-16 services-item">
 						<div class="flex flex-col items-start gap-3 w-[278px]">
 							<div class="bg-red-50 p-4 rounded-[31px] shadow-sm w-[62px] h-[62px] flex items-center justify-center services-icon">
 								<!-- Production Icon -->
@@ -153,7 +153,7 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 					</div>
 
 					<!-- Service 4: Promotion Implementation -->
-					<div class="flex flex-row items-center gap-12 lg:gap-16 border-b border-gray-200 pb-10 services-item">
+					<div class="flex flex-row gap-12 items-center pb-10 border-b border-gray-200 lg:gap-16 services-item">
 						<div class="flex flex-col items-start gap-3 w-[312px]">
 							<div class="bg-red-50 p-4 rounded-[31px] shadow-sm w-[62px] h-[62px] flex items-center justify-center services-icon">
 								<!-- Promotion Icon -->
@@ -173,7 +173,7 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 					</div>
 
 					<!-- Service 5: Supervision and Reporting -->
-					<div class="flex flex-row items-center gap-12 lg:gap-16 services-item">
+					<div class="flex flex-row gap-12 items-center lg:gap-16 services-item">
 						<div class="flex flex-col items-start gap-3 w-[313px]">
 							<div class="bg-red-50 p-4 rounded-[31px] shadow-sm w-[62px] h-[62px] flex items-center justify-center services-icon">
 								<!-- Reporting Icon -->
@@ -198,9 +198,9 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 			<div class="block lg:hidden">
 				<div class="max-w-[320px] mx-auto space-y-10 services-mobile-items" data-animation="staggered" data-delay="200">
 					<!-- Service 1: Market Research -->
-					<div class="border-b border-gray-200 pb-8 services-mobile-item">
+					<div class="pb-8 border-b border-gray-200 services-mobile-item">
 						<div class="flex flex-col gap-6">
-							<div class="flex flex-col items-start gap-4">
+							<div class="flex flex-col gap-4 items-start">
 								<div class="bg-red-50 p-3 rounded-[29px] shadow-sm w-[58px] h-[58px] flex items-center justify-center services-mobile-icon">
 									<svg class="w-[32px] h-[32px] text-gray-700" fill="currentColor" viewBox="0 0 24 24">
 										<path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.3L22 12V6z"/>
@@ -217,9 +217,9 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 					</div>
 
 					<!-- Service 2: Selection and Product Design -->
-					<div class="border-b border-gray-200 pb-8 services-mobile-item">
+					<div class="pb-8 border-b border-gray-200 services-mobile-item">
 						<div class="flex flex-col gap-6">
-							<div class="flex flex-col items-start gap-4">
+							<div class="flex flex-col gap-4 items-start">
 								<div class="bg-red-50 p-3 rounded-[29px] shadow-sm w-[58px] h-[58px] flex items-center justify-center services-mobile-icon">
 									<svg class="w-[32px] h-[32px] text-gray-700" fill="currentColor" viewBox="0 0 24 24">
 										<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
@@ -236,9 +236,9 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 					</div>
 
 					<!-- Service 3: Production and Logistic -->
-					<div class="border-b border-gray-200 pb-8 services-mobile-item">
+					<div class="pb-8 border-b border-gray-200 services-mobile-item">
 						<div class="flex flex-col gap-6">
-							<div class="flex flex-col items-start gap-4">
+							<div class="flex flex-col gap-4 items-start">
 								<div class="bg-red-50 p-3 rounded-[29px] shadow-sm w-[58px] h-[58px] flex items-center justify-center services-mobile-icon">
 									<svg class="w-[32px] h-[32px] text-gray-700" fill="currentColor" viewBox="0 0 24 24">
 										<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
@@ -255,9 +255,9 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 					</div>
 
 					<!-- Service 4: Promotion Implementation -->
-					<div class="border-b border-gray-200 pb-8 services-mobile-item">
+					<div class="pb-8 border-b border-gray-200 services-mobile-item">
 						<div class="flex flex-col gap-6">
-							<div class="flex flex-col items-start gap-4">
+							<div class="flex flex-col gap-4 items-start">
 								<div class="bg-red-50 p-3 rounded-[29px] shadow-sm w-[58px] h-[58px] flex items-center justify-center services-mobile-icon">
 									<svg class="w-[32px] h-[32px] text-gray-700" fill="currentColor" viewBox="0 0 24 24">
 										<path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/>
@@ -276,7 +276,7 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 					<!-- Service 5: Supervision and Reporting -->
 					<div class="services-mobile-item">
 						<div class="flex flex-col gap-6">
-							<div class="flex flex-col items-start gap-4">
+							<div class="flex flex-col gap-4 items-start">
 								<div class="bg-red-50 p-3 rounded-[29px] shadow-sm w-[58px] h-[58px] flex items-center justify-center services-mobile-icon">
 									<svg class="w-[32px] h-[32px] text-gray-700" fill="currentColor" viewBox="0 0 24 24">
 										<path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
@@ -306,7 +306,7 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 							<img 
 								src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
 								alt="Showcase Your Brand"
-								class="w-full h-full object-cover"
+								class="object-cover w-full h-full"
 							/>
 							<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
 							<div class="absolute bottom-6 left-7">
@@ -328,7 +328,7 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 							<img 
 								src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
 								alt="Drive Visibility"
-								class="w-full h-full object-cover"
+								class="object-cover w-full h-full"
 							/>
 							<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
 							<div class="absolute bottom-6 left-7">
@@ -355,7 +355,7 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 							<img 
 								src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
 								alt="Showcase Your Brand"
-								class="w-full h-full object-cover"
+								class="object-cover w-full h-full"
 							/>
 							<div class="absolute inset-0 bg-gradient-to-t from-black from-35% via-transparent to-transparent"></div>
 							<div class="absolute bottom-6 left-6">
@@ -377,7 +377,7 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 							<img 
 								src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
 								alt="Drive Visibility"
-								class="w-full h-full object-cover"
+								class="object-cover w-full h-full"
 							/>
 							<div class="absolute inset-0 bg-gradient-to-t from-black from-30% via-transparent to-transparent"></div>
 							<div class="absolute bottom-6 left-6">
@@ -1053,12 +1053,12 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 	}
 
 	#floatingToggle > div {
-		background: rgba(255, 255, 255, 0.95);
-		border: 1px solid rgba(255, 255, 255, 0.3);
+		background: #163153 !important; /* brand-blue */
+		border: 1px solid rgba(22, 49, 83, 0.5);
 		box-shadow: 
 			0 10px 32px rgba(0, 0, 0, 0.1),
 			0 20px 64px rgba(0, 0, 0, 0.1),
-			inset 0 1px 0 rgba(255, 255, 255, 0.4);
+			inset 0 1px 0 rgba(255, 255, 255, 0.2);
 	}
 
 	/* Glassmorphism effect for floating toggle */
@@ -1076,9 +1076,10 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 		box-shadow: 
 			0 20px 40px rgba(0, 0, 0, 0.15),
 			0 30px 80px rgba(0, 0, 0, 0.15),
-			inset 0 1px 0 rgba(255, 255, 255, 0.5);
+			inset 0 1px 0 rgba(255, 255, 255, 0.3);
 		transform: translateY(-2px);
 		transition: all 0.3s ease;
+		background: #1a3a5c !important; /* slightly lighter brand-blue on hover */
 	}
 
 

@@ -1,10 +1,17 @@
 ---
-import Layout from '../components/Layout.astro';
-import Button from '../components/Button.astro';
-import { useTranslations } from '../i18n/utils';
+import { languages } from '../../i18n/utils';
+import Layout from '../../components/Layout.astro';
+import Button from '../../components/Button.astro';
+import { useTranslations } from '../../i18n/utils';
 
-// Default to English for the main contact page
-const t = useTranslations('en');
+export async function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params;
+const t = useTranslations(lang as keyof typeof languages);
 ---
 
 <Layout title={`${t('contact.hero.title')} - American Loyalty`} currentPage="contact">
@@ -54,24 +61,24 @@ const t = useTranslations('en');
 		<div class="lg:hidden absolute left-1/2 top-[230px] transform -translate-x-1/2 flex flex-col gap-3 items-center contact-buttons-mobile">
 			<!-- Phone Button Mobile -->
 			<div class="contact-phone-btn-mobile hover:bg-red-700 transition-all duration-300 cursor-pointer">
-								<Button 
-						text={t('contact.buttons.phone')}
-						variant="contact"
-						iconType="phone"
-						href={`tel:${t('contact.buttons.phone')}`}
-						className="h-[53px] px-4 py-3 w-[258px] text-[20px] font-normal leading-[35px]"
-					/>
+				<Button 
+					text={t('contact.buttons.phone')}
+					variant="contact"
+					iconType="phone"
+					href={`tel:${t('contact.buttons.phone')}`}
+					className="h-[53px] px-4 py-3 w-[258px] text-[20px] font-normal leading-[35px]"
+				/>
 			</div>
 
 			<!-- Email Button Mobile -->
 			<div class="contact-email-btn-mobile hover:bg-red-700 transition-all duration-300 cursor-pointer">
-								<Button 
-						text={t('contact.buttons.email')}
-						variant="contact"
-						iconType="email"
-						href={`mailto:${t('contact.buttons.email')}`}
-						className="h-[53px] px-4 py-3 w-[258px] text-[20px] font-medium leading-[35px] rounded-md"
-					/>
+				<Button 
+					text={t('contact.buttons.email')}
+					variant="contact"
+					iconType="email"
+					href={`mailto:${t('contact.buttons.email')}`}
+					className="h-[53px] px-4 py-3 w-[258px] text-[20px] font-medium leading-[35px] rounded-md"
+				/>
 			</div>
 		</div>
 	</section>
@@ -109,8 +116,8 @@ const t = useTranslations('en');
 							<div class="contact-form-content">
 								<!-- Form Header -->
 								<div class="mb-8">
-																	<h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">{t('contact.form.section_title')}</h2>
-								<p class="text-gray-600 text-base lg:text-lg">{t('contact.form.section_description')}</p>
+									<h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">{t('contact.form.section_title')}</h2>
+									<p class="text-gray-600 text-base lg:text-lg">{t('contact.form.section_description')}</p>
 								</div>
 
 								<!-- Contact Form -->
@@ -180,14 +187,14 @@ const t = useTranslations('en');
 
 									<!-- Submit Button -->
 									<div class="pt-4 lg:pt-6 form-submit">
-																					<Button 
-												text={t('contact.form.submit_button')}
-												variant="submit"
-												type="submit"
-												iconType="send"
-												fullWidth={true}
-												className="h-[71px] lg:h-[75px] text-[14.2px] lg:text-[15px] submit-button"
-											/>
+										<Button 
+											text={t('contact.form.submit_button')}
+											variant="submit"
+											type="submit"
+											iconType="send"
+											fullWidth={true}
+											className="h-[71px] lg:h-[75px] text-[14.2px] lg:text-[15px] submit-button"
+										/>
 									</div>
 								</form>
 							</div>
@@ -478,4 +485,4 @@ const t = useTranslations('en');
 			transition-duration: 0.01ms !important;
 		}
 	}
-</style> 
+</style>

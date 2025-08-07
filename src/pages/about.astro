@@ -1,6 +1,10 @@
 ---
 import Layout from '../components/Layout.astro';
 import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
+import { useTranslations } from '../i18n/utils';
+
+// Default to English for the main about page
+const t = useTranslations('en');
 ---
 
 <Layout title="About Us - American Loyalty" currentPage="about">
@@ -11,10 +15,10 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 				<!-- Text Content -->
 				<div class="flex flex-col items-center text-center">
 					<h1 class="font-inter font-semibold text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[87px] leading-[1.36] tracking-tight lg:tracking-[-3px] mb-2 about-hero-title" data-hero-animation>
-						About Us
+						{t('about.hero.title')}
 					</h1>
 					<p class="font-inter font-medium text-white/90 text-sm sm:text-base md:text-lg lg:text-xl xl:text-[21.7px] leading-[1.36] tracking-tight about-hero-subtitle" data-hero-animation>
-						Built on Loyalty. Backed by Experience.
+						{t('about.hero.subtitle')}
 					</p>
 				</div>
 				
@@ -39,13 +43,12 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 			<!-- Built on Loyalty Section -->
 			<div class="grid lg:grid-cols-2 gap-12 lg:gap-36 items-center mb-16 lg:mb-24 about-loyalty-section" data-animation="staggered">
 				<div class="about-loyalty-title">
-					<h2 class="font-archivo font-bold text-gray-900 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-tight mb-6">
-						Built on <span class="text-brand-red">Loyalty.</span> Powered by Trust.
+					<h2 class="font-archivo font-bold text-gray-900 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-tight mb-6" set:html={t('about.loyalty_section.title')}>
 					</h2>
 				</div>
 				<div class="about-loyalty-text">
 					<p class="font-inter font-medium text-gray-600 text-lg leading-relaxed">
-						Unlock the full potential of Customer Loyalty and let's achieve success together. Unlock the full potential of Customer Loyalty.
+						{t('about.loyalty_section.description')}
 					</p>
 				</div>
 			</div>
@@ -54,7 +57,7 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 			<div class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-0 about-stats-container" data-animation="staggered" data-delay="200">
 				<div class="text-center flex-1 about-stat-item">
 					<div class="font-outfit font-semibold text-brand-red text-4xl lg:text-5xl xl:text-6xl mb-2 count-number" data-animation="countUp" data-end-value="10">0</div>
-					<div class="font-inter font-normal text-gray-900 text-lg lg:text-xl xl:text-2xl">Countries Served</div>
+					<div class="font-inter font-normal text-gray-900 text-lg lg:text-xl xl:text-2xl">{t('about.stats.countries_served')}</div>
 				</div>
 				
 				<!-- Vertical divider -->
@@ -63,7 +66,7 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 				
 				<div class="text-center flex-1 about-stat-item">
 					<div class="font-outfit font-semibold text-brand-red text-4xl lg:text-5xl xl:text-6xl mb-2 count-number" data-animation="countUp" data-end-value="1000000">0</div>
-					<div class="font-inter font-normal text-gray-900 text-lg lg:text-xl xl:text-2xl">Customers Reached</div>
+					<div class="font-inter font-normal text-gray-900 text-lg lg:text-xl xl:text-2xl">{t('about.stats.customers_reached')}</div>
 				</div>
 				
 				<!-- Vertical divider -->
@@ -72,7 +75,7 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 				
 				<div class="text-center flex-1 about-stat-item">
 					<div class="font-outfit font-semibold text-brand-red text-4xl lg:text-5xl xl:text-6xl mb-2 count-number" data-animation="countUp" data-end-value="20">0</div>
-					<div class="font-inter font-normal text-gray-900 text-lg lg:text-xl xl:text-2xl">Years Experience</div>
+					<div class="font-inter font-normal text-gray-900 text-lg lg:text-xl xl:text-2xl">{t('about.stats.years_experience')}</div>
 				</div>
 				
 				<!-- Vertical divider -->
@@ -81,7 +84,7 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 				
 				<div class="text-center flex-1 about-stat-item">
 					<div class="font-outfit font-semibold text-brand-red text-4xl lg:text-5xl xl:text-6xl mb-2 count-number" data-animation="countUp" data-end-value="300">0</div>
-					<div class="font-inter font-normal text-gray-900 text-lg lg:text-xl xl:text-2xl">Collectibles Delivered</div>
+					<div class="font-inter font-normal text-gray-900 text-lg lg:text-xl xl:text-2xl">{t('about.stats.collectibles_delivered')}</div>
 				</div>
 			</div>
 		</div>
@@ -91,9 +94,9 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 	<section class="bg-gray-100 py-16 lg:py-24">
 		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="text-center mb-12 lg:mb-16 about-history-header" data-animation="fadeIn">
-				<h2 class="font-archivo font-bold text-gray-900 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mb-4">Our History</h2>
+				<h2 class="font-archivo font-bold text-gray-900 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mb-4">{t('about.history.title')}</h2>
 				<p class="font-inter font-medium text-gray-600 text-lg max-w-lg mx-auto">
-					Unlock the full potential of Customer Loyalty and let's achieve success together
+					{t('about.history.description')}
 				</p>
 			</div>
 
@@ -105,8 +108,8 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
 						</svg>
 					</div>
-					<h3 class="font-poppins font-semibold text-gray-900 text-xl mb-3">Decades of Industry Expertise</h3>
-					<p class="font-poppins font-normal text-gray-600 opacity-70">20 years experience in the Latin American loyalty collectibles market</p>
+					<h3 class="font-poppins font-semibold text-gray-900 text-xl mb-3">{t('about.history.cards.0.title')}</h3>
+					<p class="font-poppins font-normal text-gray-600 opacity-70">{t('about.history.cards.0.description')}</p>
 				</div>
 
 				<!-- Card 2 -->
@@ -116,8 +119,8 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
 						</svg>
 					</div>
-					<h3 class="font-poppins font-semibold text-gray-900 text-xl mb-3">Millions of Rewards Delivered</h3>
-					<p class="font-poppins font-normal text-gray-600 opacity-70">Tens of millions of rewards delivered</p>
+					<h3 class="font-poppins font-semibold text-gray-900 text-xl mb-3">{t('about.history.cards.1.title')}</h3>
+					<p class="font-poppins font-normal text-gray-600 opacity-70">{t('about.history.cards.1.description')}</p>
 				</div>
 
 				<!-- Card 3 -->
@@ -127,8 +130,8 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
 						</svg>
 					</div>
-					<h3 class="font-poppins font-semibold text-gray-900 text-xl mb-3">Expanding Our Market For You</h3>
-					<p class="font-poppins font-normal text-gray-600 opacity-70">Entering the U.S. market with confidence</p>
+					<h3 class="font-poppins font-semibold text-gray-900 text-xl mb-3">{t('about.history.cards.2.title')}</h3>
+					<p class="font-poppins font-normal text-gray-600 opacity-70">{t('about.history.cards.2.description')}</p>
 				</div>
 			</div>
 		</div>
@@ -141,15 +144,15 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 				<!-- Vision Section -->
 				<div class="flex flex-col gap-8 about-vision">
 					<div class="flex flex-col gap-6">
-						<div class="font-archivo font-bold text-brand-red text-lg lg:text-2xl xl:text-3xl tracking-wide about-vision-label">OUR VISION</div>
+						<div class="font-archivo font-bold text-brand-red text-lg lg:text-2xl xl:text-3xl tracking-wide about-vision-label">{t('about.vision.label')}</div>
 						<h2 class="font-archivo font-bold text-gray-900 text-3xl sm:text-4xl lg:text-4xl xl:text-5xl leading-tight capitalize about-vision-title">
-							To be your trusted strategic ally, focused on surpassing sales goals
+							{t('about.vision.title')}
 						</h2>
 					</div>
 					<div class="aspect-[4/3] bg-gray-200 rounded-lg overflow-hidden about-vision-image">
 						<img 
 							src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-							alt="Strategic planning and collaboration"
+							alt={t('about.vision.image_alt')}
 							class="w-full h-full object-cover"
 						/>
 					</div>
@@ -160,14 +163,14 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 					<div class="aspect-[4/3] bg-gray-200 rounded-lg overflow-hidden about-mission-image">
 						<img 
 							src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-							alt="Customer relationships and loyalty programs"
+							alt={t('about.mission.image_alt')}
 							class="w-full h-full object-cover"
 						/>
 					</div>
 					<div class="flex flex-col gap-6">
-						<div class="font-archivo font-bold text-brand-red text-lg lg:text-2xl xl:text-3xl tracking-wide about-mission-label">OUR MISSION</div>
+						<div class="font-archivo font-bold text-brand-red text-lg lg:text-2xl xl:text-3xl tracking-wide about-mission-label">{t('about.mission.label')}</div>
 						<h2 class="font-archivo font-bold text-gray-900 text-3xl sm:text-4xl lg:text-4xl xl:text-5xl leading-tight capitalize about-mission-title">
-							To empower our clients to build stronger relationships through reward-driven loyalty promotions
+							{t('about.mission.title')}
 						</h2>
 					</div>
 				</div>

@@ -93,6 +93,141 @@
       }
     }
   },
+  "about": {
+    "hero": {
+      "title": "Sobre Nós",
+      "subtitle": "Construído sobre a Lealdade. Respaldado pela Experiência."
+    },
+    "loyalty_section": {
+      "title": "Construído sobre a <span class=\"text-brand-red\">Lealdade.</span> Impulsionado pela Confiança.",
+      "description": "Desbloqueie todo o potencial da Lealdade do Cliente e vamos alcançar o sucesso juntos. Desbloqueie todo o potencial da Lealdade do Cliente."
+    },
+    "stats": {
+      "countries_served": "Países Atendidos",
+      "customers_reached": "Clientes Alcançados",
+      "years_experience": "Anos de Experiência",
+      "collectibles_delivered": "Colecionáveis Entregues"
+    },
+    "history": {
+      "title": "Nossa História",
+      "description": "Desbloqueie todo o potencial da Lealdade do Cliente e vamos alcançar o sucesso juntos",
+      "cards": [
+        {
+          "title": "Décadas de Experiência na Indústria",
+          "description": "20 anos de experiência no mercado de colecionáveis de fidelidade da América Latina"
+        },
+        {
+          "title": "Milhões de Recompensas Entregues",
+          "description": "Dezenas de milhões de recompensas entregues"
+        },
+        {
+          "title": "Expandindo Nosso Mercado Para Você",
+          "description": "Entrando no mercado americano com confiança"
+        }
+      ]
+    },
+    "vision": {
+      "label": "NOSSA VISÃO",
+      "title": "Ser seu aliado estratégico confiável, focado em superar metas de vendas",
+      "image_alt": "Planejamento estratégico e colaboração"
+    },
+    "mission": {
+      "label": "NOSSA MISSÃO",
+      "title": "Capacitar nossos clientes a construir relacionamentos mais fortes através de promoções de fidelidade impulsionadas por recompensas",
+      "image_alt": "Relacionamentos com clientes e programas de fidelidade"
+    }
+  },
+  "services": {
+    "hero": {
+      "title": "Nossos Serviços",
+      "subtitle": "Construído sobre a Lealdade. Respaldado pela Experiência."
+    },
+    "tabs": {
+      "retailers": "Para Varejistas",
+      "brands": "Para Marcas"
+    },
+    "main_titles": {
+      "retailers": "Transformamos insights em lealdade — e lealdade em crescimento.",
+      "brands": "Expanda seu Alcance por Mais de 10 Países"
+    },
+    "retailers": {
+      "services": [
+        {
+          "title": "Pesquisa de Mercado",
+          "description": "Nossa equipe cuida e projeta recompensas colecionáveis adaptadas ao público, garantindo relevância, apelo e alinhamento da marca."
+        },
+        {
+          "title": "Seleção e Design de Produtos",
+          "description": "Da fabricação à entrega, cuidamos de toda a cadeia de suprimentos — garantindo qualidade, pontualidade e execução suave."
+        },
+        {
+          "title": "Produção e Logística",
+          "description": "Nossa equipe cuida e projeta recompensas colecionáveis adaptadas ao público, garantindo relevância, apelo e alinhamento da marca."
+        },
+        {
+          "title": "Implementação de Promoções",
+          "description": "Da fabricação à entrega, cuidamos de toda a cadeia de suprimentos — garantindo qualidade, pontualidade e execução suave."
+        },
+        {
+          "title": "Supervisão e Relatórios",
+          "description": "Fornecemos apoio integral para aqueles que enfrentam tristeza persistente, perda de interesse, luto e desesperança em suas vidas."
+        }
+      ]
+    },
+    "brands": {
+      "cards": [
+        {
+          "title": "Mostre sua Marca como uma Recompensa Cobiçada",
+          "description": "Posicione sua marca como um colecionável exclusivo que os clientes estão ansiosos para ganhar, aumentando a desejabilidade e o prestígio da marca.",
+          "image_alt": "Mostre sua Marca"
+        },
+        {
+          "title": "Impulsione a Visibilidade através da Colocação Domiciliar",
+          "description": "Coloque sua marca diretamente nas casas dos clientes—construindo afinidade a longo prazo e consciência top-of-mind através de interações diárias.",
+          "image_alt": "Impulsione a Visibilidade"
+        }
+      ]
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Fale Conosco",
+      "subtitle_desktop": "Você está a um passo de uma melhor fidelidade do cliente!",
+      "subtitle_mobile": "Construído sobre Lealdade. Respaldado pela Experiência."
+    },
+    "buttons": {
+      "phone": "+1-309-3095443",
+      "email": "contact@whiter.co"
+    },
+    "form": {
+      "section_title": "Entre em Contato",
+      "section_description": "Pronto para transformar a fidelidade dos seus clientes? Vamos começar a conversa.",
+      "fields": {
+        "name": {
+          "label": "Nome Completo *",
+          "placeholder": "Digite seu nome completo"
+        },
+        "email": {
+          "label": "Endereço de E-mail *",
+          "placeholder": "Digite seu endereço de e-mail"
+        },
+        "company": {
+          "label": "Nome da Empresa",
+          "placeholder": "Digite o nome da sua empresa"
+        },
+        "phone": {
+          "label": "Número de Telefone",
+          "placeholder": "Digite seu número de telefone"
+        },
+        "message": {
+          "label": "Mensagem *",
+          "placeholder": "Conte-nos sobre suas necessidades de programas de fidelidade..."
+        }
+      },
+      "submit_button": "Enviar Mensagem"
+    },
+    "image_alt": "Fale conosco - Equipe da American Loyalty"
+  },
   "footer": {
     "copyright": "Aviso de Direitos Autorais: © Copyright American Loyalty LLC. 2024"
   }

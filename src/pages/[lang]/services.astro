@@ -1,5 +1,8 @@
 ---
 import { languages } from '../../i18n/utils';
+import Layout from '../../components/Layout.astro';
+import GrowLoyaltySection from '../../components/GrowLoyaltySection.astro';
+import { useTranslations } from '../../i18n/utils';
 
 export async function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({
@@ -8,9 +11,1130 @@ export async function getStaticPaths() {
 }
 
 const { lang } = Astro.params;
+const t = useTranslations(lang as keyof typeof languages);
 
-// Import the main services page content
-const { default: ServicesPage } = await import('../services.astro');
+// Get the services data from translations
+const servicesData = t('services.retailers.services');
+const brandsData = t('services.brands.cards');
 ---
 
-<ServicesPage /> 
+<Layout title={t('meta.title.services')} currentPage="services">
+	<!-- HERO SECTION -->
+	<section class="relative bg-brand-blue h-[442px] lg:h-[560px]">
+		<!-- Hero Content -->
+		<div class="absolute left-1/2 top-[123px] lg:top-[171px] transform -translate-x-1/2 text-center">
+			<div class="flex flex-col items-center justify-start w-[320px] sm:w-[400px] lg:w-[600px] xl:w-[700px]">
+				<h1 class="font-inter font-semibold text-white text-[42px] sm:text-[48.44px] lg:text-[80px] xl:text-[87px] leading-[1.2] lg:leading-[1.36] tracking-[-1.5px] sm:tracking-[-1.67px] lg:tracking-[-2.5px] xl:tracking-[-3px] mb-3 lg:mb-2 services-hero-title whitespace-nowrap" data-hero-animation>
+					{t('services.hero.title')}
+				</h1>
+				<p class="font-inter font-medium text-white/86 text-[11px] sm:text-[12.08px] lg:text-[20px] xl:text-[21.7px] leading-[1.3] lg:leading-[1.36] tracking-[-0.3px] sm:tracking-[-0.4px] lg:tracking-[-0.6px] xl:tracking-[-0.72px] services-hero-subtitle text-center" data-hero-animation>
+					{t('services.hero.subtitle')}
+				</p>
+			</div>
+		</div>
+
+		<!-- Tab Buttons -->
+		<div class="absolute left-1/2 top-[250px] sm:top-[260px] lg:top-[385px] xl:top-[395px] transform -translate-x-1/2 services-tabs-container" data-hero-animation>
+			<label class="relative inline-flex cursor-pointer items-center">
+				<input type="checkbox" id="servicesToggle" class="peer sr-only" />
+				<div class="peer flex h-[76px] lg:h-[113px] w-[284px] lg:w-[512px] items-center gap-[3px] lg:gap-[1.7px] rounded-[6.52px] lg:rounded-[12.6px] bg-white/22 p-[3px] lg:p-[9px] 
+							after:absolute after:left-[3px] lg:after:left-[9px] after:top-[3px] lg:after:top-[9px] 
+							after:h-[70px] lg:after:h-[91px] after:w-[calc(50%-3px)] lg:after:w-[calc(50%-6px)] 
+							after:rounded-[6.52px] lg:after:rounded-[10.8px] after:bg-brand-red 
+							after:transition-all after:duration-300 after:ease-out after:content-[''] 
+							peer-checked:after:translate-x-[calc(100%+3px)] lg:peer-checked:after:translate-x-[calc(100%+1.7px)]
+							after:shadow-lg after:shadow-red-500/30">
+					<!-- For Retailers Button -->
+					<button id="retailersTab" class="relative z-10 flex-1 flex items-center justify-center h-full rounded-[6.52px] lg:rounded-[10.8px] transition-colors duration-300 px-2">
+						<span class="font-inter font-bold text-white text-[16px] sm:text-[18.56px] lg:text-[28px] xl:text-[30.75px] text-center services-retailers-text leading-tight">
+							{t('services.tabs.retailers')}
+						</span>
+					</button>
+					<!-- For Brands Button -->
+					<button id="brandsTab" class="relative z-10 flex-1 flex items-center justify-center h-full rounded-[6.52px] lg:rounded-[10.8px] transition-colors duration-300 px-2">
+						<span class="font-inter font-bold text-white/70 text-[16px] sm:text-[18.56px] lg:text-[28px] xl:text-[30.75px] text-center services-brands-text leading-tight">
+							{t('services.tabs.brands')}
+						</span>
+					</button>
+				</div>
+			</label>
+		</div>
+
+		<!-- Fixed Floating Toggle (Bottom Right) -->
+		<div id="floatingToggle" class="fixed bottom-6 right-6 z-50 opacity-0 pointer-events-none transform translate-y-10 transition-all duration-500 ease-out">
+			<label class="relative inline-flex cursor-pointer items-center">
+				<input type="checkbox" id="floatingServicesToggle" class="peer sr-only" />
+				<div class="peer flex h-16 w-64 sm:w-72 lg:w-80 items-center gap-1 rounded-xl bg-brand-blue shadow-2xl border border-brand-blue/30 p-2 
+							after:absolute after:left-2 after:top-2 
+							after:h-12 after:w-[calc(50%-6px)] 
+							after:rounded-lg after:bg-brand-red 
+							after:transition-all after:duration-300 after:ease-out after:content-[''] 
+							peer-checked:after:translate-x-[calc(100%+4px)]
+							after:shadow-lg after:shadow-red-500/40">
+					<!-- For Retailers Button -->
+					<button id="floatingRetailersTab" class="relative z-10 flex-1 flex items-center justify-center h-full rounded-lg transition-colors duration-300 px-1">
+						<span class="font-inter font-bold text-white text-xs sm:text-sm text-center floating-retailers-text leading-tight">
+							{t('services.tabs.retailers')}
+						</span>
+					</button>
+					<!-- For Brands Button -->
+					<button id="floatingBrandsTab" class="relative z-10 flex-1 flex items-center justify-center h-full rounded-lg transition-colors duration-300 px-1">
+						<span class="font-inter font-bold text-white/70 text-xs sm:text-sm text-center floating-brands-text leading-tight">
+							{t('services.tabs.brands')}
+						</span>
+					</button>
+				</div>
+			</label>
+		</div>
+	</section>
+
+	<!-- MAIN SERVICES SECTION -->
+	<section class="bg-white py-12 lg:py-20 relative">
+		<!-- Dynamic Main Titles -->
+		<div class="text-center mb-12 lg:mb-20 services-main-title" data-animation="fadeIn">
+			<!-- Retailers Title -->
+			<h2 id="retailersTitle" class="font-archivo font-bold text-[48.77px] lg:text-[58.3px] leading-[1.09] tracking-[-1.02px] lg:tracking-[-1.22px] text-gray-900 max-w-[297px] lg:max-w-[677px] mx-auto px-6 lg:px-4 transition-all duration-500 ease-out">
+				{t('services.main_titles.retailers')}
+			</h2>
+			<!-- Brands Title -->
+			<h2 id="brandsTitle" class="font-archivo font-bold text-[48.77px] lg:text-[58.3px] leading-[1.09] tracking-[-1.02px] lg:tracking-[-1.22px] text-gray-900 max-w-[297px] lg:max-w-[677px] mx-auto px-6 lg:px-4 transition-all duration-500 ease-out opacity-0 absolute inset-0">
+				{t('services.main_titles.brands')}
+			</h2>
+		</div>
+
+		<!-- RETAILERS CONTENT -->
+		<div id="retailersContent" class="tab-content max-w-[1200px] mx-auto px-6 lg:px-12 services-content">
+			<!-- Desktop Layout -->
+			<div class="hidden lg:block">
+				<div class="space-y-12 services-desktop-items" data-animation="staggered" data-delay="200">
+					<!-- Service 1: Market Research -->
+					<div class="flex flex-row items-center gap-12 lg:gap-16 border-b border-gray-200 pb-10 services-item">
+						<div class="flex flex-col items-start gap-3 w-[280px]">
+							<div class="bg-red-50 p-4 rounded-[31px] shadow-sm w-[62px] h-[62px] flex items-center justify-center services-icon">
+								<!-- Market Research Icon -->
+								<svg class="w-[34px] h-[34px] text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+									<path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.3L22 12V6z"/>
+								</svg>
+							</div>
+							<h3 class="font-inter font-bold text-[24px] leading-[1.2] text-gray-900 services-item-title">
+								{Array.isArray(servicesData) ? servicesData[0]?.title : t('services.retailers.services.0.title')}
+							</h3>
+						</div>
+						<div class="flex-1">
+							<p class="font-poppins text-[18px] leading-[1.6] text-gray-700 services-item-text">
+								{Array.isArray(servicesData) ? servicesData[0]?.description : t('services.retailers.services.0.description')}
+							</p>
+						</div>
+					</div>
+
+					<!-- Service 2: Selection and Product Design -->
+					<div class="flex flex-row items-center gap-12 lg:gap-16 border-b border-gray-200 pb-10 services-item">
+						<div class="flex flex-col items-start gap-3 w-[280px]">
+							<div class="bg-red-50 p-4 rounded-[31px] shadow-sm w-[62px] h-[62px] flex items-center justify-center services-icon">
+								<!-- Design Icon -->
+								<svg class="w-[34px] h-[34px] text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+									<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+								</svg>
+							</div>
+							<h3 class="font-inter font-bold text-[24px] leading-[1.2] text-gray-900 services-item-title">
+								{Array.isArray(servicesData) ? servicesData[1]?.title : t('services.retailers.services.1.title')}
+							</h3>
+						</div>
+						<div class="flex-1">
+							<p class="font-poppins text-[18px] leading-[1.6] text-gray-600 services-item-text">
+								{Array.isArray(servicesData) ? servicesData[1]?.description : t('services.retailers.services.1.description')}
+							</p>
+						</div>
+					</div>
+
+					<!-- Service 3: Production and Logistic -->
+					<div class="flex flex-row items-center gap-12 lg:gap-16 border-b border-gray-200 pb-10 services-item">
+						<div class="flex flex-col items-start gap-3 w-[280px]">
+							<div class="bg-red-50 p-4 rounded-[31px] shadow-sm w-[62px] h-[62px] flex items-center justify-center services-icon">
+								<!-- Production Icon -->
+								<svg class="w-[34px] h-[34px] text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+									<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+								</svg>
+							</div>
+							<h3 class="font-inter font-bold text-[24px] leading-[1.2] text-gray-900 services-item-title">
+								{Array.isArray(servicesData) ? servicesData[2]?.title : t('services.retailers.services.2.title')}
+							</h3>
+						</div>
+						<div class="flex-1">
+							<p class="font-poppins text-[18px] leading-[1.6] text-gray-700 services-item-text">
+								{Array.isArray(servicesData) ? servicesData[2]?.description : t('services.retailers.services.2.description')}
+							</p>
+						</div>
+					</div>
+
+					<!-- Service 4: Promotion Implementation -->
+					<div class="flex flex-row items-center gap-12 lg:gap-16 border-b border-gray-200 pb-10 services-item">
+						<div class="flex flex-col items-start gap-3 w-[280px]">
+							<div class="bg-red-50 p-4 rounded-[31px] shadow-sm w-[62px] h-[62px] flex items-center justify-center services-icon">
+								<!-- Promotion Icon -->
+								<svg class="w-[34px] h-[34px] text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+									<path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/>
+								</svg>
+							</div>
+							<h3 class="font-inter font-bold text-[24px] leading-[1.2] text-gray-900 services-item-title">
+								{Array.isArray(servicesData) ? servicesData[3]?.title : t('services.retailers.services.3.title')}
+							</h3>
+						</div>
+						<div class="flex-1">
+							<p class="font-poppins text-[18px] leading-[1.6] text-gray-600 services-item-text">
+								{Array.isArray(servicesData) ? servicesData[3]?.description : t('services.retailers.services.3.description')}
+							</p>
+						</div>
+					</div>
+
+					<!-- Service 5: Supervision and Reporting -->
+					<div class="flex flex-row items-center gap-12 lg:gap-16 services-item">
+						<div class="flex flex-col items-start gap-3 w-[280px]">
+							<div class="bg-red-50 p-4 rounded-[31px] shadow-sm w-[62px] h-[62px] flex items-center justify-center services-icon">
+								<!-- Reporting Icon -->
+								<svg class="w-[34px] h-[34px] text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+									<path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+								</svg>
+							</div>
+							<h3 class="font-inter font-bold text-[24px] leading-[1.2] text-gray-900 services-item-title">
+								{Array.isArray(servicesData) ? servicesData[4]?.title : t('services.retailers.services.4.title')}
+							</h3>
+						</div>
+						<div class="flex-1">
+							<p class="font-poppins text-[18px] leading-[1.6] text-gray-700 services-item-text">
+								{Array.isArray(servicesData) ? servicesData[4]?.description : t('services.retailers.services.4.description')}
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Mobile Layout -->
+			<div class="block lg:hidden">
+				<div class="max-w-[320px] mx-auto space-y-10 services-mobile-items" data-animation="staggered" data-delay="200">
+					<!-- Service 1: Market Research -->
+					<div class="border-b border-gray-200 pb-8 services-mobile-item">
+						<div class="flex flex-col gap-6">
+							<div class="flex flex-col items-start gap-4">
+								<div class="bg-red-50 p-3 rounded-[29px] shadow-sm w-[58px] h-[58px] flex items-center justify-center services-mobile-icon">
+									<svg class="w-[32px] h-[32px] text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+										<path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.3L22 12V6z"/>
+									</svg>
+								</div>
+								<h3 class="font-inter font-bold text-[22.7px] leading-[1.2] text-gray-900">
+									{Array.isArray(servicesData) ? servicesData[0]?.title : t('services.retailers.services.0.title')}
+								</h3>
+							</div>
+							<p class="font-poppins text-[15.15px] leading-[1.6] text-gray-700">
+								{Array.isArray(servicesData) ? servicesData[0]?.description : t('services.retailers.services.0.description')}
+							</p>
+						</div>
+					</div>
+
+					<!-- Service 2: Selection and Product Design -->
+					<div class="border-b border-gray-200 pb-8 services-mobile-item">
+						<div class="flex flex-col gap-6">
+							<div class="flex flex-col items-start gap-4">
+								<div class="bg-red-50 p-3 rounded-[29px] shadow-sm w-[58px] h-[58px] flex items-center justify-center services-mobile-icon">
+									<svg class="w-[32px] h-[32px] text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+										<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+									</svg>
+								</div>
+								<h3 class="font-inter font-bold text-[22.7px] leading-[1.25] text-gray-900">
+									{Array.isArray(servicesData) ? servicesData[1]?.title : t('services.retailers.services.1.title')}
+								</h3>
+							</div>
+							<p class="font-poppins text-[15.15px] leading-[1.6] text-gray-600">
+								{Array.isArray(servicesData) ? servicesData[1]?.description : t('services.retailers.services.1.description')}
+							</p>
+						</div>
+					</div>
+
+					<!-- Service 3: Production and Logistic -->
+					<div class="border-b border-gray-200 pb-8 services-mobile-item">
+						<div class="flex flex-col gap-6">
+							<div class="flex flex-col items-start gap-4">
+								<div class="bg-red-50 p-3 rounded-[29px] shadow-sm w-[58px] h-[58px] flex items-center justify-center services-mobile-icon">
+									<svg class="w-[32px] h-[32px] text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+										<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+									</svg>
+								</div>
+								<h3 class="font-inter font-bold text-[22.7px] leading-[1.2] text-gray-900">
+									{Array.isArray(servicesData) ? servicesData[2]?.title : t('services.retailers.services.2.title')}
+								</h3>
+							</div>
+							<p class="font-poppins text-[15.15px] leading-[1.6] text-gray-700">
+								{Array.isArray(servicesData) ? servicesData[2]?.description : t('services.retailers.services.2.description')}
+							</p>
+						</div>
+					</div>
+
+					<!-- Service 4: Promotion Implementation -->
+					<div class="border-b border-gray-200 pb-8 services-mobile-item">
+						<div class="flex flex-col gap-6">
+							<div class="flex flex-col items-start gap-4">
+								<div class="bg-red-50 p-3 rounded-[29px] shadow-sm w-[58px] h-[58px] flex items-center justify-center services-mobile-icon">
+									<svg class="w-[32px] h-[32px] text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+										<path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/>
+									</svg>
+								</div>
+								<h3 class="font-inter font-bold text-[22.7px] leading-[1.2] text-gray-900">
+									{Array.isArray(servicesData) ? servicesData[3]?.title : t('services.retailers.services.3.title')}
+								</h3>
+							</div>
+							<p class="font-poppins text-[15.15px] leading-[1.6] text-gray-600">
+								{Array.isArray(servicesData) ? servicesData[3]?.description : t('services.retailers.services.3.description')}
+							</p>
+						</div>
+					</div>
+
+					<!-- Service 5: Supervision and Reporting -->
+					<div class="services-mobile-item">
+						<div class="flex flex-col gap-6">
+							<div class="flex flex-col items-start gap-4">
+								<div class="bg-red-50 p-3 rounded-[29px] shadow-sm w-[58px] h-[58px] flex items-center justify-center services-mobile-icon">
+									<svg class="w-[32px] h-[32px] text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+										<path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+									</svg>
+								</div>
+								<h3 class="font-inter font-bold text-[22.7px] leading-[1.2] text-gray-900">
+									{Array.isArray(servicesData) ? servicesData[4]?.title : t('services.retailers.services.4.title')}
+								</h3>
+							</div>
+							<p class="font-poppins text-[15.15px] leading-[1.6] text-gray-700">
+								{Array.isArray(servicesData) ? servicesData[4]?.description : t('services.retailers.services.4.description')}
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- BRANDS CONTENT -->
+		<div id="brandsContent" class="tab-content max-w-[1200px] mx-auto px-6 lg:px-12 hidden services-content">
+			<!-- Desktop Layout -->
+			<div class="hidden lg:block">
+				<div class="flex gap-8 justify-center services-brands-desktop" data-animation="staggered" data-delay="200">
+					<!-- Card 1: Showcase Your Brand -->
+					<div class="w-[541px] services-brand-card">
+						<div class="relative h-[357px] rounded-[16.65px] overflow-hidden mb-4 services-brand-image">
+							<img 
+								src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+								alt={Array.isArray(brandsData) ? brandsData[0]?.image_alt : t('services.brands.cards.0.image_alt')}
+								class="w-full h-full object-cover"
+							/>
+							<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+							<div class="absolute bottom-6 left-7">
+								<h3 class="font-inter font-medium text-white text-[32px] leading-[40px] w-[419px]">
+									{Array.isArray(brandsData) ? brandsData[0]?.title : t('services.brands.cards.0.title')}
+								</h3>
+							</div>
+						</div>
+						<div class="bg-gray-100 rounded-[16.65px] p-7 h-[120px] flex items-center services-brand-description">
+							<p class="font-inter text-[18px] leading-[25px] text-gray-600 opacity-75">
+								{Array.isArray(brandsData) ? brandsData[0]?.description : t('services.brands.cards.0.description')}
+							</p>
+						</div>
+					</div>
+
+					<!-- Card 2: Drive Visibility -->
+					<div class="w-[541px] services-brand-card">
+						<div class="relative h-[357px] rounded-[16.65px] overflow-hidden mb-4 services-brand-image">
+							<img 
+								src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+								alt={Array.isArray(brandsData) ? brandsData[1]?.image_alt : t('services.brands.cards.1.image_alt')}
+								class="w-full h-full object-cover"
+							/>
+							<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+							<div class="absolute bottom-6 left-7">
+								<h3 class="font-inter font-medium text-white text-[32px] leading-[44px] w-[413px]">
+									{Array.isArray(brandsData) ? brandsData[1]?.title : t('services.brands.cards.1.title')}
+								</h3>
+							</div>
+						</div>
+						<div class="bg-gray-100 rounded-[16.65px] p-7 h-[120px] flex items-center services-brand-description">
+							<p class="font-inter text-[18px] leading-[25px] text-gray-600 opacity-75">
+								{Array.isArray(brandsData) ? brandsData[1]?.description : t('services.brands.cards.1.description')}
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Mobile Layout -->
+			<div class="block lg:hidden">
+				<div class="max-w-[320px] mx-auto space-y-12 services-brands-mobile" data-animation="staggered" data-delay="200">
+					<!-- Card 1: Showcase Your Brand -->
+					<div class="services-brand-mobile-card">
+						<div class="relative h-[371px] rounded-[9.35px] overflow-hidden mb-6 services-brand-mobile-image">
+							<img 
+								src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+								alt={Array.isArray(brandsData) ? brandsData[0]?.image_alt : t('services.brands.cards.0.image_alt')}
+								class="w-full h-full object-cover"
+							/>
+							<div class="absolute inset-0 bg-gradient-to-t from-black from-35% via-transparent to-transparent"></div>
+							<div class="absolute bottom-6 left-6">
+								<h3 class="font-inter font-bold text-white text-[24px] leading-[30px] w-[286px]">
+									{Array.isArray(brandsData) ? brandsData[0]?.title : t('services.brands.cards.0.title')}
+								</h3>
+							</div>
+						</div>
+						<div class="bg-gray-100 rounded-[17.3px] p-7 h-[151px] flex items-center services-brand-mobile-description">
+							<p class="font-inter text-[18.7px] leading-[26px] text-gray-600 opacity-75">
+								{Array.isArray(brandsData) ? brandsData[0]?.description : t('services.brands.cards.0.description')}
+							</p>
+						</div>
+					</div>
+
+					<!-- Card 2: Drive Visibility -->
+					<div class="services-brand-mobile-card">
+						<div class="relative h-[371px] rounded-[9.35px] overflow-hidden mb-6 services-brand-mobile-image">
+							<img 
+								src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+								alt={Array.isArray(brandsData) ? brandsData[1]?.image_alt : t('services.brands.cards.1.image_alt')}
+								class="w-full h-full object-cover"
+							/>
+							<div class="absolute inset-0 bg-gradient-to-t from-black from-30% via-transparent to-transparent"></div>
+							<div class="absolute bottom-6 left-6">
+								<h3 class="font-inter font-bold text-white text-[24px] leading-[30px] w-[286px]">
+									{Array.isArray(brandsData) ? brandsData[1]?.title : t('services.brands.cards.1.title')}
+								</h3>
+							</div>
+						</div>
+						<div class="bg-gray-100 rounded-[17.3px] p-7 h-[174px] flex items-center services-brand-mobile-description">
+							<p class="font-inter text-[18.7px] leading-[26px] text-gray-600 opacity-75">
+								{Array.isArray(brandsData) ? brandsData[1]?.description : t('services.brands.cards.1.description')}
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CALL TO ACTION SECTION -->
+	<section class="relative pt-20 pb-24">
+		<GrowLoyaltySection />
+	</section>
+
+	<!-- Enhanced Tab Functionality Script with GSAP Animations -->
+	<script>
+		import { gsap } from 'gsap';
+		import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+		gsap.registerPlugin(ScrollTrigger);
+
+		// Global animation state
+		let isTransitioning = false;
+		let currentTab = 'retailers';
+
+		// Wait for DOM to be ready
+		document.addEventListener('DOMContentLoaded', () => {
+			// Set initial states for all animations
+			initializeAnimationStates();
+			
+			// Initialize hero animations
+			initializeHeroAnimations();
+			
+			// Initialize scroll-triggered animations
+			initializeScrollAnimations();
+			
+			// Initialize tab functionality with animations
+			initializeEnhancedTabs();
+		});
+
+		function initializeAnimationStates() {
+			// Hero elements
+			gsap.set('.services-hero-title', { opacity: 0, y: 30 });
+			gsap.set('.services-hero-subtitle', { opacity: 0, y: 20 });
+			gsap.set('.services-tabs-container', { opacity: 0, y: 50, scale: 0.9 });
+			
+			// Main titles
+			gsap.set('.services-main-title', { opacity: 0, y: 50 });
+			gsap.set('#brandsTitle', { opacity: 0, y: 20 });
+			
+			// Content items (initially hidden for retailers)
+			gsap.set('.services-item', { opacity: 0, x: -30 });
+			gsap.set('.services-mobile-item', { opacity: 0, y: 30 });
+			gsap.set('.services-icon, .services-mobile-icon', { scale: 0, rotation: -180 });
+			
+			// Brand cards (initially positioned for transition)
+			gsap.set('.services-brand-card', { opacity: 0, y: 50, scale: 0.9 });
+			gsap.set('.services-brand-mobile-card', { opacity: 0, y: 50 });
+			gsap.set('.services-brand-image img', { scale: 1.1 });
+			gsap.set('.services-brand-mobile-image img', { scale: 1.1 });
+		}
+
+		function initializeHeroAnimations() {
+			const heroTl = gsap.timeline();
+			
+			heroTl
+				.to('.services-hero-title', {
+					opacity: 1,
+					y: 0,
+					duration: 0.8,
+					ease: 'power1.out',
+				})
+				.to('.services-hero-subtitle', {
+					opacity: 1,
+					y: 0,
+					duration: 0.6,
+					ease: 'power1.out',
+				}, '-=0.4')
+				.to('.services-tabs-container', {
+					opacity: 1,
+					y: 0,
+					scale: 1,
+					duration: 0.8,
+					ease: 'back.out(1.7)',
+				}, '-=0.3');
+
+			// Add floating animation to tabs (Performance Optimized)
+			gsap.to('.services-tab-wrapper', {
+				y: -3,
+				duration: 2,
+				ease: 'power1.inOut',
+				yoyo: true,
+				repeat: -1,
+			});
+		}
+
+		function initializeScrollAnimations() {
+			// Main title animation (Performance Optimized)
+			ScrollTrigger.create({
+				trigger: '.services-main-title',
+				start: 'top 80%',
+				onEnter: () => {
+					gsap.to('.services-main-title', {
+						opacity: 1,
+						y: 0,
+						duration: 0.8,
+						ease: 'power1.out',
+					});
+				}
+			});
+
+			// Content animations for initially visible content
+			animateVisibleContent();
+		}
+
+		function animateVisibleContent() {
+			const activeContent = currentTab === 'retailers' ? '.services-item' : '.services-brand-card';
+			const activeMobileContent = currentTab === 'retailers' ? '.services-mobile-item' : '.services-brand-mobile-card';
+
+			// Desktop animations
+			ScrollTrigger.create({
+				trigger: activeContent,
+				start: 'top 80%',
+				onEnter: () => {
+					if (currentTab === 'retailers') {
+						animateRetailersContent();
+					} else {
+						animateBrandsContent();
+					}
+				}
+			});
+
+			// Mobile animations
+			ScrollTrigger.create({
+				trigger: activeMobileContent,
+				start: 'top 80%',
+				onEnter: () => {
+					if (currentTab === 'retailers') {
+						animateRetailersMobileContent();
+					} else {
+						animateBrandsMobileContent();
+					}
+				}
+			});
+		}
+
+		function animateRetailersContent() {
+			gsap.to('.services-item', {
+				opacity: 1,
+				x: 0,
+				duration: 0.6,
+				ease: 'power1.out',
+				stagger: 0.12,
+			});
+
+			gsap.to('.services-icon', {
+				scale: 1,
+				rotation: 0,
+				duration: 0.5,
+				ease: 'back.out(1.7)',
+				stagger: 0.12,
+				delay: 0.15,
+			});
+
+			// Add hover effects for service items (Performance Optimized)
+			document.querySelectorAll('.services-item').forEach(item => {
+				item.addEventListener('mouseenter', () => {
+					gsap.to(item.querySelector('.services-icon'), {
+						scale: 1.1,
+						rotation: 5,
+						duration: 0.2,
+						ease: 'power1.out',
+					});
+					gsap.to(item, {
+						x: 10,
+						duration: 0.2,
+						ease: 'power1.out',
+					});
+				});
+
+				item.addEventListener('mouseleave', () => {
+					gsap.to(item.querySelector('.services-icon'), {
+						scale: 1,
+						rotation: 0,
+						duration: 0.2,
+						ease: 'power1.out',
+					});
+					gsap.to(item, {
+						x: 0,
+						duration: 0.2,
+						ease: 'power1.out',
+					});
+				});
+			});
+		}
+
+		function animateRetailersMobileContent() {
+			gsap.to('.services-mobile-item', {
+				opacity: 1,
+				y: 0,
+				duration: 0.6,
+				ease: 'power1.out',
+				stagger: 0.08,
+			});
+
+			gsap.to('.services-mobile-icon', {
+				scale: 1,
+				rotation: 0,
+				duration: 0.5,
+				ease: 'back.out(1.7)',
+				stagger: 0.08,
+				delay: 0.15,
+			});
+		}
+
+		function animateBrandsContent() {
+			gsap.to('.services-brand-card', {
+				opacity: 1,
+				y: 0,
+				scale: 1,
+				duration: 0.8,
+				ease: 'power1.out',
+				stagger: 0.15,
+			});
+
+			// Add sophisticated hover effects for brand cards (Performance Optimized)
+			document.querySelectorAll('.services-brand-card').forEach(card => {
+				card.addEventListener('mouseenter', () => {
+					gsap.to(card, {
+						y: -10,
+						scale: 1.02,
+						duration: 0.3,
+						ease: 'power1.out',
+					});
+					gsap.to(card.querySelector('.services-brand-image img'), {
+						scale: 1.05,
+						duration: 0.3,
+						ease: 'power1.out',
+					});
+				});
+
+				card.addEventListener('mouseleave', () => {
+					gsap.to(card, {
+						y: 0,
+						scale: 1,
+						duration: 0.3,
+						ease: 'power1.out',
+					});
+					gsap.to(card.querySelector('.services-brand-image img'), {
+						scale: 1.1,
+						duration: 0.3,
+						ease: 'power1.out',
+					});
+				});
+			});
+		}
+
+		function animateBrandsMobileContent() {
+			gsap.to('.services-brand-mobile-card', {
+				opacity: 1,
+				y: 0,
+				duration: 0.6,
+				ease: 'power1.out',
+				stagger: 0.15,
+			});
+		}
+
+		function initializeEnhancedTabs() {
+			const retailersTab = document.getElementById('retailersTab');
+			const brandsTab = document.getElementById('brandsTab');
+			const retailersContent = document.getElementById('retailersContent');
+			const brandsContent = document.getElementById('brandsContent');
+			
+			// Toggle elements
+			const servicesToggle = document.getElementById('servicesToggle') as HTMLInputElement;
+			const floatingServicesToggle = document.getElementById('floatingServicesToggle') as HTMLInputElement;
+			const floatingRetailersTab = document.getElementById('floatingRetailersTab');
+			const floatingBrandsTab = document.getElementById('floatingBrandsTab');
+
+			// Enhanced tab switching
+			function showRetailers() {
+				if (isTransitioning || currentTab === 'retailers') return;
+				isTransitioning = true;
+				currentTab = 'retailers';
+
+				// Update checkbox states
+				servicesToggle.checked = false;
+				floatingServicesToggle.checked = false;
+
+				// Animate title transition (Performance Optimized)
+				gsap.to('#brandsTitle', {
+					opacity: 0,
+					y: -20,
+					duration: 0.2,
+					ease: 'power1.out',
+				});
+				gsap.to('#retailersTitle', {
+					opacity: 1,
+					y: 0,
+					duration: 0.2,
+					ease: 'power1.out',
+					delay: 0.15,
+				});
+
+				// Update text colors for both toggles (Performance Optimized)
+				gsap.to('.services-retailers-text, .floating-retailers-text', {
+					color: 'white',
+					duration: 0.2,
+				});
+				gsap.to('.services-brands-text, .floating-brands-text', {
+					color: 'rgba(255, 255, 255, 0.7)',
+					duration: 0.2,
+				});
+
+				// Animate tab button switch with morphing effect (Performance Optimized)
+				const tl = gsap.timeline({
+					onComplete: () => { isTransitioning = false; }
+				});
+
+				// Tab button animations with subtle effect
+				tl.to(brandsTab, {
+					scale: 0.98,
+					duration: 0.15,
+					ease: 'power1.out',
+				})
+				.to(retailersTab, {
+					scale: 1.02,
+					duration: 0.2,
+					ease: 'back.out(1.7)',
+				}, '-=0.1')
+				.to([brandsTab, retailersTab], {
+					scale: 1,
+					duration: 0.15,
+					ease: 'power1.out',
+				});
+
+				// Content transition with slide effect (Performance Optimized)
+				if (!brandsContent.classList.contains('hidden')) {
+					// Slide out brands content
+					gsap.to(brandsContent, {
+						opacity: 0,
+						x: 100,
+						duration: 0.3,
+						ease: 'power1.in',
+						onComplete: () => {
+							brandsContent.classList.add('hidden');
+							retailersContent.classList.remove('hidden');
+							
+							// Reset and animate in retailers content
+							gsap.set('.services-item', { opacity: 0, x: -50 });
+							gsap.set('.services-mobile-item', { opacity: 0, y: 30 });
+							gsap.set('.services-icon, .services-mobile-icon', { scale: 0, rotation: -180 });
+							
+							gsap.to(retailersContent, {
+								opacity: 1,
+								x: 0,
+								duration: 0.4,
+								ease: 'power1.out',
+							});
+
+							// Animate content items
+							setTimeout(() => animateRetailersContent(), 150);
+							setTimeout(() => animateRetailersMobileContent(), 150);
+						}
+					});
+				}
+			}
+
+			function showBrands() {
+				if (isTransitioning || currentTab === 'brands') return;
+				isTransitioning = true;
+				currentTab = 'brands';
+
+				// Update checkbox states
+				servicesToggle.checked = true;
+				floatingServicesToggle.checked = true;
+
+				// Animate title transition (Performance Optimized)
+				gsap.to('#retailersTitle', {
+					opacity: 0,
+					y: -20,
+					duration: 0.2,
+					ease: 'power1.out',
+				});
+				gsap.to('#brandsTitle', {
+					opacity: 1,
+					y: 0,
+					duration: 0.2,
+					ease: 'power1.out',
+					delay: 0.15,
+				});
+
+				// Update text colors for both toggles (Performance Optimized)
+				gsap.to('.services-brands-text, .floating-brands-text', {
+					color: 'white',
+					duration: 0.2,
+				});
+				gsap.to('.services-retailers-text, .floating-retailers-text', {
+					color: 'rgba(255, 255, 255, 0.7)',
+					duration: 0.2,
+				});
+
+				// Animate tab button switch with morphing effect (Performance Optimized)
+				const tl = gsap.timeline({
+					onComplete: () => { isTransitioning = false; }
+				});
+
+				// Tab button animations with subtle effect
+				tl.to(retailersTab, {
+					scale: 0.98,
+					duration: 0.15,
+					ease: 'power1.out',
+				})
+				.to(brandsTab, {
+					scale: 1.02,
+					duration: 0.2,
+					ease: 'back.out(1.7)',
+				}, '-=0.1')
+				.to([retailersTab, brandsTab], {
+					scale: 1,
+					duration: 0.15,
+					ease: 'power1.out',
+				});
+
+				// Content transition with slide effect (Performance Optimized)
+				if (!retailersContent.classList.contains('hidden')) {
+					// Slide out retailers content
+					gsap.to(retailersContent, {
+						opacity: 0,
+						x: -100,
+						duration: 0.3,
+						ease: 'power1.in',
+						onComplete: () => {
+							retailersContent.classList.add('hidden');
+							brandsContent.classList.remove('hidden');
+							
+							// Reset and animate in brands content
+							gsap.set('.services-brand-card', { opacity: 0, y: 50, scale: 0.9 });
+							gsap.set('.services-brand-mobile-card', { opacity: 0, y: 50 });
+							
+							gsap.to(brandsContent, {
+								opacity: 1,
+								x: 0,
+								duration: 0.4,
+								ease: 'power1.out',
+							});
+
+							// Animate content items
+							setTimeout(() => animateBrandsContent(), 150);
+							setTimeout(() => animateBrandsMobileContent(), 150);
+						}
+					});
+				}
+			}
+
+			// Add event listeners for both toggles
+			retailersTab?.addEventListener('click', showRetailers);
+			brandsTab?.addEventListener('click', showBrands);
+			floatingRetailersTab?.addEventListener('click', showRetailers);
+			floatingBrandsTab?.addEventListener('click', showBrands);
+
+			// Listen for checkbox changes to sync both toggles
+			servicesToggle?.addEventListener('change', (e) => {
+				if ((e.target as HTMLInputElement).checked) {
+					showBrands();
+				} else {
+					showRetailers();
+				}
+			});
+
+			floatingServicesToggle?.addEventListener('change', (e) => {
+				if ((e.target as HTMLInputElement).checked) {
+					showBrands();
+				} else {
+					showRetailers();
+				}
+			});
+
+			// Enhanced hover effects for tab buttons
+			[retailersTab, brandsTab, floatingRetailersTab, floatingBrandsTab].forEach(button => {
+				if (!button) return;
+				
+				button.addEventListener('mouseenter', () => {
+					if (!isTransitioning) {
+						gsap.to(button, {
+							scale: 1.02,
+							duration: 0.2,
+							ease: 'power2.out',
+						});
+					}
+				});
+
+				button.addEventListener('mouseleave', () => {
+					if (!isTransitioning) {
+						gsap.to(button, {
+							scale: 1,
+							duration: 0.2,
+							ease: 'power2.out',
+						});
+					}
+				});
+			});
+
+			// Initialize floating toggle scroll behavior
+			initializeFloatingToggle();
+
+			// Initialize with retailers tab active
+			showRetailers();
+		}
+
+		function initializeFloatingToggle() {
+			const originalToggle = document.querySelector('.services-tabs-container');
+			const floatingToggle = document.getElementById('floatingToggle');
+
+			// Create intersection observer for the original toggle
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						// Original toggle is visible - hide floating toggle
+						gsap.to(floatingToggle, {
+							opacity: 0,
+							y: 40,
+							pointerEvents: 'none',
+							duration: 0.5,
+							ease: 'power2.out',
+						});
+					} else {
+						// Original toggle is not visible - show floating toggle
+						gsap.to(floatingToggle, {
+							opacity: 1,
+							y: 0,
+							pointerEvents: 'auto',
+							duration: 0.5,
+							ease: 'power2.out',
+						});
+					}
+				});
+			}, {
+				threshold: 0.5,
+				rootMargin: '-50px 0px -50px 0px'
+			});
+
+			if (originalToggle) {
+				observer.observe(originalToggle);
+			}
+		}
+
+		// Continuous floating animations for icons
+		gsap.to('.services-icon svg, .services-mobile-icon svg', {
+			y: -2,
+			duration: 2,
+			ease: 'power2.inOut',
+			yoyo: true,
+			repeat: -1,
+			stagger: 0.2,
+		});
+
+		// Parallax effect for brand images
+		gsap.to('.services-brand-image img, .services-brand-mobile-image img', {
+			scale: 1,
+			ease: 'none',
+			scrollTrigger: {
+				trigger: '.services-content',
+				start: 'top bottom',
+				end: 'bottom top',
+				scrub: true,
+			}
+		});
+	</script>
+</Layout>
+
+<style>
+	/* Enhanced styles for smooth animations */
+	.services-hero-title,
+	.services-hero-subtitle,
+	.services-tabs-container,
+	.services-main-title,
+	.services-item,
+	.services-mobile-item,
+	.services-brand-card,
+	.services-brand-mobile-card {
+		will-change: transform, opacity;
+	}
+
+	.services-tab-btn,
+	.floating-tab-button {
+		transition: all 0.3s ease;
+		transform-style: preserve-3d;
+		backface-visibility: hidden;
+		position: relative;
+		z-index: 10;
+	}
+
+	.services-icon,
+	.services-mobile-icon {
+		will-change: transform;
+	}
+
+	.services-brand-image,
+	.services-brand-mobile-image {
+		overflow: hidden;
+	}
+
+	.services-brand-image img,
+	.services-brand-mobile-image img {
+		will-change: transform;
+		transition: transform 0.4s ease;
+	}
+
+	.services-item {
+		cursor: pointer;
+		will-change: transform;
+	}
+
+	.services-brand-card {
+		cursor: pointer;
+		transition: box-shadow 0.4s ease;
+	}
+
+	.services-brand-card:hover {
+		box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+	}
+
+	/* Enhanced tab button styling */
+	.tab-button,
+	.floating-tab-button {
+		position: relative;
+		overflow: hidden;
+		background: transparent;
+	}
+
+	.tab-button::before,
+	.floating-tab-button::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+		transition: left 0.6s ease;
+		z-index: 1;
+	}
+
+	.tab-button:hover::before,
+	.floating-tab-button:hover::before {
+		left: 100%;
+	}
+
+	.tab-button span,
+	.floating-tab-button span {
+		position: relative;
+		z-index: 2;
+	}
+
+	/* Floating toggle enhancements */
+	#floatingToggle {
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		will-change: transform, opacity;
+	}
+
+	#floatingToggle > div {
+		background: #163153 !important; /* brand-blue */
+		border: 1px solid rgba(22, 49, 83, 0.5);
+		box-shadow: 
+			0 10px 32px rgba(0, 0, 0, 0.1),
+			0 20px 64px rgba(0, 0, 0, 0.1),
+			inset 0 1px 0 rgba(255, 255, 255, 0.2);
+	}
+
+	/* Glassmorphism effect for floating toggle */
+	#floatingToggle::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+		border-radius: 12px;
+		pointer-events: none;
+	}
+
+	/* Enhanced shadow for floating toggle */
+	#floatingToggle:hover > div {
+		box-shadow: 
+			0 20px 40px rgba(0, 0, 0, 0.15),
+			0 30px 80px rgba(0, 0, 0, 0.15),
+			inset 0 1px 0 rgba(255, 255, 255, 0.3);
+		transform: translateY(-2px);
+		transition: all 0.3s ease;
+		background: #1a3a5c !important; /* slightly lighter brand-blue on hover */
+	}
+
+	/* Mobile responsiveness for floating toggle */
+	@media (max-width: 640px) {
+		#floatingToggle {
+			bottom: 1rem;
+			right: 1rem;
+		}
+		
+		#floatingToggle > div {
+			width: 256px !important; /* 16rem in px */
+			height: 60px;
+		}
+		
+		.floating-tab-button span {
+			font-size: 0.75rem;
+		}
+	}
+
+	@media (min-width: 640px) and (max-width: 1024px) {
+		#floatingToggle > div {
+			width: 288px !important; /* 18rem in px */
+		}
+	}
+
+	@media (min-width: 1024px) {
+		#floatingToggle > div {
+			width: 320px !important; /* 20rem in px */
+		}
+	}
+
+	/* Performance optimizations */
+	.services-tab-wrapper,
+	#floatingToggle {
+		contain: layout style paint;
+	}
+
+	/* Smooth transitions for toggle buttons */
+	button {
+		transition: 
+			transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+			opacity 0.3s ease,
+			box-shadow 0.3s ease;
+	}
+</style> 

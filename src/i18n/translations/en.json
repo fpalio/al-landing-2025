@@ -93,6 +93,141 @@
       }
     }
   },
+  "about": {
+    "hero": {
+      "title": "About Us",
+      "subtitle": "Built on Loyalty. Backed by Experience."
+    },
+    "loyalty_section": {
+      "title": "Built on <span class=\"text-brand-red\">Loyalty.</span> Powered by Trust.",
+      "description": "Unlock the full potential of Customer Loyalty and let's achieve success together. Unlock the full potential of Customer Loyalty."
+    },
+    "stats": {
+      "countries_served": "Countries Served",
+      "customers_reached": "Customers Reached",
+      "years_experience": "Years Experience",
+      "collectibles_delivered": "Collectibles Delivered"
+    },
+    "history": {
+      "title": "Our History",
+      "description": "Unlock the full potential of Customer Loyalty and let's achieve success together",
+      "cards": [
+        {
+          "title": "Decades of Industry Expertise",
+          "description": "20 years experience in the Latin American loyalty collectibles market"
+        },
+        {
+          "title": "Millions of Rewards Delivered",
+          "description": "Tens of millions of rewards delivered"
+        },
+        {
+          "title": "Expanding Our Market For You",
+          "description": "Entering the U.S. market with confidence"
+        }
+      ]
+    },
+    "vision": {
+      "label": "OUR VISION",
+      "title": "To be your trusted strategic ally, focused on surpassing sales goals",
+      "image_alt": "Strategic planning and collaboration"
+    },
+    "mission": {
+      "label": "OUR MISSION",
+      "title": "To empower our clients to build stronger relationships through reward-driven loyalty promotions",
+      "image_alt": "Customer relationships and loyalty programs"
+    }
+  },
+  "services": {
+    "hero": {
+      "title": "Our Services",
+      "subtitle": "Built on Loyalty. Backed by Experience."
+    },
+    "tabs": {
+      "retailers": "For Retailers",
+      "brands": "For Brands"
+    },
+    "main_titles": {
+      "retailers": "We turn insights into loyalty — and loyalty into growth.",
+      "brands": "Expand Your Reach Across 10+ Countries"
+    },
+    "retailers": {
+      "services": [
+        {
+          "title": "Market Research",
+          "description": "Our team curates and designs collectible rewards tailored to audience, ensuring relevance, appeal, and brand alignment."
+        },
+        {
+          "title": "Selection and Product Design",
+          "description": "From manufacturing to delivery, we handle the entire supply chain — ensuring quality, timeliness, and smooth execution."
+        },
+        {
+          "title": "Production and Logistic",
+          "description": "Our team curates and designs collectible rewards tailored to audience, ensuring relevance, appeal, and brand alignment."
+        },
+        {
+          "title": "Promotion Implementation",
+          "description": "From manufacturing to delivery, we handle the entire supply chain — ensuring quality, timeliness, and smooth execution."
+        },
+        {
+          "title": "Supervision and Reporting",
+          "description": "We provide mental support for those grappling with persistent sadness, loss of interest, grief, and hopelessness through their life."
+        }
+      ]
+    },
+    "brands": {
+      "cards": [
+        {
+          "title": "Showcase Your Brand as a Coveted Reward",
+          "description": "Position your brand as an exclusive collectible that customers are eager to earn, boosting desirability and brand prestige.",
+          "image_alt": "Showcase Your Brand"
+        },
+        {
+          "title": "Drive Visibility Through Household Placement",
+          "description": "Place your brand directly into customers' homes—building long-term affinity and top-of-mind awareness through daily interactions.",
+          "image_alt": "Drive Visibility"
+        }
+      ]
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact Us",
+      "subtitle_desktop": "You are one step closer to better customer loyalty!",
+      "subtitle_mobile": "Built on Loyalty. Backed by Experience."
+    },
+    "buttons": {
+      "phone": "+1-309-3095443",
+      "email": "contact@whiter.co"
+    },
+    "form": {
+      "section_title": "Get in Touch",
+      "section_description": "Ready to transform your customer loyalty? Let's start the conversation.",
+      "fields": {
+        "name": {
+          "label": "Full Name *",
+          "placeholder": "Enter your full name"
+        },
+        "email": {
+          "label": "Email Address *",
+          "placeholder": "Enter your email address"
+        },
+        "company": {
+          "label": "Company Name",
+          "placeholder": "Enter your company name"
+        },
+        "phone": {
+          "label": "Phone Number",
+          "placeholder": "Enter your phone number"
+        },
+        "message": {
+          "label": "Message *",
+          "placeholder": "Tell us about your loyalty program needs..."
+        }
+      },
+      "submit_button": "Send Message"
+    },
+    "image_alt": "Contact us - American Loyalty team"
+  },
   "footer": {
     "copyright": "Copyright Notice: © Copyright American Loyalty LLC. 2024"
   }
