@@ -1,5 +1,11 @@
 ---
 import Button from './Button.astro';
+
+export interface Props {
+	t: (key: string) => string;
+}
+
+const { t } = Astro.props;
 ---
 
 <section class="py-2">
@@ -10,7 +16,7 @@ import Button from './Button.astro';
 			<div class="absolute inset-0">
 				<img 
 					src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80" 
-					alt="Background overlay" 
+					alt={t('grow_loyalty.background_alt')} 
 					class="w-full h-full object-cover opacity-10"
 				/>
 			</div>
@@ -19,18 +25,17 @@ import Button from './Button.astro';
 			<div class="relative z-10 flex flex-row gap-[196px] items-center justify-center h-full px-16">
 				<!-- Left Content -->
 				<div class="flex flex-col gap-6 text-white h-[142px]">
-					<h2 class="text-[58px] font-semibold leading-[57px] tracking-[-1.16px] capitalize">
-						Let's grow loyalty together
+					<h2 class="text-[58px] font-semibold leading-[57px] tracking-[-1.16px] capitalize w-[900px]">
+						{t('grow_loyalty.heading')}
 					</h2>
 					<div class="text-[18px] leading-[28px] opacity-80 w-[639px] tracking-[0.18px]">
-						<p class="mb-0">Join us with thousand giant companies and get unexpected benefits</p>
-						<p>from us, so you can stop worrying about your old ages</p>
+						<p class="mb-0">{t('grow_loyalty.description')}</p>
 					</div>
 				</div>
 				
 				<!-- Right Button -->
 				<Button 
-					text="Contact Us"
+					text={t('grow_loyalty.cta_button')}
 					variant="secondary"
 					size="xl"
 					href="/contact"
@@ -48,7 +53,7 @@ import Button from './Button.astro';
 			<div class="absolute inset-0">
 				<img 
 					src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80" 
-					alt="Background overlay" 
+					alt={t('grow_loyalty.background_alt')} 
 					class="w-full h-full object-cover opacity-10"
 				/>
 			</div>
@@ -58,17 +63,16 @@ import Button from './Button.astro';
 				<!-- Text Content -->
 				<div class="flex flex-col gap-6 text-white text-center">
 					<h2 class="text-[48px] font-semibold leading-[50px] tracking-[-1px] capitalize">
-						Let's grow loyalty together
+						{t('grow_loyalty.heading')}
 					</h2>
 					<div class="text-[16px] leading-[26px] opacity-80 max-w-[500px] tracking-[0.16px]">
-						<p class="mb-0">Join us with thousand giant companies and get unexpected benefits</p>
-						<p>from us, so you can stop worrying about your old ages</p>
+						<p class="mb-0">{t('grow_loyalty.description')}</p>
 					</div>
 				</div>
 				
 				<!-- Button -->
 				<Button 
-					text="Contact Us"
+					text={t('grow_loyalty.cta_button')}
 					variant="secondary"
 					size="lg"
 					href="/contact"
@@ -86,7 +90,7 @@ import Button from './Button.astro';
 			<div class="absolute inset-0">
 				<img 
 					src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80" 
-					alt="Background overlay" 
+					alt={t('grow_loyalty.background_alt')} 
 					class="w-full h-full object-cover opacity-10"
 				/>
 			</div>
@@ -96,17 +100,16 @@ import Button from './Button.astro';
 				<!-- Text Content -->
 				<div class="flex flex-col gap-[13.3px] text-white w-full">
 					<h2 class="font-archivo font-semibold text-[51.3px] leading-[54px] tracking-[-1.03px] capitalize">
-						Let's grow loyalty together
+						{t('grow_loyalty.heading')}
 					</h2>
 					<div class="font-poppins text-[15.9px] leading-[24.8px] opacity-80 tracking-[0.16px] w-[280.5px]">
-						<p class="mb-0">Join us with thousand giant companies and get unexpected benefits</p>
-						<p>from us, so you can stop worrying about your old ages</p>
+						<p class="mb-0">{t('grow_loyalty.description')}</p>
 					</div>
 				</div>
 				
 				<!-- Button -->
 				<Button 
-					text="Contact Us"
+					text={t('grow_loyalty.cta_button')}
 					variant="secondary"
 					size="lg"
 					href="/contact"

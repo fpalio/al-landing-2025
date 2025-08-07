@@ -3,7 +3,8 @@
     "home": "Home",
     "about": "About Us",
     "services": "Our Services",
-    "contact": "Contact Us"
+    "contact": "Contact Us",
+    "language": "Language"
   },
   "meta": {
     "title": {
@@ -227,6 +228,12 @@
       "submit_button": "Send Message"
     },
     "image_alt": "Contact us - American Loyalty team"
+  },
+  "grow_loyalty": {
+    "heading": "Let's grow loyalty together",
+    "description": "Join us with thousand giant companies and get unexpected benefits from us, so you can stop worrying about your old ages",
+    "cta_button": "Contact Us",
+    "background_alt": "Background overlay"
   },
   "footer": {
     "copyright": "Copyright Notice: © Copyright American Loyalty LLC. 2024"

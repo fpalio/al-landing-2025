@@ -1,6 +1,10 @@
 ---
 import Layout from '../components/Layout.astro';
 import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
+import { useTranslations } from '../i18n/utils';
+
+// Default to English for the main services page
+const t = useTranslations('en');
 ---
 
 <Layout title="Our Services - American Loyalty" currentPage="services">
@@ -399,7 +403,7 @@ import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 
 	<!-- CALL TO ACTION SECTION -->
 	<section class="relative pt-20 pb-24">
-		<GrowLoyaltySection />
+		<GrowLoyaltySection t={t} />
 	</section>
 
 	<!-- Enhanced Tab Functionality Script with GSAP Animations -->

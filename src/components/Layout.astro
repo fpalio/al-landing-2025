@@ -2,7 +2,7 @@
 import '../style/global.css'
 import LottieLogo from './LottieLogo.astro'
 import LanguageSelector from './LanguageSelector.astro'
-import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import { getLangFromUrl, useTranslations, languageConfig } from '../i18n/utils'
 
 export interface Props {
 	title: string;
@@ -12,6 +12,8 @@ export interface Props {
 const { title, currentPage = 'home' } = Astro.props as Props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const currentPath = Astro.url.pathname;
+const basePath = currentPath.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/';
 ---
 
 <!DOCTYPE html>
@@ -91,9 +93,9 @@ const t = useTranslations(lang);
 					</div>
 				</div>
 				
-				<!-- Mobile Language Selector & Menu -->
-				<div class="md:hidden flex items-center space-x-2">
-					<button id="mobile-menu-button" class="p-2 text-white transition-transform duration-200 hover:text-white/80">
+				<!-- Mobile Menu Button -->
+				<div class="md:hidden">
+					<button id="mobile-menu-button" class="p-2 text-white">
 						<svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
 						</svg>
@@ -101,9 +103,6 @@ const t = useTranslations(lang);
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
 						</svg>
 					</button>
-					<div class="block">
-						<LanguageSelector />
-					</div>
 				</div>
 			</div>
 		</div>
@@ -118,21 +117,21 @@ const t = useTranslations(lang);
 	<div id="mobile-menu-overlay" class="fixed inset-0 invisible z-40 opacity-0 backdrop-blur-sm transition-all duration-300 md:hidden bg-black/50"></div>
 	
 	<div id="mobile-menu-drawer" class="fixed right-0 bottom-0 left-0 z-50 bg-white rounded-t-3xl shadow-2xl transition-transform duration-300 ease-out transform translate-y-full md:hidden">
-		<div class="px-6 py-8">
+		<div class="px-4 py-6">
 			<!-- Drawer Handle -->
-			<div class="flex justify-center mb-6">
+			<div class="flex justify-center mb-4">
 				<div class="w-12 h-1 bg-gray-300 rounded-full"></div>
 			</div>
 			
 			<!-- Logo Section -->
-			<div class="flex justify-center items-center mb-8">
+			<div class="flex justify-center items-center mb-6">
 				<a href={lang === 'en' ? '/' : `/${lang}`} class="flex items-center">
-					<LottieLogo width={200} height={100} className="flex-shrink-0" variant="mobile" />
+					<LottieLogo width={180} height={90} className="flex-shrink-0" variant="mobile" />
 				</a>
 			</div>
 			
 			<!-- Navigation Links -->
-			<nav class="mb-8 space-y-4">
+			<nav class="mb-6 space-y-3">
 				{currentPage === 'home' ? (
 					<div class="flex justify-between items-center p-4 bg-blue-50 rounded-xl border-l-4 border-brand-blue">
 						<a href={lang === 'en' ? '/' : `/${lang}`} class="flex items-center text-lg font-bold text-brand-blue">
@@ -144,7 +143,7 @@ const t = useTranslations(lang);
 						<div class="w-2 h-2 rounded-full bg-brand-blue"></div>
 					</div>
 				) : (
-					<a href={lang === 'en' ? '/' : `/${lang}`} class="flex items-center p-4 text-gray-700 rounded-xl transition-all duration-200 hover:text-brand-blue hover:bg-blue-50">
+					<a href={lang === 'en' ? '/' : `/${lang}`} class="flex items-center p-4 text-gray-700 rounded-xl">
 						<svg class="mr-3 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 							<path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
 						</svg>
@@ -163,7 +162,7 @@ const t = useTranslations(lang);
 						<div class="w-2 h-2 rounded-full bg-brand-blue"></div>
 					</div>
 				) : (
-					<a href={lang === 'en' ? '/about' : `/${lang}/about`} class="flex items-center p-4 text-gray-700 rounded-xl transition-all duration-200 hover:text-brand-blue hover:bg-blue-50">
+					<a href={lang === 'en' ? '/about' : `/${lang}/about`} class="flex items-center p-4 text-gray-700 rounded-xl">
 						<svg class="mr-3 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 							<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
 						</svg>
@@ -182,7 +181,7 @@ const t = useTranslations(lang);
 						<div class="w-2 h-2 rounded-full bg-brand-blue"></div>
 					</div>
 				) : (
-					<a href={lang === 'en' ? '/services' : `/${lang}/services`} class="flex items-center p-4 text-gray-700 rounded-xl transition-all duration-200 hover:text-brand-blue hover:bg-blue-50">
+					<a href={lang === 'en' ? '/services' : `/${lang}/services`} class="flex items-center p-4 text-gray-700 rounded-xl">
 						<svg class="mr-3 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 							<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
 						</svg>
@@ -190,6 +189,74 @@ const t = useTranslations(lang);
 					</a>
 				)}
 			</nav>
+			
+			<!-- Language Selector Section -->
+			<div class="mb-6 pb-4 border-b border-gray-200">
+				<div class="mb-2">
+					<h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wide">{t('nav.language')}</h3>
+				</div>
+				<div class="mobile-language-selector w-full relative">
+					<!-- Mobile Language Selector Button -->
+					<button
+						type="button"
+						class="w-full flex justify-between items-center p-4 text-gray-700 rounded-xl text-left"
+						aria-expanded="false"
+						aria-haspopup="true"
+						id="mobile-language-button"
+					>
+						<div class="flex items-center gap-3">
+							<span class="text-xl" aria-hidden="true">{languageConfig[lang].flag}</span>
+							<div class="flex flex-col">
+								<span class="font-semibold text-lg">{languageConfig[lang].nativeName}</span>
+								<span class="text-sm text-gray-500">{languageConfig[lang].flagName}</span>
+							</div>
+						</div>
+						<svg class="w-5 h-5 transition-transform duration-200" id="mobile-dropdown-arrow" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+							<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+						</svg>
+					</button>
+
+					<!-- Mobile Dropdown Menu -->
+					<div
+						class="absolute bottom-full left-0 right-0 mb-2 bg-white rounded-lg border border-gray-200 shadow-lg opacity-0 invisible transition-all duration-200 transform scale-95 origin-bottom z-50"
+						role="menu"
+						aria-orientation="vertical"
+						aria-labelledby="mobile-language-button"
+						id="mobile-language-dropdown"
+					>
+						<div class="py-1" role="none">
+							{Object.entries(languageConfig).map(([langCode, config]) => {
+								const href = langCode === 'en' ? basePath : `/${langCode}${basePath}`;
+								const isActive = langCode === lang;
+								
+								return (
+									<a
+										href={href}
+										class={`flex items-center gap-3 px-4 py-3 text-sm mobile-lang-option ${
+											isActive 
+												? 'bg-blue-50 text-blue-700 font-semibold' 
+												: 'text-gray-700'
+										}`}
+										role="menuitem"
+										tabindex="-1"
+									>
+										<span class="text-lg" aria-hidden="true">{config.flag}</span>
+										<div class="flex flex-col">
+											<span class="font-medium">{config.nativeName}</span>
+											<span class="text-xs text-gray-500">{config.flagName}</span>
+										</div>
+										{isActive && (
+											<svg class="ml-auto w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+												<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+											</svg>
+										)}
+									</a>
+								);
+							})}
+						</div>
+					</div>
+				</div>
+			</div>
 			
 			<!-- Contact CTA Button with Ping Animation -->
 			<div class="relative">
@@ -215,7 +282,7 @@ const t = useTranslations(lang);
 							<div class="sparkle sparkle-3"></div>
 						</div>
 						
-						<a href={lang === 'en' ? '/contact' : `/${lang}/contact`} class="block relative px-6 py-4 text-lg font-bold text-center text-white rounded-xl shadow-lg transition-all duration-200 transform bg-brand-red hover:bg-red-700 hover:scale-105">
+						<a href={lang === 'en' ? '/contact' : `/${lang}/contact`} class="block relative px-6 py-4 text-lg font-bold text-center text-white rounded-xl shadow-lg bg-brand-red">
 							<div class="flex justify-center items-center">
 								<svg class="mr-3 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 									<path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
@@ -1137,5 +1204,71 @@ const t = useTranslations(lang);
 		transition: none !important;
 	}
 </style>
+
+<script>
+	// Mobile Language Selector functionality
+	document.addEventListener('DOMContentLoaded', () => {
+		const mobileButton = document.getElementById('mobile-language-button');
+		const mobileDropdown = document.getElementById('mobile-language-dropdown');
+		const mobileArrow = document.getElementById('mobile-dropdown-arrow');
+		let isMobileOpen = false;
+
+		if (!mobileButton || !mobileDropdown || !mobileArrow) return;
+
+		function toggleMobileDropdown() {
+			isMobileOpen = !isMobileOpen;
+			
+			if (isMobileOpen) {
+				mobileDropdown.classList.remove('invisible', 'opacity-0', 'scale-95');
+				mobileDropdown.classList.add('visible', 'opacity-100', 'scale-100');
+				mobileArrow.style.transform = 'rotate(180deg)';
+				mobileButton.setAttribute('aria-expanded', 'true');
+			} else {
+				mobileDropdown.classList.remove('visible', 'opacity-100', 'scale-100');
+				mobileDropdown.classList.add('invisible', 'opacity-0', 'scale-95');
+				mobileArrow.style.transform = 'rotate(0deg)';
+				mobileButton.setAttribute('aria-expanded', 'false');
+			}
+		}
+
+		function closeMobileDropdown() {
+			if (isMobileOpen) {
+				toggleMobileDropdown();
+			}
+		}
+
+		// Toggle dropdown on button click
+		mobileButton.addEventListener('click', (e) => {
+			e.stopPropagation();
+			toggleMobileDropdown();
+		});
+
+		// Close dropdown when clicking outside
+		document.addEventListener('click', closeMobileDropdown);
+
+		// Close mobile navigation when language is selected
+		const mobileLanguageOptions = mobileDropdown.querySelectorAll('.mobile-lang-option');
+		mobileLanguageOptions.forEach(option => {
+			option.addEventListener('click', () => {
+				// Close mobile menu drawer
+				const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+				const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+				const hamburgerIcon = document.getElementById('hamburger-icon');
+				const closeIcon = document.getElementById('close-icon');
+				
+				if (mobileMenuDrawer && mobileMenuOverlay) {
+					mobileMenuDrawer.classList.add('translate-y-full');
+					mobileMenuOverlay.classList.add('invisible', 'opacity-0');
+					mobileMenuOverlay.classList.remove('visible', 'opacity-100');
+					
+					if (hamburgerIcon && closeIcon) {
+						hamburgerIcon.classList.remove('hidden');
+						closeIcon.classList.add('hidden');
+					}
+				}
+			});
+		});
+	});
+</script>
 </body>
 </html>

@@ -3,7 +3,8 @@
     "home": "Inicio",
     "about": "Acerca de Nosotros",
     "services": "Nuestros Servicios",
-    "contact": "Contáctanos"
+    "contact": "Contáctanos",
+    "language": "Idioma"
   },
   "meta": {
     "title": {
@@ -227,6 +228,12 @@
       "submit_button": "Enviar Mensaje"
     },
     "image_alt": "Contáctanos - Equipo de American Loyalty"
+  },
+  "grow_loyalty": {
+    "heading": "Crezcamos juntos en lealtad",
+    "description": "Únete a nosotros con miles de empresas gigantes y obtén beneficios inesperados de nosotros, para que puedas dejar de preocuparte por tu vejez",
+    "cta_button": "Contáctanos",
+    "background_alt": "Superposición de fondo"
   },
   "footer": {
     "copyright": "Aviso de Derechos de Autor: © Copyright American Loyalty LLC. 2024"

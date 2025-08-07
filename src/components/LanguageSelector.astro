@@ -40,7 +40,7 @@ const basePath = currentPath.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/';
         return (
           <a
             href={href}
-            class={`group flex items-center gap-3 px-4 py-3 text-sm transition-colors duration-150 ${
+            class={`group flex items-center gap-3 px-4 py-3 text-sm transition-colors duration-150 language-option ${
               isActive 
                 ? 'bg-blue-50 text-blue-700 font-semibold' 
                 : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
@@ -73,10 +73,14 @@ const basePath = currentPath.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/';
     const arrow = document.getElementById('dropdown-arrow');
     let isOpen = false;
 
-    if (!button || !dropdown || !arrow) return;
+    if (!button || !dropdown || !arrow) {
+      console.warn('Language selector elements not found:', { button, dropdown, arrow });
+      return;
+    }
 
     function toggleDropdown() {
       isOpen = !isOpen;
+      console.log('Toggling dropdown, isOpen:', isOpen);
       
       if (isOpen) {
         dropdown.classList.remove('invisible', 'opacity-0', 'scale-95');
@@ -137,6 +141,31 @@ const basePath = currentPath.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/';
           }
           break;
       }
+    });
+
+    // Close mobile navigation when language is selected
+    const languageOptions = dropdown.querySelectorAll('.language-option');
+    languageOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        // Close mobile menu drawer if it exists
+        const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
+        
+        if (mobileMenuDrawer && mobileMenuOverlay) {
+          // Hide the mobile menu
+          mobileMenuDrawer.classList.add('translate-y-full');
+          mobileMenuOverlay.classList.add('invisible', 'opacity-0');
+          mobileMenuOverlay.classList.remove('visible', 'opacity-100');
+          
+          // Reset hamburger icon
+          if (hamburgerIcon && closeIcon) {
+            hamburgerIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+          }
+        }
+      });
     });
   });
 </script>

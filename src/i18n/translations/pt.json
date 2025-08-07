@@ -3,7 +3,8 @@
     "home": "Início",
     "about": "Sobre Nós",
     "services": "Nossos Serviços",
-    "contact": "Fale Conosco"
+    "contact": "Fale Conosco",
+    "language": "Idioma"
   },
   "meta": {
     "title": {
@@ -227,6 +228,12 @@
       "submit_button": "Enviar Mensagem"
     },
     "image_alt": "Fale conosco - Equipe da American Loyalty"
+  },
+  "grow_loyalty": {
+    "heading": "Vamos crescer juntos em lealdade",
+    "description": "Junte-se a nós com milhares de empresas gigantes e obtenha benefícios inesperados de nós, para que você possa parar de se preocupar com sua velhice",
+    "cta_button": "Fale Conosco",
+    "background_alt": "Sobreposição de fundo"
   },
   "footer": {
     "copyright": "Aviso de Direitos Autorais: © Copyright American Loyalty LLC. 2024"

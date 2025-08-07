@@ -49,6 +49,58 @@ button {
   perspective: 1000px;
 }
 
+/* Mobile Language Selector Styles */
+.mobile-language-selector #language-selector {
+  width: 100%;
+  position: relative;
+}
+
+.mobile-language-selector #language-selector button {
+  width: 100%;
+  justify-content: space-between;
+  padding: 1rem;
+  background: transparent !important;
+  border: none !important;
+  color: #374151 !important;
+  border-radius: 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-align: left;
+  backdrop-filter: none !important;
+}
+
+.mobile-language-selector #language-selector button svg {
+  color: #374151 !important;
+}
+
+.mobile-language-selector #language-selector button .text-lg {
+  font-size: 1.125rem;
+  color: #374151 !important;
+}
+
+/* Mobile dropdown positioning - open upward */
+.mobile-language-selector #language-dropdown {
+  position: absolute !important;
+  bottom: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: auto !important;
+  margin-bottom: 0.5rem !important;
+  margin-top: 0 !important;
+  width: 100% !important;
+  transform-origin: bottom !important;
+  z-index: 60 !important;
+}
+
+/* Remove ALL hover states from mobile language selector */
+.mobile-language-selector button:hover,
+.mobile-language-selector .mobile-lang-option:hover {
+  background-color: inherit !important;
+  color: inherit !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
 /* Improved performance for animations */
 [data-animate],
 [data-hero-animate] {
