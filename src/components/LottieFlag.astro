@@ -1,0 +1,84 @@
+---
+export interface Props {
+  width?: number;
+  height?: number;
+  className?: string;
+}
+
+const { width = 420, height = 280, className = '' } = Astro.props as Props;
+---
+
+<div class={`lottie-flag ${className}`} style={`width: ${width}px; height: ${height}px;`}></div>
+
+<script>
+  import lottie from 'lottie-web';
+
+  let animationInstance = null;
+
+  function initializeFlagAnimation() {
+    const container = document.querySelector('.lottie-flag');
+    if (!container) return;
+
+    // Cleanup previous instance if any
+    if (animationInstance) {
+      animationInstance.destroy();
+      animationInstance = null;
+    }
+
+    animationInstance = lottie.loadAnimation({
+      container: container,
+      renderer: 'svg',
+      loop: false,
+      autoplay: false,
+      path: '/animations/alflag.json'
+    });
+
+    // When DOM of animation is ready, play intro then loop tail
+    animationInstance.addEventListener('DOMLoaded', function () {
+      // Play initial segment
+      animationInstance.playSegments([0, 330], true);
+
+      // After intro completes, play looping segment
+      const handler = function () {
+        animationInstance.removeEventListener('complete', handler);
+        animationInstance.playSegments([330, 520], true);
+        animationInstance.loop = true;
+      };
+      animationInstance.addEventListener('complete', handler);
+    });
+  }
+
+  // Initialize on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeFlagAnimation);
+  } else {
+    initializeFlagAnimation();
+  }
+
+  // Re-initialize on Astro page loads
+  document.addEventListener('astro:page-load', () => {
+    initializeFlagAnimation();
+  });
+
+  // Cleanup on unload
+  window.addEventListener('beforeunload', () => {
+    if (animationInstance) {
+      animationInstance.destroy();
+      animationInstance = null;
+    }
+  });
+</script>
+
+<style>
+  .lottie-flag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lottie-flag svg {
+    width: 100% !important;
+    height: 100% !important;
+  }
+</style>
+
+

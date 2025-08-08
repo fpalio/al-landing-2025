@@ -38,36 +38,36 @@ const basePath = currentPath.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/';
 				
 				<!-- Desktop Navigation -->
 				<div class="hidden md:block">
-					<div class="flex relative items-baseline ml-10 space-x-8" id="desktop-nav">
+					<div class="flex relative items-baseline md:ml-4 lg:ml-10 md:space-x-4 lg:space-x-8" id="desktop-nav">
 						<!-- Animated underline -->
 						<div id="nav-underline" class="absolute bottom-0 h-0.5 opacity-0 bg-brand-red" style="will-change: transform; transform-origin: left center;"></div>
 						
-						{currentPage === 'home' ? (
-							<div class="flex flex-col items-center">
-								<a href={lang === 'en' ? '/' : `/${lang}`} class="px-3 py-2 text-lg font-bold text-brand-red nav-link active" data-page="home">{t('nav.home')}</a>
-							</div>
-						) : (
-							<a href={lang === 'en' ? '/' : `/${lang}`} class="px-3 py-2 text-lg font-bold transition-colors duration-200 text-white/80 hover:text-brand-red nav-link" data-page="home">{t('nav.home')}</a>
-						)}
+							{currentPage === 'home' ? (
+								<div class="flex flex-col items-center">
+									<a href={lang === 'en' ? '/' : `/${lang}`} class="px-2 md:px-2 lg:px-3 py-2 text-base md:text-base lg:text-lg font-bold text-brand-red nav-link active whitespace-nowrap" data-page="home">{t('nav.home')}</a>
+								</div>
+							) : (
+								<a href={lang === 'en' ? '/' : `/${lang}`} class="px-2 md:px-2 lg:px-3 py-2 text-base md:text-base lg:text-lg font-bold transition-colors duration-200 text-white/80 hover:text-brand-red nav-link whitespace-nowrap" data-page="home">{t('nav.home')}</a>
+							)}
 						
-						{currentPage === 'about' ? (
-							<div class="flex flex-col items-center">
-								<a href={lang === 'en' ? '/about' : `/${lang}/about`} class="px-3 py-2 text-lg font-bold text-brand-red nav-link active" data-page="about">{t('nav.about')}</a>
-							</div>
-						) : (
-							<a href={lang === 'en' ? '/about' : `/${lang}/about`} class="px-3 py-2 text-lg font-bold transition-colors duration-200 text-white/80 hover:text-brand-red nav-link" data-page="about">{t('nav.about')}</a>
-						)}
+							{currentPage === 'about' ? (
+								<div class="flex flex-col items-center">
+									<a href={lang === 'en' ? '/about' : `/${lang}/about`} class="px-2 md:px-2 lg:px-3 py-2 text-base md:text-base lg:text-lg font-bold text-brand-red nav-link active whitespace-nowrap" data-page="about">{t('nav.about')}</a>
+								</div>
+							) : (
+								<a href={lang === 'en' ? '/about' : `/${lang}/about`} class="px-2 md:px-2 lg:px-3 py-2 text-base md:text-base lg:text-lg font-bold transition-colors duration-200 text-white/80 hover:text-brand-red nav-link whitespace-nowrap" data-page="about">{t('nav.about')}</a>
+							)}
 						
-						{currentPage === 'services' ? (
-							<div class="flex flex-col items-center">
-								<a href={lang === 'en' ? '/services' : `/${lang}/services`} class="px-3 py-2 text-lg font-bold text-brand-red nav-link active" data-page="services">{t('nav.services')}</a>
-							</div>
-						) : (
-							<a href={lang === 'en' ? '/services' : `/${lang}/services`} class="px-3 py-2 text-lg font-bold transition-colors duration-200 text-white/80 hover:text-brand-red nav-link" data-page="services">{t('nav.services')}</a>
-						)}
+							{currentPage === 'services' ? (
+								<div class="flex flex-col items-center">
+									<a href={lang === 'en' ? '/services' : `/${lang}/services`} class="px-2 md:px-2 lg:px-3 py-2 text-base md:text-base lg:text-lg font-bold text-brand-red nav-link active whitespace-nowrap" data-page="services">{t('nav.services')}</a>
+								</div>
+							) : (
+								<a href={lang === 'en' ? '/services' : `/${lang}/services`} class="px-2 md:px-2 lg:px-3 py-2 text-base md:text-base lg:text-lg font-bold transition-colors duration-200 text-white/80 hover:text-brand-red nav-link whitespace-nowrap" data-page="services">{t('nav.services')}</a>
+							)}
 						
-						{currentPage === 'contact' ? (
-							<a href={lang === 'en' ? '/contact' : `/${lang}/contact`} id="contact-button-active" class="flex overflow-hidden relative items-center px-6 py-3 text-lg font-bold text-white rounded-xl border-2 shadow-lg bg-brand-red border-white/20">
+							{currentPage === 'contact' ? (
+								<a href={lang === 'en' ? '/contact' : `/${lang}/contact`} id="contact-button-active" class="flex overflow-hidden relative items-center md:px-4 md:py-2 md:text-base lg:px-6 lg:py-3 lg:text-lg font-bold text-white rounded-xl border-2 shadow-lg bg-brand-red border-white/20 whitespace-nowrap">
 								<span class="flex relative z-10 items-center">
 									{t('nav.contact')}
 									<svg class="ml-2 w-5 h-5 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
@@ -75,8 +75,8 @@ const basePath = currentPath.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/';
 									</svg>
 								</span>
 							</a>
-						) : (
-							<a href={lang === 'en' ? '/contact' : `/${lang}/contact`} id="contact-button" class="flex overflow-hidden relative items-center px-6 py-3 text-lg font-bold text-white rounded-xl border-2 border-transparent shadow-lg transition-all duration-200 transform bg-brand-red hover:bg-red-700 hover:scale-105 active:scale-95">
+							) : (
+								<a href={lang === 'en' ? '/contact' : `/${lang}/contact`} id="contact-button" class="flex overflow-hidden relative items-center md:px-4 md:py-2 md:text-base lg:px-6 lg:py-3 lg:text-lg font-bold text-white rounded-xl border-2 border-transparent shadow-lg transition-all duration-200 transform bg-brand-red hover:bg-red-700 hover:scale-105 active:scale-95 whitespace-nowrap">
 								<span class="flex relative z-10 items-center">
 									{t('nav.contact')}
 									<svg class="ml-2 w-5 h-5 transition-transform duration-200" id="contact-phone" fill="currentColor" viewBox="0 0 20 20">

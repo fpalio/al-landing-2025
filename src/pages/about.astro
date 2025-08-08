@@ -2,9 +2,11 @@
 import Layout from '../components/Layout.astro';
 import GrowLoyaltySection from '../components/GrowLoyaltySection.astro';
 import { useTranslations } from '../i18n/utils';
+import LottieFlag from '../components/LottieFlag.astro';
 
 // Default to English for the main about page
 const t = useTranslations('en');
+---
 ---
 
 <Layout title="About Us - American Loyalty" currentPage="about">
@@ -25,33 +27,45 @@ const t = useTranslations('en');
 				<!-- Hero Image -->
 				<div class="w-full max-w-6xl about-hero-image" data-hero-animation>
 					<div 
-						class="w-full h-64 sm:h-80 md:h-96 lg:h-[439px] rounded-lg lg:rounded-xl about-hero-img-container"
-						style="position: relative; top: 100px; margin-top: -100px; background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+						class="w-full aspect-[16/9] rounded-lg lg:rounded-xl overflow-hidden about-hero-img-container"
+						style="position: relative; top: 100px; margin-top: -100px;"
 						data-parallax
-					></div>
+					>
+						<iframe 
+							src="https://drive.google.com/file/d/16WBSW9Xlipe5yDgB9deJAD0KrFy_GW9c/preview" 
+							class="w-full h-full"
+							allow="autoplay; fullscreen"
+							allowfullscreen
+							style="border:0;"
+						></iframe>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- Spacer for floating image effect -->
-	<div class="h-16 lg:h-20"></div>
+    <!-- Spacer for floating image effect; match next section background to avoid white gap -->
+    <div class="h-16 lg:h-20 bg-gray-100"></div>
 
 	<!-- MAIN CONTENT SECTION -->
-	<section class="bg-gray-100 py-16 lg:py-24">
+    <section class="bg-gray-100 py-16 lg:py-24">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<!-- Built on Loyalty Section -->
-			<div class="grid lg:grid-cols-2 gap-12 lg:gap-36 items-center mb-16 lg:mb-24 about-loyalty-section" data-animation="staggered">
-				<div class="about-loyalty-title">
-					<h2 class="font-archivo font-bold text-gray-900 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-tight mb-6" set:html={t('about.loyalty_section.title')}>
-					</h2>
-				</div>
-				<div class="about-loyalty-text">
-					<p class="font-inter font-medium text-gray-600 text-lg leading-relaxed">
-						{t('about.loyalty_section.description')}
-					</p>
-				</div>
-			</div>
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-36 items-start mb-16 lg:mb-24 about-loyalty-section" data-animation="staggered">
+          <div>
+            <div class="about-loyalty-title">
+              <h2 class="font-archivo font-bold text-gray-900 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-tight mb-6" set:html={t('about.loyalty_section.title')}></h2>
+            </div>
+            <div class="about-loyalty-text mt-2">
+              <p class="font-inter font-medium text-gray-600 text-lg leading-relaxed">
+                {t('about.loyalty_section.description')}
+              </p>
+            </div>
+          </div>
+          <div class="about-loyalty-flag flex justify-center lg:justify-end">
+            <LottieFlag width={600} height={400} />
+          </div>
+        </div>
 
 			<!-- STATISTICS SECTION -->
 			<div class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-0 about-stats-container" data-animation="staggered" data-delay="200">
@@ -189,7 +203,7 @@ const t = useTranslations('en');
 	gsap.registerPlugin(ScrollTrigger);
 
 	// Wait for DOM to be ready
-	document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
 		// Prevent FOUC - set initial visibility immediately
 		document.body.style.visibility = 'visible';
 		
@@ -212,7 +226,7 @@ const t = useTranslations('en');
 			willChange: 'transform, opacity'
 		});
 		
-		// Initialize fade left/right elements with minimal transform to prevent layout shifts
+    	// Initialize fade left/right elements with minimal transform to prevent layout shifts
 		gsap.set('.about-loyalty-title', { 
 			opacity: 0, 
 			x: -30, // Reduced from -50 to minimize layout impact
@@ -223,6 +237,11 @@ const t = useTranslations('en');
 			x: 30, // Reduced from 50 to minimize layout impact
 			willChange: 'transform, opacity'
 		});
+        gsap.set('.about-loyalty-flag', {
+          opacity: 0,
+          y: 20,
+          willChange: 'transform, opacity'
+        });
 		
 		// Stats and other elements
 		gsap.set('.about-stat-item', { 
@@ -311,7 +330,7 @@ const t = useTranslations('en');
 			}
 		});
 
-		// Built on Loyalty section - improved timing
+        // Built on Loyalty section - improved timing
 		ScrollTrigger.create({
 			trigger: '.about-loyalty-section',
 			start: 'top 85%', // Trigger earlier
@@ -329,6 +348,13 @@ const t = useTranslations('en');
 					ease: 'power2.out',
 					delay: 0.1, // Slight stagger
 				});
+            gsap.to('.about-loyalty-flag', {
+              opacity: 1,
+              y: 0,
+              duration: 0.7,
+              ease: 'power2.out',
+              delay: 0.15,
+            });
 			}
 		});
 
@@ -519,17 +545,7 @@ const t = useTranslations('en');
 			}
 		});
 
-		// Reduced parallax effect for section backgrounds
-		gsap.to('[class*="bg-gray-100"]', {
-			yPercent: -5, // Much more subtle
-			ease: 'none',
-			scrollTrigger: {
-				trigger: 'body',
-				start: 'top bottom',
-				end: 'bottom top',
-				scrub: 2, // Slower scrub for smoother effect
-			}
-		});
+        // Removed background parallax on sections to prevent visible gaps
 
 		// Clean up will-change properties after animations complete
 		const cleanupWillChange = () => {
@@ -556,6 +572,7 @@ const t = useTranslations('en');
 	.about-hero-image,
 	.about-loyalty-title,
 	.about-loyalty-text,
+  .about-loyalty-flag,
 	.about-stat-item,
 	.about-divider,
 	.about-history-header,
