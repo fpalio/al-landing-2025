@@ -154,24 +154,32 @@
     "retailers": {
       "services": [
         {
-          "title": "Investigación de Mercado",
-          "description": "Nuestro equipo cura y diseña recompensas coleccionables adaptadas a la audiencia, asegurando relevancia, atractivo y alineación de marca."
+          "title": "Definición de la Colección y Objetivos",
+          "description": "Diseñamos y desarrollamos colecciones de productos exclusivas en más de 15 categorías, colaborando con marcas top-of-mind para asegurar el máximo atractivo. Cada selección se alinea estratégicamente con la visión de tu marca y los objetivos comerciales para generar un impacto medible en el mercado."
         },
         {
-          "title": "Selección y Diseño de Productos",
-          "description": "Desde la fabricación hasta la entrega, manejamos toda la cadena de suministro — asegurando calidad, puntualidad y ejecución fluida."
+          "title": "Planificación Integral",
+          "description": "Nuestro equipo trabaja de la mano con todas las áreas clave —marketing, comercial, operaciones y TI— construyendo una hoja de ruta clara y coordinada que sienta las bases para una ejecución impecable."
         },
         {
-          "title": "Producción y Logística",
-          "description": "Nuestro equipo cura y diseña recompensas coleccionables adaptadas a la audiencia, asegurando relevancia, atractivo y alineación de marca."
+          "title": "Desarrollo de Alianzas",
+          "description": "Cuando la estrategia lo requiere, conectamos activamente con posibles socios y patrocinadores: construimos relaciones, alineamos objetivos y forjamos acuerdos que amplían el alcance y potencian los resultados."
         },
         {
-          "title": "Implementación de Promociones",
-          "description": "Desde la fabricación hasta la entrega, manejamos toda la cadena de suministro — asegurando calidad, puntualidad y ejecución fluida."
+          "title": "Promoción e Implementación",
+          "description": "Creamos materiales promocionales de alto impacto y estrategias de marketing comprobadas, asegurando que tus tiendas estén completamente equipadas y tus equipos capacitados, seguros y listos para involucrar a los clientes."
         },
         {
-          "title": "Supervisión e Informes",
-          "description": "Brindamos apoyo integral para aquellos que enfrentan tristeza persistente, pérdida de interés, dolor y desesperanza en su vida."
+          "title": "Monitoreo Continuo y Aporte de Marketing",
+          "description": "Entregamos informes periódicos de desempeño con análisis en profundidad, resultados del proyecto e identificamos oportunidades de optimización. También co-invertimos en esfuerzos de marketing para ampliar el alcance y fortalecer la visibilidad de la campaña."
+        },
+        {
+          "title": "Preparación, Distribución y Garantía de Stock",
+          "description": "Desde la producción hasta la entrega, gestionamos cada detalle. Todas las recompensas y materiales de punto de venta están listos antes del lanzamiento, y cualquier stock restante al final de la campaña se retira: eliminando riesgos y asegurando un cierre impecable."
+        },
+        {
+          "title": "Lanzamiento de la Campaña",
+          "description": "Con todo en su lugar —materiales, sistemas y personal capacitado— lanzamos en cada punto de contacto, impulsando la participación, construyendo lealtad y creando un impacto duradero de marca."
         }
       ]
     },

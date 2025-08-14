@@ -154,24 +154,32 @@
     "retailers": {
       "services": [
         {
-          "title": "Market Research",
-          "description": "Our team curates and designs collectible rewards tailored to audience, ensuring relevance, appeal, and brand alignment."
+          "title": "Define the Collection and Objectives",
+          "description": "We design and develop exclusive product collections across more than 15 categories, collaborating with top-of-mind brands to ensure maximum appeal. Every selection is strategically aligned with your brand vision and commercial goals to deliver measurable market impact."
         },
         {
-          "title": "Selection and Product Design",
-          "description": "From manufacturing to delivery, we handle the entire supply chain — ensuring quality, timeliness, and smooth execution."
+          "title": "Comprehensive Planning",
+          "description": "Our team works hand-in-hand with all key departments, from marketing and commercial to operations and IT, building a clear, coordinated roadmap that sets the stage for flawless execution."
         },
         {
-          "title": "Production and Logistic",
-          "description": "Our team curates and designs collectible rewards tailored to audience, ensuring relevance, appeal, and brand alignment."
+          "title": "Partnership Development",
+          "description": "When the strategy calls for it, we actively connect with potential partners and sponsors—building relationships, aligning goals, and forging agreements that can expand reach and amplify results."
         },
         {
-          "title": "Promotion Implementation",
-          "description": "From manufacturing to delivery, we handle the entire supply chain — ensuring quality, timeliness, and smooth execution."
+          "title": "Promotion & Implementation",
+          "description": "We create high-impact promotional materials and proven marketing strategies, ensuring your stores are fully equipped and your teams are trained, confident, and ready to engage customers."
         },
         {
-          "title": "Supervision and Reporting",
-          "description": "We provide mental support for those grappling with persistent sadness, loss of interest, grief, and hopelessness through their life."
+          "title": "Ongoing Monitoring and Marketing Contribution",
+          "description": "We provide regular performance reports with in-depth analysis, project results, and identify opportunities for optimization. We also co-invest in marketing efforts to extend reach and strengthen campaign visibility."
+        },
+        {
+          "title": "Preparation, Distribution, and Stock Guarantee",
+          "description": "From production to delivery, we manage every detail. All rewards and point-of-sale materials are in place before launch, and any remaining stock at the end of the campaign is taken back—removing risk and ensuring a clean wrap-up."
+        },
+        {
+          "title": "Campaign Launch",
+          "description": "With everything in position—materials, systems, and trained staff—we launch across every touchpoint, driving participation, building loyalty, and creating lasting brand impact."
         }
       ]
     },
