@@ -12,7 +12,7 @@ const t = useTranslations('en');
 <Layout title="About Us - American Loyalty" currentPage="about">
 	<!-- HERO SECTION -->
 	<section class="relative bg-brand-blue">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8 lg:pt-24 lg:pb-12">
+		<div class="px-4 pt-16 pb-8 mx-auto max-w-7xl sm:px-6 lg:px-8 lg:pt-24 lg:pb-12">
 			<div class="flex flex-col items-center gap-8 lg:gap-[41px]">
 				<!-- Text Content -->
 				<div class="flex flex-col items-center text-center">
@@ -46,121 +46,121 @@ const t = useTranslations('en');
 	</section>
 
     <!-- Spacer for floating image effect; match next section background to avoid white gap -->
-    <div class="h-16 lg:h-20 bg-gray-100"></div>
+    <div class="h-16 bg-gray-100 lg:h-20"></div>
 
 	<!-- MAIN CONTENT SECTION -->
-    <section class="bg-gray-100 py-16 lg:py-24">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="py-16 bg-gray-100 lg:py-24">
+		<div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
 			<!-- Built on Loyalty Section -->
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-36 items-start mb-16 lg:mb-24 about-loyalty-section" data-animation="staggered">
+        <div class="grid gap-12 items-start mb-16 lg:grid-cols-2 lg:gap-36 lg:mb-24 about-loyalty-section" data-animation="staggered">
           <div>
             <div class="about-loyalty-title">
-              <h2 class="font-archivo font-bold text-gray-900 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-tight mb-6" set:html={t('about.loyalty_section.title')}></h2>
+              <h2 class="mb-6 text-3xl font-bold leading-tight text-gray-900 font-archivo sm:text-4xl lg:text-5xl xl:text-6xl" set:html={t('about.loyalty_section.title')}></h2>
             </div>
-            <div class="about-loyalty-text mt-2">
-              <p class="font-inter font-medium text-gray-600 text-lg leading-relaxed">
+            <div class="mt-2 about-loyalty-text">
+              <p class="text-lg font-medium leading-relaxed text-gray-600 font-inter">
                 With over 20 years of experience, we specialize in creating high-quality, engaging, and meaningful rewards that connect brands with millions of consumers. Our proven success in the Latin American retail market has prepared us to enter the U.S. with confidence. We help our partners achieve measurable sales growth while building long-lasting relationships with loyal, happy customers.
               </p>
             </div>
           </div>
-          <div class="about-loyalty-flag flex justify-center lg:justify-end">
+          <div class="flex justify-center about-loyalty-flag lg:justify-end">
             <LottieFlag width={600} height={400} className="sm:max-w-[480px]" />
           </div>
         </div>
 
 			<!-- STATISTICS SECTION -->
-			<div class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-0 about-stats-container" data-animation="staggered" data-delay="200">
-				<div class="text-center flex-1 about-stat-item">
-					<div class="font-outfit font-semibold text-brand-red text-4xl lg:text-5xl xl:text-6xl mb-2 count-number" data-animation="countUp" data-end-value="10">0</div>
-					<div class="font-inter font-normal text-gray-900 text-lg lg:text-xl xl:text-2xl">{t('about.stats.countries_served')}</div>
+			<div class="flex flex-col gap-8 justify-center items-center lg:flex-row lg:gap-0 about-stats-container" data-animation="staggered" data-delay="200">
+				<div class="flex-1 text-center about-stat-item">
+					<div class="mb-2 text-4xl font-semibold font-outfit text-brand-red lg:text-5xl xl:text-6xl count-number" data-animation="countUp" data-end-value="10">0</div>
+					<div class="text-lg font-normal text-gray-900 font-inter lg:text-xl xl:text-2xl">{t('about.stats.countries_served')}</div>
 				</div>
 				
 				<!-- Vertical divider -->
-				<div class="hidden lg:block w-px h-16 bg-gray-300 mx-8 about-divider"></div>
-				<div class="lg:hidden w-12 h-px bg-gray-300 my-4 about-divider"></div>
+				<div class="hidden mx-8 w-px h-16 bg-gray-300 lg:block about-divider"></div>
+				<div class="my-4 w-12 h-px bg-gray-300 lg:hidden about-divider"></div>
 				
-				<div class="text-center flex-1 about-stat-item">
-				<div class="font-outfit font-semibold text-brand-red text-4xl lg:text-5xl xl:text-6xl mb-2 count-number" data-animation="countUp" data-end-value="150000000">0</div>
-					<div class="font-inter font-normal text-gray-900 text-lg lg:text-xl xl:text-2xl">{t('about.stats.customers_reached')}</div>
+				<div class="flex-1 text-center about-stat-item">
+				<div class="mb-2 text-4xl font-semibold font-outfit text-brand-red lg:text-5xl xl:text-6xl count-number" data-animation="countUp" data-end-value="150000000">0</div>
+					<div class="text-lg font-normal text-gray-900 font-inter lg:text-xl xl:text-2xl">{t('about.stats.customers_reached')}</div>
 				</div>
 				
 				<!-- Vertical divider -->
-				<div class="hidden lg:block w-px h-16 bg-gray-300 mx-8 about-divider"></div>
-				<div class="lg:hidden w-12 h-px bg-gray-300 my-4 about-divider"></div>
+				<div class="hidden mx-8 w-px h-16 bg-gray-300 lg:block about-divider"></div>
+				<div class="my-4 w-12 h-px bg-gray-300 lg:hidden about-divider"></div>
 				
-				<div class="text-center flex-1 about-stat-item">
-					<div class="font-outfit font-semibold text-brand-red text-4xl lg:text-5xl xl:text-6xl mb-2 count-number" data-animation="countUp" data-end-value="20">0</div>
-					<div class="font-inter font-normal text-gray-900 text-lg lg:text-xl xl:text-2xl">{t('about.stats.years_experience')}</div>
+				<div class="flex-1 text-center about-stat-item">
+					<div class="mb-2 text-4xl font-semibold font-outfit text-brand-red lg:text-5xl xl:text-6xl count-number" data-animation="countUp" data-end-value="20">0</div>
+					<div class="text-lg font-normal text-gray-900 font-inter lg:text-xl xl:text-2xl">{t('about.stats.years_experience')}</div>
 				</div>
 				
 				<!-- Vertical divider -->
-				<div class="hidden lg:block w-px h-16 bg-gray-300 mx-8 about-divider"></div>
-				<div class="lg:hidden w-12 h-px bg-gray-300 my-4 about-divider"></div>
+				<div class="hidden mx-8 w-px h-16 bg-gray-300 lg:block about-divider"></div>
+				<div class="my-4 w-12 h-px bg-gray-300 lg:hidden about-divider"></div>
 				
-				<div class="text-center flex-1 about-stat-item">
-					<div class="font-outfit font-semibold text-brand-red text-4xl lg:text-5xl xl:text-6xl mb-2 count-number" data-animation="countUp" data-end-value="300">0</div>
-					<div class="font-inter font-normal text-gray-900 text-lg lg:text-xl xl:text-2xl">{t('about.stats.collectibles_delivered')}</div>
+				<div class="flex-1 text-center about-stat-item">
+					<div class="mb-2 text-4xl font-semibold font-outfit text-brand-red lg:text-5xl xl:text-6xl count-number" data-animation="countUp" data-end-value="300">0</div>
+					<div class="text-lg font-normal text-gray-900 font-inter lg:text-xl xl:text-2xl">{t('about.stats.collectibles_delivered')}</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
 	<!-- OUR HISTORY SECTION -->
-	<section class="bg-gray-100 py-16 lg:py-24">
-		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-			<div class="text-center mb-12 lg:mb-16 about-history-header" data-animation="fadeIn">
-				<h2 class="font-archivo font-bold text-gray-900 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mb-4">{t('about.history.title')}</h2>
-				<p class="font-inter font-medium text-gray-600 text-lg max-w-lg mx-auto">
+	<section class="py-16 bg-gray-100 lg:py-24">
+		<div class="px-4 mx-auto max-w-6xl sm:px-6 lg:px-8">
+			<div class="mb-12 text-center lg:mb-16 about-history-header" data-animation="fadeIn">
+				<h2 class="mb-4 text-3xl font-bold text-gray-900 font-archivo sm:text-4xl lg:text-5xl xl:text-6xl">{t('about.history.title')}</h2>
+				<p class="mx-auto max-w-lg text-lg font-medium text-gray-600 font-inter">
 					{t('about.history.description')}
 				</p>
 			</div>
 
-			<div class="grid md:grid-cols-3 gap-8 about-history-cards" data-animation="staggered" data-delay="200">
+			<div class="grid gap-8 md:grid-cols-3 about-history-cards" data-animation="staggered" data-delay="200">
 				<!-- Card 1 -->
-				<div class="bg-white rounded-2xl p-8 shadow-lg about-history-card">
-					<div class="w-14 h-14 bg-brand-red rounded-lg flex items-center justify-center mb-6 about-card-icon">
+				<div class="p-8 bg-white rounded-2xl shadow-lg about-history-card">
+					<div class="flex justify-center items-center mb-6 w-14 h-14 rounded-lg bg-brand-red about-card-icon">
 						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
 						</svg>
 					</div>
-					<h3 class="font-poppins font-semibold text-gray-900 text-xl mb-3">{t('about.history.cards.0.title')}</h3>
-					<p class="font-poppins font-normal text-gray-600 opacity-70">{t('about.history.cards.0.description')}</p>
+					<h3 class="mb-3 text-xl font-semibold text-gray-900 font-poppins">{t('about.history.cards.0.title')}</h3>
+					<p class="font-normal text-gray-600 opacity-70 font-poppins">{t('about.history.cards.0.description')}</p>
 				</div>
 
 				<!-- Card 2 -->
-				<div class="bg-white rounded-2xl p-8 shadow-lg about-history-card">
-					<div class="w-14 h-14 bg-brand-red rounded-lg flex items-center justify-center mb-6 about-card-icon">
+				<div class="p-8 bg-white rounded-2xl shadow-lg about-history-card">
+					<div class="flex justify-center items-center mb-6 w-14 h-14 rounded-lg bg-brand-red about-card-icon">
 						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
 						</svg>
 					</div>
-					<h3 class="font-poppins font-semibold text-gray-900 text-xl mb-3">{t('about.history.cards.1.title')}</h3>
-					<p class="font-poppins font-normal text-gray-600 opacity-70">{t('about.history.cards.1.description')}</p>
+					<h3 class="mb-3 text-xl font-semibold text-gray-900 font-poppins">{t('about.history.cards.1.title')}</h3>
+					<p class="font-normal text-gray-600 opacity-70 font-poppins">{t('about.history.cards.1.description')}</p>
 				</div>
 
 				<!-- Card 3 -->
-				<div class="bg-white rounded-2xl p-8 shadow-lg about-history-card">
-					<div class="w-14 h-14 bg-brand-red rounded-lg flex items-center justify-center mb-6 about-card-icon">
+				<div class="p-8 bg-white rounded-2xl shadow-lg about-history-card">
+					<div class="flex justify-center items-center mb-6 w-14 h-14 rounded-lg bg-brand-red about-card-icon">
 						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
 						</svg>
 					</div>
-					<h3 class="font-poppins font-semibold text-gray-900 text-xl mb-3">{t('about.history.cards.2.title')}</h3>
-					<p class="font-poppins font-normal text-gray-600 opacity-70">{t('about.history.cards.2.description')}</p>
+					<h3 class="mb-3 text-xl font-semibold text-gray-900 font-poppins">{t('about.history.cards.2.title')}</h3>
+					<p class="font-normal text-gray-600 opacity-70 font-poppins">{t('about.history.cards.2.description')}</p>
 				</div>
 			</div>
 		</div>
 	</section>
 
 	<!-- VISION AND MISSION SECTION -->
-	<section class="bg-white py-16 lg:py-24">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start about-vision-mission" data-animation="staggered">
+	<section class="py-16 bg-white lg:py-24">
+		<div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+			<div class="grid gap-8 items-start lg:grid-cols-2 lg:gap-12 about-vision-mission" data-animation="staggered">
 				<!-- Vision Section -->
 				<div class="flex flex-col gap-8 about-vision">
 					<div class="flex flex-col gap-6">
-						<div class="font-archivo font-bold text-brand-red text-lg lg:text-2xl xl:text-3xl tracking-wide about-vision-label">{t('about.vision.label')}</div>
-						<h2 class="font-archivo font-bold text-gray-900 text-3xl sm:text-4xl lg:text-4xl xl:text-5xl leading-tight capitalize about-vision-title">
+						<div class="text-lg font-bold tracking-wide font-archivo text-brand-red lg:text-2xl xl:text-3xl about-vision-label">{t('about.vision.label')}</div>
+						<h2 class="text-3xl font-bold leading-tight text-gray-900 capitalize font-archivo sm:text-4xl lg:text-4xl xl:text-5xl about-vision-title">
 							{t('about.vision.title')}
 						</h2>
 					</div>
@@ -168,7 +168,7 @@ const t = useTranslations('en');
 					<img 
 							src="/img/iStock-2221917240.jpg"
 							alt={t('about.vision.image_alt')}
-							class="w-full h-full object-cover"
+							class="object-cover w-full h-full"
 						/>
 					</div>
 				</div>
@@ -179,12 +179,12 @@ const t = useTranslations('en');
 					<img 
 						src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
 						alt={t('about.mission.image_alt')}
-						class="w-full h-full object-cover"
+						class="object-cover w-full h-full"
 					/>
 					</div>
 					<div class="flex flex-col gap-6">
-						<div class="font-archivo font-bold text-brand-red text-lg lg:text-2xl xl:text-3xl tracking-wide about-mission-label">{t('about.mission.label')}</div>
-						<h2 class="font-archivo font-bold text-gray-900 text-3xl sm:text-4xl lg:text-4xl xl:text-5xl leading-tight capitalize about-mission-title">
+						<div class="text-lg font-bold tracking-wide font-archivo text-brand-red lg:text-2xl xl:text-3xl about-mission-label">{t('about.mission.label')}</div>
+						<h2 class="text-3xl font-bold leading-tight text-gray-900 capitalize font-archivo sm:text-4xl lg:text-4xl xl:text-5xl about-mission-title">
 							{t('about.mission.title')}
 						</h2>
 					</div>
