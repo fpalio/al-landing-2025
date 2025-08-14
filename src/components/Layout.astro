@@ -26,7 +26,7 @@ const basePath = currentPath.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/';
 </head>
 <body>
 	<!-- NAVIGATION HEADER -->
-	<nav class="fixed top-0 right-0 left-0 z-50 pt-2 bg-brand-blue">
+	<nav id="site-nav" class="fixed top-0 right-0 left-0 z-[100] pt-2 bg-brand-blue">
 		<div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
 			<div class="flex justify-between items-center h-16">
 				<!-- Logo -->
@@ -44,30 +44,30 @@ const basePath = currentPath.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/';
 						
 							{currentPage === 'home' ? (
 								<div class="flex flex-col items-center">
-									<a href={lang === 'en' ? '/' : `/${lang}`} class="px-2 md:px-2 lg:px-3 py-2 text-base md:text-base lg:text-lg font-bold text-brand-red nav-link active whitespace-nowrap" data-page="home">{t('nav.home')}</a>
+									<a href={lang === 'en' ? '/' : `/${lang}`} class="px-2 py-2 text-base font-bold whitespace-nowrap md:px-2 lg:px-3 md:text-base lg:text-lg text-brand-red nav-link active" data-page="home">{t('nav.home')}</a>
 								</div>
 							) : (
-								<a href={lang === 'en' ? '/' : `/${lang}`} class="px-2 md:px-2 lg:px-3 py-2 text-base md:text-base lg:text-lg font-bold transition-colors duration-200 text-white/80 hover:text-brand-red nav-link whitespace-nowrap" data-page="home">{t('nav.home')}</a>
+								<a href={lang === 'en' ? '/' : `/${lang}`} class="px-2 py-2 text-base font-bold whitespace-nowrap transition-colors duration-200 md:px-2 lg:px-3 md:text-base lg:text-lg text-white/80 hover:text-brand-red nav-link" data-page="home">{t('nav.home')}</a>
 							)}
 						
 							{currentPage === 'about' ? (
 								<div class="flex flex-col items-center">
-									<a href={lang === 'en' ? '/about' : `/${lang}/about`} class="px-2 md:px-2 lg:px-3 py-2 text-base md:text-base lg:text-lg font-bold text-brand-red nav-link active whitespace-nowrap" data-page="about">{t('nav.about')}</a>
+									<a href={lang === 'en' ? '/about' : `/${lang}/about`} class="px-2 py-2 text-base font-bold whitespace-nowrap md:px-2 lg:px-3 md:text-base lg:text-lg text-brand-red nav-link active" data-page="about">{t('nav.about')}</a>
 								</div>
 							) : (
-								<a href={lang === 'en' ? '/about' : `/${lang}/about`} class="px-2 md:px-2 lg:px-3 py-2 text-base md:text-base lg:text-lg font-bold transition-colors duration-200 text-white/80 hover:text-brand-red nav-link whitespace-nowrap" data-page="about">{t('nav.about')}</a>
+								<a href={lang === 'en' ? '/about' : `/${lang}/about`} class="px-2 py-2 text-base font-bold whitespace-nowrap transition-colors duration-200 md:px-2 lg:px-3 md:text-base lg:text-lg text-white/80 hover:text-brand-red nav-link" data-page="about">{t('nav.about')}</a>
 							)}
 						
 							{currentPage === 'services' ? (
 								<div class="flex flex-col items-center">
-									<a href={lang === 'en' ? '/services' : `/${lang}/services`} class="px-2 md:px-2 lg:px-3 py-2 text-base md:text-base lg:text-lg font-bold text-brand-red nav-link active whitespace-nowrap" data-page="services">{t('nav.services')}</a>
+									<a href={lang === 'en' ? '/services' : `/${lang}/services`} class="px-2 py-2 text-base font-bold whitespace-nowrap md:px-2 lg:px-3 md:text-base lg:text-lg text-brand-red nav-link active" data-page="services">{t('nav.services')}</a>
 								</div>
 							) : (
-								<a href={lang === 'en' ? '/services' : `/${lang}/services`} class="px-2 md:px-2 lg:px-3 py-2 text-base md:text-base lg:text-lg font-bold transition-colors duration-200 text-white/80 hover:text-brand-red nav-link whitespace-nowrap" data-page="services">{t('nav.services')}</a>
+								<a href={lang === 'en' ? '/services' : `/${lang}/services`} class="px-2 py-2 text-base font-bold whitespace-nowrap transition-colors duration-200 md:px-2 lg:px-3 md:text-base lg:text-lg text-white/80 hover:text-brand-red nav-link" data-page="services">{t('nav.services')}</a>
 							)}
 						
 							{currentPage === 'contact' ? (
-								<a href={lang === 'en' ? '/contact' : `/${lang}/contact`} id="contact-button-active" class="flex overflow-hidden relative items-center md:px-4 md:py-2 md:text-base lg:px-6 lg:py-3 lg:text-lg font-bold text-white rounded-xl border-2 shadow-lg bg-brand-red border-white/20 whitespace-nowrap">
+								<a href={lang === 'en' ? '/contact' : `/${lang}/contact`} id="contact-button-active" class="flex overflow-hidden relative items-center font-bold text-white whitespace-nowrap rounded-xl border-2 shadow-lg md:px-4 md:py-2 md:text-base lg:px-6 lg:py-3 lg:text-lg bg-brand-red border-white/20">
 								<span class="flex relative z-10 items-center">
 									{t('nav.contact')}
 									<svg class="ml-2 w-5 h-5 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
@@ -76,7 +76,7 @@ const basePath = currentPath.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/';
 								</span>
 							</a>
 							) : (
-								<a href={lang === 'en' ? '/contact' : `/${lang}/contact`} id="contact-button" class="flex overflow-hidden relative items-center md:px-4 md:py-2 md:text-base lg:px-6 lg:py-3 lg:text-lg font-bold text-white rounded-xl border-2 border-transparent shadow-lg transition-all duration-200 transform bg-brand-red hover:bg-red-700 hover:scale-105 active:scale-95 whitespace-nowrap">
+								<a href={lang === 'en' ? '/contact' : `/${lang}/contact`} id="contact-button" class="flex overflow-hidden relative items-center font-bold text-white whitespace-nowrap rounded-xl border-2 border-transparent shadow-lg transition-all duration-200 transform md:px-4 md:py-2 md:text-base lg:px-6 lg:py-3 lg:text-lg bg-brand-red hover:bg-red-700 hover:scale-105 active:scale-95">
 								<span class="flex relative z-10 items-center">
 									{t('nav.contact')}
 									<svg class="ml-2 w-5 h-5 transition-transform duration-200" id="contact-phone" fill="currentColor" viewBox="0 0 20 20">
@@ -114,9 +114,9 @@ const basePath = currentPath.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/';
 	</main>
 
 	<!-- MOBILE NAVIGATION DRAWER -->
-	<div id="mobile-menu-overlay" class="fixed inset-0 invisible z-40 opacity-0 backdrop-blur-sm transition-all duration-300 md:hidden bg-black/50"></div>
+	<div id="mobile-menu-overlay" class="fixed inset-0 invisible z-[80] opacity-0 backdrop-blur-sm transition-all duration-300 md:hidden bg-black/50"></div>
 	
-	<div id="mobile-menu-drawer" class="fixed right-0 bottom-0 left-0 z-50 bg-white rounded-t-3xl shadow-2xl transition-transform duration-300 ease-out transform translate-y-full md:hidden">
+	<div id="mobile-menu-drawer" class="fixed right-0 bottom-0 left-0 z-[90] bg-white rounded-t-3xl shadow-2xl transition-transform duration-300 ease-out transform translate-y-full md:hidden">
 		<div class="px-4 py-6">
 			<!-- Drawer Handle -->
 			<div class="flex justify-center mb-4">
@@ -133,14 +133,14 @@ const basePath = currentPath.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/';
 			<!-- Navigation Links -->
 			<nav class="mb-6 space-y-3">
 				{currentPage === 'home' ? (
-					<div class="flex justify-between items-center p-4 bg-blue-50 rounded-xl border-l-4 border-brand-blue">
-						<a href={lang === 'en' ? '/' : `/${lang}`} class="flex items-center text-lg font-bold text-brand-blue">
+					<div class="flex justify-between items-center p-4 bg-gray-100 rounded-xl border-l-4 border-gray-300">
+						<a href={lang === 'en' ? '/' : `/${lang}`} class="flex items-center text-lg font-bold text-gray-900">
 							<svg class="mr-3 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 								<path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
 							</svg>
 							{t('nav.home')}
 						</a>
-						<div class="w-2 h-2 rounded-full bg-brand-blue"></div>
+						<div class="w-2 h-2 bg-gray-400 rounded-full"></div>
 					</div>
 				) : (
 					<a href={lang === 'en' ? '/' : `/${lang}`} class="flex items-center p-4 text-gray-700 rounded-xl">
@@ -152,14 +152,14 @@ const basePath = currentPath.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/';
 				)}
 				
 				{currentPage === 'about' ? (
-					<div class="flex justify-between items-center p-4 bg-blue-50 rounded-xl border-l-4 border-brand-blue">
-						<a href={lang === 'en' ? '/about' : `/${lang}/about`} class="flex items-center text-lg font-bold text-brand-blue">
+					<div class="flex justify-between items-center p-4 bg-gray-100 rounded-xl border-l-4 border-gray-300">
+						<a href={lang === 'en' ? '/about' : `/${lang}/about`} class="flex items-center text-lg font-bold text-gray-900">
 							<svg class="mr-3 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 								<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
 							</svg>
 							{t('nav.about')}
 						</a>
-						<div class="w-2 h-2 rounded-full bg-brand-blue"></div>
+						<div class="w-2 h-2 bg-gray-400 rounded-full"></div>
 					</div>
 				) : (
 					<a href={lang === 'en' ? '/about' : `/${lang}/about`} class="flex items-center p-4 text-gray-700 rounded-xl">
@@ -171,14 +171,14 @@ const basePath = currentPath.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/';
 				)}
 				
 				{currentPage === 'services' ? (
-					<div class="flex justify-between items-center p-4 bg-blue-50 rounded-xl border-l-4 border-brand-blue">
-						<a href={lang === 'en' ? '/services' : `/${lang}/services`} class="flex items-center text-lg font-bold text-brand-blue">
+					<div class="flex justify-between items-center p-4 bg-gray-100 rounded-xl border-l-4 border-gray-300">
+						<a href={lang === 'en' ? '/services' : `/${lang}/services`} class="flex items-center text-lg font-bold text-gray-900">
 							<svg class="mr-3 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 								<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
 							</svg>
 							{t('nav.services')}
 						</a>
-						<div class="w-2 h-2 rounded-full bg-brand-blue"></div>
+						<div class="w-2 h-2 bg-gray-400 rounded-full"></div>
 					</div>
 				) : (
 					<a href={lang === 'en' ? '/services' : `/${lang}/services`} class="flex items-center p-4 text-gray-700 rounded-xl">
@@ -191,23 +191,23 @@ const basePath = currentPath.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/';
 			</nav>
 			
 			<!-- Language Selector Section -->
-			<div class="mb-6 pb-4 border-b border-gray-200">
+			<div class="pb-4 mb-6 border-b border-gray-200">
 				<div class="mb-2">
-					<h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wide">{t('nav.language')}</h3>
+					<h3 class="text-sm font-semibold tracking-wide text-gray-500 uppercase">{t('nav.language')}</h3>
 				</div>
-				<div class="mobile-language-selector w-full relative">
+				<div class="relative w-full mobile-language-selector">
 					<!-- Mobile Language Selector Button -->
 					<button
 						type="button"
-						class="w-full flex justify-between items-center p-4 text-gray-700 rounded-xl text-left"
+						class="flex justify-between items-center p-4 w-full text-left text-gray-700 rounded-xl"
 						aria-expanded="false"
 						aria-haspopup="true"
 						id="mobile-language-button"
 					>
-						<div class="flex items-center gap-3">
+						<div class="flex gap-3 items-center">
 							<span class="text-xl" aria-hidden="true">{languageConfig[lang].flag}</span>
 							<div class="flex flex-col">
-								<span class="font-semibold text-lg">{languageConfig[lang].nativeName}</span>
+								<span class="text-lg font-semibold">{languageConfig[lang].nativeName}</span>
 								<span class="text-sm text-gray-500">{languageConfig[lang].flagName}</span>
 							</div>
 						</div>
@@ -218,7 +218,7 @@ const basePath = currentPath.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/';
 
 					<!-- Mobile Dropdown Menu -->
 					<div
-						class="absolute bottom-full left-0 right-0 mb-2 bg-white rounded-lg border border-gray-200 shadow-lg opacity-0 invisible transition-all duration-200 transform scale-95 origin-bottom z-50"
+						class="absolute right-0 left-0 bottom-full invisible z-50 mb-2 bg-white rounded-lg border border-gray-200 shadow-lg opacity-0 transition-all duration-200 transform origin-bottom scale-95"
 						role="menu"
 						aria-orientation="vertical"
 						aria-labelledby="mobile-language-button"
@@ -273,7 +273,7 @@ const basePath = currentPath.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/';
 				) : (
 					<div class="relative mobile-contact-button-container">
 						<!-- Gentle Glow Animation -->
-						<div class="absolute -inset-0.5 rounded-2xl opacity-40 animate-gentle-glow bg-gradient-to-r from-brand-red via-red-500 to-brand-red"></div>
+						<div class="absolute -inset-0.5 bg-gradient-to-r via-red-500 rounded-2xl opacity-40 animate-gentle-glow from-brand-red to-brand-red"></div>
 						
 						<!-- Subtle Sparkles -->
 						<div class="absolute inset-0 sparkle-container">
@@ -1085,7 +1085,7 @@ const basePath = currentPath.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/';
 			end: 99999,
 			toggleClass: {
 				className: 'nav-scrolled',
-				targets: 'nav'
+				targets: '#site-nav'
 			}
 		});
 

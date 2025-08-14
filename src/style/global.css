@@ -31,9 +31,16 @@ button {
 
 /* Navigation scroll effect */
 nav.nav-scrolled {
+  /* Keep header compact on scroll without affecting drawer */
   background: rgba(22, 49, 83, 0.95);
-  backdrop-filter: blur(10px);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Prevent scroll header styles from bleeding into the mobile drawer */
+#mobile-menu-drawer nav a,
+#mobile-menu-drawer .mobile-language-selector button,
+#mobile-menu-drawer .mobile-lang-option {
+  background: transparent !important;
 }
 
 /* Enhanced button effects */
@@ -135,7 +142,6 @@ html {
 /* Enhanced mobile navigation drawer effects */
 #mobile-menu-drawer {
   box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(10px);
 }
 
 /* Ping animation enhancements */
