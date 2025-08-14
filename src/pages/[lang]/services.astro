@@ -23,7 +23,7 @@ const brandsData = t('services.brands.cards');
 	<section class="relative bg-brand-blue h-[442px] lg:h-[560px]">
 		<!-- Hero Content -->
 		<div class="absolute left-1/2 top-[123px] lg:top-[171px] transform -translate-x-1/2 text-center">
-			<div class="flex flex-col items-center justify-start w-[297px] lg:w-[555px]">
+			<div class="flex flex-col items-center justify-start w-[297px] lg:w-[680px]">
 				<h1 class="font-inter font-semibold text-white text-[48.44px] lg:text-[87px] leading-[1.36] tracking-[-1.67px] lg:tracking-[-3px] mb-2 services-hero-title" data-hero-animation>
 					{t('services.hero.title')}
 				</h1>
@@ -37,22 +37,22 @@ const brandsData = t('services.brands.cards');
 		<div class="absolute left-1/2 top-[250px] lg:top-[385px] transform -translate-x-1/2 services-tabs-container" data-hero-animation>
 			<label class="relative inline-flex cursor-pointer items-center">
 				<input type="checkbox" id="servicesToggle" class="peer sr-only" />
-				<div class="peer flex h-[76px] lg:h-[113px] w-[284px] lg:w-[512px] items-center gap-[3px] lg:gap-[1.7px] rounded-[6.52px] lg:rounded-[12.6px] bg-white/22 p-[3px] lg:p-[9px] 
-							after:absolute after:left-[3px] lg:after:left-[9px] after:top-[3px] lg:after:top-[9px] 
-							after:h-[70px] lg:after:h-[91px] after:w-[calc(50%-3px)] lg:after:w-[calc(50%-6px)] 
+				<div class="peer flex h-[60px] lg:h-[90px] w-[240px] lg:w-[420px] items-center gap-[3px] lg:gap-[1.7px] rounded-[6.52px] lg:rounded-[12.6px] bg-white/22 p-[3px] lg:p-[8px] 
+							after:absolute after:left-[3px] lg:after:left-[8px] after:top-[3px] lg:after:top-[8px] 
+							after:h-[54px] lg:after:h-[74px] after:w-[calc(50%-3px)] lg:after:w-[calc(50%-8px)] 
 							after:rounded-[6.52px] lg:after:rounded-[10.8px] after:bg-brand-red 
 							after:transition-all after:duration-300 after:ease-out after:content-[''] 
-							peer-checked:after:translate-x-[calc(100%+3px)] lg:peer-checked:after:translate-x-[calc(100%+1.7px)]
+						peer-checked:after:translate-x-[calc(100%+3px)] lg:peer-checked:after:translate-x-[calc(100%+1.7px)]
 							after:shadow-lg after:shadow-red-500/30">
 					<!-- For Retailers Button -->
 					<button id="retailersTab" class="relative z-10 flex-1 flex items-center justify-center h-full rounded-[6.52px] lg:rounded-[10.8px] transition-colors duration-300 px-2">
-						<span class="font-inter font-bold text-white text-[16px] sm:text-[18.56px] lg:text-[28px] xl:text-[30.75px] text-center services-retailers-text leading-tight">
+						<span class="font-inter font-bold text-white text-[14px] sm:text-[16px] lg:text-[24px] xl:text-[26px] text-center services-retailers-text leading-tight">
 							{t('services.tabs.retailers')}
 						</span>
 					</button>
 					<!-- For Brands Button -->
 					<button id="brandsTab" class="relative z-10 flex-1 flex items-center justify-center h-full rounded-[6.52px] lg:rounded-[10.8px] transition-colors duration-300 px-2">
-						<span class="font-inter font-bold text-white/70 text-[16px] sm:text-[18.56px] lg:text-[28px] xl:text-[30.75px] text-center services-brands-text leading-tight">
+						<span class="font-inter font-bold text-white/70 text-[14px] sm:text-[16px] lg:text-[24px] xl:text-[26px] text-center services-brands-text leading-tight">
 							{t('services.tabs.brands')}
 						</span>
 					</button>
@@ -60,38 +60,13 @@ const brandsData = t('services.brands.cards');
 			</label>
 		</div>
 
-		<!-- Fixed Floating Toggle (Bottom Right) -->
-		<div id="floatingToggle" class="fixed bottom-6 right-6 z-50 opacity-0 pointer-events-none transform translate-y-10 transition-all duration-500 ease-out">
-			<label class="relative inline-flex cursor-pointer items-center">
-				<input type="checkbox" id="floatingServicesToggle" class="peer sr-only" />
-				<div class="peer flex h-16 w-64 sm:w-72 lg:w-80 items-center gap-1 rounded-xl bg-brand-blue shadow-2xl border border-brand-blue/30 p-2 
-							after:absolute after:left-2 after:top-2 
-							after:h-12 after:w-[calc(50%-6px)] 
-							after:rounded-lg after:bg-brand-red 
-							after:transition-all after:duration-300 after:ease-out after:content-[''] 
-							peer-checked:after:translate-x-[calc(100%+4px)]
-							after:shadow-lg after:shadow-red-500/40">
-					<!-- For Retailers Button -->
-					<button id="floatingRetailersTab" class="relative z-10 flex-1 flex items-center justify-center h-full rounded-lg transition-colors duration-300 px-1">
-						<span class="font-inter font-bold text-white text-xs sm:text-sm text-center floating-retailers-text leading-tight">
-							{t('services.tabs.retailers')}
-						</span>
-					</button>
-					<!-- For Brands Button -->
-					<button id="floatingBrandsTab" class="relative z-10 flex-1 flex items-center justify-center h-full rounded-lg transition-colors duration-300 px-1">
-						<span class="font-inter font-bold text-white/70 text-xs sm:text-sm text-center floating-brands-text leading-tight">
-							{t('services.tabs.brands')}
-						</span>
-					</button>
-				</div>
-			</label>
-		</div>
+
 	</section>
 
 	<!-- MAIN SERVICES SECTION -->
 	<section class="bg-white py-12 lg:py-20 relative">
 		<!-- Dynamic Main Titles -->
-		<div class="text-center mb-12 lg:mb-20 services-main-title" data-animation="fadeIn">
+		<div class="text-center mb-4 lg:mb-8 services-main-title" data-animation="fadeIn">
 			<!-- Retailers Title -->
 			<h2 id="retailersTitle" class="font-archivo font-bold text-[48.77px] lg:text-[58.3px] leading-[1.09] tracking-[-1.02px] lg:tracking-[-1.22px] text-gray-900 max-w-[297px] lg:max-w-[677px] mx-auto px-6 lg:px-4 transition-all duration-500 ease-out">
 				{t('services.main_titles.retailers')}
@@ -628,34 +603,58 @@ const brandsData = t('services.brands.cards');
 				stagger: 0.15,
 			});
 
-			// Add sophisticated hover effects for brand cards (Performance Optimized)
+			// Add hover effects that raise inner elements instead of the whole card
 			document.querySelectorAll('.services-brand-card').forEach(card => {
+				const imageWrapper = card.querySelector('.services-brand-image');
+				const imageEl = card.querySelector('.services-brand-image img');
+				const desc = card.querySelector('.services-brand-description');
+
 				card.addEventListener('mouseenter', () => {
-					gsap.to(card, {
-						y: -10,
-						scale: 1.02,
-						duration: 0.3,
-						ease: 'power1.out',
-					});
-					gsap.to(card.querySelector('.services-brand-image img'), {
-						scale: 1.05,
-						duration: 0.3,
-						ease: 'power1.out',
-					});
+					if (imageWrapper) {
+						gsap.to(imageWrapper, {
+							y: -8,
+							duration: 0.3,
+							ease: 'power1.out',
+						});
+					}
+					if (desc) {
+						gsap.to(desc, {
+							y: -8,
+							duration: 0.3,
+							ease: 'power1.out',
+						});
+					}
+					if (imageEl) {
+						gsap.to(imageEl, {
+							scale: 1.05,
+							duration: 0.3,
+							ease: 'power1.out',
+						});
+					}
 				});
 
 				card.addEventListener('mouseleave', () => {
-					gsap.to(card, {
-						y: 0,
-						scale: 1,
-						duration: 0.3,
-						ease: 'power1.out',
-					});
-					gsap.to(card.querySelector('.services-brand-image img'), {
-						scale: 1.1,
-						duration: 0.3,
-						ease: 'power1.out',
-					});
+					if (imageWrapper) {
+						gsap.to(imageWrapper, {
+							y: 0,
+							duration: 0.3,
+							ease: 'power1.out',
+						});
+					}
+					if (desc) {
+						gsap.to(desc, {
+							y: 0,
+							duration: 0.3,
+							ease: 'power1.out',
+						});
+					}
+					if (imageEl) {
+						gsap.to(imageEl, {
+							scale: 1.1,
+							duration: 0.3,
+							ease: 'power1.out',
+						});
+					}
 				});
 			});
 		}
@@ -678,9 +677,6 @@ const brandsData = t('services.brands.cards');
 			
 			// Toggle elements
 			const servicesToggle = document.getElementById('servicesToggle') as HTMLInputElement;
-			const floatingServicesToggle = document.getElementById('floatingServicesToggle') as HTMLInputElement;
-			const floatingRetailersTab = document.getElementById('floatingRetailersTab');
-			const floatingBrandsTab = document.getElementById('floatingBrandsTab');
 
 			// Enhanced tab switching
 			function showRetailers() {
@@ -690,7 +686,6 @@ const brandsData = t('services.brands.cards');
 
 				// Update checkbox states
 				servicesToggle.checked = false;
-				floatingServicesToggle.checked = false;
 
 				// Animate title transition (Performance Optimized)
 				gsap.to('#brandsTitle', {
@@ -707,12 +702,12 @@ const brandsData = t('services.brands.cards');
 					delay: 0.15,
 				});
 
-				// Update text colors for both toggles (Performance Optimized)
-				gsap.to('.services-retailers-text, .floating-retailers-text', {
+				// Update text colors for tabs (Performance Optimized)
+				gsap.to('.services-retailers-text', {
 					color: 'white',
 					duration: 0.2,
 				});
-				gsap.to('.services-brands-text, .floating-brands-text', {
+				gsap.to('.services-brands-text', {
 					color: 'rgba(255, 255, 255, 0.7)',
 					duration: 0.2,
 				});
@@ -778,7 +773,6 @@ const brandsData = t('services.brands.cards');
 
 				// Update checkbox states
 				servicesToggle.checked = true;
-				floatingServicesToggle.checked = true;
 
 				// Animate title transition (Performance Optimized)
 				gsap.to('#retailersTitle', {
@@ -795,12 +789,12 @@ const brandsData = t('services.brands.cards');
 					delay: 0.15,
 				});
 
-				// Update text colors for both toggles (Performance Optimized)
-				gsap.to('.services-brands-text, .floating-brands-text', {
+				// Update text colors for tabs (Performance Optimized)
+				gsap.to('.services-brands-text', {
 					color: 'white',
 					duration: 0.2,
 				});
-				gsap.to('.services-retailers-text, .floating-retailers-text', {
+				gsap.to('.services-retailers-text', {
 					color: 'rgba(255, 255, 255, 0.7)',
 					duration: 0.2,
 				});
@@ -858,13 +852,11 @@ const brandsData = t('services.brands.cards');
 				}
 			}
 
-			// Add event listeners for both toggles
+			// Add event listeners for tabs
 			retailersTab?.addEventListener('click', showRetailers);
 			brandsTab?.addEventListener('click', showBrands);
-			floatingRetailersTab?.addEventListener('click', showRetailers);
-			floatingBrandsTab?.addEventListener('click', showBrands);
 
-			// Listen for checkbox changes to sync both toggles
+			// Listen for checkbox changes
 			servicesToggle?.addEventListener('change', (e) => {
 				if ((e.target as HTMLInputElement).checked) {
 					showBrands();
@@ -873,16 +865,8 @@ const brandsData = t('services.brands.cards');
 				}
 			});
 
-			floatingServicesToggle?.addEventListener('change', (e) => {
-				if ((e.target as HTMLInputElement).checked) {
-					showBrands();
-				} else {
-					showRetailers();
-				}
-			});
-
 			// Enhanced hover effects for tab buttons
-			[retailersTab, brandsTab, floatingRetailersTab, floatingBrandsTab].forEach(button => {
+			[retailersTab, brandsTab].forEach(button => {
 				if (!button) return;
 				
 				button.addEventListener('mouseenter', () => {
@@ -906,48 +890,41 @@ const brandsData = t('services.brands.cards');
 				});
 			});
 
-			// Initialize floating toggle scroll behavior
-			initializeFloatingToggle();
+			// Hover effects inside brand cards: animate the image and gray description only
+			document.querySelectorAll('.services-brand-card').forEach(card => {
+				const imageWrapper = card.querySelector('.services-brand-image');
+				const imageEl = card.querySelector('.services-brand-image img');
+				const desc = card.querySelector('.services-brand-description');
+
+				card.addEventListener('mouseenter', () => {
+					if (imageWrapper) {
+						gsap.to(imageWrapper, { y: -8, duration: 0.25, ease: 'power1.out' });
+					}
+					if (desc) {
+						gsap.to(desc, { y: -8, duration: 0.25, ease: 'power1.out' });
+					}
+					if (imageEl) {
+						gsap.to(imageEl, { scale: 1.05, duration: 0.25, ease: 'power1.out' });
+					}
+				});
+
+				card.addEventListener('mouseleave', () => {
+					if (imageWrapper) {
+						gsap.to(imageWrapper, { y: 0, duration: 0.25, ease: 'power1.out' });
+					}
+					if (desc) {
+						gsap.to(desc, { y: 0, duration: 0.25, ease: 'power1.out' });
+					}
+					if (imageEl) {
+						gsap.to(imageEl, { scale: 1.1, duration: 0.25, ease: 'power1.out' });
+					}
+				});
+			});
+
+
 
 			// Initialize with retailers tab active
 			showRetailers();
-		}
-
-		function initializeFloatingToggle() {
-			const originalToggle = document.querySelector('.services-tabs-container');
-			const floatingToggle = document.getElementById('floatingToggle');
-
-			// Create intersection observer for the original toggle
-			const observer = new IntersectionObserver((entries) => {
-				entries.forEach(entry => {
-					if (entry.isIntersecting) {
-						// Original toggle is visible - hide floating toggle
-						gsap.to(floatingToggle, {
-							opacity: 0,
-							y: 40,
-							pointerEvents: 'none',
-							duration: 0.5,
-							ease: 'power2.out',
-						});
-					} else {
-						// Original toggle is not visible - show floating toggle
-						gsap.to(floatingToggle, {
-							opacity: 1,
-							y: 0,
-							pointerEvents: 'auto',
-							duration: 0.5,
-							ease: 'power2.out',
-						});
-					}
-				});
-			}, {
-				threshold: 0.5,
-				rootMargin: '-50px 0px -50px 0px'
-			});
-
-			if (originalToggle) {
-				observer.observe(originalToggle);
-			}
 		}
 
 		// Continuous floating animations for icons
@@ -1018,24 +995,25 @@ const brandsData = t('services.brands.cards');
 	}
 
 	.services-brand-card {
-		cursor: pointer;
-		transition: box-shadow 0.4s ease;
+		cursor: default;
 	}
 
-	.services-brand-card:hover {
-		box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+	/* Ensure brand cards have transparent background (no white flash on hover) */
+	.services-brand-card,
+	.services-brand-card:hover,
+	.services-brand-mobile-card,
+	.services-brand-mobile-card:hover {
+		background: transparent !important;
 	}
 
 	/* Enhanced tab button styling */
-	.tab-button,
-	.floating-tab-button {
+	.tab-button {
 		position: relative;
 		overflow: hidden;
 		background: transparent;
 	}
 
-	.tab-button::before,
-	.floating-tab-button::before {
+	.tab-button::before {
 		content: '';
 		position: absolute;
 		top: 0;
@@ -1047,86 +1025,17 @@ const brandsData = t('services.brands.cards');
 		z-index: 1;
 	}
 
-	.tab-button:hover::before,
-	.floating-tab-button:hover::before {
+	.tab-button:hover::before {
 		left: 100%;
 	}
 
-	.tab-button span,
-	.floating-tab-button span {
+	.tab-button span {
 		position: relative;
 		z-index: 2;
 	}
 
-	/* Floating toggle enhancements */
-	#floatingToggle {
-		backdrop-filter: blur(20px);
-		-webkit-backdrop-filter: blur(20px);
-		will-change: transform, opacity;
-	}
-
-	#floatingToggle > div {
-		background: #163153 !important; /* brand-blue */
-		border: 1px solid rgba(22, 49, 83, 0.5);
-		box-shadow: 
-			0 10px 32px rgba(0, 0, 0, 0.1),
-			0 20px 64px rgba(0, 0, 0, 0.1),
-			inset 0 1px 0 rgba(255, 255, 255, 0.2);
-	}
-
-	/* Glassmorphism effect for floating toggle */
-	#floatingToggle::before {
-		content: '';
-		position: absolute;
-		inset: 0;
-		background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-		border-radius: 12px;
-		pointer-events: none;
-	}
-
-	/* Enhanced shadow for floating toggle */
-	#floatingToggle:hover > div {
-		box-shadow: 
-			0 20px 40px rgba(0, 0, 0, 0.15),
-			0 30px 80px rgba(0, 0, 0, 0.15),
-			inset 0 1px 0 rgba(255, 255, 255, 0.3);
-		transform: translateY(-2px);
-		transition: all 0.3s ease;
-		background: #1a3a5c !important; /* slightly lighter brand-blue on hover */
-	}
-
-	/* Mobile responsiveness for floating toggle */
-	@media (max-width: 640px) {
-		#floatingToggle {
-			bottom: 1rem;
-			right: 1rem;
-		}
-		
-		#floatingToggle > div {
-			width: 256px !important; /* 16rem in px */
-			height: 60px;
-		}
-		
-		.floating-tab-button span {
-			font-size: 0.75rem;
-		}
-	}
-
-	@media (min-width: 640px) and (max-width: 1024px) {
-		#floatingToggle > div {
-			width: 288px !important; /* 18rem in px */
-		}
-	}
-
-	@media (min-width: 1024px) {
-		#floatingToggle > div {
-			width: 320px !important; /* 20rem in px */
-		}
-	}
-
 	/* Performance optimizations */
-	.services-tab-wrapper,
-	#floatingToggle {
+	.services-tab-wrapper {
 		contain: layout style paint;
 	}
 
