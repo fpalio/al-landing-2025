@@ -19,22 +19,23 @@ const t = useTranslations('en');
 					<h1 class="font-inter font-semibold text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[87px] leading-[1.36] tracking-tight lg:tracking-[-3px] mb-2 about-hero-title" data-hero-animation>
 						{t('about.hero.title')}
 					</h1>
-					<p class="font-inter font-medium text-white/90 text-sm sm:text-base md:text-lg lg:text-xl xl:text-[21.7px] leading-[1.36] tracking-tight about-hero-subtitle" data-hero-animation>
+					<p class="font-inter font-medium text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-[21.7px] leading-[1.36] tracking-tight about-hero-subtitle mb-[10px]" data-hero-animation>
 						{t('about.hero.subtitle')}
 					</p>
 				</div>
 				
 				<!-- Hero Image -->
-				<div class="w-full max-w-6xl about-hero-image" data-hero-animation>
+				<div class="w-full about-hero-image" data-hero-animation>
 					<div 
 						class="w-full aspect-[16/9] rounded-lg lg:rounded-xl overflow-hidden about-hero-img-container"
-						style="position: relative; top: 100px; margin-top: -100px;"
+						style="position: relative; top: 130px; margin-top: -130px;"
 						data-parallax
 					>
 						<iframe 
-							src="https://drive.google.com/file/d/16WBSW9Xlipe5yDgB9deJAD0KrFy_GW9c/preview" 
+							src="https://www.youtube.com/embed/NLtnXSHV1lw?si=vNFW4WONAXfrrKEk&autoplay=1&mute=1&controls=0&loop=1&playlist=NLtnXSHV1lw&modestbranding=1&rel=0&playsinline=1" 
 							class="w-full h-full"
-							allow="autoplay; fullscreen"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin"
 							allowfullscreen
 							style="border:0;"
 						></iframe>
@@ -58,12 +59,12 @@ const t = useTranslations('en');
             </div>
             <div class="about-loyalty-text mt-2">
               <p class="font-inter font-medium text-gray-600 text-lg leading-relaxed">
-                {t('about.loyalty_section.description')}
+                With over 20 years of experience, we specialize in creating high-quality, engaging, and meaningful rewards that connect brands with millions of consumers. Our proven success in the Latin American retail market has prepared us to enter the U.S. with confidence. We help our partners achieve measurable sales growth while building long-lasting relationships with loyal, happy customers.
               </p>
             </div>
           </div>
           <div class="about-loyalty-flag flex justify-center lg:justify-end">
-            <LottieFlag width={600} height={400} />
+            <LottieFlag width={600} height={400} className="sm:max-w-[480px]" />
           </div>
         </div>
 
@@ -164,8 +165,8 @@ const t = useTranslations('en');
 						</h2>
 					</div>
 					<div class="aspect-[4/3] bg-gray-200 rounded-lg overflow-hidden about-vision-image">
-						<img 
-							src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+					<img 
+							src="/img/iStock-2221917240.jpg"
 							alt={t('about.vision.image_alt')}
 							class="w-full h-full object-cover"
 						/>
@@ -175,11 +176,11 @@ const t = useTranslations('en');
 				<!-- Mission Section -->
 				<div class="flex flex-col gap-8 about-mission">
 					<div class="aspect-[4/3] bg-gray-200 rounded-lg overflow-hidden about-mission-image">
-						<img 
-							src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-							alt={t('about.mission.image_alt')}
-							class="w-full h-full object-cover"
-						/>
+					<img 
+						src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+						alt={t('about.mission.image_alt')}
+						class="w-full h-full object-cover"
+					/>
 					</div>
 					<div class="flex flex-col gap-6">
 						<div class="font-archivo font-bold text-brand-red text-lg lg:text-2xl xl:text-3xl tracking-wide about-mission-label">{t('about.mission.label')}</div>

@@ -25,22 +25,23 @@ const t = useTranslations(lang as keyof typeof languages);
 					<h1 class="font-inter font-semibold text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[87px] leading-[1.36] tracking-tight lg:tracking-[-3px] mb-2 about-hero-title" data-hero-animation>
 						{t('about.hero.title')}
 					</h1>
-					<p class="font-inter font-medium text-white/90 text-sm sm:text-base md:text-lg lg:text-xl xl:text-[21.7px] leading-[1.36] tracking-tight about-hero-subtitle" data-hero-animation>
+					<p class="font-inter font-medium text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-[21.7px] leading-[1.36] tracking-tight about-hero-subtitle mb-[10px]" data-hero-animation>
 						{t('about.hero.subtitle')}
 					</p>
 				</div>
 				
 				<!-- Hero Image -->
-				<div class="w-full max-w-6xl about-hero-image" data-hero-animation>
+				<div class="w-full about-hero-image" data-hero-animation>
 					<div 
 						class="w-full aspect-[16/9] rounded-lg lg:rounded-xl overflow-hidden about-hero-img-container"
-						style="position: relative; top: 100px; margin-top: -100px;"
+						style="position: relative; top: 130px; margin-top: -130px;"
 						data-parallax
 					>
 						<iframe 
-							src="https://drive.google.com/file/d/16WBSW9Xlipe5yDgB9deJAD0KrFy_GW9c/preview" 
+							src="https://www.youtube.com/embed/NLtnXSHV1lw?si=vNFW4WONAXfrrKEk&autoplay=1&mute=1&controls=0&loop=1&playlist=NLtnXSHV1lw&modestbranding=1&rel=0&playsinline=1" 
 							class="w-full h-full"
-							allow="autoplay; fullscreen"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin"
 							allowfullscreen
 							style="border:0;"
 						></iframe>
@@ -69,7 +70,7 @@ const t = useTranslations(lang as keyof typeof languages);
             </div>
           </div>
           <div class="flex justify-center about-loyalty-flag lg:justify-end">
-            <LottieFlag width={600} height={400} />
+            <LottieFlag width={600} height={400} className="sm:max-w-[480px]" />
           </div>
         </div>
 
@@ -170,8 +171,8 @@ const t = useTranslations(lang as keyof typeof languages);
 						</h2>
 					</div>
 					<div class="aspect-[4/3] bg-gray-200 rounded-lg overflow-hidden about-vision-image">
-						<img 
-							src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+					<img 
+							src="/img/iStock-2221917240.jpg"
 							alt={t('about.vision.image_alt')}
 							class="object-cover w-full h-full"
 						/>
@@ -181,11 +182,11 @@ const t = useTranslations(lang as keyof typeof languages);
 				<!-- Mission Section -->
 				<div class="flex flex-col gap-8 about-mission">
 					<div class="aspect-[4/3] bg-gray-200 rounded-lg overflow-hidden about-mission-image">
-						<img 
-							src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-							alt={t('about.mission.image_alt')}
-							class="object-cover w-full h-full"
-						/>
+					<img 
+						src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+						alt={t('about.mission.image_alt')}
+						class="object-cover w-full h-full"
+					/>
 					</div>
 					<div class="flex flex-col gap-6">
 						<div class="text-lg font-bold tracking-wide font-archivo text-brand-red lg:text-2xl xl:text-3xl about-mission-label">{t('about.mission.label')}</div>

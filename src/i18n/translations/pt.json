@@ -39,7 +39,7 @@
     "about": {
       "section_title": "SOBRE NÓS",
       "heading": "Construído sobre <span class=\"text-brand-red\">Lealdade.</span> Alimentado pela Confiança.",
-      "description": "Desbloqueie todo o potencial da Lealdade do Cliente e vamos alcançar o sucesso juntos. Desbloqueie todo o potencial da Lealdade do Cliente e vamos alcançar o sucesso juntos. Desbloqueie todo o potencial da Lealdade do Cliente e vamos alcançar o sucesso juntos. Desbloqueie todo o potencial da Lealdade do Cliente e vamos alcançar o sucesso juntos.",
+      "description": "Mais de 20 anos criando experiências recompensadoras para clientes. Ajudamos marcas a aumentar vendas e construir lealdade duradoura com consumidores felizes e engajados.",
       "cta_button": "Saiba Mais Sobre Nós",
       "image_alt": "Duas mulheres fazendo compras juntas"
     },
@@ -55,7 +55,7 @@
       "description": "Desbloqueie todo o potencial da Lealdade do Cliente e vamos alcançar o sucesso juntos",
       "retailers": {
         "title": "Varejistas",
-        "description": "Proteja seus entes queridos por dentro e por fora, desde lesões normais até operações.",
+        "description": "Projetamos e entregamos recompensas colecionáveis adaptadas a cada público, gerenciando todo o processo do conceito à execução com qualidade e precisão. Nossos serviços abrangem design de produto, produção, logística, implementação de promoções e relatórios detalhados para garantir campanhas bem-sucedidas.",
         "features": [
           "Pesquisa de Mercado",
           "Seleção e Design de Produtos",
@@ -67,7 +67,7 @@
       },
       "brands": {
         "title": "Marcas",
-        "description": "Proteja seus entes queridos por dentro e por fora, desde lesões normais até operações.",
+        "description": "Posicionamos sua marca como uma recompensa exclusiva que os clientes desejam conquistar, aumentando a desejabilidade e o prestígio. Ao colocar seus produtos nos lares dos clientes, criamos afinidade duradoura com a marca e lembrança constante por meio do uso cotidiano.",
         "features": [
           "Visibilidade Global da Marca",
           "Seja a Recompensa",
@@ -101,7 +101,7 @@
     },
     "loyalty_section": {
       "title": "Construído sobre a <span class=\"text-brand-red\">Lealdade.</span> Impulsionado pela Confiança.",
-      "description": "Desbloqueie todo o potencial da Lealdade do Cliente e vamos alcançar o sucesso juntos. Desbloqueie todo o potencial da Lealdade do Cliente."
+      "description": "Com mais de 20 anos de experiência, somos especializados em criar recompensas de alta qualidade, envolventes e significativas que conectam marcas a milhões de consumidores. Nosso sucesso comprovado no varejo da América Latina nos preparou para entrar nos EUA com confiança. Ajudamos nossos parceiros a alcançar crescimento mensurável em vendas enquanto constroem relacionamentos duradouros com clientes leais e felizes."
     },
     "stats": {
       "countries_served": "Países Atendidos",
@@ -115,15 +115,15 @@
       "cards": [
         {
           "title": "Décadas de Experiência na Indústria",
-          "description": "20 anos de experiência no mercado de colecionáveis de fidelidade da América Latina"
+          "description": "Temos mais de 20 anos de experiência no mercado latino-americano de colecionáveis de fidelidade, criando lealdade duradoura dos clientes e impulsionando impacto contínuo no mercado."
         },
         {
           "title": "Milhões de Recompensas Entregues",
-          "description": "Dezenas de milhões de recompensas entregues"
+          "description": "Distribuímos com sucesso dezenas de milhões de recompensas, impulsionando o engajamento com a marca e um impacto mensurável no mercado."
         },
         {
-          "title": "Expandindo Nosso Mercado Para Você",
-          "description": "Entrando no mercado americano com confiança"
+          "title": "Converta Prospectos em Clientes Pagantes",
+          "description": "Estratégias de crescimento que quebram barreiras — assumimos o risco para que você possa crescer com confiança e tranquilidade."
         }
       ]
     },
@@ -198,7 +198,11 @@
     },
     "buttons": {
       "phone": "+1-309-3095443",
-      "email": "contact@whiter.co"
+      "email": "info@ameriloyalty.com"
+    },
+    "info": {
+      "based_label": "Com sede na",
+      "based_value": "Florida, Usa"
     },
     "form": {
       "section_title": "Entre em Contato",

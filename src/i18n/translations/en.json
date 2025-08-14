@@ -39,7 +39,7 @@
     "about": {
       "section_title": "ABOUT US",
       "heading": "Built on <span class=\"text-brand-red\">Loyalty.</span> Powered by Trust.",
-      "description": "Unlock the full potential of Customer Loyalty and let's achieve success together. Unlock the full potential of Customer Loyalty and let's achieve success together. Unlock the full potential of Customer Loyalty and let's achieve success together. Unlock the full potential of Customer Loyalty and let's achieve success together.",
+      "description": "20+ years of creating rewarding customer experiences. We help brands grow sales and build lasting loyalty with happy, engaged consumers.",
       "cta_button": "Learn More About Us",
       "image_alt": "Two women shopping together"
     },
@@ -55,7 +55,7 @@
       "description": "Unlock the full potential of Customer Loyalty and let's achieve success together",
       "retailers": {
         "title": "Retailers",
-        "description": "Cover your loved ones from in and out from normal injuries until operations.",
+        "description": "We design and deliver collectible rewards tailored to each audience, managing the entire process from concept to execution with quality and precision. Our services cover product design, production, logistics, promotion implementation, and detailed reporting to ensure successful campaigns.",
         "features": [
           "Market Research",
           "Selection & Product Design",
@@ -67,7 +67,7 @@
       },
       "brands": {
         "title": "Brands",
-        "description": "Cover your loved ones from in and out from normal injuries until operations.",
+        "description": "We position your brand as an exclusive reward that customers strive to earn, enhancing desirability and prestige. By placing your products in customers’ homes, we create lasting brand affinity and top-of-mind awareness through everyday use.",
         "features": [
           "Global Brand Visibility",
           "Be the Reward",
@@ -101,7 +101,7 @@
     },
     "loyalty_section": {
       "title": "Built on <span class=\"text-brand-red\">Loyalty.</span> Powered by Trust.",
-      "description": "Unlock the full potential of Customer Loyalty and let's achieve success together. Unlock the full potential of Customer Loyalty."
+      "description": "With over 20 years of experience, we specialize in creating high-quality, engaging, and meaningful rewards that connect brands with millions of consumers. Our proven success in the Latin American retail market has prepared us to enter the U.S. with confidence. We help our partners achieve measurable sales growth while building long-lasting relationships with loyal, happy customers."
     },
     "stats": {
       "countries_served": "Countries Served",
@@ -115,15 +115,15 @@
       "cards": [
         {
           "title": "Decades of Industry Expertise",
-          "description": "20 years experience in the Latin American loyalty collectibles market"
+          "description": "We have over 20 years of experience in the Latin American loyalty collectibles market, creating enduring customer loyalty and driving sustained market impact."
         },
         {
           "title": "Millions of Rewards Delivered",
-          "description": "Tens of millions of rewards delivered"
+          "description": "We have successfully distributed tens of millions of rewards, driving brand engagement and measurable market impact."
         },
         {
-          "title": "Expanding Our Market For You",
-          "description": "Entering the U.S. market with confidence"
+          "title": "Convert Prospects into Paying Clients",
+          "description": "Barrier-Breaking Growth Strategies – We Take on the Risk So You Can Grow with Confidence and Peace of Mind"
         }
       ]
     },
@@ -198,7 +198,11 @@
     },
     "buttons": {
       "phone": "+1-309-3095443",
-      "email": "contact@whiter.co"
+      "email": "info@ameriloyalty.com"
+    },
+    "info": {
+      "based_label": "Based",
+      "based_value": "Florida, Usa"
     },
     "form": {
       "section_title": "Get in Touch",

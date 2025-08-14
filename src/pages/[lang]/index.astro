@@ -28,7 +28,7 @@ const t = useTranslations(lang as keyof typeof languages);
 				<div class="overflow-hidden mb-8 h-64 rounded-xl">
 					<div 
 						class="absolute inset-0 rounded-xl hero-bg"
-						style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+						style="background-image: url('/img/index_hero.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"
 					></div>
 					<div class="absolute inset-0 bg-gradient-to-t rounded-xl from-black/87 via-black/40 to-black/19"></div>
 				</div>
@@ -70,13 +70,13 @@ const t = useTranslations(lang as keyof typeof languages);
 				</div>
 			</div>
 
-			<!-- Hero Content Container -->
-			<div class="absolute left-[121px] top-[126px] w-[1198px] h-[674px] hero-card">
+			<!-- Hero Content Container (centered on wide screens) -->
+			<div class="absolute left-1/2 -translate-x-1/2 top-[126px] w-[1198px] h-[674px] hero-card">
 				<!-- Background Image with Overlay -->
 				<div class="overflow-hidden absolute inset-0 rounded-xl">
 					<div 
 						class="absolute inset-0 rounded-xl hero-bg"
-						style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+						style="background-image: url('/img/index_hero.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"
 					></div>
 					<div class="absolute inset-0 bg-gradient-to-t rounded-xl from-black/87 via-black/40 to-black/19"></div>
 				</div>
@@ -119,8 +119,8 @@ const t = useTranslations(lang as keyof typeof languages);
 				<!-- Image -->
 				<div class="rounded-[18px] overflow-hidden h-64 sm:h-80" data-animate="slide-up" data-delay="100">
 					<img 
-						src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-						alt="Two women shopping together"
+						src="/img/Built_on_Loyalty.jpg"
+						alt="Built on Loyalty"
 						class="object-cover w-full h-full"
 					/>
 				</div>
@@ -151,12 +151,12 @@ const t = useTranslations(lang as keyof typeof languages);
 
 		<!-- Desktop Layout (Original) -->
 		<div class="hidden lg:block">
-			<div class="flex flex-row gap-[55px] items-center left-[120px] relative w-[1266px]">
+			<div class="flex flex-row gap-[55px] items-center relative w-[1266px] mx-auto">
 				<!-- Image -->
 				<div class="w-[523px] h-[554px] rounded-[18px] overflow-hidden" data-animate="slide-up" data-delay="100">
 					<img 
-						src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-						alt="Two women shopping together"
+						src="/img/Built_on_Loyalty.jpg"
+						alt="Built on Loyalty"
 						class="object-cover w-full h-full"
 					/>
 				</div>
@@ -418,8 +418,8 @@ const t = useTranslations(lang as keyof typeof languages);
 			<!-- Service Cards -->
 			<div class="flex flex-row gap-8 justify-center service-cards-container">
 				<!-- Retailers Card -->
-				<div class="bg-white rounded-[21px] shadow-lg w-[464px] h-[500px] relative service-card" data-animate="fade-up" data-delay="100">
-					<div class="absolute left-[39px] top-[49px] flex flex-row gap-[15px] items-center">
+				<div class="bg-white rounded-[21px] shadow-lg w-[464px] min-h-[500px] service-card flex flex-col p-10" data-animate="fade-up" data-delay="100">
+					<div class="flex flex-row gap-[15px] items-center mb-5">
 						<div class="w-[43px] h-11 bg-blue-600 rounded flex items-center justify-center">
 							<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
@@ -427,10 +427,10 @@ const t = useTranslations(lang as keyof typeof languages);
 						</div>
 						<h3 class="text-[40px] font-semibold text-gray-900 tracking-[-0.8px] leading-[normal]">{t('home.services.retailers.title')}</h3>
 					</div>
-					<p class="absolute left-[38.5px] top-[120px] text-gray-600 text-[18px] leading-[28px] font-medium w-[402px] h-[65px]">
+					<p class="text-gray-600 text-[18px] leading-[28px] font-medium mb-5">
 						{t('home.services.retailers.description')}
 					</p>
-					<div class="absolute left-9 top-[189px] space-y-1.5 w-[269px]">
+					<div class="space-y-1.5 mb-8">
 						<div class="flex gap-2.5 items-center">
 							<div class="w-[25px] h-[25px] text-green-600">
 								<svg fill="currentColor" viewBox="0 0 20 20">
@@ -472,7 +472,7 @@ const t = useTranslations(lang as keyof typeof languages);
 							<span class="text-gray-600 text-[18px] leading-[28px] font-medium">{t('home.services.retailers.features.4')}</span>
 						</div>
 					</div>
-					<div class="absolute left-[37.5px] top-[383px]">
+					<div class="mt-auto">
 						<Button 
 							text={t('home.services.retailers.cta_button')}
 							variant="primary"
@@ -484,8 +484,8 @@ const t = useTranslations(lang as keyof typeof languages);
 				</div>
 
 				<!-- Brands Card -->
-				<div class="bg-white rounded-[21px] shadow-lg w-[464px] h-[500px] relative service-card" data-animate="fade-up" data-delay="300">
-					<div class="absolute left-[39px] top-10 flex flex-row gap-[13px] items-end">
+				<div class="bg-white rounded-[21px] shadow-lg w-[464px] min-h-[500px] service-card flex flex-col p-10" data-animate="fade-up" data-delay="300">
+					<div class="flex flex-row gap-[13px] items-end mb-5">
 						<div class="w-[50px] h-[50px] bg-pink-600 rounded flex items-center justify-center">
 							<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
@@ -493,10 +493,10 @@ const t = useTranslations(lang as keyof typeof languages);
 						</div>
 						<h3 class="text-[40px] font-semibold text-gray-900 tracking-[-0.8px] leading-[normal]">{t('home.services.brands.title')}</h3>
 					</div>
-					<p class="absolute left-[38.5px] top-[120px] text-gray-600 text-[18px] leading-[28px] font-medium w-[402px] h-[65px]">
+					<p class="text-gray-600 text-[18px] leading-[28px] font-medium mb-5">
 						{t('home.services.brands.description')}
 					</p>
-					<div class="absolute left-[39px] top-[189px] space-y-1.5 w-[269px]">
+					<div class="space-y-1.5 mb-8">
 						<div class="flex gap-2.5 items-center">
 							<div class="w-[25px] h-[25px] text-green-600">
 								<svg fill="currentColor" viewBox="0 0 20 20">
@@ -538,7 +538,7 @@ const t = useTranslations(lang as keyof typeof languages);
 							<span class="text-gray-600 text-[18px] leading-[28px] font-medium">{t('home.services.brands.features.4')}</span>
 						</div>
 					</div>
-					<div class="absolute left-7 top-[383px]">
+					<div class="mt-auto">
 						<Button 
 							text={t('home.services.brands.cta_button')}
 							variant="primary"
@@ -552,102 +552,7 @@ const t = useTranslations(lang as keyof typeof languages);
 		</div>
 	</section>
 
-	<!-- TESTIMONIALS SECTION -->
-	<section class="pt-[80px] pb-20 bg-white">
-		<!-- Mobile Layout -->
-		<div class="block px-4 py-8 lg:hidden">
-			<div class="mb-8 space-y-8">
-				<!-- Header -->
-				<div class="space-y-4 text-center" data-animate="fade-up">
-					<div class="text-brand-red font-bold text-base tracking-[1px] uppercase">{t('home.testimonials.section_title')}</div>
-					<h2 class="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl" set:html={t('home.testimonials.heading')}>
-					</h2>
-					<p class="text-base font-medium leading-relaxed text-gray-600">
-						{t('home.testimonials.description')}
-					</p>
-				</div>
-
-				<!-- Testimonial Card -->
-				<div class="bg-gray-100 rounded-[27px] p-6 testimonial-card" data-animate="slide-up" data-delay="200">
-					<div class="space-y-6">
-						<!-- Image -->
-						<div class="overflow-hidden w-full h-64 rounded-2xl">
-							<img 
-								src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-								alt="John Doe - Marketing Director"
-								class="object-cover w-full h-full"
-							/>
-						</div>
-						
-						<!-- Content -->
-						<div class="space-y-6">
-							<div class="space-y-4">
-								<h3 class="text-2xl font-bold leading-tight text-gray-900" set:html={t('home.testimonials.testimonial.quote')}>
-								</h3>
-								<div class="font-medium text-sm leading-relaxed text-[#757b8a] space-y-3">
-									<p set:html={t('home.testimonials.testimonial.content.0')}>
-									</p>
-									<p set:html={t('home.testimonials.testimonial.content.1')}>
-									</p>
-								</div>
-							</div>
-							<div class="space-y-1">
-								<div class="font-bold text-base text-[#231f20]">{t('home.testimonials.testimonial.author_name')}</div>
-								<div class="font-medium text-sm text-[#757b8a]">{t('home.testimonials.testimonial.author_title')}</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Desktop Layout (Original) -->
-		<div class="hidden lg:block">
-			<div class="flex flex-col gap-[45px] items-center mx-auto w-[1016px]">
-				<!-- Header -->
-				<div class="flex flex-col gap-1.5 items-center leading-[0] w-[686px]" data-animate="fade-up">
-					<div class="text-brand-red font-bold text-[20px] tracking-[1px] uppercase leading-[1.05]">{t('home.testimonials.section_title')}</div>
-									<h2 class="font-bold text-[58.3448px] leading-[1.05] tracking-[-1.21552px] text-gray-900 text-center w-[623.56px]" set:html={t('home.testimonials.heading')}>
-				</h2>
-					<p class="text-gray-600 text-[18px] leading-[28px] text-center font-medium w-[562px]">
-						{t('home.testimonials.description')}
-					</p>
-				</div>
-
-				<!-- Testimonial Card -->
-				<div class="bg-gray-100 rounded-[27px] h-[498px] w-full p-10 testimonial-card" data-animate="slide-up" data-delay="200">
-					<div class="flex flex-row gap-[50px] items-center h-full w-[919px]">
-						<!-- Image -->
-						<div class="w-[397px] h-[414px] rounded-2xl overflow-hidden flex-shrink-0">
-							<img 
-								src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-								alt="John Doe - Marketing Director"
-								class="object-cover w-full h-full"
-							/>
-						</div>
-						
-						<!-- Content -->
-						<div class="flex flex-col gap-9 w-[472px]">
-							<div class="flex flex-col gap-[15px] leading-[0] text-left">
-															<h3 class="font-bold text-[40px] leading-[1.15] tracking-[-1.21552px] text-gray-900 w-[441px]" set:html={t('home.testimonials.testimonial.quote')}>
-							</h3>
-								<div class="font-medium text-[16px] leading-[1.6] text-[#757b8a] w-full">
-																	<p class="mb-0" set:html={t('home.testimonials.testimonial.content.0')}>
-								</p>
-								<p set:html={t('home.testimonials.testimonial.content.1')}>
-								</p>
-								</div>
-							</div>
-							<div class="flex flex-col gap-px leading-[0] text-left">
-														<div class="font-bold text-[16px] leading-[1.5] text-[#231f20]">{t('home.testimonials.testimonial.author_name')}</div>
-						<div class="font-medium text-[14px] leading-[1.5] text-[#757b8a]">{t('home.testimonials.testimonial.author_title')}</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+    
 
 
 

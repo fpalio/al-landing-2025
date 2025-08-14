@@ -34,14 +34,10 @@ const t = useTranslations(lang as keyof typeof languages);
 		<div class="hidden lg:flex absolute left-1/2 top-[371px] transform -translate-x-1/2 contact-buttons-desktop">
 			<div class="flex flex-row gap-4 items-center justify-center">
 				<!-- Phone Button -->
-				<div class="flex flex-row gap-3 items-center justify-center contact-phone-btn hover:bg-red-700 transition-all duration-300 cursor-pointer">
-					<Button 
-						text={t('contact.buttons.phone')}
-						variant="contact"
-						iconType="phone"
-						href={`tel:${t('contact.buttons.phone')}`}
-						className="h-[59px] px-6 py-3 text-[22px] font-normal leading-[39px] whitespace-nowrap"
-					/>
+				<div class="flex flex-row gap-3 items-center justify-center contact-based-badge">
+					<span class="h-[59px] px-6 py-3 text-[22px] font-normal leading-[39px] whitespace-nowrap text-white/90 bg-white/10 border border-white/20 rounded-xl">
+						{t('contact.info.based_label')}: {t('contact.info.based_value')}
+					</span>
 				</div>
 
 				<!-- Email Button -->
@@ -60,14 +56,10 @@ const t = useTranslations(lang as keyof typeof languages);
 		<!-- Contact Buttons - Mobile -->
 		<div class="lg:hidden absolute left-1/2 top-[230px] transform -translate-x-1/2 flex flex-col gap-3 items-center contact-buttons-mobile">
 			<!-- Phone Button Mobile -->
-			<div class="contact-phone-btn-mobile hover:bg-red-700 transition-all duration-300 cursor-pointer">
-				<Button 
-					text={t('contact.buttons.phone')}
-					variant="contact"
-					iconType="phone"
-					href={`tel:${t('contact.buttons.phone')}`}
-					className="h-[53px] px-4 py-3 w-[258px] text-[20px] font-normal leading-[35px]"
-				/>
+			<div class="contact-based-badge-mobile">
+				<span class="h-[53px] px-4 py-3 w-[258px] text-[20px] font-normal leading-[35px] rounded-md text-white/90 bg-white/10 border border-white/20 flex items-center justify-center">
+					{t('contact.info.based_label')}: {t('contact.info.based_value')}
+				</span>
 			</div>
 
 			<!-- Email Button Mobile -->
@@ -121,7 +113,11 @@ const t = useTranslations(lang as keyof typeof languages);
 								</div>
 
 								<!-- Contact Form -->
-								<form class="space-y-6" method="POST" action="/contact" data-contact-form>
+								<form class="space-y-6" method="POST" action="https://api.web3forms.com/submit" data-contact-form>
+									<!-- Web3Forms Required Fields -->
+									<input type="hidden" name="access_key" value="e7950c5a-4ddc-43af-ad7e-9de8aff74514" />
+									<input type="hidden" name="redirect" value="https://web3forms.com/success" />
+									<input type="checkbox" name="botcheck" style="display: none;" tabindex="-1" autocomplete="off" />
 									<!-- Name Field -->
 									<div class="form-field">
 										<label for="name" class="block text-sm font-semibold text-gray-700 mb-2">{t('contact.form.fields.name.label')}</label>
