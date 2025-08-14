@@ -80,7 +80,7 @@ const t = useTranslations('en');
 				<div class="lg:hidden w-12 h-px bg-gray-300 my-4 about-divider"></div>
 				
 				<div class="text-center flex-1 about-stat-item">
-					<div class="font-outfit font-semibold text-brand-red text-4xl lg:text-5xl xl:text-6xl mb-2 count-number" data-animation="countUp" data-end-value="1000000">0</div>
+				<div class="font-outfit font-semibold text-brand-red text-4xl lg:text-5xl xl:text-6xl mb-2 count-number" data-animation="countUp" data-end-value="150000000">0</div>
 					<div class="font-inter font-normal text-gray-900 text-lg lg:text-xl xl:text-2xl">{t('about.stats.customers_reached')}</div>
 				</div>
 				
@@ -395,9 +395,10 @@ const t = useTranslations('en');
 						ease: 'power2.out',
 						delay: 0.2 + (index * 0.06),
 						onUpdate: () => {
-							if (endValue >= 1000000) {
-								element.textContent = `${(obj.value / 1000000).toFixed(1)}M+`;
-							} else {
+								if (endValue >= 1000000) {
+									const millions = (obj.value / 1000000);
+									element.textContent = `${Number.isInteger(millions) ? millions.toFixed(0) : millions.toFixed(1)}M+`;
+								} else {
 								element.textContent = `${Math.round(obj.value)}${endValue >= 100 ? '+' : ''}`;
 							}
 						}
