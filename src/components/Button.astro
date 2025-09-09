@@ -16,8 +16,9 @@ export interface Props {
 	
 	// Icon settings
 	icon?: boolean;
-	iconType?: 'arrow' | 'send' | 'phone' | 'email';
+	iconType?: 'arrow' | 'send' | 'phone' | 'email' | 'mapPin';
 	iconSize?: 'sm' | 'md' | 'lg' | 'xl';
+	iconPosition?: 'before' | 'after';
 	
 	// Styling overrides
 	fullWidth?: boolean;
@@ -38,6 +39,7 @@ const {
 	icon = true,
 	iconType = 'arrow',
 	iconSize = 'md',
+	iconPosition = 'after',
 	fullWidth = false,
 	disabled = false,
 	className = '',
@@ -101,8 +103,37 @@ const iconClass = iconSizes[iconSize];
 		target={target}
 		{...(dataAttribute && { [dataAttribute]: '' })}
 	>
+		{icon && iconPosition === 'before' && (
+			<Fragment>
+				{iconType === 'arrow' && (
+					<svg class={iconClass} fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+						<path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+					</svg>
+				)}
+				{iconType === 'send' && (
+					<svg class={`${iconClass} rotate-90`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+					</svg>
+				)}
+				{iconType === 'phone' && (
+					<svg class={iconClass} viewBox="0 0 24 24" fill="currentColor">
+						<path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.2c.27-.27.35-.67.24-1.02C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
+					</svg>
+				)}
+				{iconType === 'email' && (
+					<svg class={iconClass} viewBox="0 0 24 24" fill="currentColor">
+					<path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+				</svg>
+			)}
+			{iconType === 'mapPin' && (
+				<svg class={iconClass} viewBox="0 0 24 24" fill="currentColor">
+					<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+				</svg>
+			)}
+			</Fragment>
+		)}
 		<span class="leading-[1.5] whitespace-pre">{text}</span>
-		{icon && (
+		{icon && iconPosition === 'after' && (
 			<Fragment>
 				{iconType === 'arrow' && (
 					<svg class={iconClass} fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -122,6 +153,11 @@ const iconClass = iconSizes[iconSize];
 				{iconType === 'email' && (
 					<svg class={iconClass} viewBox="0 0 24 24" fill="currentColor">
 						<path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+					</svg>
+				)}
+				{iconType === 'mapPin' && (
+					<svg class={iconClass} viewBox="0 0 24 24" fill="currentColor">
+						<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
 					</svg>
 				)}
 			</Fragment>
@@ -134,8 +170,37 @@ const iconClass = iconSizes[iconSize];
 		disabled={disabled}
 		{...(dataAttribute && { [dataAttribute]: '' })}
 	>
+		{icon && iconPosition === 'before' && (
+			<Fragment>
+				{iconType === 'arrow' && (
+					<svg class={iconClass} fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+						<path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+					</svg>
+				)}
+				{iconType === 'send' && (
+					<svg class={`${iconClass} rotate-90`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+					</svg>
+				)}
+				{iconType === 'phone' && (
+					<svg class={iconClass} viewBox="0 0 24 24" fill="currentColor">
+						<path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.2c.27-.27.35-.67.24-1.02C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
+					</svg>
+				)}
+				{iconType === 'email' && (
+					<svg class={iconClass} viewBox="0 0 24 24" fill="currentColor">
+					<path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+				</svg>
+			)}
+			{iconType === 'mapPin' && (
+				<svg class={iconClass} viewBox="0 0 24 24" fill="currentColor">
+					<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+				</svg>
+			)}
+			</Fragment>
+		)}
 		<span class="leading-[1.5] whitespace-pre">{text}</span>
-		{icon && (
+		{icon && iconPosition === 'after' && (
 			<Fragment>
 				{iconType === 'arrow' && (
 					<svg class={iconClass} fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -155,6 +220,11 @@ const iconClass = iconSizes[iconSize];
 				{iconType === 'email' && (
 					<svg class={iconClass} viewBox="0 0 24 24" fill="currentColor">
 						<path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+					</svg>
+				)}
+				{iconType === 'mapPin' && (
+					<svg class={iconClass} viewBox="0 0 24 24" fill="currentColor">
+						<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
 					</svg>
 				)}
 			</Fragment>

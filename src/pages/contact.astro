@@ -26,10 +26,13 @@ const t = useTranslations('en');
 		<!-- Contact Buttons - Desktop -->
 		<div class="hidden lg:flex absolute left-1/2 top-[371px] transform -translate-x-1/2 contact-buttons-desktop">
 			<div class="flex flex-row gap-4 items-center justify-center">
-				<!-- Phone Button -->
+				<!-- Location Badge -->
 			<div class="flex flex-row gap-3 items-center justify-center contact-based-badge">
-				<span class="h-[59px] px-6 py-3 text-[22px] font-normal leading-[39px] whitespace-nowrap text-white/90 bg-white/10 border border-white/20 rounded-xl">
-					{t('contact.info.based_label')}: {t('contact.info.based_value')}
+				<span class="h-[59px] px-6 py-3 text-[22px] font-normal leading-[39px] whitespace-nowrap text-white/90 bg-white/10 border border-white/20 rounded-xl flex items-center gap-2">
+					<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+						<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+					</svg>
+					{t('contact.info.based_value')}
 				</span>
 			</div>
 
@@ -39,6 +42,7 @@ const t = useTranslations('en');
 						text={t('contact.buttons.email')}
 						variant="contact"
 						iconType="email"
+						iconPosition="before"
 						href={`mailto:${t('contact.buttons.email')}`}
 						className="h-[59px] px-6 py-3 text-[22px] font-medium leading-[39px] whitespace-nowrap"
 					/>
@@ -48,22 +52,26 @@ const t = useTranslations('en');
 
 		<!-- Contact Buttons - Mobile -->
 		<div class="lg:hidden absolute left-1/2 top-[230px] transform -translate-x-1/2 flex flex-col gap-3 items-center contact-buttons-mobile">
-			<!-- Phone Button Mobile -->
+			<!-- Location Badge Mobile -->
 			<div class="contact-based-badge-mobile">
-				<span class="h-[53px] px-4 py-3 w-[258px] text-[20px] font-normal leading-[35px] rounded-md text-white/90 bg-white/10 border border-white/20 flex items-center justify-center">
-					{t('contact.info.based_label')}: {t('contact.info.based_value')}
+				<span class="h-[53px] px-4 py-3 w-[258px] text-[20px] font-normal leading-[35px] rounded-md text-white/90 bg-white/10 border border-white/20 flex items-center justify-center gap-2">
+					<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+						<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+					</svg>
+					{t('contact.info.based_value')}
 				</span>
 			</div>
 
 			<!-- Email Button Mobile -->
 			<div class="contact-email-btn-mobile hover:bg-red-700 transition-all duration-300 cursor-pointer">
-								<Button 
-						text={t('contact.buttons.email')}
-						variant="contact"
-						iconType="email"
-						href={`mailto:${t('contact.buttons.email')}`}
-						className="h-[53px] px-4 py-3 w-[258px] text-[20px] font-medium leading-[35px] rounded-md"
-					/>
+				<Button 
+					text={t('contact.buttons.email')}
+					variant="contact"
+					iconType="email"
+					iconPosition="before"
+					href={`mailto:${t('contact.buttons.email')}`}
+					className="h-[53px] px-4 py-3 w-[258px] text-[20px] font-medium leading-[35px] rounded-md"
+				/>
 			</div>
 		</div>
 	</section>
